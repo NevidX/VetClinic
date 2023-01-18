@@ -12,6 +12,7 @@ using System.Data.SqlClient;
 namespace Ponomarev_N
 {
     /*TODO: Нужно сделать: 
+     *  Триггер с оплатой разобраться, что происходит с scod
      * - форма оплаты
      * - поиск в форме запись и форме оплата
      * - Триггер, который будет после того, как в форме запись, статус будет готово, будет сразу же создваться запись в форме оплата, в статусе ожидания оплаты
@@ -42,6 +43,8 @@ namespace Ponomarev_N
 
         private void Main_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "ponomarev_NDataSet11.ZapicAdapter". При необходимости она может быть перемещена или удалена.
+            this.zapicAdapterTableAdapter.Fill(this.ponomarev_NDataSet11.ZapicAdapter);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "ponomarev_NDataSet1.pet". При необходимости она может быть перемещена или удалена.
             this.petTableAdapter.Fill(this.ponomarev_NDataSet1.pet);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "ponomarev_NDataSet1.bolezn". При необходимости она может быть перемещена или удалена.
@@ -53,11 +56,8 @@ namespace Ponomarev_N
             // TODO: данная строка кода позволяет загрузить данные в таблицу "ponomarev_NDataSet4.dolg". При необходимости она может быть перемещена или удалена.
             this.dolgTableAdapter.Fill(this.ponomarev_NDataSet4.dolg);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "ponomarev_NDataSet3.ZapicAdapter". При необходимости она может быть перемещена или удалена.
-            this.zapicTableAdapter.Fill(this.ponomarev_NDataSet3.ZapicAdapter);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "ponomarev_NDataSet1.FIOAdapter". При необходимости она может быть перемещена или удалена.
             this.fIOTableAdapter.Fill(this.ponomarev_NDataSet1.FIOAdapter);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "ponomarev_NDataSet1.ZapicAdapter". При необходимости она может быть перемещена или удалена.
-            this.zapicTableAdapter.Fill(this.ponomarev_NDataSet1.ZapicAdapter);
+
 
             this.clientTableAdapter.Fill(this.ponomarev_NDataSet1.client);
            
@@ -85,6 +85,7 @@ namespace Ponomarev_N
             cb_bnam.Enabled = false;
             btn_addZapic.Enabled = false;
             btn_delZapic.Enabled = false;
+            cb_ucod.Enabled = false;
             #endregion
 
 
@@ -419,6 +420,7 @@ namespace Ponomarev_N
             cb_bnam.Enabled = true;
             btn_addZapic.Enabled = true;
             btn_delZapic.Enabled = true;
+            cb_ucod.Enabled = true;
             // Извлекаем текущйи код клиента
             currentCcod = Convert.ToString(cb_cnam.SelectedValue);
 
@@ -458,13 +460,13 @@ namespace Ponomarev_N
         string currentDcod;
         private void cb_scod_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Извлекаем текущйи код клиента
+
             currentDcod = Convert.ToString(cb_scod.SelectedValue);
 
-            // Извлекаем информацию о выбранном клиенте из базы данных
+
             try
             {
-                dolgVrachTableAdapter.Fill(this.ponomarev_NDataSet8.DolgVrach, Convert.ToInt32(currentDcod)); 
+                dolgVrachTableAdapter.Fill(this.ponomarev_NDataSet12.DolgVrach, Convert.ToInt32(currentDcod)); 
             }
             catch (FormatException)
             {
@@ -482,7 +484,7 @@ namespace Ponomarev_N
         {
             // Иницилизируем методы, проверяющие правильность значений
             // создаем запрос insert для того, что бы занести новую инфо в таблицу.
-            string query = "Insert into Zapic (ccod,pcod,scod,zdate,statusCod,bcod,dcod) values (@ccod,@pcod,@scod,@zdate,@statusCod,@bcod,@dcod)";
+            string query = "Insert into Zapic (ccod,pcod,scod,zdate,statusCod,bcod,dcod,ucod) values (@ccod,@pcod,@scod,@zdate,@statusCod,@bcod,@dcod,@ucod)";
             cmd = new SqlCommand(query, sqlConnection);
             // Берем введеные пользователем параметры и передаем их.
             cmd.Parameters.AddWithValue("@ccod", Convert.ToString(cb_cnam.SelectedValue));
@@ -492,12 +494,13 @@ namespace Ponomarev_N
             cmd.Parameters.AddWithValue("@statusCod", Convert.ToString(cb_statusCod.SelectedValue));
             cmd.Parameters.AddWithValue("@bcod", Convert.ToString(cb_bnam.SelectedValue));
             cmd.Parameters.AddWithValue("@dcod", Convert.ToString(cmb_dcod.SelectedValue));
+            cmd.Parameters.AddWithValue("@ucod", Convert.ToString(cb_ucod.SelectedValue));
             cmd.Connection = sqlConnection;
             sqlConnection.Open();
             cmd.ExecuteNonQuery();
             sqlConnection.Close();
             // Обновляем таблицу
-            this.zapicTableAdapter.Fill(this.ponomarev_NDataSet1.ZapicAdapter);
+            this.zapicAdapterTableAdapter.Fill(this.ponomarev_NDataSet11.ZapicAdapter);
         }
 
 
@@ -514,7 +517,7 @@ namespace Ponomarev_N
                 cmd.ExecuteNonQuery();
                 sqlConnection.Close();
                 // Обновляем таблицу
-                this.zapicTableAdapter.Fill(this.ponomarev_NDataSet1.ZapicAdapter);
+                this.zapicAdapterTableAdapter.Fill(this.ponomarev_NDataSet11.ZapicAdapter);
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -541,7 +544,7 @@ namespace Ponomarev_N
                     sqlConnection.Open();
                     cmd.ExecuteNonQuery();
                     sqlConnection.Close();
-                    this.zapicTableAdapter.Fill(this.ponomarev_NDataSet1.ZapicAdapter);
+                    this.zapicAdapterTableAdapter.Fill(this.ponomarev_NDataSet11.ZapicAdapter);
                 }
                 else
                 {
@@ -559,29 +562,8 @@ namespace Ponomarev_N
         {
         }
         string currentZcod;
-        private void dataGridZapic_CellEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            
-            try
-            {
-                currentZcod = dataGridZapic.CurrentRow.Cells[0].Value.ToString();
-                cb_cnam.SelectedValue = dataGridZapic.CurrentRow.Cells[9].Value.ToString();
-                cb_pcod.SelectedValue = dataGridZapic.CurrentRow.Cells[10].Value.ToString();
-                cb_ctel.Text = dataGridZapic.CurrentRow.Cells[4].Value.ToString();
-                cb_scod.SelectedValue = dataGridZapic.CurrentRow.Cells[11].Value.ToString();
-                cmb_dcod.Text = dataGridZapic.CurrentRow.Cells[6].Value.ToString();
-                cb_statusCod.SelectedValue = dataGridZapic.CurrentRow.Cells[13].Value.ToString();
-                preCbSatusCod = dataGridZapic.CurrentRow.Cells[13].Value.ToString();
-                cb_bnam.SelectedValue = dataGridZapic.CurrentRow.Cells[12].Value.ToString();
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Выберите строку");
-            }
-            
-           
-        }
 
+      
 
         #endregion
 
@@ -786,6 +768,30 @@ namespace Ponomarev_N
             e.Handled = true;
         }
 
-        
+        private void btn_cancelOplata_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridZapic_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                currentZcod = dataGridZapic.CurrentRow.Cells[0].Value.ToString();
+                cb_cnam.SelectedValue = dataGridZapic.CurrentRow.Cells[10].Value.ToString();
+                cb_pcod.SelectedValue = dataGridZapic.CurrentRow.Cells[11].Value.ToString();
+                cb_ctel.Text = dataGridZapic.CurrentRow.Cells[4].Value.ToString();
+                cb_scod.SelectedValue = dataGridZapic.CurrentRow.Cells[12].Value.ToString();
+                //cmb_dcod.Text = dataGridZapic.CurrentRow.Cells[12].Value.ToString();
+                cb_statusCod.SelectedValue = dataGridZapic.CurrentRow.Cells[14].Value.ToString();
+                preCbSatusCod = dataGridZapic.CurrentRow.Cells[14].Value.ToString();
+                cb_bnam.SelectedValue = dataGridZapic.CurrentRow.Cells[15].Value.ToString();
+                cb_ucod.SelectedValue = dataGridZapic.CurrentRow.Cells[16].Value.ToString();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Выберите строку");
+            }
+        }
     }
 }

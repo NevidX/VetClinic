@@ -4,6 +4,14 @@
 
     partial class Ponomarev_NDataSet
     {
+        partial class ZapicAdapterDataTable
+        {
+        }
+
+        partial class ZapicAdapterDataTable
+        {
+        }
+
         partial class PetListCbDataTable
         {
         }
@@ -16,6 +24,10 @@
 
 namespace Ponomarev_N.Ponomarev_NDataSetTableAdapters
 {
+    partial class ZapicAdapterTableAdapter
+    {
+    }
+
     partial class DolgVrachTableAdapter
     {
     }
@@ -28,6 +40,5 @@ namespace Ponomarev_N.Ponomarev_NDataSetTableAdapters
     {
     }
 
-    public partial class ZapicTableAdapter {
-    }
+    
 }

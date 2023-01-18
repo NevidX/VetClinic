@@ -42,8 +42,6 @@ namespace Ponomarev_N {
         
         private DataTableVrachiDataTable tableDataTableVrachi;
         
-        private ZapicAdapterDataTable tableZapicAdapter;
-        
         private FIOAdapterDataTable tableFIOAdapter;
         
         private statusDataTable tablestatus;
@@ -53,6 +51,10 @@ namespace Ponomarev_N {
         private PetListCbDataTable tablePetListCb;
         
         private DolgVrachDataTable tableDolgVrach;
+        
+        private oplataStatusDataTable tableoplataStatus;
+        
+        private ZapicAdapterDataTable tableZapicAdapter;
         
         private global::System.Data.DataRelation relationFK_oplata_pet;
         
@@ -73,8 +75,6 @@ namespace Ponomarev_N {
         private global::System.Data.DataRelation relationFK_pet_client1;
         
         private global::System.Data.DataRelation relationFK_zapic_client1;
-        
-        private global::System.Data.DataRelation relationFK_zapic_bolezn1;
         
         private global::System.Data.DataRelation relationFK_zapic_pet;
         
@@ -101,6 +101,16 @@ namespace Ponomarev_N {
         private global::System.Data.DataRelation relationFK_zapic_dolg1;
         
         private global::System.Data.DataRelation relationFK_sotr_dolg3;
+        
+        private global::System.Data.DataRelation relationFK_zapic_bolezn1;
+        
+        private global::System.Data.DataRelation relationFK_oplata_client;
+        
+        private global::System.Data.DataRelation relationFK_oplata_client1;
+        
+        private global::System.Data.DataRelation relationFK_oplata_oplataStatus;
+        
+        private global::System.Data.DataRelation relationFK_zapic_uslugi;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -157,9 +167,6 @@ namespace Ponomarev_N {
                 if ((ds.Tables["DataTableVrachi"] != null)) {
                     base.Tables.Add(new DataTableVrachiDataTable(ds.Tables["DataTableVrachi"]));
                 }
-                if ((ds.Tables["ZapicAdapter"] != null)) {
-                    base.Tables.Add(new ZapicAdapterDataTable(ds.Tables["ZapicAdapter"]));
-                }
                 if ((ds.Tables["FIOAdapter"] != null)) {
                     base.Tables.Add(new FIOAdapterDataTable(ds.Tables["FIOAdapter"]));
                 }
@@ -174,6 +181,12 @@ namespace Ponomarev_N {
                 }
                 if ((ds.Tables["DolgVrach"] != null)) {
                     base.Tables.Add(new DolgVrachDataTable(ds.Tables["DolgVrach"]));
+                }
+                if ((ds.Tables["oplataStatus"] != null)) {
+                    base.Tables.Add(new oplataStatusDataTable(ds.Tables["oplataStatus"]));
+                }
+                if ((ds.Tables["ZapicAdapter"] != null)) {
+                    base.Tables.Add(new ZapicAdapterDataTable(ds.Tables["ZapicAdapter"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -287,16 +300,6 @@ namespace Ponomarev_N {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public ZapicAdapterDataTable ZapicAdapter {
-            get {
-                return this.tableZapicAdapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public FIOAdapterDataTable FIOAdapter {
             get {
                 return this.tableFIOAdapter;
@@ -340,6 +343,26 @@ namespace Ponomarev_N {
         public DolgVrachDataTable DolgVrach {
             get {
                 return this.tableDolgVrach;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public oplataStatusDataTable oplataStatus {
+            get {
+                return this.tableoplataStatus;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public ZapicAdapterDataTable ZapicAdapter {
+            get {
+                return this.tableZapicAdapter;
             }
         }
         
@@ -437,9 +460,6 @@ namespace Ponomarev_N {
                 if ((ds.Tables["DataTableVrachi"] != null)) {
                     base.Tables.Add(new DataTableVrachiDataTable(ds.Tables["DataTableVrachi"]));
                 }
-                if ((ds.Tables["ZapicAdapter"] != null)) {
-                    base.Tables.Add(new ZapicAdapterDataTable(ds.Tables["ZapicAdapter"]));
-                }
                 if ((ds.Tables["FIOAdapter"] != null)) {
                     base.Tables.Add(new FIOAdapterDataTable(ds.Tables["FIOAdapter"]));
                 }
@@ -454,6 +474,12 @@ namespace Ponomarev_N {
                 }
                 if ((ds.Tables["DolgVrach"] != null)) {
                     base.Tables.Add(new DolgVrachDataTable(ds.Tables["DolgVrach"]));
+                }
+                if ((ds.Tables["oplataStatus"] != null)) {
+                    base.Tables.Add(new oplataStatusDataTable(ds.Tables["oplataStatus"]));
+                }
+                if ((ds.Tables["ZapicAdapter"] != null)) {
+                    base.Tables.Add(new ZapicAdapterDataTable(ds.Tables["ZapicAdapter"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -542,12 +568,6 @@ namespace Ponomarev_N {
                     this.tableDataTableVrachi.InitVars();
                 }
             }
-            this.tableZapicAdapter = ((ZapicAdapterDataTable)(base.Tables["ZapicAdapter"]));
-            if ((initTable == true)) {
-                if ((this.tableZapicAdapter != null)) {
-                    this.tableZapicAdapter.InitVars();
-                }
-            }
             this.tableFIOAdapter = ((FIOAdapterDataTable)(base.Tables["FIOAdapter"]));
             if ((initTable == true)) {
                 if ((this.tableFIOAdapter != null)) {
@@ -578,6 +598,18 @@ namespace Ponomarev_N {
                     this.tableDolgVrach.InitVars();
                 }
             }
+            this.tableoplataStatus = ((oplataStatusDataTable)(base.Tables["oplataStatus"]));
+            if ((initTable == true)) {
+                if ((this.tableoplataStatus != null)) {
+                    this.tableoplataStatus.InitVars();
+                }
+            }
+            this.tableZapicAdapter = ((ZapicAdapterDataTable)(base.Tables["ZapicAdapter"]));
+            if ((initTable == true)) {
+                if ((this.tableZapicAdapter != null)) {
+                    this.tableZapicAdapter.InitVars();
+                }
+            }
             this.relationFK_oplata_pet = this.Relations["FK_oplata_pet"];
             this.relationFK_oplata_sotr = this.Relations["FK_oplata_sotr"];
             this.relationFK_oplata_uslugi = this.Relations["FK_oplata_uslugi"];
@@ -588,7 +620,6 @@ namespace Ponomarev_N {
             this.relationFK_zapic_sotr = this.Relations["FK_zapic_sotr"];
             this.relationFK_pet_client1 = this.Relations["FK_pet_client1"];
             this.relationFK_zapic_client1 = this.Relations["FK_zapic_client1"];
-            this.relationFK_zapic_bolezn1 = this.Relations["FK_zapic_bolezn1"];
             this.relationFK_zapic_pet = this.Relations["FK_zapic_pet"];
             this.relationFK_zapic_status = this.Relations["FK_zapic_status"];
             this.relationFK_zapic_dolg = this.Relations["FK_zapic_dolg"];
@@ -602,6 +633,11 @@ namespace Ponomarev_N {
             this.relationFK_sotr_dolg2 = this.Relations["FK_sotr_dolg2"];
             this.relationFK_zapic_dolg1 = this.Relations["FK_zapic_dolg1"];
             this.relationFK_sotr_dolg3 = this.Relations["FK_sotr_dolg3"];
+            this.relationFK_zapic_bolezn1 = this.Relations["FK_zapic_bolezn1"];
+            this.relationFK_oplata_client = this.Relations["FK_oplata_client"];
+            this.relationFK_oplata_client1 = this.Relations["FK_oplata_client1"];
+            this.relationFK_oplata_oplataStatus = this.Relations["FK_oplata_oplataStatus"];
+            this.relationFK_zapic_uslugi = this.Relations["FK_zapic_uslugi"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -630,8 +666,6 @@ namespace Ponomarev_N {
             base.Tables.Add(this.tablezapic);
             this.tableDataTableVrachi = new DataTableVrachiDataTable();
             base.Tables.Add(this.tableDataTableVrachi);
-            this.tableZapicAdapter = new ZapicAdapterDataTable();
-            base.Tables.Add(this.tableZapicAdapter);
             this.tableFIOAdapter = new FIOAdapterDataTable();
             base.Tables.Add(this.tableFIOAdapter);
             this.tablestatus = new statusDataTable();
@@ -642,6 +676,10 @@ namespace Ponomarev_N {
             base.Tables.Add(this.tablePetListCb);
             this.tableDolgVrach = new DolgVrachDataTable();
             base.Tables.Add(this.tableDolgVrach);
+            this.tableoplataStatus = new oplataStatusDataTable();
+            base.Tables.Add(this.tableoplataStatus);
+            this.tableZapicAdapter = new ZapicAdapterDataTable();
+            base.Tables.Add(this.tableZapicAdapter);
             this.relationFK_oplata_pet = new global::System.Data.DataRelation("FK_oplata_pet", new global::System.Data.DataColumn[] {
                         this.tablepet.pcodColumn}, new global::System.Data.DataColumn[] {
                         this.tableoplata.pcodColumn}, false);
@@ -682,10 +720,6 @@ namespace Ponomarev_N {
                         this.tableFIOAdapter.ccodColumn}, new global::System.Data.DataColumn[] {
                         this.tablezapic.ccodColumn}, false);
             this.Relations.Add(this.relationFK_zapic_client1);
-            this.relationFK_zapic_bolezn1 = new global::System.Data.DataRelation("FK_zapic_bolezn1", new global::System.Data.DataColumn[] {
-                        this.tableZapicAdapter.bcodColumn}, new global::System.Data.DataColumn[] {
-                        this.tablezapic.bcodColumn}, false);
-            this.Relations.Add(this.relationFK_zapic_bolezn1);
             this.relationFK_zapic_pet = new global::System.Data.DataRelation("FK_zapic_pet", new global::System.Data.DataColumn[] {
                         this.tablepet.pcodColumn}, new global::System.Data.DataColumn[] {
                         this.tablezapic.pcodColumn}, false);
@@ -738,6 +772,26 @@ namespace Ponomarev_N {
                         this.tableDolgVrach.dcodColumn}, new global::System.Data.DataColumn[] {
                         this.tableFIOVrach.dcodColumn}, false);
             this.Relations.Add(this.relationFK_sotr_dolg3);
+            this.relationFK_zapic_bolezn1 = new global::System.Data.DataRelation("FK_zapic_bolezn1", new global::System.Data.DataColumn[] {
+                        this.tableZapicAdapter.bcodColumn}, new global::System.Data.DataColumn[] {
+                        this.tablezapic.bcodColumn}, false);
+            this.Relations.Add(this.relationFK_zapic_bolezn1);
+            this.relationFK_oplata_client = new global::System.Data.DataRelation("FK_oplata_client", new global::System.Data.DataColumn[] {
+                        this.tableclient.ccodColumn}, new global::System.Data.DataColumn[] {
+                        this.tableoplata.ccodColumn}, false);
+            this.Relations.Add(this.relationFK_oplata_client);
+            this.relationFK_oplata_client1 = new global::System.Data.DataRelation("FK_oplata_client1", new global::System.Data.DataColumn[] {
+                        this.tableFIOAdapter.ccodColumn}, new global::System.Data.DataColumn[] {
+                        this.tableoplata.ccodColumn}, false);
+            this.Relations.Add(this.relationFK_oplata_client1);
+            this.relationFK_oplata_oplataStatus = new global::System.Data.DataRelation("FK_oplata_oplataStatus", new global::System.Data.DataColumn[] {
+                        this.tableoplataStatus.oplStatusCodColumn}, new global::System.Data.DataColumn[] {
+                        this.tableoplata.oplStatusCodColumn}, false);
+            this.Relations.Add(this.relationFK_oplata_oplataStatus);
+            this.relationFK_zapic_uslugi = new global::System.Data.DataRelation("FK_zapic_uslugi", new global::System.Data.DataColumn[] {
+                        this.tableuslugi.ucodColumn}, new global::System.Data.DataColumn[] {
+                        this.tablezapic.ucodColumn}, false);
+            this.Relations.Add(this.relationFK_zapic_uslugi);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -796,12 +850,6 @@ namespace Ponomarev_N {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeZapicAdapter() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeFIOAdapter() {
             return false;
         }
@@ -827,6 +875,18 @@ namespace Ponomarev_N {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeDolgVrach() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeoplataStatus() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeZapicAdapter() {
             return false;
         }
         
@@ -913,9 +973,6 @@ namespace Ponomarev_N {
         public delegate void DataTableVrachiRowChangeEventHandler(object sender, DataTableVrachiRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void ZapicAdapterRowChangeEventHandler(object sender, ZapicAdapterRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void FIOAdapterRowChangeEventHandler(object sender, FIOAdapterRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -929,6 +986,12 @@ namespace Ponomarev_N {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void DolgVrachRowChangeEventHandler(object sender, DolgVrachRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void oplataStatusRowChangeEventHandler(object sender, oplataStatusRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void ZapicAdapterRowChangeEventHandler(object sender, ZapicAdapterRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1827,6 +1890,10 @@ namespace Ponomarev_N {
             
             private global::System.Data.DataColumn columnodate;
             
+            private global::System.Data.DataColumn columnccod;
+            
+            private global::System.Data.DataColumn columnoplStatusCod;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public oplataDataTable() {
@@ -1910,6 +1977,22 @@ namespace Ponomarev_N {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ccodColumn {
+                get {
+                    return this.columnccod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn oplStatusCodColumn {
+                get {
+                    return this.columnoplStatusCod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1945,7 +2028,7 @@ namespace Ponomarev_N {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public oplataRow AddoplataRow(int ocod, petRow parentpetRowByFK_oplata_pet, sotrRow parentsotrRowByFK_oplata_sotr, uslugiRow parentuslugiRowByFK_oplata_uslugi, decimal ucena, System.DateTime odate) {
+            public oplataRow AddoplataRow(int ocod, petRow parentpetRowByFK_oplata_pet, sotrRow parentsotrRowByFK_oplata_sotr, uslugiRow parentuslugiRowByFK_oplata_uslugi, decimal ucena, System.DateTime odate, clientRow parentclientRowByFK_oplata_client, oplataStatusRow parentoplataStatusRowByFK_oplata_oplataStatus) {
                 oplataRow rowoplataRow = ((oplataRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ocod,
@@ -1953,7 +2036,9 @@ namespace Ponomarev_N {
                         null,
                         null,
                         ucena,
-                        odate};
+                        odate,
+                        null,
+                        null};
                 if ((parentpetRowByFK_oplata_pet != null)) {
                     columnValuesArray[1] = parentpetRowByFK_oplata_pet[0];
                 }
@@ -1962,6 +2047,12 @@ namespace Ponomarev_N {
                 }
                 if ((parentuslugiRowByFK_oplata_uslugi != null)) {
                     columnValuesArray[3] = parentuslugiRowByFK_oplata_uslugi[0];
+                }
+                if ((parentclientRowByFK_oplata_client != null)) {
+                    columnValuesArray[6] = parentclientRowByFK_oplata_client[0];
+                }
+                if ((parentoplataStatusRowByFK_oplata_oplataStatus != null)) {
+                    columnValuesArray[7] = parentoplataStatusRowByFK_oplata_oplataStatus[0];
                 }
                 rowoplataRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowoplataRow);
@@ -1998,6 +2089,8 @@ namespace Ponomarev_N {
                 this.columnucod = base.Columns["ucod"];
                 this.columnucena = base.Columns["ucena"];
                 this.columnodate = base.Columns["odate"];
+                this.columnccod = base.Columns["ccod"];
+                this.columnoplStatusCod = base.Columns["oplStatusCod"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2015,6 +2108,10 @@ namespace Ponomarev_N {
                 base.Columns.Add(this.columnucena);
                 this.columnodate = new global::System.Data.DataColumn("odate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnodate);
+                this.columnccod = new global::System.Data.DataColumn("ccod", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnccod);
+                this.columnoplStatusCod = new global::System.Data.DataColumn("oplStatusCod", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnoplStatusCod);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnocod}, true));
                 this.columnocod.AllowDBNull = false;
@@ -3169,6 +3266,8 @@ namespace Ponomarev_N {
             
             private global::System.Data.DataColumn columndcod;
             
+            private global::System.Data.DataColumn columnucod;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public zapicDataTable() {
@@ -3268,6 +3367,14 @@ namespace Ponomarev_N {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ucodColumn {
+                get {
+                    return this.columnucod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3303,7 +3410,7 @@ namespace Ponomarev_N {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public zapicRow AddzapicRow(clientRow parentclientRowByFK_zapic_client, petRow parentpetRowByFK_zapic_pet, sotrRow parentsotrRowByFK_zapic_sotr, System.DateTime zdate, boleznRow parentboleznRowByFK_zapic_bolezn, int zcod, statusRow parentstatusRowByFK_zapic_status, dolgRow parentdolgRowByFK_zapic_dolg) {
+            public zapicRow AddzapicRow(clientRow parentclientRowByFK_zapic_client, petRow parentpetRowByFK_zapic_pet, sotrRow parentsotrRowByFK_zapic_sotr, System.DateTime zdate, boleznRow parentboleznRowByFK_zapic_bolezn, int zcod, statusRow parentstatusRowByFK_zapic_status, dolgRow parentdolgRowByFK_zapic_dolg, uslugiRow parentuslugiRowByFK_zapic_uslugi) {
                 zapicRow rowzapicRow = ((zapicRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3312,6 +3419,7 @@ namespace Ponomarev_N {
                         zdate,
                         null,
                         zcod,
+                        null,
                         null,
                         null};
                 if ((parentclientRowByFK_zapic_client != null)) {
@@ -3331,6 +3439,9 @@ namespace Ponomarev_N {
                 }
                 if ((parentdolgRowByFK_zapic_dolg != null)) {
                     columnValuesArray[7] = parentdolgRowByFK_zapic_dolg[0];
+                }
+                if ((parentuslugiRowByFK_zapic_uslugi != null)) {
+                    columnValuesArray[8] = parentuslugiRowByFK_zapic_uslugi[0];
                 }
                 rowzapicRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowzapicRow);
@@ -3369,6 +3480,7 @@ namespace Ponomarev_N {
                 this.columnzcod = base.Columns["zcod"];
                 this.columnstatusCod = base.Columns["statusCod"];
                 this.columndcod = base.Columns["dcod"];
+                this.columnucod = base.Columns["ucod"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3390,8 +3502,12 @@ namespace Ponomarev_N {
                 base.Columns.Add(this.columnstatusCod);
                 this.columndcod = new global::System.Data.DataColumn("dcod", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndcod);
+                this.columnucod = new global::System.Data.DataColumn("ucod", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnucod);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnzcod}, true));
+                this.columnpcod.AllowDBNull = false;
+                this.columnbcod.AllowDBNull = false;
                 this.columnzcod.AllowDBNull = false;
                 this.columnzcod.Unique = true;
             }
@@ -3788,459 +3904,6 @@ namespace Ponomarev_N {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "DataTableVrachiDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class ZapicAdapterDataTable : global::System.Data.TypedTableBase<ZapicAdapterRow> {
-            
-            private global::System.Data.DataColumn columnzcod;
-            
-            private global::System.Data.DataColumn columncnam;
-            
-            private global::System.Data.DataColumn columncfam;
-            
-            private global::System.Data.DataColumn columncotch;
-            
-            private global::System.Data.DataColumn columnctel;
-            
-            private global::System.Data.DataColumn columnbnam;
-            
-            private global::System.Data.DataColumn columndnam;
-            
-            private global::System.Data.DataColumn columnzdate;
-            
-            private global::System.Data.DataColumn columnstatusName;
-            
-            private global::System.Data.DataColumn columnccod;
-            
-            private global::System.Data.DataColumn columnpcod;
-            
-            private global::System.Data.DataColumn columnscod;
-            
-            private global::System.Data.DataColumn columnbcod;
-            
-            private global::System.Data.DataColumn columnstatusCod;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ZapicAdapterDataTable() {
-                this.TableName = "ZapicAdapter";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal ZapicAdapterDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected ZapicAdapterDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn zcodColumn {
-                get {
-                    return this.columnzcod;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn cnamColumn {
-                get {
-                    return this.columncnam;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn cfamColumn {
-                get {
-                    return this.columncfam;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn cotchColumn {
-                get {
-                    return this.columncotch;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ctelColumn {
-                get {
-                    return this.columnctel;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn bnamColumn {
-                get {
-                    return this.columnbnam;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn dnamColumn {
-                get {
-                    return this.columndnam;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn zdateColumn {
-                get {
-                    return this.columnzdate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn statusNameColumn {
-                get {
-                    return this.columnstatusName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ccodColumn {
-                get {
-                    return this.columnccod;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn pcodColumn {
-                get {
-                    return this.columnpcod;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn scodColumn {
-                get {
-                    return this.columnscod;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn bcodColumn {
-                get {
-                    return this.columnbcod;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn statusCodColumn {
-                get {
-                    return this.columnstatusCod;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ZapicAdapterRow this[int index] {
-                get {
-                    return ((ZapicAdapterRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event ZapicAdapterRowChangeEventHandler ZapicAdapterRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event ZapicAdapterRowChangeEventHandler ZapicAdapterRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event ZapicAdapterRowChangeEventHandler ZapicAdapterRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event ZapicAdapterRowChangeEventHandler ZapicAdapterRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddZapicAdapterRow(ZapicAdapterRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ZapicAdapterRow AddZapicAdapterRow(int zcod, string cnam, string cfam, string cotch, string ctel, string bnam, string dnam, System.DateTime zdate, string statusName, int ccod, int pcod, int scod, int bcod, int statusCod) {
-                ZapicAdapterRow rowZapicAdapterRow = ((ZapicAdapterRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        zcod,
-                        cnam,
-                        cfam,
-                        cotch,
-                        ctel,
-                        bnam,
-                        dnam,
-                        zdate,
-                        statusName,
-                        ccod,
-                        pcod,
-                        scod,
-                        bcod,
-                        statusCod};
-                rowZapicAdapterRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowZapicAdapterRow);
-                return rowZapicAdapterRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ZapicAdapterRow FindByzcod(int zcod) {
-                return ((ZapicAdapterRow)(this.Rows.Find(new object[] {
-                            zcod})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                ZapicAdapterDataTable cln = ((ZapicAdapterDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new ZapicAdapterDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal void InitVars() {
-                this.columnzcod = base.Columns["zcod"];
-                this.columncnam = base.Columns["cnam"];
-                this.columncfam = base.Columns["cfam"];
-                this.columncotch = base.Columns["cotch"];
-                this.columnctel = base.Columns["ctel"];
-                this.columnbnam = base.Columns["bnam"];
-                this.columndnam = base.Columns["dnam"];
-                this.columnzdate = base.Columns["zdate"];
-                this.columnstatusName = base.Columns["statusName"];
-                this.columnccod = base.Columns["ccod"];
-                this.columnpcod = base.Columns["pcod"];
-                this.columnscod = base.Columns["scod"];
-                this.columnbcod = base.Columns["bcod"];
-                this.columnstatusCod = base.Columns["statusCod"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            private void InitClass() {
-                this.columnzcod = new global::System.Data.DataColumn("zcod", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnzcod);
-                this.columncnam = new global::System.Data.DataColumn("cnam", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncnam);
-                this.columncfam = new global::System.Data.DataColumn("cfam", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncfam);
-                this.columncotch = new global::System.Data.DataColumn("cotch", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncotch);
-                this.columnctel = new global::System.Data.DataColumn("ctel", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnctel);
-                this.columnbnam = new global::System.Data.DataColumn("bnam", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnbnam);
-                this.columndnam = new global::System.Data.DataColumn("dnam", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndnam);
-                this.columnzdate = new global::System.Data.DataColumn("zdate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnzdate);
-                this.columnstatusName = new global::System.Data.DataColumn("statusName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstatusName);
-                this.columnccod = new global::System.Data.DataColumn("ccod", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnccod);
-                this.columnpcod = new global::System.Data.DataColumn("pcod", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnpcod);
-                this.columnscod = new global::System.Data.DataColumn("scod", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnscod);
-                this.columnbcod = new global::System.Data.DataColumn("bcod", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnbcod);
-                this.columnstatusCod = new global::System.Data.DataColumn("statusCod", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstatusCod);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnzcod}, true));
-                this.columnzcod.AllowDBNull = false;
-                this.columnzcod.Unique = true;
-                this.columncnam.MaxLength = 50;
-                this.columncfam.MaxLength = 50;
-                this.columncotch.MaxLength = 50;
-                this.columnctel.MaxLength = 50;
-                this.columnbnam.MaxLength = 50;
-                this.columndnam.MaxLength = 50;
-                this.columnstatusName.AllowDBNull = false;
-                this.columnstatusName.MaxLength = 50;
-                this.columnccod.AllowDBNull = false;
-                this.columnpcod.AllowDBNull = false;
-                this.columnscod.AllowDBNull = false;
-                this.columnbcod.AllowDBNull = false;
-                this.columnstatusCod.AllowDBNull = false;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ZapicAdapterRow NewZapicAdapterRow() {
-                return ((ZapicAdapterRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new ZapicAdapterRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(ZapicAdapterRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.ZapicAdapterRowChanged != null)) {
-                    this.ZapicAdapterRowChanged(this, new ZapicAdapterRowChangeEvent(((ZapicAdapterRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.ZapicAdapterRowChanging != null)) {
-                    this.ZapicAdapterRowChanging(this, new ZapicAdapterRowChangeEvent(((ZapicAdapterRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.ZapicAdapterRowDeleted != null)) {
-                    this.ZapicAdapterRowDeleted(this, new ZapicAdapterRowChangeEvent(((ZapicAdapterRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.ZapicAdapterRowDeleting != null)) {
-                    this.ZapicAdapterRowDeleting(this, new ZapicAdapterRowChangeEvent(((ZapicAdapterRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveZapicAdapterRow(ZapicAdapterRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Ponomarev_NDataSet ds = new Ponomarev_NDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "ZapicAdapterDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -5699,6 +5362,796 @@ namespace Ponomarev_N {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class oplataStatusDataTable : global::System.Data.TypedTableBase<oplataStatusRow> {
+            
+            private global::System.Data.DataColumn columnoplStatusCod;
+            
+            private global::System.Data.DataColumn columnoplStatusName;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public oplataStatusDataTable() {
+                this.TableName = "oplataStatus";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal oplataStatusDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected oplataStatusDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn oplStatusCodColumn {
+                get {
+                    return this.columnoplStatusCod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn oplStatusNameColumn {
+                get {
+                    return this.columnoplStatusName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public oplataStatusRow this[int index] {
+                get {
+                    return ((oplataStatusRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event oplataStatusRowChangeEventHandler oplataStatusRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event oplataStatusRowChangeEventHandler oplataStatusRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event oplataStatusRowChangeEventHandler oplataStatusRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event oplataStatusRowChangeEventHandler oplataStatusRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddoplataStatusRow(oplataStatusRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public oplataStatusRow AddoplataStatusRow(int oplStatusCod, string oplStatusName) {
+                oplataStatusRow rowoplataStatusRow = ((oplataStatusRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        oplStatusCod,
+                        oplStatusName};
+                rowoplataStatusRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowoplataStatusRow);
+                return rowoplataStatusRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                oplataStatusDataTable cln = ((oplataStatusDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new oplataStatusDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnoplStatusCod = base.Columns["oplStatusCod"];
+                this.columnoplStatusName = base.Columns["oplStatusName"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnoplStatusCod = new global::System.Data.DataColumn("oplStatusCod", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnoplStatusCod);
+                this.columnoplStatusName = new global::System.Data.DataColumn("oplStatusName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnoplStatusName);
+                this.columnoplStatusName.MaxLength = 50;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public oplataStatusRow NewoplataStatusRow() {
+                return ((oplataStatusRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new oplataStatusRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(oplataStatusRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.oplataStatusRowChanged != null)) {
+                    this.oplataStatusRowChanged(this, new oplataStatusRowChangeEvent(((oplataStatusRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.oplataStatusRowChanging != null)) {
+                    this.oplataStatusRowChanging(this, new oplataStatusRowChangeEvent(((oplataStatusRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.oplataStatusRowDeleted != null)) {
+                    this.oplataStatusRowDeleted(this, new oplataStatusRowChangeEvent(((oplataStatusRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.oplataStatusRowDeleting != null)) {
+                    this.oplataStatusRowDeleting(this, new oplataStatusRowChangeEvent(((oplataStatusRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveoplataStatusRow(oplataStatusRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                Ponomarev_NDataSet ds = new Ponomarev_NDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "oplataStatusDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class ZapicAdapterDataTable : global::System.Data.TypedTableBase<ZapicAdapterRow> {
+            
+            private global::System.Data.DataColumn columnzcod;
+            
+            private global::System.Data.DataColumn columncnam;
+            
+            private global::System.Data.DataColumn columncfam;
+            
+            private global::System.Data.DataColumn columncotch;
+            
+            private global::System.Data.DataColumn columnctel;
+            
+            private global::System.Data.DataColumn columnbnam;
+            
+            private global::System.Data.DataColumn columndnam;
+            
+            private global::System.Data.DataColumn columnzdate;
+            
+            private global::System.Data.DataColumn columnstatusName;
+            
+            private global::System.Data.DataColumn columnccod;
+            
+            private global::System.Data.DataColumn columnpcod;
+            
+            private global::System.Data.DataColumn columnscod;
+            
+            private global::System.Data.DataColumn columnbcod;
+            
+            private global::System.Data.DataColumn columnunam;
+            
+            private global::System.Data.DataColumn columnucod;
+            
+            private global::System.Data.DataColumn columndcod;
+            
+            private global::System.Data.DataColumn columnstatusCod;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ZapicAdapterDataTable() {
+                this.TableName = "ZapicAdapter";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal ZapicAdapterDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected ZapicAdapterDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn zcodColumn {
+                get {
+                    return this.columnzcod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cnamColumn {
+                get {
+                    return this.columncnam;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cfamColumn {
+                get {
+                    return this.columncfam;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cotchColumn {
+                get {
+                    return this.columncotch;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ctelColumn {
+                get {
+                    return this.columnctel;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn bnamColumn {
+                get {
+                    return this.columnbnam;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn dnamColumn {
+                get {
+                    return this.columndnam;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn zdateColumn {
+                get {
+                    return this.columnzdate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn statusNameColumn {
+                get {
+                    return this.columnstatusName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ccodColumn {
+                get {
+                    return this.columnccod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn pcodColumn {
+                get {
+                    return this.columnpcod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn scodColumn {
+                get {
+                    return this.columnscod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn bcodColumn {
+                get {
+                    return this.columnbcod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn unamColumn {
+                get {
+                    return this.columnunam;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ucodColumn {
+                get {
+                    return this.columnucod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn dcodColumn {
+                get {
+                    return this.columndcod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn statusCodColumn {
+                get {
+                    return this.columnstatusCod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ZapicAdapterRow this[int index] {
+                get {
+                    return ((ZapicAdapterRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event ZapicAdapterRowChangeEventHandler ZapicAdapterRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event ZapicAdapterRowChangeEventHandler ZapicAdapterRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event ZapicAdapterRowChangeEventHandler ZapicAdapterRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event ZapicAdapterRowChangeEventHandler ZapicAdapterRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddZapicAdapterRow(ZapicAdapterRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ZapicAdapterRow AddZapicAdapterRow(
+                        int zcod, 
+                        string cnam, 
+                        string cfam, 
+                        string cotch, 
+                        string ctel, 
+                        string bnam, 
+                        string dnam, 
+                        System.DateTime zdate, 
+                        string statusName, 
+                        int ccod, 
+                        int pcod, 
+                        int scod, 
+                        int bcod, 
+                        string unam, 
+                        int ucod, 
+                        int dcod, 
+                        int statusCod) {
+                ZapicAdapterRow rowZapicAdapterRow = ((ZapicAdapterRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        zcod,
+                        cnam,
+                        cfam,
+                        cotch,
+                        ctel,
+                        bnam,
+                        dnam,
+                        zdate,
+                        statusName,
+                        ccod,
+                        pcod,
+                        scod,
+                        bcod,
+                        unam,
+                        ucod,
+                        dcod,
+                        statusCod};
+                rowZapicAdapterRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowZapicAdapterRow);
+                return rowZapicAdapterRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ZapicAdapterRow FindByzcodccodpcodscodbcoducoddcodstatusCod(int zcod, int ccod, int pcod, int scod, int bcod, int ucod, int dcod, int statusCod) {
+                return ((ZapicAdapterRow)(this.Rows.Find(new object[] {
+                            zcod,
+                            ccod,
+                            pcod,
+                            scod,
+                            bcod,
+                            ucod,
+                            dcod,
+                            statusCod})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                ZapicAdapterDataTable cln = ((ZapicAdapterDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new ZapicAdapterDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnzcod = base.Columns["zcod"];
+                this.columncnam = base.Columns["cnam"];
+                this.columncfam = base.Columns["cfam"];
+                this.columncotch = base.Columns["cotch"];
+                this.columnctel = base.Columns["ctel"];
+                this.columnbnam = base.Columns["bnam"];
+                this.columndnam = base.Columns["dnam"];
+                this.columnzdate = base.Columns["zdate"];
+                this.columnstatusName = base.Columns["statusName"];
+                this.columnccod = base.Columns["ccod"];
+                this.columnpcod = base.Columns["pcod"];
+                this.columnscod = base.Columns["scod"];
+                this.columnbcod = base.Columns["bcod"];
+                this.columnunam = base.Columns["unam"];
+                this.columnucod = base.Columns["ucod"];
+                this.columndcod = base.Columns["dcod"];
+                this.columnstatusCod = base.Columns["statusCod"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnzcod = new global::System.Data.DataColumn("zcod", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnzcod);
+                this.columncnam = new global::System.Data.DataColumn("cnam", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncnam);
+                this.columncfam = new global::System.Data.DataColumn("cfam", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncfam);
+                this.columncotch = new global::System.Data.DataColumn("cotch", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncotch);
+                this.columnctel = new global::System.Data.DataColumn("ctel", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnctel);
+                this.columnbnam = new global::System.Data.DataColumn("bnam", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbnam);
+                this.columndnam = new global::System.Data.DataColumn("dnam", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndnam);
+                this.columnzdate = new global::System.Data.DataColumn("zdate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnzdate);
+                this.columnstatusName = new global::System.Data.DataColumn("statusName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstatusName);
+                this.columnccod = new global::System.Data.DataColumn("ccod", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnccod);
+                this.columnpcod = new global::System.Data.DataColumn("pcod", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpcod);
+                this.columnscod = new global::System.Data.DataColumn("scod", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnscod);
+                this.columnbcod = new global::System.Data.DataColumn("bcod", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbcod);
+                this.columnunam = new global::System.Data.DataColumn("unam", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnunam);
+                this.columnucod = new global::System.Data.DataColumn("ucod", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnucod);
+                this.columndcod = new global::System.Data.DataColumn("dcod", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndcod);
+                this.columnstatusCod = new global::System.Data.DataColumn("statusCod", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstatusCod);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnzcod,
+                                this.columnccod,
+                                this.columnpcod,
+                                this.columnscod,
+                                this.columnbcod,
+                                this.columnucod,
+                                this.columndcod,
+                                this.columnstatusCod}, true));
+                this.columnzcod.AllowDBNull = false;
+                this.columncnam.MaxLength = 50;
+                this.columncfam.MaxLength = 50;
+                this.columncotch.MaxLength = 50;
+                this.columnctel.MaxLength = 50;
+                this.columnbnam.MaxLength = 50;
+                this.columndnam.MaxLength = 50;
+                this.columnstatusName.AllowDBNull = false;
+                this.columnstatusName.MaxLength = 50;
+                this.columnccod.AllowDBNull = false;
+                this.columnpcod.AllowDBNull = false;
+                this.columnscod.AllowDBNull = false;
+                this.columnbcod.AllowDBNull = false;
+                this.columnunam.MaxLength = 50;
+                this.columnucod.AllowDBNull = false;
+                this.columndcod.AllowDBNull = false;
+                this.columnstatusCod.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ZapicAdapterRow NewZapicAdapterRow() {
+                return ((ZapicAdapterRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new ZapicAdapterRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(ZapicAdapterRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.ZapicAdapterRowChanged != null)) {
+                    this.ZapicAdapterRowChanged(this, new ZapicAdapterRowChangeEvent(((ZapicAdapterRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.ZapicAdapterRowChanging != null)) {
+                    this.ZapicAdapterRowChanging(this, new ZapicAdapterRowChangeEvent(((ZapicAdapterRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.ZapicAdapterRowDeleted != null)) {
+                    this.ZapicAdapterRowDeleted(this, new ZapicAdapterRowChangeEvent(((ZapicAdapterRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.ZapicAdapterRowDeleting != null)) {
+                    this.ZapicAdapterRowDeleting(this, new ZapicAdapterRowChangeEvent(((ZapicAdapterRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveZapicAdapterRow(ZapicAdapterRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                Ponomarev_NDataSet ds = new Ponomarev_NDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "ZapicAdapterDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class boleznRow : global::System.Data.DataRow {
@@ -5960,6 +6413,17 @@ namespace Ponomarev_N {
                     return ((PetListCbRow[])(base.GetChildRows(this.Table.ChildRelations["FK_pet_client2"])));
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public oplataRow[] GetoplataRows() {
+                if ((this.Table.ChildRelations["FK_oplata_client"] == null)) {
+                    return new oplataRow[0];
+                }
+                else {
+                    return ((oplataRow[])(base.GetChildRows(this.Table.ChildRelations["FK_oplata_client"])));
+                }
+            }
         }
         
         /// <summary>
@@ -6156,6 +6620,38 @@ namespace Ponomarev_N {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int ccod {
+                get {
+                    try {
+                        return ((int)(this[this.tableoplata.ccodColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ccod\' в таблице \'oplata\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableoplata.ccodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int oplStatusCod {
+                get {
+                    try {
+                        return ((int)(this[this.tableoplata.oplStatusCodColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'oplStatusCod\' в таблице \'oplata\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableoplata.oplStatusCodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public petRow petRow {
                 get {
                     return ((petRow)(this.GetParentRow(this.Table.ParentRelations["FK_oplata_pet"])));
@@ -6206,6 +6702,39 @@ namespace Ponomarev_N {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_oplata_sotr1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public clientRow clientRow {
+                get {
+                    return ((clientRow)(this.GetParentRow(this.Table.ParentRelations["FK_oplata_client"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_oplata_client"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public FIOAdapterRow FIOAdapterRow {
+                get {
+                    return ((FIOAdapterRow)(this.GetParentRow(this.Table.ParentRelations["FK_oplata_client1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_oplata_client1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public oplataStatusRow oplataStatusRow {
+                get {
+                    return ((oplataStatusRow)(this.GetParentRow(this.Table.ParentRelations["FK_oplata_oplataStatus"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_oplata_oplataStatus"]);
                 }
             }
             
@@ -6267,6 +6796,30 @@ namespace Ponomarev_N {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetodateNull() {
                 this[this.tableoplata.odateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsccodNull() {
+                return this.IsNull(this.tableoplata.ccodColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetccodNull() {
+                this[this.tableoplata.ccodColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsoplStatusCodNull() {
+                return this.IsNull(this.tableoplata.oplStatusCodColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetoplStatusCodNull() {
+                this[this.tableoplata.oplStatusCodColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6865,6 +7418,17 @@ namespace Ponomarev_N {
                     return ((oplataRow[])(base.GetChildRows(this.Table.ChildRelations["FK_oplata_uslugi"])));
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public zapicRow[] GetzapicRows() {
+                if ((this.Table.ChildRelations["FK_zapic_uslugi"] == null)) {
+                    return new zapicRow[0];
+                }
+                else {
+                    return ((zapicRow[])(base.GetChildRows(this.Table.ChildRelations["FK_zapic_uslugi"])));
+                }
+            }
         }
         
         /// <summary>
@@ -6901,12 +7465,7 @@ namespace Ponomarev_N {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int pcod {
                 get {
-                    try {
-                        return ((int)(this[this.tablezapic.pcodColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'pcod\' в таблице \'zapic\' равно DBNull.", e);
-                    }
+                    return ((int)(this[this.tablezapic.pcodColumn]));
                 }
                 set {
                     this[this.tablezapic.pcodColumn] = value;
@@ -6949,12 +7508,7 @@ namespace Ponomarev_N {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int bcod {
                 get {
-                    try {
-                        return ((int)(this[this.tablezapic.bcodColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'bcod\' в таблице \'zapic\' равно DBNull.", e);
-                    }
+                    return ((int)(this[this.tablezapic.bcodColumn]));
                 }
                 set {
                     this[this.tablezapic.bcodColumn] = value;
@@ -7006,6 +7560,22 @@ namespace Ponomarev_N {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int ucod {
+                get {
+                    try {
+                        return ((int)(this[this.tablezapic.ucodColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ucod\' в таблице \'zapic\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablezapic.ucodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public boleznRow boleznRow {
                 get {
                     return ((boleznRow)(this.GetParentRow(this.Table.ParentRelations["FK_zapic_bolezn"])));
@@ -7045,17 +7615,6 @@ namespace Ponomarev_N {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_zapic_client1"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ZapicAdapterRow ZapicAdapterRow {
-                get {
-                    return ((ZapicAdapterRow)(this.GetParentRow(this.Table.ParentRelations["FK_zapic_bolezn1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_zapic_bolezn1"]);
                 }
             }
             
@@ -7127,6 +7686,28 @@ namespace Ponomarev_N {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ZapicAdapterRow ZapicAdapterRow {
+                get {
+                    return ((ZapicAdapterRow)(this.GetParentRow(this.Table.ParentRelations["FK_zapic_bolezn1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_zapic_bolezn1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public uslugiRow uslugiRow {
+                get {
+                    return ((uslugiRow)(this.GetParentRow(this.Table.ParentRelations["FK_zapic_uslugi"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_zapic_uslugi"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsccodNull() {
                 return this.IsNull(this.tablezapic.ccodColumn);
             }
@@ -7135,18 +7716,6 @@ namespace Ponomarev_N {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetccodNull() {
                 this[this.tablezapic.ccodColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IspcodNull() {
-                return this.IsNull(this.tablezapic.pcodColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetpcodNull() {
-                this[this.tablezapic.pcodColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7175,18 +7744,6 @@ namespace Ponomarev_N {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsbcodNull() {
-                return this.IsNull(this.tablezapic.bcodColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetbcodNull() {
-                this[this.tablezapic.bcodColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsstatusCodNull() {
                 return this.IsNull(this.tablezapic.statusCodColumn);
             }
@@ -7207,6 +7764,18 @@ namespace Ponomarev_N {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetdcodNull() {
                 this[this.tablezapic.dcodColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsucodNull() {
+                return this.IsNull(this.tablezapic.ucodColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetucodNull() {
+                this[this.tablezapic.ucodColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7368,305 +7937,6 @@ namespace Ponomarev_N {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class ZapicAdapterRow : global::System.Data.DataRow {
-            
-            private ZapicAdapterDataTable tableZapicAdapter;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal ZapicAdapterRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableZapicAdapter = ((ZapicAdapterDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int zcod {
-                get {
-                    return ((int)(this[this.tableZapicAdapter.zcodColumn]));
-                }
-                set {
-                    this[this.tableZapicAdapter.zcodColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string cnam {
-                get {
-                    try {
-                        return ((string)(this[this.tableZapicAdapter.cnamColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'cnam\' в таблице \'ZapicAdapter\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableZapicAdapter.cnamColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string cfam {
-                get {
-                    try {
-                        return ((string)(this[this.tableZapicAdapter.cfamColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'cfam\' в таблице \'ZapicAdapter\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableZapicAdapter.cfamColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string cotch {
-                get {
-                    try {
-                        return ((string)(this[this.tableZapicAdapter.cotchColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'cotch\' в таблице \'ZapicAdapter\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableZapicAdapter.cotchColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ctel {
-                get {
-                    try {
-                        return ((string)(this[this.tableZapicAdapter.ctelColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ctel\' в таблице \'ZapicAdapter\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableZapicAdapter.ctelColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string bnam {
-                get {
-                    try {
-                        return ((string)(this[this.tableZapicAdapter.bnamColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'bnam\' в таблице \'ZapicAdapter\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableZapicAdapter.bnamColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string dnam {
-                get {
-                    try {
-                        return ((string)(this[this.tableZapicAdapter.dnamColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'dnam\' в таблице \'ZapicAdapter\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableZapicAdapter.dnamColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime zdate {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableZapicAdapter.zdateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'zdate\' в таблице \'ZapicAdapter\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableZapicAdapter.zdateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string statusName {
-                get {
-                    return ((string)(this[this.tableZapicAdapter.statusNameColumn]));
-                }
-                set {
-                    this[this.tableZapicAdapter.statusNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int ccod {
-                get {
-                    return ((int)(this[this.tableZapicAdapter.ccodColumn]));
-                }
-                set {
-                    this[this.tableZapicAdapter.ccodColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int pcod {
-                get {
-                    return ((int)(this[this.tableZapicAdapter.pcodColumn]));
-                }
-                set {
-                    this[this.tableZapicAdapter.pcodColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int scod {
-                get {
-                    return ((int)(this[this.tableZapicAdapter.scodColumn]));
-                }
-                set {
-                    this[this.tableZapicAdapter.scodColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int bcod {
-                get {
-                    return ((int)(this[this.tableZapicAdapter.bcodColumn]));
-                }
-                set {
-                    this[this.tableZapicAdapter.bcodColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int statusCod {
-                get {
-                    return ((int)(this[this.tableZapicAdapter.statusCodColumn]));
-                }
-                set {
-                    this[this.tableZapicAdapter.statusCodColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IscnamNull() {
-                return this.IsNull(this.tableZapicAdapter.cnamColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetcnamNull() {
-                this[this.tableZapicAdapter.cnamColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IscfamNull() {
-                return this.IsNull(this.tableZapicAdapter.cfamColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetcfamNull() {
-                this[this.tableZapicAdapter.cfamColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IscotchNull() {
-                return this.IsNull(this.tableZapicAdapter.cotchColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetcotchNull() {
-                this[this.tableZapicAdapter.cotchColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsctelNull() {
-                return this.IsNull(this.tableZapicAdapter.ctelColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetctelNull() {
-                this[this.tableZapicAdapter.ctelColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsbnamNull() {
-                return this.IsNull(this.tableZapicAdapter.bnamColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetbnamNull() {
-                this[this.tableZapicAdapter.bnamColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsdnamNull() {
-                return this.IsNull(this.tableZapicAdapter.dnamColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetdnamNull() {
-                this[this.tableZapicAdapter.dnamColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IszdateNull() {
-                return this.IsNull(this.tableZapicAdapter.zdateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetzdateNull() {
-                this[this.tableZapicAdapter.zdateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public zapicRow[] GetzapicRows() {
-                if ((this.Table.ChildRelations["FK_zapic_bolezn1"] == null)) {
-                    return new zapicRow[0];
-                }
-                else {
-                    return ((zapicRow[])(base.GetChildRows(this.Table.ChildRelations["FK_zapic_bolezn1"])));
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
         public partial class FIOAdapterRow : global::System.Data.DataRow {
             
             private FIOAdapterDataTable tableFIOAdapter;
@@ -7747,6 +8017,17 @@ namespace Ponomarev_N {
                 }
                 else {
                     return ((PetListCbRow[])(base.GetChildRows(this.Table.ChildRelations["FK_pet_client3"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public oplataRow[] GetoplataRows() {
+                if ((this.Table.ChildRelations["FK_oplata_client1"] == null)) {
+                    return new oplataRow[0];
+                }
+                else {
+                    return ((oplataRow[])(base.GetChildRows(this.Table.ChildRelations["FK_oplata_client1"])));
                 }
             }
         }
@@ -8150,6 +8431,437 @@ namespace Ponomarev_N {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class oplataStatusRow : global::System.Data.DataRow {
+            
+            private oplataStatusDataTable tableoplataStatus;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal oplataStatusRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableoplataStatus = ((oplataStatusDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int oplStatusCod {
+                get {
+                    try {
+                        return ((int)(this[this.tableoplataStatus.oplStatusCodColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'oplStatusCod\' в таблице \'oplataStatus\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableoplataStatus.oplStatusCodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string oplStatusName {
+                get {
+                    try {
+                        return ((string)(this[this.tableoplataStatus.oplStatusNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'oplStatusName\' в таблице \'oplataStatus\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableoplataStatus.oplStatusNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsoplStatusCodNull() {
+                return this.IsNull(this.tableoplataStatus.oplStatusCodColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetoplStatusCodNull() {
+                this[this.tableoplataStatus.oplStatusCodColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsoplStatusNameNull() {
+                return this.IsNull(this.tableoplataStatus.oplStatusNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetoplStatusNameNull() {
+                this[this.tableoplataStatus.oplStatusNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public oplataRow[] GetoplataRows() {
+                if ((this.Table.ChildRelations["FK_oplata_oplataStatus"] == null)) {
+                    return new oplataRow[0];
+                }
+                else {
+                    return ((oplataRow[])(base.GetChildRows(this.Table.ChildRelations["FK_oplata_oplataStatus"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class ZapicAdapterRow : global::System.Data.DataRow {
+            
+            private ZapicAdapterDataTable tableZapicAdapter;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal ZapicAdapterRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableZapicAdapter = ((ZapicAdapterDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int zcod {
+                get {
+                    return ((int)(this[this.tableZapicAdapter.zcodColumn]));
+                }
+                set {
+                    this[this.tableZapicAdapter.zcodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cnam {
+                get {
+                    try {
+                        return ((string)(this[this.tableZapicAdapter.cnamColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'cnam\' в таблице \'ZapicAdapter\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableZapicAdapter.cnamColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cfam {
+                get {
+                    try {
+                        return ((string)(this[this.tableZapicAdapter.cfamColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'cfam\' в таблице \'ZapicAdapter\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableZapicAdapter.cfamColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cotch {
+                get {
+                    try {
+                        return ((string)(this[this.tableZapicAdapter.cotchColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'cotch\' в таблице \'ZapicAdapter\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableZapicAdapter.cotchColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string ctel {
+                get {
+                    try {
+                        return ((string)(this[this.tableZapicAdapter.ctelColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ctel\' в таблице \'ZapicAdapter\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableZapicAdapter.ctelColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string bnam {
+                get {
+                    try {
+                        return ((string)(this[this.tableZapicAdapter.bnamColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'bnam\' в таблице \'ZapicAdapter\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableZapicAdapter.bnamColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string dnam {
+                get {
+                    try {
+                        return ((string)(this[this.tableZapicAdapter.dnamColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'dnam\' в таблице \'ZapicAdapter\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableZapicAdapter.dnamColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime zdate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableZapicAdapter.zdateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'zdate\' в таблице \'ZapicAdapter\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableZapicAdapter.zdateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string statusName {
+                get {
+                    return ((string)(this[this.tableZapicAdapter.statusNameColumn]));
+                }
+                set {
+                    this[this.tableZapicAdapter.statusNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int ccod {
+                get {
+                    return ((int)(this[this.tableZapicAdapter.ccodColumn]));
+                }
+                set {
+                    this[this.tableZapicAdapter.ccodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int pcod {
+                get {
+                    return ((int)(this[this.tableZapicAdapter.pcodColumn]));
+                }
+                set {
+                    this[this.tableZapicAdapter.pcodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int scod {
+                get {
+                    return ((int)(this[this.tableZapicAdapter.scodColumn]));
+                }
+                set {
+                    this[this.tableZapicAdapter.scodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int bcod {
+                get {
+                    return ((int)(this[this.tableZapicAdapter.bcodColumn]));
+                }
+                set {
+                    this[this.tableZapicAdapter.bcodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string unam {
+                get {
+                    try {
+                        return ((string)(this[this.tableZapicAdapter.unamColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'unam\' в таблице \'ZapicAdapter\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableZapicAdapter.unamColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int ucod {
+                get {
+                    return ((int)(this[this.tableZapicAdapter.ucodColumn]));
+                }
+                set {
+                    this[this.tableZapicAdapter.ucodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int dcod {
+                get {
+                    return ((int)(this[this.tableZapicAdapter.dcodColumn]));
+                }
+                set {
+                    this[this.tableZapicAdapter.dcodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int statusCod {
+                get {
+                    return ((int)(this[this.tableZapicAdapter.statusCodColumn]));
+                }
+                set {
+                    this[this.tableZapicAdapter.statusCodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IscnamNull() {
+                return this.IsNull(this.tableZapicAdapter.cnamColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetcnamNull() {
+                this[this.tableZapicAdapter.cnamColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IscfamNull() {
+                return this.IsNull(this.tableZapicAdapter.cfamColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetcfamNull() {
+                this[this.tableZapicAdapter.cfamColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IscotchNull() {
+                return this.IsNull(this.tableZapicAdapter.cotchColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetcotchNull() {
+                this[this.tableZapicAdapter.cotchColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsctelNull() {
+                return this.IsNull(this.tableZapicAdapter.ctelColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetctelNull() {
+                this[this.tableZapicAdapter.ctelColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsbnamNull() {
+                return this.IsNull(this.tableZapicAdapter.bnamColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetbnamNull() {
+                this[this.tableZapicAdapter.bnamColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsdnamNull() {
+                return this.IsNull(this.tableZapicAdapter.dnamColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetdnamNull() {
+                this[this.tableZapicAdapter.dnamColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IszdateNull() {
+                return this.IsNull(this.tableZapicAdapter.zdateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetzdateNull() {
+                this[this.tableZapicAdapter.zdateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsunamNull() {
+                return this.IsNull(this.tableZapicAdapter.unamColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetunamNull() {
+                this[this.tableZapicAdapter.unamColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public zapicRow[] GetzapicRows() {
+                if ((this.Table.ChildRelations["FK_zapic_bolezn1"] == null)) {
+                    return new zapicRow[0];
+                }
+                else {
+                    return ((zapicRow[])(base.GetChildRows(this.Table.ChildRelations["FK_zapic_bolezn1"])));
+                }
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -8459,40 +9171,6 @@ namespace Ponomarev_N {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class ZapicAdapterRowChangeEvent : global::System.EventArgs {
-            
-            private ZapicAdapterRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ZapicAdapterRowChangeEvent(ZapicAdapterRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ZapicAdapterRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public class FIOAdapterRowChangeEvent : global::System.EventArgs {
             
             private FIOAdapterRow eventRow;
@@ -8645,6 +9323,74 @@ namespace Ponomarev_N {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public DolgVrachRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class oplataStatusRowChangeEvent : global::System.EventArgs {
+            
+            private oplataStatusRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public oplataStatusRowChangeEvent(oplataStatusRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public oplataStatusRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class ZapicAdapterRowChangeEvent : global::System.EventArgs {
+            
+            private ZapicAdapterRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ZapicAdapterRowChangeEvent(ZapicAdapterRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ZapicAdapterRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -9907,10 +10653,12 @@ SELECT ccod, cnam, cfam, cotch, ctel FROM client WHERE (ccod = @ccod)";
             tableMapping.ColumnMappings.Add("ucod", "ucod");
             tableMapping.ColumnMappings.Add("ucena", "ucena");
             tableMapping.ColumnMappings.Add("odate", "odate");
+            tableMapping.ColumnMappings.Add("ccod", "ccod");
+            tableMapping.ColumnMappings.Add("oplStatusCod", "oplStatusCod");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[oplata] WHERE (([ocod] = @Original_ocod) AND ((@IsNull_pcod = 1 AND [pcod] IS NULL) OR ([pcod] = @Original_pcod)) AND ((@IsNull_scod = 1 AND [scod] IS NULL) OR ([scod] = @Original_scod)) AND ((@IsNull_ucod = 1 AND [ucod] IS NULL) OR ([ucod] = @Original_ucod)) AND ((@IsNull_ucena = 1 AND [ucena] IS NULL) OR ([ucena] = @Original_ucena)) AND ((@IsNull_odate = 1 AND [odate] IS NULL) OR ([odate] = @Original_odate)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [oplata] WHERE (([ocod] = @Original_ocod) AND ((@IsNull_pcod = 1 AND [pcod] IS NULL) OR ([pcod] = @Original_pcod)) AND ((@IsNull_scod = 1 AND [scod] IS NULL) OR ([scod] = @Original_scod)) AND ((@IsNull_ucod = 1 AND [ucod] IS NULL) OR ([ucod] = @Original_ucod)) AND ((@IsNull_ucena = 1 AND [ucena] IS NULL) OR ([ucena] = @Original_ucena)) AND ((@IsNull_odate = 1 AND [odate] IS NULL) OR ([odate] = @Original_odate)) AND ((@IsNull_ccod = 1 AND [ccod] IS NULL) OR ([ccod] = @Original_ccod)) AND ((@IsNull_oplStatusCod = 1 AND [oplStatusCod] IS NULL) OR ([oplStatusCod] = @Original_oplStatusCod)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ocod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ocod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_pcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pcod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -9923,11 +10671,14 @@ SELECT ccod, cnam, cfam, cotch, ctel FROM client WHERE (ccod = @ccod)";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ucena", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ucena", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_odate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "odate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_odate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "odate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ccod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ccod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ccod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ccod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_oplStatusCod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "oplStatusCod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_oplStatusCod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "oplStatusCod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[oplata] ([ocod], [pcod], [scod], [ucod], [ucena], [odate]) VAL" +
-                "UES (@ocod, @pcod, @scod, @ucod, @ucena, @odate);\r\nSELECT ocod, pcod, scod, ucod" +
-                ", ucena, odate FROM oplata WHERE (ocod = @ocod)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [oplata] ([ocod], [pcod], [scod], [ucod], [ucena], [odate], [ccod], [oplStatusCod]) VALUES (@ocod, @pcod, @scod, @ucod, @ucena, @odate, @ccod, @oplStatusCod);
+SELECT ocod, pcod, scod, ucod, ucena, odate, ccod, oplStatusCod FROM oplata WHERE (ocod = @ocod)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ocod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ocod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pcod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -9935,10 +10686,12 @@ SELECT ccod, cnam, cfam, cotch, ctel FROM client WHERE (ccod = @ccod)";
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ucod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ucod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ucena", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ucena", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@odate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "odate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ccod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ccod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@oplStatusCod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "oplStatusCod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[oplata] SET [ocod] = @ocod, [pcod] = @pcod, [scod] = @scod, [ucod] = @ucod, [ucena] = @ucena, [odate] = @odate WHERE (([ocod] = @Original_ocod) AND ((@IsNull_pcod = 1 AND [pcod] IS NULL) OR ([pcod] = @Original_pcod)) AND ((@IsNull_scod = 1 AND [scod] IS NULL) OR ([scod] = @Original_scod)) AND ((@IsNull_ucod = 1 AND [ucod] IS NULL) OR ([ucod] = @Original_ucod)) AND ((@IsNull_ucena = 1 AND [ucena] IS NULL) OR ([ucena] = @Original_ucena)) AND ((@IsNull_odate = 1 AND [odate] IS NULL) OR ([odate] = @Original_odate)));
-SELECT ocod, pcod, scod, ucod, ucena, odate FROM oplata WHERE (ocod = @ocod)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [oplata] SET [ocod] = @ocod, [pcod] = @pcod, [scod] = @scod, [ucod] = @ucod, [ucena] = @ucena, [odate] = @odate, [ccod] = @ccod, [oplStatusCod] = @oplStatusCod WHERE (([ocod] = @Original_ocod) AND ((@IsNull_pcod = 1 AND [pcod] IS NULL) OR ([pcod] = @Original_pcod)) AND ((@IsNull_scod = 1 AND [scod] IS NULL) OR ([scod] = @Original_scod)) AND ((@IsNull_ucod = 1 AND [ucod] IS NULL) OR ([ucod] = @Original_ucod)) AND ((@IsNull_ucena = 1 AND [ucena] IS NULL) OR ([ucena] = @Original_ucena)) AND ((@IsNull_odate = 1 AND [odate] IS NULL) OR ([odate] = @Original_odate)) AND ((@IsNull_ccod = 1 AND [ccod] IS NULL) OR ([ccod] = @Original_ccod)) AND ((@IsNull_oplStatusCod = 1 AND [oplStatusCod] IS NULL) OR ([oplStatusCod] = @Original_oplStatusCod)));
+SELECT ocod, pcod, scod, ucod, ucena, odate, ccod, oplStatusCod FROM oplata WHERE (ocod = @ocod)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ocod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ocod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pcod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -9946,6 +10699,8 @@ SELECT ocod, pcod, scod, ucod, ucena, odate FROM oplata WHERE (ocod = @ocod)";
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ucod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ucod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ucena", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ucena", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@odate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "odate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ccod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ccod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@oplStatusCod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "oplStatusCod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ocod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ocod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_pcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pcod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_pcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pcod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -9957,6 +10712,10 @@ SELECT ocod, pcod, scod, ucod, ucena, odate FROM oplata WHERE (ocod = @ocod)";
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ucena", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ucena", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_odate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "odate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_odate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "odate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ccod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ccod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ccod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ccod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_oplStatusCod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "oplStatusCod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_oplStatusCod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "oplStatusCod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9972,7 +10731,7 @@ SELECT ocod, pcod, scod, ucod, ucena, odate FROM oplata WHERE (ocod = @ocod)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ocod, pcod, scod, ucod, ucena, odate FROM dbo.oplata";
+            this._commandCollection[0].CommandText = "SELECT ocod, pcod, scod, ucod, ucena, odate, ccod, oplStatusCod FROM oplata";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -10033,7 +10792,7 @@ SELECT ocod, pcod, scod, ucod, ucena, odate FROM oplata WHERE (ocod = @ocod)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ocod, global::System.Nullable<int> Original_pcod, global::System.Nullable<int> Original_scod, global::System.Nullable<int> Original_ucod, global::System.Nullable<decimal> Original_ucena, global::System.Nullable<global::System.DateTime> Original_odate) {
+        public virtual int Delete(int Original_ocod, global::System.Nullable<int> Original_pcod, global::System.Nullable<int> Original_scod, global::System.Nullable<int> Original_ucod, global::System.Nullable<decimal> Original_ucena, global::System.Nullable<global::System.DateTime> Original_odate, global::System.Nullable<int> Original_ccod, global::System.Nullable<int> Original_oplStatusCod) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ocod));
             if ((Original_pcod.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -10075,6 +10834,22 @@ SELECT ocod, pcod, scod, ucod, ucena, odate FROM oplata WHERE (ocod = @ocod)";
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
+            if ((Original_ccod.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((int)(Original_ccod.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((Original_oplStatusCod.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(Original_oplStatusCod.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -10095,7 +10870,7 @@ SELECT ocod, pcod, scod, ucod, ucena, odate FROM oplata WHERE (ocod = @ocod)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int ocod, global::System.Nullable<int> pcod, global::System.Nullable<int> scod, global::System.Nullable<int> ucod, global::System.Nullable<decimal> ucena, global::System.Nullable<global::System.DateTime> odate) {
+        public virtual int Insert(int ocod, global::System.Nullable<int> pcod, global::System.Nullable<int> scod, global::System.Nullable<int> ucod, global::System.Nullable<decimal> ucena, global::System.Nullable<global::System.DateTime> odate, global::System.Nullable<int> ccod, global::System.Nullable<int> oplStatusCod) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ocod));
             if ((pcod.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((int)(pcod.Value));
@@ -10127,6 +10902,18 @@ SELECT ocod, pcod, scod, ucod, ucena, odate FROM oplata WHERE (ocod = @ocod)";
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
+            if ((ccod.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((int)(ccod.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((oplStatusCod.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(oplStatusCod.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -10147,7 +10934,23 @@ SELECT ocod, pcod, scod, ucod, ucena, odate FROM oplata WHERE (ocod = @ocod)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int ocod, global::System.Nullable<int> pcod, global::System.Nullable<int> scod, global::System.Nullable<int> ucod, global::System.Nullable<decimal> ucena, global::System.Nullable<global::System.DateTime> odate, int Original_ocod, global::System.Nullable<int> Original_pcod, global::System.Nullable<int> Original_scod, global::System.Nullable<int> Original_ucod, global::System.Nullable<decimal> Original_ucena, global::System.Nullable<global::System.DateTime> Original_odate) {
+        public virtual int Update(
+                    int ocod, 
+                    global::System.Nullable<int> pcod, 
+                    global::System.Nullable<int> scod, 
+                    global::System.Nullable<int> ucod, 
+                    global::System.Nullable<decimal> ucena, 
+                    global::System.Nullable<global::System.DateTime> odate, 
+                    global::System.Nullable<int> ccod, 
+                    global::System.Nullable<int> oplStatusCod, 
+                    int Original_ocod, 
+                    global::System.Nullable<int> Original_pcod, 
+                    global::System.Nullable<int> Original_scod, 
+                    global::System.Nullable<int> Original_ucod, 
+                    global::System.Nullable<decimal> Original_ucena, 
+                    global::System.Nullable<global::System.DateTime> Original_odate, 
+                    global::System.Nullable<int> Original_ccod, 
+                    global::System.Nullable<int> Original_oplStatusCod) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ocod));
             if ((pcod.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(pcod.Value));
@@ -10179,46 +10982,74 @@ SELECT ocod, pcod, scod, ucod, ucena, odate FROM oplata WHERE (ocod = @ocod)";
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_ocod));
-            if ((Original_pcod.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_pcod.Value));
+            if ((ccod.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(ccod.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((Original_scod.HasValue == true)) {
+            if ((oplStatusCod.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(oplStatusCod.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_ocod));
+            if ((Original_pcod.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_scod.Value));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_pcod.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((Original_ucod.HasValue == true)) {
+            if ((Original_scod.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_ucod.Value));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_scod.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
-            if ((Original_ucena.HasValue == true)) {
+            if ((Original_ucod.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(Original_ucena.Value));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_ucod.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            if ((Original_odate.HasValue == true)) {
+            if ((Original_ucena.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((System.DateTime)(Original_odate.Value));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(Original_ucena.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((Original_odate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(Original_odate.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ccod.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Original_ccod.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            if ((Original_oplStatusCod.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_oplStatusCod.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10240,8 +11071,8 @@ SELECT ocod, pcod, scod, ucod, ucena, odate FROM oplata WHERE (ocod = @ocod)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> pcod, global::System.Nullable<int> scod, global::System.Nullable<int> ucod, global::System.Nullable<decimal> ucena, global::System.Nullable<global::System.DateTime> odate, int Original_ocod, global::System.Nullable<int> Original_pcod, global::System.Nullable<int> Original_scod, global::System.Nullable<int> Original_ucod, global::System.Nullable<decimal> Original_ucena, global::System.Nullable<global::System.DateTime> Original_odate) {
-            return this.Update(Original_ocod, pcod, scod, ucod, ucena, odate, Original_ocod, Original_pcod, Original_scod, Original_ucod, Original_ucena, Original_odate);
+        public virtual int Update(global::System.Nullable<int> pcod, global::System.Nullable<int> scod, global::System.Nullable<int> ucod, global::System.Nullable<decimal> ucena, global::System.Nullable<global::System.DateTime> odate, global::System.Nullable<int> ccod, global::System.Nullable<int> oplStatusCod, int Original_ocod, global::System.Nullable<int> Original_pcod, global::System.Nullable<int> Original_scod, global::System.Nullable<int> Original_ucod, global::System.Nullable<decimal> Original_ucena, global::System.Nullable<global::System.DateTime> Original_odate, global::System.Nullable<int> Original_ccod, global::System.Nullable<int> Original_oplStatusCod) {
+            return this.Update(Original_ocod, pcod, scod, ucod, ucena, odate, ccod, oplStatusCod, Original_ocod, Original_pcod, Original_scod, Original_ucod, Original_ucena, Original_odate, Original_ccod, Original_oplStatusCod);
         }
     }
     
@@ -11788,15 +12619,15 @@ SELECT ucod, unam, ucena FROM uslugi WHERE (ucod = @ucod)";
             tableMapping.ColumnMappings.Add("zcod", "zcod");
             tableMapping.ColumnMappings.Add("statusCod", "statusCod");
             tableMapping.ColumnMappings.Add("dcod", "dcod");
+            tableMapping.ColumnMappings.Add("ucod", "ucod");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [zapic] WHERE (([zcod] = @Original_zcod) AND ((@IsNull_ccod = 1 AND [ccod] IS NULL) OR ([ccod] = @Original_ccod)) AND ((@IsNull_pcod = 1 AND [pcod] IS NULL) OR ([pcod] = @Original_pcod)) AND ((@IsNull_scod = 1 AND [scod] IS NULL) OR ([scod] = @Original_scod)) AND ((@IsNull_zdate = 1 AND [zdate] IS NULL) OR ([zdate] = @Original_zdate)) AND ((@IsNull_statusCod = 1 AND [statusCod] IS NULL) OR ([statusCod] = @Original_statusCod)) AND ((@IsNull_bcod = 1 AND [bcod] IS NULL) OR ([bcod] = @Original_bcod)) AND ((@IsNull_dcod = 1 AND [dcod] IS NULL) OR ([dcod] = @Original_dcod)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [zapic] WHERE (([zcod] = @Original_zcod) AND ((@IsNull_ccod = 1 AND [ccod] IS NULL) OR ([ccod] = @Original_ccod)) AND ([pcod] = @Original_pcod) AND ((@IsNull_scod = 1 AND [scod] IS NULL) OR ([scod] = @Original_scod)) AND ((@IsNull_zdate = 1 AND [zdate] IS NULL) OR ([zdate] = @Original_zdate)) AND ((@IsNull_statusCod = 1 AND [statusCod] IS NULL) OR ([statusCod] = @Original_statusCod)) AND ([bcod] = @Original_bcod) AND ((@IsNull_dcod = 1 AND [dcod] IS NULL) OR ([dcod] = @Original_dcod)) AND ((@IsNull_ucod = 1 AND [ucod] IS NULL) OR ([ucod] = @Original_ucod)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_zcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zcod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ccod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ccod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ccod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ccod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_pcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pcod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_pcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pcod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_scod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "scod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_scod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "scod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -11804,16 +12635,15 @@ SELECT ucod, unam, ucena FROM uslugi WHERE (ucod = @ucod)";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_zdate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zdate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_statusCod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "statusCod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_statusCod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "statusCod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_bcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bcod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_bcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bcod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_dcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dcod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dcod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ucod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ucod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ucod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ucod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [zapic] ([zcod], [ccod], [pcod], [scod], [zdate], [statusCod], [bcod]" +
-                ", [dcod]) VALUES (@zcod, @ccod, @pcod, @scod, @zdate, @statusCod, @bcod, @dcod);" +
-                "\r\nSELECT zcod, ccod, pcod, scod, zdate, statusCod, bcod, dcod FROM zapic WHERE (" +
-                "zcod = @zcod)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [zapic] ([zcod], [ccod], [pcod], [scod], [zdate], [statusCod], [bcod], [dcod], [ucod]) VALUES (@zcod, @ccod, @pcod, @scod, @zdate, @statusCod, @bcod, @dcod, @ucod);
+SELECT zcod, ccod, pcod, scod, zdate, statusCod, bcod, dcod, ucod FROM zapic WHERE (zcod = @zcod)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@zcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zcod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ccod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ccod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11823,10 +12653,11 @@ SELECT ucod, unam, ucena FROM uslugi WHERE (ucod = @ucod)";
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@statusCod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "statusCod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bcod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dcod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ucod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ucod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [zapic] SET [zcod] = @zcod, [ccod] = @ccod, [pcod] = @pcod, [scod] = @scod, [zdate] = @zdate, [statusCod] = @statusCod, [bcod] = @bcod, [dcod] = @dcod WHERE (([zcod] = @Original_zcod) AND ((@IsNull_ccod = 1 AND [ccod] IS NULL) OR ([ccod] = @Original_ccod)) AND ((@IsNull_pcod = 1 AND [pcod] IS NULL) OR ([pcod] = @Original_pcod)) AND ((@IsNull_scod = 1 AND [scod] IS NULL) OR ([scod] = @Original_scod)) AND ((@IsNull_zdate = 1 AND [zdate] IS NULL) OR ([zdate] = @Original_zdate)) AND ((@IsNull_statusCod = 1 AND [statusCod] IS NULL) OR ([statusCod] = @Original_statusCod)) AND ((@IsNull_bcod = 1 AND [bcod] IS NULL) OR ([bcod] = @Original_bcod)) AND ((@IsNull_dcod = 1 AND [dcod] IS NULL) OR ([dcod] = @Original_dcod)));
-SELECT zcod, ccod, pcod, scod, zdate, statusCod, bcod, dcod FROM zapic WHERE (zcod = @zcod)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [zapic] SET [zcod] = @zcod, [ccod] = @ccod, [pcod] = @pcod, [scod] = @scod, [zdate] = @zdate, [statusCod] = @statusCod, [bcod] = @bcod, [dcod] = @dcod, [ucod] = @ucod WHERE (([zcod] = @Original_zcod) AND ((@IsNull_ccod = 1 AND [ccod] IS NULL) OR ([ccod] = @Original_ccod)) AND ([pcod] = @Original_pcod) AND ((@IsNull_scod = 1 AND [scod] IS NULL) OR ([scod] = @Original_scod)) AND ((@IsNull_zdate = 1 AND [zdate] IS NULL) OR ([zdate] = @Original_zdate)) AND ((@IsNull_statusCod = 1 AND [statusCod] IS NULL) OR ([statusCod] = @Original_statusCod)) AND ([bcod] = @Original_bcod) AND ((@IsNull_dcod = 1 AND [dcod] IS NULL) OR ([dcod] = @Original_dcod)) AND ((@IsNull_ucod = 1 AND [ucod] IS NULL) OR ([ucod] = @Original_ucod)));
+SELECT zcod, ccod, pcod, scod, zdate, statusCod, bcod, dcod, ucod FROM zapic WHERE (zcod = @zcod)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@zcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zcod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ccod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ccod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11836,10 +12667,10 @@ SELECT zcod, ccod, pcod, scod, zdate, statusCod, bcod, dcod FROM zapic WHERE (zc
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@statusCod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "statusCod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bcod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dcod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ucod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ucod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_zcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zcod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ccod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ccod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ccod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ccod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_pcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pcod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_pcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pcod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_scod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "scod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_scod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "scod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -11847,10 +12678,11 @@ SELECT zcod, ccod, pcod, scod, zdate, statusCod, bcod, dcod FROM zapic WHERE (zc
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_zdate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "zdate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_statusCod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "statusCod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_statusCod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "statusCod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_bcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bcod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_bcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bcod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_dcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dcod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dcod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ucod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ucod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ucod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ucod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11866,8 +12698,8 @@ SELECT zcod, ccod, pcod, scod, zdate, statusCod, bcod, dcod FROM zapic WHERE (zc
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        zcod, ccod, pcod, scod, zdate, statusCod, bcod, dcod\r\nFROM         " +
-                "   zapic";
+            this._commandCollection[0].CommandText = "SELECT        zcod, ccod, pcod, scod, zdate, statusCod, bcod, dcod, ucod\r\nFROM   " +
+                "         zapic";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -12095,193 +12927,6 @@ HAVING        (dolg.dcod = 1)";
         public virtual Ponomarev_NDataSet.DataTableVrachiDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             Ponomarev_NDataSet.DataTableVrachiDataTable dataTable = new Ponomarev_NDataSet.DataTableVrachiDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class ZapicTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public ZapicTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "ZapicAdapter";
-            tableMapping.ColumnMappings.Add("zcod", "zcod");
-            tableMapping.ColumnMappings.Add("cnam", "cnam");
-            tableMapping.ColumnMappings.Add("cfam", "cfam");
-            tableMapping.ColumnMappings.Add("cotch", "cotch");
-            tableMapping.ColumnMappings.Add("ctel", "ctel");
-            tableMapping.ColumnMappings.Add("bnam", "bnam");
-            tableMapping.ColumnMappings.Add("dnam", "dnam");
-            tableMapping.ColumnMappings.Add("zdate", "zdate");
-            tableMapping.ColumnMappings.Add("statusName", "statusName");
-            tableMapping.ColumnMappings.Add("ccod", "ccod");
-            tableMapping.ColumnMappings.Add("pcod", "pcod");
-            tableMapping.ColumnMappings.Add("scod", "scod");
-            tableMapping.ColumnMappings.Add("bcod", "bcod");
-            tableMapping.ColumnMappings.Add("statusCod", "statusCod");
-            this._adapter.TableMappings.Add(tableMapping);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Ponomarev_N.Properties.Settings.Default.Ponomarev_NConnection;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        zapic.zcod, client.cnam, client.cfam, client.cotch, client.ctel, bolezn.bnam, dolg.dnam, zapic.zdate, status.statusName, client.ccod, pet.pcod, sotr.scod, bolezn.bcod, status.statusCod
-FROM            zapic INNER JOIN
-                         bolezn ON zapic.bcod = bolezn.bcod INNER JOIN
-                         sotr ON zapic.scod = sotr.scod INNER JOIN
-                         status ON zapic.statusCod = status.statusCod INNER JOIN
-                         pet ON zapic.pcod = pet.pcod INNER JOIN
-                         dolg ON sotr.dcod = dolg.dcod INNER JOIN
-                         client ON zapic.ccod = client.ccod AND pet.ccod = client.ccod";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Ponomarev_NDataSet.ZapicAdapterDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Ponomarev_NDataSet.ZapicAdapterDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            Ponomarev_NDataSet.ZapicAdapterDataTable dataTable = new Ponomarev_NDataSet.ZapicAdapterDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -13496,6 +14141,434 @@ SELECT pnam, pcod, ccod FROM pet WHERE (pcod = @pcod)";
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class oplataStatusTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public oplataStatusTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "oplataStatus";
+            tableMapping.ColumnMappings.Add("oplStatusCod", "oplStatusCod");
+            tableMapping.ColumnMappings.Add("oplStatusName", "oplStatusName");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[oplataStatus] ([oplStatusCod], [oplStatusName]) VALUES (@oplSt" +
+                "atusCod, @oplStatusName)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@oplStatusCod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "oplStatusCod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@oplStatusName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "oplStatusName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Ponomarev_N.Properties.Settings.Default.Ponomarev_NConnection;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT oplStatusCod, oplStatusName FROM dbo.oplataStatus";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(Ponomarev_NDataSet.oplataStatusDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual Ponomarev_NDataSet.oplataStatusDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            Ponomarev_NDataSet.oplataStatusDataTable dataTable = new Ponomarev_NDataSet.oplataStatusDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(Ponomarev_NDataSet.oplataStatusDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(Ponomarev_NDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "oplataStatus");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(global::System.Nullable<int> oplStatusCod, string oplStatusName) {
+            if ((oplStatusCod.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(oplStatusCod.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((oplStatusName == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(oplStatusName));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class ZapicAdapterTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public ZapicAdapterTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "ZapicAdapter";
+            tableMapping.ColumnMappings.Add("zcod", "zcod");
+            tableMapping.ColumnMappings.Add("cnam", "cnam");
+            tableMapping.ColumnMappings.Add("cfam", "cfam");
+            tableMapping.ColumnMappings.Add("cotch", "cotch");
+            tableMapping.ColumnMappings.Add("ctel", "ctel");
+            tableMapping.ColumnMappings.Add("bnam", "bnam");
+            tableMapping.ColumnMappings.Add("dnam", "dnam");
+            tableMapping.ColumnMappings.Add("zdate", "zdate");
+            tableMapping.ColumnMappings.Add("statusName", "statusName");
+            tableMapping.ColumnMappings.Add("ccod", "ccod");
+            tableMapping.ColumnMappings.Add("pcod", "pcod");
+            tableMapping.ColumnMappings.Add("scod", "scod");
+            tableMapping.ColumnMappings.Add("bcod", "bcod");
+            tableMapping.ColumnMappings.Add("unam", "unam");
+            tableMapping.ColumnMappings.Add("ucod", "ucod");
+            tableMapping.ColumnMappings.Add("dcod", "dcod");
+            tableMapping.ColumnMappings.Add("statusCod", "statusCod");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Ponomarev_N.Properties.Settings.Default.Ponomarev_NConnection;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT        zapic.zcod, client.cnam, client.cfam, client.cotch, client.ctel, bolezn.bnam, dolg.dnam, uslugi.unam, zapic.zdate, status.statusName, client.ccod, pet.pcod, sotr.scod, bolezn.bcod, uslugi.ucod, dolg.dcod, status.statusCod
+FROM            sotr INNER JOIN
+                         dolg ON sotr.dcod = dolg.dcod INNER JOIN
+                         zapic ON sotr.scod = zapic.scod AND dolg.dcod = zapic.dcod INNER JOIN
+                         bolezn ON zapic.bcod = bolezn.bcod INNER JOIN
+                         pet INNER JOIN
+                         client ON pet.ccod = client.ccod ON zapic.pcod = pet.pcod AND zapic.ccod = client.ccod INNER JOIN
+                         status ON zapic.statusCod = status.statusCod INNER JOIN
+                         uslugi ON zapic.ucod = uslugi.ucod";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(Ponomarev_NDataSet.ZapicAdapterDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual Ponomarev_NDataSet.ZapicAdapterDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            Ponomarev_NDataSet.ZapicAdapterDataTable dataTable = new Ponomarev_NDataSet.ZapicAdapterDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -13526,6 +14599,8 @@ SELECT pnam, pcod, ccod FROM pet WHERE (pcod = @pcod)";
         private statusTableAdapter _statusTableAdapter;
         
         private PetListCbTableAdapter _petListCbTableAdapter;
+        
+        private oplataStatusTableAdapter _oplataStatusTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -13684,6 +14759,20 @@ SELECT pnam, pcod, ccod FROM pet WHERE (pcod = @pcod)";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public oplataStatusTableAdapter oplataStatusTableAdapter {
+            get {
+                return this._oplataStatusTableAdapter;
+            }
+            set {
+                this._oplataStatusTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -13741,6 +14830,10 @@ SELECT pnam, pcod, ccod FROM pet WHERE (pcod = @pcod)";
                             && (this._petListCbTableAdapter.Connection != null))) {
                     return this._petListCbTableAdapter.Connection;
                 }
+                if (((this._oplataStatusTableAdapter != null) 
+                            && (this._oplataStatusTableAdapter.Connection != null))) {
+                    return this._oplataStatusTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -13782,6 +14875,9 @@ SELECT pnam, pcod, ccod FROM pet WHERE (pcod = @pcod)";
                     count = (count + 1);
                 }
                 if ((this._petListCbTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._oplataStatusTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -13864,6 +14960,15 @@ SELECT pnam, pcod, ccod FROM pet WHERE (pcod = @pcod)";
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._petListCbTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._oplataStatusTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.oplataStatus.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._oplataStatusTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -13959,6 +15064,14 @@ SELECT pnam, pcod, ccod FROM pet WHERE (pcod = @pcod)";
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._oplataStatusTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.oplataStatus.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._oplataStatusTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._oplataTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.oplata.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -13998,6 +15111,14 @@ SELECT pnam, pcod, ccod FROM pet WHERE (pcod = @pcod)";
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._oplataTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._oplataStatusTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.oplataStatus.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._oplataStatusTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -14154,6 +15275,11 @@ SELECT pnam, pcod, ccod FROM pet WHERE (pcod = @pcod)";
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
+            if (((this._oplataStatusTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._oplataStatusTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
+                        "r, должны использовать одинаковую строку подключения.");
+            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager не содержит сведений о подключении. Укажите для каждого адапт" +
@@ -14276,6 +15402,15 @@ SELECT pnam, pcod, ccod FROM pet WHERE (pcod = @pcod)";
                         adaptersWithAcceptChangesDuringUpdate.Add(this._petListCbTableAdapter.Adapter);
                     }
                 }
+                if ((this._oplataStatusTableAdapter != null)) {
+                    revertConnections.Add(this._oplataStatusTableAdapter, this._oplataStatusTableAdapter.Connection);
+                    this._oplataStatusTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._oplataStatusTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._oplataStatusTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._oplataStatusTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._oplataStatusTableAdapter.Adapter);
+                    }
+                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -14373,6 +15508,10 @@ SELECT pnam, pcod, ccod FROM pet WHERE (pcod = @pcod)";
                 if ((this._petListCbTableAdapter != null)) {
                     this._petListCbTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._petListCbTableAdapter]));
                     this._petListCbTableAdapter.Transaction = null;
+                }
+                if ((this._oplataStatusTableAdapter != null)) {
+                    this._oplataStatusTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._oplataStatusTableAdapter]));
+                    this._oplataStatusTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
