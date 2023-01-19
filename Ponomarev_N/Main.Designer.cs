@@ -30,6 +30,9 @@ namespace Ponomarev_N
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridUslugi = new System.Windows.Forms.DataGridView();
             this.ucodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -111,23 +114,6 @@ namespace Ponomarev_N
             this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dataGridZapic = new System.Windows.Forms.DataGridView();
-            this.zcodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cnamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cfamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cotchDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ctelDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bnamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dnamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ccodDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pcodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.scodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusCod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bcodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ucodDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zapicAdapterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ponomarev_NDataSet11 = new Ponomarev_N.Ponomarev_NDataSet();
             this.cb_ucod = new System.Windows.Forms.ComboBox();
@@ -177,7 +163,9 @@ namespace Ponomarev_N
             this.btn_addBolezn = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.btn_documentOplata = new System.Windows.Forms.Button();
             this.dataGridOplata = new System.Windows.Forms.DataGridView();
+            this.oplataAdapterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btn_cancelOplata = new System.Windows.Forms.Button();
             this.btn_acceptOplata = new System.Windows.Forms.Button();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -204,8 +192,26 @@ namespace Ponomarev_N
             this.ponomarev_NDataSet10 = new Ponomarev_N.Ponomarev_NDataSet();
             this.zapicAdapterTableAdapter = new Ponomarev_N.Ponomarev_NDataSetTableAdapters.ZapicAdapterTableAdapter();
             this.dolgVrachTableAdapter = new Ponomarev_N.Ponomarev_NDataSetTableAdapters.DolgVrachTableAdapter();
-            this.oplataAdapterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.oplataTableAdapter = new Ponomarev_N.Ponomarev_NDataSetTableAdapters.OplataTableAdapter();
+            this.chartBolezn = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.boleznBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.zcodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cnamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cfamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cotchDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ctelDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bnamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dnamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ccodDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pcodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.scodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusCod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bcodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ucodDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ocodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cnamDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cfamDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -221,7 +227,6 @@ namespace Ponomarev_N
             this.ccodDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ucodDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oplStatusCodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_documentOplata = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUslugi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uslugiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet1)).BeginInit();
@@ -262,6 +267,7 @@ namespace Ponomarev_N
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridOplata)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oplataAdapterBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet8)).BeginInit();
@@ -272,7 +278,8 @@ namespace Ponomarev_N
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.oplataAdapterBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartBolezn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boleznBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridUslugi
@@ -1179,108 +1186,6 @@ namespace Ponomarev_N
             this.dataGridZapic.TabIndex = 79;
             this.dataGridZapic.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridZapic_CellEnter);
             // 
-            // zcodDataGridViewTextBoxColumn
-            // 
-            this.zcodDataGridViewTextBoxColumn.DataPropertyName = "zcod";
-            this.zcodDataGridViewTextBoxColumn.HeaderText = "zcod";
-            this.zcodDataGridViewTextBoxColumn.Name = "zcodDataGridViewTextBoxColumn";
-            // 
-            // cnamDataGridViewTextBoxColumn1
-            // 
-            this.cnamDataGridViewTextBoxColumn1.DataPropertyName = "cnam";
-            this.cnamDataGridViewTextBoxColumn1.HeaderText = "cnam";
-            this.cnamDataGridViewTextBoxColumn1.Name = "cnamDataGridViewTextBoxColumn1";
-            // 
-            // cfamDataGridViewTextBoxColumn1
-            // 
-            this.cfamDataGridViewTextBoxColumn1.DataPropertyName = "cfam";
-            this.cfamDataGridViewTextBoxColumn1.HeaderText = "cfam";
-            this.cfamDataGridViewTextBoxColumn1.Name = "cfamDataGridViewTextBoxColumn1";
-            // 
-            // cotchDataGridViewTextBoxColumn1
-            // 
-            this.cotchDataGridViewTextBoxColumn1.DataPropertyName = "cotch";
-            this.cotchDataGridViewTextBoxColumn1.HeaderText = "cotch";
-            this.cotchDataGridViewTextBoxColumn1.Name = "cotchDataGridViewTextBoxColumn1";
-            // 
-            // ctelDataGridViewTextBoxColumn1
-            // 
-            this.ctelDataGridViewTextBoxColumn1.DataPropertyName = "ctel";
-            this.ctelDataGridViewTextBoxColumn1.HeaderText = "ctel";
-            this.ctelDataGridViewTextBoxColumn1.Name = "ctelDataGridViewTextBoxColumn1";
-            // 
-            // bnamDataGridViewTextBoxColumn
-            // 
-            this.bnamDataGridViewTextBoxColumn.DataPropertyName = "bnam";
-            this.bnamDataGridViewTextBoxColumn.HeaderText = "bnam";
-            this.bnamDataGridViewTextBoxColumn.Name = "bnamDataGridViewTextBoxColumn";
-            // 
-            // dnamDataGridViewTextBoxColumn1
-            // 
-            this.dnamDataGridViewTextBoxColumn1.DataPropertyName = "dnam";
-            this.dnamDataGridViewTextBoxColumn1.HeaderText = "dnam";
-            this.dnamDataGridViewTextBoxColumn1.Name = "dnamDataGridViewTextBoxColumn1";
-            // 
-            // unamDataGridViewTextBoxColumn1
-            // 
-            this.unamDataGridViewTextBoxColumn1.DataPropertyName = "unam";
-            this.unamDataGridViewTextBoxColumn1.HeaderText = "unam";
-            this.unamDataGridViewTextBoxColumn1.Name = "unamDataGridViewTextBoxColumn1";
-            // 
-            // zdateDataGridViewTextBoxColumn
-            // 
-            this.zdateDataGridViewTextBoxColumn.DataPropertyName = "zdate";
-            this.zdateDataGridViewTextBoxColumn.HeaderText = "zdate";
-            this.zdateDataGridViewTextBoxColumn.Name = "zdateDataGridViewTextBoxColumn";
-            // 
-            // statusNameDataGridViewTextBoxColumn
-            // 
-            this.statusNameDataGridViewTextBoxColumn.DataPropertyName = "statusName";
-            this.statusNameDataGridViewTextBoxColumn.HeaderText = "statusName";
-            this.statusNameDataGridViewTextBoxColumn.Name = "statusNameDataGridViewTextBoxColumn";
-            // 
-            // ccodDataGridViewTextBoxColumn1
-            // 
-            this.ccodDataGridViewTextBoxColumn1.DataPropertyName = "ccod";
-            this.ccodDataGridViewTextBoxColumn1.HeaderText = "ccod";
-            this.ccodDataGridViewTextBoxColumn1.Name = "ccodDataGridViewTextBoxColumn1";
-            // 
-            // pcodDataGridViewTextBoxColumn
-            // 
-            this.pcodDataGridViewTextBoxColumn.DataPropertyName = "pcod";
-            this.pcodDataGridViewTextBoxColumn.HeaderText = "pcod";
-            this.pcodDataGridViewTextBoxColumn.Name = "pcodDataGridViewTextBoxColumn";
-            // 
-            // scodDataGridViewTextBoxColumn
-            // 
-            this.scodDataGridViewTextBoxColumn.DataPropertyName = "scod";
-            this.scodDataGridViewTextBoxColumn.HeaderText = "scod";
-            this.scodDataGridViewTextBoxColumn.Name = "scodDataGridViewTextBoxColumn";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "dcod";
-            this.dataGridViewTextBoxColumn2.HeaderText = "dcod";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // statusCod
-            // 
-            this.statusCod.DataPropertyName = "statusCod";
-            this.statusCod.HeaderText = "statusCod";
-            this.statusCod.Name = "statusCod";
-            // 
-            // bcodDataGridViewTextBoxColumn
-            // 
-            this.bcodDataGridViewTextBoxColumn.DataPropertyName = "bcod";
-            this.bcodDataGridViewTextBoxColumn.HeaderText = "bcod";
-            this.bcodDataGridViewTextBoxColumn.Name = "bcodDataGridViewTextBoxColumn";
-            // 
-            // ucodDataGridViewTextBoxColumn1
-            // 
-            this.ucodDataGridViewTextBoxColumn1.DataPropertyName = "ucod";
-            this.ucodDataGridViewTextBoxColumn1.HeaderText = "ucod";
-            this.ucodDataGridViewTextBoxColumn1.Name = "ucodDataGridViewTextBoxColumn1";
-            // 
             // zapicAdapterBindingSource
             // 
             this.zapicAdapterBindingSource.DataMember = "ZapicAdapter";
@@ -1410,6 +1315,7 @@ namespace Ponomarev_N
             this.cb_statusCod.Size = new System.Drawing.Size(265, 21);
             this.cb_statusCod.TabIndex = 71;
             this.cb_statusCod.ValueMember = "statusCod";
+            this.cb_statusCod.SelectedIndexChanged += new System.EventHandler(this.cb_statusCod_SelectedIndexChanged);
             // 
             // statusBindingSource
             // 
@@ -1592,6 +1498,7 @@ namespace Ponomarev_N
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.chartBolezn);
             this.tabPage6.Controls.Add(this.dataGridBolezn);
             this.tabPage6.Controls.Add(this.btn_clearBolezn);
             this.tabPage6.Controls.Add(this.label15);
@@ -1740,9 +1647,22 @@ namespace Ponomarev_N
             this.tabPage7.Text = "Оплата";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // btn_documentOplata
+            // 
+            this.btn_documentOplata.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_documentOplata.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_documentOplata.Location = new System.Drawing.Point(15, 461);
+            this.btn_documentOplata.Name = "btn_documentOplata";
+            this.btn_documentOplata.Size = new System.Drawing.Size(155, 36);
+            this.btn_documentOplata.TabIndex = 53;
+            this.btn_documentOplata.Text = "Документ";
+            this.btn_documentOplata.UseVisualStyleBackColor = true;
+            this.btn_documentOplata.Click += new System.EventHandler(this.btn_documentOplata_Click);
+            // 
             // dataGridOplata
             // 
             this.dataGridOplata.AutoGenerateColumns = false;
+            this.dataGridOplata.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridOplata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridOplata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ocodDataGridViewTextBoxColumn,
@@ -1766,6 +1686,11 @@ namespace Ponomarev_N
             this.dataGridOplata.Size = new System.Drawing.Size(1191, 567);
             this.dataGridOplata.TabIndex = 52;
             this.dataGridOplata.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridOplata_CellEnter);
+            // 
+            // oplataAdapterBindingSource
+            // 
+            this.oplataAdapterBindingSource.DataMember = "OplataAdapter";
+            this.oplataAdapterBindingSource.DataSource = this.ponomarev_NDataSet1;
             // 
             // btn_cancelOplata
             // 
@@ -1915,43 +1840,168 @@ namespace Ponomarev_N
             // 
             this.dolgVrachTableAdapter.ClearBeforeFill = true;
             // 
-            // oplataAdapterBindingSource
-            // 
-            this.oplataAdapterBindingSource.DataMember = "OplataAdapter";
-            this.oplataAdapterBindingSource.DataSource = this.ponomarev_NDataSet1;
-            // 
             // oplataTableAdapter
             // 
             this.oplataTableAdapter.ClearBeforeFill = true;
             // 
+            // chartBolezn
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.chartBolezn.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chartBolezn.Legends.Add(legend4);
+            this.chartBolezn.Location = new System.Drawing.Point(878, 13);
+            this.chartBolezn.Name = "chartBolezn";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chartBolezn.Series.Add(series4);
+            this.chartBolezn.Size = new System.Drawing.Size(470, 551);
+            this.chartBolezn.TabIndex = 46;
+            this.chartBolezn.Text = "chart1";
+            // 
+            // boleznBindingSource2
+            // 
+            this.boleznBindingSource2.DataMember = "bolezn";
+            this.boleznBindingSource2.DataSource = this.ponomarev_NDataSet1;
+            // 
+            // zcodDataGridViewTextBoxColumn
+            // 
+            this.zcodDataGridViewTextBoxColumn.DataPropertyName = "zcod";
+            this.zcodDataGridViewTextBoxColumn.HeaderText = "Код записи";
+            this.zcodDataGridViewTextBoxColumn.Name = "zcodDataGridViewTextBoxColumn";
+            // 
+            // cnamDataGridViewTextBoxColumn1
+            // 
+            this.cnamDataGridViewTextBoxColumn1.DataPropertyName = "cnam";
+            this.cnamDataGridViewTextBoxColumn1.HeaderText = "Имя клиента";
+            this.cnamDataGridViewTextBoxColumn1.Name = "cnamDataGridViewTextBoxColumn1";
+            // 
+            // cfamDataGridViewTextBoxColumn1
+            // 
+            this.cfamDataGridViewTextBoxColumn1.DataPropertyName = "cfam";
+            this.cfamDataGridViewTextBoxColumn1.HeaderText = "Фамилия клиента";
+            this.cfamDataGridViewTextBoxColumn1.Name = "cfamDataGridViewTextBoxColumn1";
+            // 
+            // cotchDataGridViewTextBoxColumn1
+            // 
+            this.cotchDataGridViewTextBoxColumn1.DataPropertyName = "cotch";
+            this.cotchDataGridViewTextBoxColumn1.HeaderText = "Отчество клиента";
+            this.cotchDataGridViewTextBoxColumn1.Name = "cotchDataGridViewTextBoxColumn1";
+            // 
+            // ctelDataGridViewTextBoxColumn1
+            // 
+            this.ctelDataGridViewTextBoxColumn1.DataPropertyName = "ctel";
+            this.ctelDataGridViewTextBoxColumn1.HeaderText = "Телефон клиента";
+            this.ctelDataGridViewTextBoxColumn1.Name = "ctelDataGridViewTextBoxColumn1";
+            // 
+            // bnamDataGridViewTextBoxColumn
+            // 
+            this.bnamDataGridViewTextBoxColumn.DataPropertyName = "bnam";
+            this.bnamDataGridViewTextBoxColumn.HeaderText = "Название болезни";
+            this.bnamDataGridViewTextBoxColumn.Name = "bnamDataGridViewTextBoxColumn";
+            // 
+            // dnamDataGridViewTextBoxColumn1
+            // 
+            this.dnamDataGridViewTextBoxColumn1.DataPropertyName = "dnam";
+            this.dnamDataGridViewTextBoxColumn1.HeaderText = "Специальность врача";
+            this.dnamDataGridViewTextBoxColumn1.Name = "dnamDataGridViewTextBoxColumn1";
+            // 
+            // unamDataGridViewTextBoxColumn1
+            // 
+            this.unamDataGridViewTextBoxColumn1.DataPropertyName = "unam";
+            this.unamDataGridViewTextBoxColumn1.HeaderText = "Название услуги";
+            this.unamDataGridViewTextBoxColumn1.Name = "unamDataGridViewTextBoxColumn1";
+            // 
+            // zdateDataGridViewTextBoxColumn
+            // 
+            this.zdateDataGridViewTextBoxColumn.DataPropertyName = "zdate";
+            this.zdateDataGridViewTextBoxColumn.HeaderText = "Дата записи";
+            this.zdateDataGridViewTextBoxColumn.Name = "zdateDataGridViewTextBoxColumn";
+            // 
+            // statusNameDataGridViewTextBoxColumn
+            // 
+            this.statusNameDataGridViewTextBoxColumn.DataPropertyName = "statusName";
+            this.statusNameDataGridViewTextBoxColumn.HeaderText = "Статус";
+            this.statusNameDataGridViewTextBoxColumn.Name = "statusNameDataGridViewTextBoxColumn";
+            // 
+            // ccodDataGridViewTextBoxColumn1
+            // 
+            this.ccodDataGridViewTextBoxColumn1.DataPropertyName = "ccod";
+            this.ccodDataGridViewTextBoxColumn1.HeaderText = "ccod";
+            this.ccodDataGridViewTextBoxColumn1.Name = "ccodDataGridViewTextBoxColumn1";
+            this.ccodDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // pcodDataGridViewTextBoxColumn
+            // 
+            this.pcodDataGridViewTextBoxColumn.DataPropertyName = "pcod";
+            this.pcodDataGridViewTextBoxColumn.HeaderText = "pcod";
+            this.pcodDataGridViewTextBoxColumn.Name = "pcodDataGridViewTextBoxColumn";
+            this.pcodDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // scodDataGridViewTextBoxColumn
+            // 
+            this.scodDataGridViewTextBoxColumn.DataPropertyName = "scod";
+            this.scodDataGridViewTextBoxColumn.HeaderText = "scod";
+            this.scodDataGridViewTextBoxColumn.Name = "scodDataGridViewTextBoxColumn";
+            this.scodDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "dcod";
+            this.dataGridViewTextBoxColumn2.HeaderText = "dcod";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // statusCod
+            // 
+            this.statusCod.DataPropertyName = "statusCod";
+            this.statusCod.HeaderText = "statusCod";
+            this.statusCod.Name = "statusCod";
+            this.statusCod.Visible = false;
+            // 
+            // bcodDataGridViewTextBoxColumn
+            // 
+            this.bcodDataGridViewTextBoxColumn.DataPropertyName = "bcod";
+            this.bcodDataGridViewTextBoxColumn.HeaderText = "bcod";
+            this.bcodDataGridViewTextBoxColumn.Name = "bcodDataGridViewTextBoxColumn";
+            this.bcodDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // ucodDataGridViewTextBoxColumn1
+            // 
+            this.ucodDataGridViewTextBoxColumn1.DataPropertyName = "ucod";
+            this.ucodDataGridViewTextBoxColumn1.HeaderText = "ucod";
+            this.ucodDataGridViewTextBoxColumn1.Name = "ucodDataGridViewTextBoxColumn1";
+            this.ucodDataGridViewTextBoxColumn1.Visible = false;
+            // 
             // ocodDataGridViewTextBoxColumn
             // 
             this.ocodDataGridViewTextBoxColumn.DataPropertyName = "ocod";
-            this.ocodDataGridViewTextBoxColumn.HeaderText = "ocod";
+            this.ocodDataGridViewTextBoxColumn.HeaderText = "Код квитанции";
             this.ocodDataGridViewTextBoxColumn.Name = "ocodDataGridViewTextBoxColumn";
             // 
             // cnamDataGridViewTextBoxColumn2
             // 
             this.cnamDataGridViewTextBoxColumn2.DataPropertyName = "cnam";
-            this.cnamDataGridViewTextBoxColumn2.HeaderText = "cnam";
+            this.cnamDataGridViewTextBoxColumn2.HeaderText = "Имя клиента";
             this.cnamDataGridViewTextBoxColumn2.Name = "cnamDataGridViewTextBoxColumn2";
             // 
             // cfamDataGridViewTextBoxColumn2
             // 
             this.cfamDataGridViewTextBoxColumn2.DataPropertyName = "cfam";
-            this.cfamDataGridViewTextBoxColumn2.HeaderText = "cfam";
+            this.cfamDataGridViewTextBoxColumn2.HeaderText = "Фамилия клиента";
             this.cfamDataGridViewTextBoxColumn2.Name = "cfamDataGridViewTextBoxColumn2";
             // 
             // cotchDataGridViewTextBoxColumn2
             // 
             this.cotchDataGridViewTextBoxColumn2.DataPropertyName = "cotch";
-            this.cotchDataGridViewTextBoxColumn2.HeaderText = "cotch";
+            this.cotchDataGridViewTextBoxColumn2.HeaderText = "Отчество клиента";
             this.cotchDataGridViewTextBoxColumn2.Name = "cotchDataGridViewTextBoxColumn2";
             // 
             // ctelDataGridViewTextBoxColumn2
             // 
             this.ctelDataGridViewTextBoxColumn2.DataPropertyName = "ctel";
-            this.ctelDataGridViewTextBoxColumn2.HeaderText = "ctel";
+            this.ctelDataGridViewTextBoxColumn2.HeaderText = "Телефон клиента";
             this.ctelDataGridViewTextBoxColumn2.Name = "ctelDataGridViewTextBoxColumn2";
             // 
             // snamDataGridViewTextBoxColumn1
@@ -1959,29 +2009,30 @@ namespace Ponomarev_N
             this.snamDataGridViewTextBoxColumn1.DataPropertyName = "snam";
             this.snamDataGridViewTextBoxColumn1.HeaderText = "snam";
             this.snamDataGridViewTextBoxColumn1.Name = "snamDataGridViewTextBoxColumn1";
+            this.snamDataGridViewTextBoxColumn1.Visible = false;
             // 
             // unamDataGridViewTextBoxColumn2
             // 
             this.unamDataGridViewTextBoxColumn2.DataPropertyName = "unam";
-            this.unamDataGridViewTextBoxColumn2.HeaderText = "unam";
+            this.unamDataGridViewTextBoxColumn2.HeaderText = "Название услуги";
             this.unamDataGridViewTextBoxColumn2.Name = "unamDataGridViewTextBoxColumn2";
             // 
             // ucenaDataGridViewTextBoxColumn1
             // 
             this.ucenaDataGridViewTextBoxColumn1.DataPropertyName = "ucena";
-            this.ucenaDataGridViewTextBoxColumn1.HeaderText = "ucena";
+            this.ucenaDataGridViewTextBoxColumn1.HeaderText = "Цена услуги, ₽";
             this.ucenaDataGridViewTextBoxColumn1.Name = "ucenaDataGridViewTextBoxColumn1";
             // 
             // odateDataGridViewTextBoxColumn
             // 
             this.odateDataGridViewTextBoxColumn.DataPropertyName = "odate";
-            this.odateDataGridViewTextBoxColumn.HeaderText = "odate";
+            this.odateDataGridViewTextBoxColumn.HeaderText = "Дата оплаты";
             this.odateDataGridViewTextBoxColumn.Name = "odateDataGridViewTextBoxColumn";
             // 
             // oplStatusNameDataGridViewTextBoxColumn
             // 
             this.oplStatusNameDataGridViewTextBoxColumn.DataPropertyName = "oplStatusName";
-            this.oplStatusNameDataGridViewTextBoxColumn.HeaderText = "oplStatusName";
+            this.oplStatusNameDataGridViewTextBoxColumn.HeaderText = "Статус оплаты";
             this.oplStatusNameDataGridViewTextBoxColumn.Name = "oplStatusNameDataGridViewTextBoxColumn";
             // 
             // pcodDataGridViewTextBoxColumn1
@@ -1989,42 +2040,35 @@ namespace Ponomarev_N
             this.pcodDataGridViewTextBoxColumn1.DataPropertyName = "pcod";
             this.pcodDataGridViewTextBoxColumn1.HeaderText = "pcod";
             this.pcodDataGridViewTextBoxColumn1.Name = "pcodDataGridViewTextBoxColumn1";
+            this.pcodDataGridViewTextBoxColumn1.Visible = false;
             // 
             // scodDataGridViewTextBoxColumn1
             // 
             this.scodDataGridViewTextBoxColumn1.DataPropertyName = "scod";
             this.scodDataGridViewTextBoxColumn1.HeaderText = "scod";
             this.scodDataGridViewTextBoxColumn1.Name = "scodDataGridViewTextBoxColumn1";
+            this.scodDataGridViewTextBoxColumn1.Visible = false;
             // 
             // ccodDataGridViewTextBoxColumn2
             // 
             this.ccodDataGridViewTextBoxColumn2.DataPropertyName = "ccod";
             this.ccodDataGridViewTextBoxColumn2.HeaderText = "ccod";
             this.ccodDataGridViewTextBoxColumn2.Name = "ccodDataGridViewTextBoxColumn2";
+            this.ccodDataGridViewTextBoxColumn2.Visible = false;
             // 
             // ucodDataGridViewTextBoxColumn2
             // 
             this.ucodDataGridViewTextBoxColumn2.DataPropertyName = "ucod";
             this.ucodDataGridViewTextBoxColumn2.HeaderText = "ucod";
             this.ucodDataGridViewTextBoxColumn2.Name = "ucodDataGridViewTextBoxColumn2";
+            this.ucodDataGridViewTextBoxColumn2.Visible = false;
             // 
             // oplStatusCodDataGridViewTextBoxColumn
             // 
             this.oplStatusCodDataGridViewTextBoxColumn.DataPropertyName = "oplStatusCod";
             this.oplStatusCodDataGridViewTextBoxColumn.HeaderText = "oplStatusCod";
             this.oplStatusCodDataGridViewTextBoxColumn.Name = "oplStatusCodDataGridViewTextBoxColumn";
-            // 
-            // btn_documentOplata
-            // 
-            this.btn_documentOplata.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_documentOplata.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_documentOplata.Location = new System.Drawing.Point(15, 461);
-            this.btn_documentOplata.Name = "btn_documentOplata";
-            this.btn_documentOplata.Size = new System.Drawing.Size(155, 36);
-            this.btn_documentOplata.TabIndex = 53;
-            this.btn_documentOplata.Text = "Документ";
-            this.btn_documentOplata.UseVisualStyleBackColor = true;
-            this.btn_documentOplata.Click += new System.EventHandler(this.btn_documentOplata_Click);
+            this.oplStatusCodDataGridViewTextBoxColumn.Visible = false;
             // 
             // Main
             // 
@@ -2083,6 +2127,7 @@ namespace Ponomarev_N
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.tabPage7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridOplata)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oplataAdapterBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet8)).EndInit();
@@ -2094,7 +2139,8 @@ namespace Ponomarev_N
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.oplataAdapterBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartBolezn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boleznBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2256,6 +2302,14 @@ namespace Ponomarev_N
         private System.Windows.Forms.BindingSource zapicAdapterBindingSource;
         private Ponomarev_NDataSetTableAdapters.ZapicAdapterTableAdapter zapicAdapterTableAdapter;
         private System.Windows.Forms.DataGridView dataGridZapic;
+        private System.Windows.Forms.BindingSource dolgVrachBindingSource;
+        private Ponomarev_NDataSet ponomarev_NDataSet12;
+        private Ponomarev_NDataSetTableAdapters.DolgVrachTableAdapter dolgVrachTableAdapter;
+        private System.Windows.Forms.BindingSource oplataAdapterBindingSource;
+        private Ponomarev_NDataSetTableAdapters.OplataTableAdapter oplataTableAdapter;
+        private System.Windows.Forms.Button btn_documentOplata;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartBolezn;
+        private System.Windows.Forms.BindingSource boleznBindingSource2;
         private System.Windows.Forms.DataGridViewTextBoxColumn zcodDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cnamDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn cfamDataGridViewTextBoxColumn1;
@@ -2273,11 +2327,6 @@ namespace Ponomarev_N
         private System.Windows.Forms.DataGridViewTextBoxColumn statusCod;
         private System.Windows.Forms.DataGridViewTextBoxColumn bcodDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ucodDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.BindingSource dolgVrachBindingSource;
-        private Ponomarev_NDataSet ponomarev_NDataSet12;
-        private Ponomarev_NDataSetTableAdapters.DolgVrachTableAdapter dolgVrachTableAdapter;
-        private System.Windows.Forms.BindingSource oplataAdapterBindingSource;
-        private Ponomarev_NDataSetTableAdapters.OplataTableAdapter oplataTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn ocodDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cnamDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn cfamDataGridViewTextBoxColumn2;
@@ -2293,7 +2342,6 @@ namespace Ponomarev_N
         private System.Windows.Forms.DataGridViewTextBoxColumn ccodDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn ucodDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn oplStatusCodDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btn_documentOplata;
     }
 }
 

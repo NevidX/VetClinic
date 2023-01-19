@@ -46,3 +46,4 @@ D:\VetClinicProject\Ponomarev_N\obj\Debug\Ponomarev_N.csproj.GenerateResource.ca
 D:\VetClinicProject\Ponomarev_N\obj\Debug\Ponomarev_N.csproj.CoreCompileInputs.cache
 D:\VetClinicProject\Ponomarev_N\obj\Debug\Ponomarev_N.exe
 D:\VetClinicProject\Ponomarev_N\obj\Debug\Ponomarev_N.pdb
+D:\VetClinicProject\Ponomarev_N\obj\Debug\Ponomarev_N.csproj.ResolveComReference.cache

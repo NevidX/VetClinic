@@ -8,15 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms.DataVisualization.Charting;
+using word = Microsoft.Office.Interop.Word;
 
 namespace Ponomarev_N
 {
     /*TODO: Нужно сделать: 
-     *  Триггер с оплатой разобраться, что происходит с scod
-     * - форма оплаты
+     *  
+     * 
      * - поиск в форме запись и форме оплата
-     * - Триггер, который будет после того, как в форме запись, статус будет готово, будет сразу же создваться запись в форме оплата, в статусе ожидания оплаты
-    будет кнопка подтверждения оплаты, а также вывода во внешний документ, для распечатывания квитанции
+     * 
      * форму, где будет статистика с диаграммой болезней.
     - сделать роли
     - сделать разные иконки на формах 
@@ -36,6 +37,31 @@ namespace Ponomarev_N
 
 
        DataBase dataBase = new DataBase();
+
+
+        void BindDataToChart()
+        {
+            DataTable table = new DataTable();
+            // Заполняем DataTable данными из таблицы bolezn
+            table = ponomarev_NDataSet1.Tables["bolezn"];
+            table.DefaultView.RowFilter = "bcount > 0";
+            // Привязываем DataTable к Chart
+            chartBolezn.DataSource = table;
+            // Назначаем Chart привязанные данные
+            chartBolezn.Series[0].ChartType = SeriesChartType.Pie;
+            chartBolezn.Series[0].XValueMember = "bnam";
+            chartBolezn.Series[0].YValueMembers = "bcount";
+            chartBolezn.Series[0].IsValueShownAsLabel = true;
+            Random random = new Random();
+            // Цвета для каждой секции диаграммы
+            for (int i = 0; i < chartBolezn.Series[0].Points.Count; i++)
+            {
+                chartBolezn.Series[0].Points[i].Color = Color.FromArgb(random.Next(255), random.Next(255), random.Next(255));
+            }
+            chartBolezn.Series[0].IsVisibleInLegend = true;
+            // Вызываем метод Chart.DataBind() для отображения данных на диаграмме
+            chartBolezn.DataBind();
+        }
         public Main()
         {
             InitializeComponent();
@@ -94,6 +120,11 @@ namespace Ponomarev_N
             btn_documentOplata.Enabled = false;
             btn_acceptOplata.Enabled = false;
             btn_cancelOplata.Enabled = false;
+            #endregion
+
+            #region Таблица - болезни
+            
+            BindDataToChart();
             #endregion
             dataBase.GetList("Sotr", dataGridUsers);
             dataBase.GetList("Client", dataGridClients);
@@ -507,6 +538,7 @@ namespace Ponomarev_N
             sqlConnection.Close();
             // Обновляем таблицу
             this.zapicAdapterTableAdapter.Fill(this.ponomarev_NDataSet11.ZapicAdapter);
+
         }
 
 
@@ -579,7 +611,6 @@ namespace Ponomarev_N
                 cb_pcod.SelectedValue = dataGridZapic.CurrentRow.Cells[11].Value.ToString();
                 cb_ctel.Text = dataGridZapic.CurrentRow.Cells[4].Value.ToString();
                 cb_scod.SelectedValue = dataGridZapic.CurrentRow.Cells[12].Value.ToString();
-                //cmb_dcod.Text = dataGridZapic.CurrentRow.Cells[12].Value.ToString();
                 cb_statusCod.SelectedValue = dataGridZapic.CurrentRow.Cells[14].Value.ToString();
                 preCbSatusCod = dataGridZapic.CurrentRow.Cells[14].Value.ToString();
                 cb_bnam.SelectedValue = dataGridZapic.CurrentRow.Cells[15].Value.ToString();
@@ -686,6 +717,8 @@ namespace Ponomarev_N
         #endregion
 
         #region Таблица - болезни
+
+        
         private void btn_addBolezn_Click(object sender, EventArgs e)
         {
             // Иницилизируем методы, проверяющие правильность значений
@@ -797,6 +830,7 @@ namespace Ponomarev_N
                 }
                 else
                 {
+                    
                     MessageBox.Show("Новый статус должен отличаться от предыдущего!");
                     return;
                 }
@@ -835,10 +869,46 @@ namespace Ponomarev_N
                 return;
             }
         }
+
         private void btn_documentOplata_Click(object sender, EventArgs e)
         {
+            // Create a new Word application
+            word.Application wordApp = new word.Application();
 
+            // Create a new Word document
+            word.Document doc = wordApp.Documents.Add();
+
+            // Add a table to the document
+            word.Table table = doc.Tables.Add(doc.Range(), 2, 8);
+            table.Borders.Enable = 1;
+
+            // Get the index of the selected row
+            int rowIndex = dataGridOplata.CurrentCell.RowIndex;
+
+            // Fill the table with data from the DataGridView
+            for (int i = 0; i < 8; i++)
+            {
+                if(i >= 0 && i <= 8)
+                {
+                    table.Cell(1, i + 1).Range.Text = dataGridOplata.Columns[i].HeaderText;
+                    table.Cell(2, i + 1).Range.Text = dataGridOplata[i, rowIndex].Value.ToString();
+                }
+                
+            }
+
+            // Save the document
+            string filename = "ExportedData.docx";
+            doc.SaveAs2(filename);
+
+            // Open the document
+            wordApp.Visible = true;
+            doc = wordApp.Documents.Open(filename);
+
+            // Close the Word application
+            //wordApp.Quit();
         }
+
+
         string currentOcod;
         private void dataGridOplata_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -852,11 +922,13 @@ namespace Ponomarev_N
             {
                 btn_acceptOplata.Enabled = true;
                 btn_cancelOplata.Enabled = true;
+                btn_documentOplata.Enabled = false;
             }
             else if (dataGridOplata.CurrentRow.Cells[14].Value.ToString() == "3" )
             {
                 btn_cancelOplata.Enabled = false;
                 btn_acceptOplata.Enabled = false;
+                btn_documentOplata.Enabled = true;
             }
             else
             {
@@ -886,6 +958,9 @@ namespace Ponomarev_N
             e.Handled = true;
         }
 
-        
+        private void cb_statusCod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
