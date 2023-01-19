@@ -43,6 +43,8 @@ namespace Ponomarev_N
 
         private void Main_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "ponomarev_NDataSet1.OplataAdapter". При необходимости она может быть перемещена или удалена.
+            this.oplataTableAdapter.Fill(this.ponomarev_NDataSet1.OplataAdapter);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "ponomarev_NDataSet11.ZapicAdapter". При необходимости она может быть перемещена или удалена.
             this.zapicAdapterTableAdapter.Fill(this.ponomarev_NDataSet11.ZapicAdapter);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "ponomarev_NDataSet1.pet". При необходимости она может быть перемещена или удалена.
@@ -88,7 +90,11 @@ namespace Ponomarev_N
             cb_ucod.Enabled = false;
             #endregion
 
-
+            #region Таблица - оплата
+            btn_documentOplata.Enabled = false;
+            btn_acceptOplata.Enabled = false;
+            btn_cancelOplata.Enabled = false;
+            #endregion
             dataBase.GetList("Sotr", dataGridUsers);
             dataBase.GetList("Client", dataGridClients);
             
@@ -545,6 +551,7 @@ namespace Ponomarev_N
                     cmd.ExecuteNonQuery();
                     sqlConnection.Close();
                     this.zapicAdapterTableAdapter.Fill(this.ponomarev_NDataSet11.ZapicAdapter);
+                    this.oplataTableAdapter.Fill(this.ponomarev_NDataSet1.OplataAdapter);
                 }
                 else
                 {
@@ -563,7 +570,26 @@ namespace Ponomarev_N
         }
         string currentZcod;
 
-      
+        private void dataGridZapic_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                currentZcod = dataGridZapic.CurrentRow.Cells[0].Value.ToString();
+                cb_cnam.SelectedValue = dataGridZapic.CurrentRow.Cells[10].Value.ToString();
+                cb_pcod.SelectedValue = dataGridZapic.CurrentRow.Cells[11].Value.ToString();
+                cb_ctel.Text = dataGridZapic.CurrentRow.Cells[4].Value.ToString();
+                cb_scod.SelectedValue = dataGridZapic.CurrentRow.Cells[12].Value.ToString();
+                //cmb_dcod.Text = dataGridZapic.CurrentRow.Cells[12].Value.ToString();
+                cb_statusCod.SelectedValue = dataGridZapic.CurrentRow.Cells[14].Value.ToString();
+                preCbSatusCod = dataGridZapic.CurrentRow.Cells[14].Value.ToString();
+                cb_bnam.SelectedValue = dataGridZapic.CurrentRow.Cells[15].Value.ToString();
+                cb_ucod.SelectedValue = dataGridZapic.CurrentRow.Cells[16].Value.ToString();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Выберите строку");
+            }
+        }
 
         #endregion
 
@@ -659,7 +685,6 @@ namespace Ponomarev_N
         }
         #endregion
 
-
         #region Таблица - болезни
         private void btn_addBolezn_Click(object sender, EventArgs e)
         {
@@ -748,6 +773,99 @@ namespace Ponomarev_N
         }
         #endregion
 
+        #region Таблица - оплата
+        private void btn_acceptOplata_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите подтвердить оплату?", "Подтвердить оплату", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+
+                if (Convert.ToString(cb_statusCod.SelectedValue) != preCbSatusCod)
+                {
+                    // Запрос на обновление введнных полей.
+                    string query = "Update Oplata set oplStatusCod=@oplStatusCod where ocod=@ocod";
+                    cmd = new SqlCommand(query, sqlConnection);
+                    // Передаем введнные данные.
+                    cmd.Parameters.AddWithValue("@ocod", Convert.ToString(currentOcod));
+                    cmd.Parameters.AddWithValue("@oplStatusCod", 2);
+                    cmd.Connection = sqlConnection;
+                    sqlConnection.Open();
+                    cmd.ExecuteNonQuery();
+                    sqlConnection.Close();
+                    this.zapicAdapterTableAdapter.Fill(this.ponomarev_NDataSet11.ZapicAdapter);
+                    this.oplataTableAdapter.Fill(this.ponomarev_NDataSet1.OplataAdapter);
+                }
+                else
+                {
+                    MessageBox.Show("Новый статус должен отличаться от предыдущего!");
+                    return;
+                }
+
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+        }
+        private void btn_cancelOplata_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите подтвердить оплату?", "Подтвердить оплату", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+
+                
+                    // Запрос на обновление введнных полей.
+                    string query = "Update Oplata set oplStatusCod=@oplStatusCod where ocod=@ocod";
+                    cmd = new SqlCommand(query, sqlConnection);
+                    // Передаем введнные данные.
+                    cmd.Parameters.AddWithValue("@ocod", Convert.ToString(currentOcod));
+                    cmd.Parameters.AddWithValue("@oplStatusCod", 3);
+                    cmd.Connection = sqlConnection;
+                    sqlConnection.Open();
+                    cmd.ExecuteNonQuery();
+                    sqlConnection.Close();
+                    this.zapicAdapterTableAdapter.Fill(this.ponomarev_NDataSet11.ZapicAdapter);
+                    this.oplataTableAdapter.Fill(this.ponomarev_NDataSet1.OplataAdapter);
+                
+               
+
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+        }
+        private void btn_documentOplata_Click(object sender, EventArgs e)
+        {
+
+        }
+        string currentOcod;
+        private void dataGridOplata_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            currentOcod = dataGridOplata.CurrentRow.Cells[0].Value.ToString();
+            if(dataGridOplata.CurrentRow.Cells[14].Value.ToString() == "2")
+            {
+                btn_documentOplata.Enabled = true;
+                btn_cancelOplata.Enabled = false;
+            }
+            else if(dataGridOplata.CurrentRow.Cells[14].Value.ToString() == "1" )
+            {
+                btn_acceptOplata.Enabled = true;
+                btn_cancelOplata.Enabled = true;
+            }
+            else if (dataGridOplata.CurrentRow.Cells[14].Value.ToString() == "3" )
+            {
+                btn_cancelOplata.Enabled = false;
+                btn_acceptOplata.Enabled = false;
+            }
+            else
+            {
+                btn_cancelOplata.Enabled = true;
+            }
+        }
+        
+        #endregion
+
 
         #endregion
 
@@ -768,30 +886,6 @@ namespace Ponomarev_N
             e.Handled = true;
         }
 
-        private void btn_cancelOplata_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridZapic_CellEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                currentZcod = dataGridZapic.CurrentRow.Cells[0].Value.ToString();
-                cb_cnam.SelectedValue = dataGridZapic.CurrentRow.Cells[10].Value.ToString();
-                cb_pcod.SelectedValue = dataGridZapic.CurrentRow.Cells[11].Value.ToString();
-                cb_ctel.Text = dataGridZapic.CurrentRow.Cells[4].Value.ToString();
-                cb_scod.SelectedValue = dataGridZapic.CurrentRow.Cells[12].Value.ToString();
-                //cmb_dcod.Text = dataGridZapic.CurrentRow.Cells[12].Value.ToString();
-                cb_statusCod.SelectedValue = dataGridZapic.CurrentRow.Cells[14].Value.ToString();
-                preCbSatusCod = dataGridZapic.CurrentRow.Cells[14].Value.ToString();
-                cb_bnam.SelectedValue = dataGridZapic.CurrentRow.Cells[15].Value.ToString();
-                cb_ucod.SelectedValue = dataGridZapic.CurrentRow.Cells[16].Value.ToString();
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Выберите строку");
-            }
-        }
+        
     }
 }

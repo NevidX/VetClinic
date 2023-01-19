@@ -56,6 +56,8 @@ namespace Ponomarev_N {
         
         private ZapicAdapterDataTable tableZapicAdapter;
         
+        private OplataAdapterDataTable tableOplataAdapter;
+        
         private global::System.Data.DataRelation relationFK_oplata_pet;
         
         private global::System.Data.DataRelation relationFK_oplata_sotr;
@@ -111,6 +113,14 @@ namespace Ponomarev_N {
         private global::System.Data.DataRelation relationFK_oplata_oplataStatus;
         
         private global::System.Data.DataRelation relationFK_zapic_uslugi;
+        
+        private global::System.Data.DataRelation relationFK_oplata_client2;
+        
+        private global::System.Data.DataRelation relationFK_pet_client4;
+        
+        private global::System.Data.DataRelation relationFK_zapic_client2;
+        
+        private global::System.Data.DataRelation relationFK_pet_client5;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -187,6 +197,9 @@ namespace Ponomarev_N {
                 }
                 if ((ds.Tables["ZapicAdapter"] != null)) {
                     base.Tables.Add(new ZapicAdapterDataTable(ds.Tables["ZapicAdapter"]));
+                }
+                if ((ds.Tables["OplataAdapter"] != null)) {
+                    base.Tables.Add(new OplataAdapterDataTable(ds.Tables["OplataAdapter"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -368,6 +381,16 @@ namespace Ponomarev_N {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public OplataAdapterDataTable OplataAdapter {
+            get {
+                return this.tableOplataAdapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -480,6 +503,9 @@ namespace Ponomarev_N {
                 }
                 if ((ds.Tables["ZapicAdapter"] != null)) {
                     base.Tables.Add(new ZapicAdapterDataTable(ds.Tables["ZapicAdapter"]));
+                }
+                if ((ds.Tables["OplataAdapter"] != null)) {
+                    base.Tables.Add(new OplataAdapterDataTable(ds.Tables["OplataAdapter"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -610,6 +636,12 @@ namespace Ponomarev_N {
                     this.tableZapicAdapter.InitVars();
                 }
             }
+            this.tableOplataAdapter = ((OplataAdapterDataTable)(base.Tables["OplataAdapter"]));
+            if ((initTable == true)) {
+                if ((this.tableOplataAdapter != null)) {
+                    this.tableOplataAdapter.InitVars();
+                }
+            }
             this.relationFK_oplata_pet = this.Relations["FK_oplata_pet"];
             this.relationFK_oplata_sotr = this.Relations["FK_oplata_sotr"];
             this.relationFK_oplata_uslugi = this.Relations["FK_oplata_uslugi"];
@@ -638,6 +670,10 @@ namespace Ponomarev_N {
             this.relationFK_oplata_client1 = this.Relations["FK_oplata_client1"];
             this.relationFK_oplata_oplataStatus = this.Relations["FK_oplata_oplataStatus"];
             this.relationFK_zapic_uslugi = this.Relations["FK_zapic_uslugi"];
+            this.relationFK_oplata_client2 = this.Relations["FK_oplata_client2"];
+            this.relationFK_pet_client4 = this.Relations["FK_pet_client4"];
+            this.relationFK_zapic_client2 = this.Relations["FK_zapic_client2"];
+            this.relationFK_pet_client5 = this.Relations["FK_pet_client5"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -680,6 +716,8 @@ namespace Ponomarev_N {
             base.Tables.Add(this.tableoplataStatus);
             this.tableZapicAdapter = new ZapicAdapterDataTable();
             base.Tables.Add(this.tableZapicAdapter);
+            this.tableOplataAdapter = new OplataAdapterDataTable();
+            base.Tables.Add(this.tableOplataAdapter);
             this.relationFK_oplata_pet = new global::System.Data.DataRelation("FK_oplata_pet", new global::System.Data.DataColumn[] {
                         this.tablepet.pcodColumn}, new global::System.Data.DataColumn[] {
                         this.tableoplata.pcodColumn}, false);
@@ -792,6 +830,22 @@ namespace Ponomarev_N {
                         this.tableuslugi.ucodColumn}, new global::System.Data.DataColumn[] {
                         this.tablezapic.ucodColumn}, false);
             this.Relations.Add(this.relationFK_zapic_uslugi);
+            this.relationFK_oplata_client2 = new global::System.Data.DataRelation("FK_oplata_client2", new global::System.Data.DataColumn[] {
+                        this.tableOplataAdapter.ccodColumn}, new global::System.Data.DataColumn[] {
+                        this.tableoplata.ccodColumn}, false);
+            this.Relations.Add(this.relationFK_oplata_client2);
+            this.relationFK_pet_client4 = new global::System.Data.DataRelation("FK_pet_client4", new global::System.Data.DataColumn[] {
+                        this.tableOplataAdapter.ccodColumn}, new global::System.Data.DataColumn[] {
+                        this.tablepet.ccodColumn}, false);
+            this.Relations.Add(this.relationFK_pet_client4);
+            this.relationFK_zapic_client2 = new global::System.Data.DataRelation("FK_zapic_client2", new global::System.Data.DataColumn[] {
+                        this.tableOplataAdapter.ccodColumn}, new global::System.Data.DataColumn[] {
+                        this.tablezapic.ccodColumn}, false);
+            this.Relations.Add(this.relationFK_zapic_client2);
+            this.relationFK_pet_client5 = new global::System.Data.DataRelation("FK_pet_client5", new global::System.Data.DataColumn[] {
+                        this.tableOplataAdapter.ccodColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePetListCb.ccodColumn}, false);
+            this.Relations.Add(this.relationFK_pet_client5);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -887,6 +941,12 @@ namespace Ponomarev_N {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeZapicAdapter() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeOplataAdapter() {
             return false;
         }
         
@@ -992,6 +1052,9 @@ namespace Ponomarev_N {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void ZapicAdapterRowChangeEventHandler(object sender, ZapicAdapterRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void OplataAdapterRowChangeEventHandler(object sender, OplataAdapterRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -6152,6 +6215,481 @@ namespace Ponomarev_N {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class OplataAdapterDataTable : global::System.Data.TypedTableBase<OplataAdapterRow> {
+            
+            private global::System.Data.DataColumn columnocod;
+            
+            private global::System.Data.DataColumn columncnam;
+            
+            private global::System.Data.DataColumn columncfam;
+            
+            private global::System.Data.DataColumn columncotch;
+            
+            private global::System.Data.DataColumn columnctel;
+            
+            private global::System.Data.DataColumn columnsnam;
+            
+            private global::System.Data.DataColumn columnunam;
+            
+            private global::System.Data.DataColumn columnucena;
+            
+            private global::System.Data.DataColumn columnodate;
+            
+            private global::System.Data.DataColumn columnoplStatusName;
+            
+            private global::System.Data.DataColumn columnpcod;
+            
+            private global::System.Data.DataColumn columnscod;
+            
+            private global::System.Data.DataColumn columnccod;
+            
+            private global::System.Data.DataColumn columnucod;
+            
+            private global::System.Data.DataColumn columnoplStatusCod;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public OplataAdapterDataTable() {
+                this.TableName = "OplataAdapter";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal OplataAdapterDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected OplataAdapterDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ocodColumn {
+                get {
+                    return this.columnocod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cnamColumn {
+                get {
+                    return this.columncnam;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cfamColumn {
+                get {
+                    return this.columncfam;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cotchColumn {
+                get {
+                    return this.columncotch;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ctelColumn {
+                get {
+                    return this.columnctel;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn snamColumn {
+                get {
+                    return this.columnsnam;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn unamColumn {
+                get {
+                    return this.columnunam;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ucenaColumn {
+                get {
+                    return this.columnucena;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn odateColumn {
+                get {
+                    return this.columnodate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn oplStatusNameColumn {
+                get {
+                    return this.columnoplStatusName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn pcodColumn {
+                get {
+                    return this.columnpcod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn scodColumn {
+                get {
+                    return this.columnscod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ccodColumn {
+                get {
+                    return this.columnccod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ucodColumn {
+                get {
+                    return this.columnucod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn oplStatusCodColumn {
+                get {
+                    return this.columnoplStatusCod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public OplataAdapterRow this[int index] {
+                get {
+                    return ((OplataAdapterRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event OplataAdapterRowChangeEventHandler OplataAdapterRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event OplataAdapterRowChangeEventHandler OplataAdapterRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event OplataAdapterRowChangeEventHandler OplataAdapterRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event OplataAdapterRowChangeEventHandler OplataAdapterRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddOplataAdapterRow(OplataAdapterRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public OplataAdapterRow AddOplataAdapterRow(int ocod, string cnam, string cfam, string cotch, string ctel, string snam, string unam, int ucena, System.DateTime odate, string oplStatusName, int pcod, int scod, int ccod, int ucod, int oplStatusCod) {
+                OplataAdapterRow rowOplataAdapterRow = ((OplataAdapterRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        ocod,
+                        cnam,
+                        cfam,
+                        cotch,
+                        ctel,
+                        snam,
+                        unam,
+                        ucena,
+                        odate,
+                        oplStatusName,
+                        pcod,
+                        scod,
+                        ccod,
+                        ucod,
+                        oplStatusCod};
+                rowOplataAdapterRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowOplataAdapterRow);
+                return rowOplataAdapterRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public OplataAdapterRow FindByocodpcodscodccoducodoplStatusCod(int ocod, int pcod, int scod, int ccod, int ucod, int oplStatusCod) {
+                return ((OplataAdapterRow)(this.Rows.Find(new object[] {
+                            ocod,
+                            pcod,
+                            scod,
+                            ccod,
+                            ucod,
+                            oplStatusCod})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                OplataAdapterDataTable cln = ((OplataAdapterDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new OplataAdapterDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnocod = base.Columns["ocod"];
+                this.columncnam = base.Columns["cnam"];
+                this.columncfam = base.Columns["cfam"];
+                this.columncotch = base.Columns["cotch"];
+                this.columnctel = base.Columns["ctel"];
+                this.columnsnam = base.Columns["snam"];
+                this.columnunam = base.Columns["unam"];
+                this.columnucena = base.Columns["ucena"];
+                this.columnodate = base.Columns["odate"];
+                this.columnoplStatusName = base.Columns["oplStatusName"];
+                this.columnpcod = base.Columns["pcod"];
+                this.columnscod = base.Columns["scod"];
+                this.columnccod = base.Columns["ccod"];
+                this.columnucod = base.Columns["ucod"];
+                this.columnoplStatusCod = base.Columns["oplStatusCod"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnocod = new global::System.Data.DataColumn("ocod", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnocod);
+                this.columncnam = new global::System.Data.DataColumn("cnam", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncnam);
+                this.columncfam = new global::System.Data.DataColumn("cfam", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncfam);
+                this.columncotch = new global::System.Data.DataColumn("cotch", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncotch);
+                this.columnctel = new global::System.Data.DataColumn("ctel", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnctel);
+                this.columnsnam = new global::System.Data.DataColumn("snam", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsnam);
+                this.columnunam = new global::System.Data.DataColumn("unam", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnunam);
+                this.columnucena = new global::System.Data.DataColumn("ucena", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnucena);
+                this.columnodate = new global::System.Data.DataColumn("odate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnodate);
+                this.columnoplStatusName = new global::System.Data.DataColumn("oplStatusName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnoplStatusName);
+                this.columnpcod = new global::System.Data.DataColumn("pcod", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpcod);
+                this.columnscod = new global::System.Data.DataColumn("scod", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnscod);
+                this.columnccod = new global::System.Data.DataColumn("ccod", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnccod);
+                this.columnucod = new global::System.Data.DataColumn("ucod", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnucod);
+                this.columnoplStatusCod = new global::System.Data.DataColumn("oplStatusCod", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnoplStatusCod);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnocod,
+                                this.columnpcod,
+                                this.columnscod,
+                                this.columnccod,
+                                this.columnucod,
+                                this.columnoplStatusCod}, true));
+                this.columnocod.AllowDBNull = false;
+                this.columncnam.MaxLength = 50;
+                this.columncfam.MaxLength = 50;
+                this.columncotch.MaxLength = 50;
+                this.columnctel.MaxLength = 50;
+                this.columnsnam.MaxLength = 50;
+                this.columnunam.MaxLength = 50;
+                this.columnoplStatusName.MaxLength = 50;
+                this.columnpcod.AllowDBNull = false;
+                this.columnscod.AllowDBNull = false;
+                this.columnccod.AllowDBNull = false;
+                this.columnucod.AllowDBNull = false;
+                this.columnoplStatusCod.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public OplataAdapterRow NewOplataAdapterRow() {
+                return ((OplataAdapterRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new OplataAdapterRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(OplataAdapterRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.OplataAdapterRowChanged != null)) {
+                    this.OplataAdapterRowChanged(this, new OplataAdapterRowChangeEvent(((OplataAdapterRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.OplataAdapterRowChanging != null)) {
+                    this.OplataAdapterRowChanging(this, new OplataAdapterRowChangeEvent(((OplataAdapterRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.OplataAdapterRowDeleted != null)) {
+                    this.OplataAdapterRowDeleted(this, new OplataAdapterRowChangeEvent(((OplataAdapterRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.OplataAdapterRowDeleting != null)) {
+                    this.OplataAdapterRowDeleting(this, new OplataAdapterRowChangeEvent(((OplataAdapterRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveOplataAdapterRow(OplataAdapterRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                Ponomarev_NDataSet ds = new Ponomarev_NDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "OplataAdapterDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class boleznRow : global::System.Data.DataRow {
@@ -6740,6 +7278,17 @@ namespace Ponomarev_N {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public OplataAdapterRow OplataAdapterRow {
+                get {
+                    return ((OplataAdapterRow)(this.GetParentRow(this.Table.ParentRelations["FK_oplata_client2"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_oplata_client2"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IspcodNull() {
                 return this.IsNull(this.tableoplata.pcodColumn);
             }
@@ -6963,6 +7512,17 @@ namespace Ponomarev_N {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_pet_client1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public OplataAdapterRow OplataAdapterRow {
+                get {
+                    return ((OplataAdapterRow)(this.GetParentRow(this.Table.ParentRelations["FK_pet_client4"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_pet_client4"]);
                 }
             }
             
@@ -7708,6 +8268,17 @@ namespace Ponomarev_N {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public OplataAdapterRow OplataAdapterRow {
+                get {
+                    return ((OplataAdapterRow)(this.GetParentRow(this.Table.ParentRelations["FK_zapic_client2"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_zapic_client2"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsccodNull() {
                 return this.IsNull(this.tablezapic.ccodColumn);
             }
@@ -8282,6 +8853,17 @@ namespace Ponomarev_N {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_pet_client3"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public OplataAdapterRow OplataAdapterRow {
+                get {
+                    return ((OplataAdapterRow)(this.GetParentRow(this.Table.ParentRelations["FK_pet_client5"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_pet_client5"]);
                 }
             }
             
@@ -8862,6 +9444,383 @@ namespace Ponomarev_N {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class OplataAdapterRow : global::System.Data.DataRow {
+            
+            private OplataAdapterDataTable tableOplataAdapter;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal OplataAdapterRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableOplataAdapter = ((OplataAdapterDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int ocod {
+                get {
+                    return ((int)(this[this.tableOplataAdapter.ocodColumn]));
+                }
+                set {
+                    this[this.tableOplataAdapter.ocodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cnam {
+                get {
+                    try {
+                        return ((string)(this[this.tableOplataAdapter.cnamColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'cnam\' в таблице \'OplataAdapter\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOplataAdapter.cnamColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cfam {
+                get {
+                    try {
+                        return ((string)(this[this.tableOplataAdapter.cfamColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'cfam\' в таблице \'OplataAdapter\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOplataAdapter.cfamColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cotch {
+                get {
+                    try {
+                        return ((string)(this[this.tableOplataAdapter.cotchColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'cotch\' в таблице \'OplataAdapter\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOplataAdapter.cotchColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string ctel {
+                get {
+                    try {
+                        return ((string)(this[this.tableOplataAdapter.ctelColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ctel\' в таблице \'OplataAdapter\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOplataAdapter.ctelColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string snam {
+                get {
+                    try {
+                        return ((string)(this[this.tableOplataAdapter.snamColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'snam\' в таблице \'OplataAdapter\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOplataAdapter.snamColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string unam {
+                get {
+                    try {
+                        return ((string)(this[this.tableOplataAdapter.unamColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'unam\' в таблице \'OplataAdapter\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOplataAdapter.unamColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int ucena {
+                get {
+                    try {
+                        return ((int)(this[this.tableOplataAdapter.ucenaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ucena\' в таблице \'OplataAdapter\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOplataAdapter.ucenaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime odate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableOplataAdapter.odateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'odate\' в таблице \'OplataAdapter\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOplataAdapter.odateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string oplStatusName {
+                get {
+                    try {
+                        return ((string)(this[this.tableOplataAdapter.oplStatusNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'oplStatusName\' в таблице \'OplataAdapter\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOplataAdapter.oplStatusNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int pcod {
+                get {
+                    return ((int)(this[this.tableOplataAdapter.pcodColumn]));
+                }
+                set {
+                    this[this.tableOplataAdapter.pcodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int scod {
+                get {
+                    return ((int)(this[this.tableOplataAdapter.scodColumn]));
+                }
+                set {
+                    this[this.tableOplataAdapter.scodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int ccod {
+                get {
+                    return ((int)(this[this.tableOplataAdapter.ccodColumn]));
+                }
+                set {
+                    this[this.tableOplataAdapter.ccodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int ucod {
+                get {
+                    return ((int)(this[this.tableOplataAdapter.ucodColumn]));
+                }
+                set {
+                    this[this.tableOplataAdapter.ucodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int oplStatusCod {
+                get {
+                    return ((int)(this[this.tableOplataAdapter.oplStatusCodColumn]));
+                }
+                set {
+                    this[this.tableOplataAdapter.oplStatusCodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IscnamNull() {
+                return this.IsNull(this.tableOplataAdapter.cnamColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetcnamNull() {
+                this[this.tableOplataAdapter.cnamColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IscfamNull() {
+                return this.IsNull(this.tableOplataAdapter.cfamColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetcfamNull() {
+                this[this.tableOplataAdapter.cfamColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IscotchNull() {
+                return this.IsNull(this.tableOplataAdapter.cotchColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetcotchNull() {
+                this[this.tableOplataAdapter.cotchColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsctelNull() {
+                return this.IsNull(this.tableOplataAdapter.ctelColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetctelNull() {
+                this[this.tableOplataAdapter.ctelColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IssnamNull() {
+                return this.IsNull(this.tableOplataAdapter.snamColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetsnamNull() {
+                this[this.tableOplataAdapter.snamColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsunamNull() {
+                return this.IsNull(this.tableOplataAdapter.unamColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetunamNull() {
+                this[this.tableOplataAdapter.unamColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsucenaNull() {
+                return this.IsNull(this.tableOplataAdapter.ucenaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetucenaNull() {
+                this[this.tableOplataAdapter.ucenaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsodateNull() {
+                return this.IsNull(this.tableOplataAdapter.odateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetodateNull() {
+                this[this.tableOplataAdapter.odateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsoplStatusNameNull() {
+                return this.IsNull(this.tableOplataAdapter.oplStatusNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetoplStatusNameNull() {
+                this[this.tableOplataAdapter.oplStatusNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public oplataRow[] GetoplataRows() {
+                if ((this.Table.ChildRelations["FK_oplata_client2"] == null)) {
+                    return new oplataRow[0];
+                }
+                else {
+                    return ((oplataRow[])(base.GetChildRows(this.Table.ChildRelations["FK_oplata_client2"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public petRow[] GetpetRows() {
+                if ((this.Table.ChildRelations["FK_pet_client4"] == null)) {
+                    return new petRow[0];
+                }
+                else {
+                    return ((petRow[])(base.GetChildRows(this.Table.ChildRelations["FK_pet_client4"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public zapicRow[] GetzapicRows() {
+                if ((this.Table.ChildRelations["FK_zapic_client2"] == null)) {
+                    return new zapicRow[0];
+                }
+                else {
+                    return ((zapicRow[])(base.GetChildRows(this.Table.ChildRelations["FK_zapic_client2"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PetListCbRow[] GetPetListCbRows() {
+                if ((this.Table.ChildRelations["FK_pet_client5"] == null)) {
+                    return new PetListCbRow[0];
+                }
+                else {
+                    return ((PetListCbRow[])(base.GetChildRows(this.Table.ChildRelations["FK_pet_client5"])));
+                }
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -9391,6 +10350,40 @@ namespace Ponomarev_N {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ZapicAdapterRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class OplataAdapterRowChangeEvent : global::System.EventArgs {
+            
+            private OplataAdapterRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public OplataAdapterRowChangeEvent(OplataAdapterRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public OplataAdapterRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -14569,6 +15562,193 @@ FROM            sotr INNER JOIN
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class OplataTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public OplataTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "OplataAdapter";
+            tableMapping.ColumnMappings.Add("ocod", "ocod");
+            tableMapping.ColumnMappings.Add("cnam", "cnam");
+            tableMapping.ColumnMappings.Add("cfam", "cfam");
+            tableMapping.ColumnMappings.Add("cotch", "cotch");
+            tableMapping.ColumnMappings.Add("ctel", "ctel");
+            tableMapping.ColumnMappings.Add("snam", "snam");
+            tableMapping.ColumnMappings.Add("unam", "unam");
+            tableMapping.ColumnMappings.Add("ucena", "ucena");
+            tableMapping.ColumnMappings.Add("odate", "odate");
+            tableMapping.ColumnMappings.Add("oplStatusName", "oplStatusName");
+            tableMapping.ColumnMappings.Add("pcod", "pcod");
+            tableMapping.ColumnMappings.Add("scod", "scod");
+            tableMapping.ColumnMappings.Add("ccod", "ccod");
+            tableMapping.ColumnMappings.Add("ucod", "ucod");
+            tableMapping.ColumnMappings.Add("oplStatusCod", "oplStatusCod");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Ponomarev_N.Properties.Settings.Default.Ponomarev_NConnection;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT        oplata.ocod, client.cnam, client.cfam, client.cotch, client.ctel, sotr.snam, uslugi.unam, uslugi.ucena, oplata.odate, oplataStatus.oplStatusName, pet.pcod, sotr.scod, client.ccod, uslugi.ucod, oplataStatus.oplStatusCod
+FROM            client INNER JOIN
+                         pet ON client.ccod = pet.ccod INNER JOIN
+                         oplata ON client.ccod = oplata.ccod AND pet.pcod = oplata.pcod INNER JOIN
+                         oplataStatus ON oplata.oplStatusCod = oplataStatus.oplStatusCod INNER JOIN
+                         sotr ON oplata.scod = sotr.scod INNER JOIN
+                         uslugi ON oplata.ucod = uslugi.ucod";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(Ponomarev_NDataSet.OplataAdapterDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual Ponomarev_NDataSet.OplataAdapterDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            Ponomarev_NDataSet.OplataAdapterDataTable dataTable = new Ponomarev_NDataSet.OplataAdapterDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -14909,48 +16089,12 @@ FROM            sotr INNER JOIN
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._boleznTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.bolezn.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._oplataStatusTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.oplataStatus.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._boleznTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._petTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.pet.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._petTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._sotrTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.sotr.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._sotrTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._uslugiTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.uslugi.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._uslugiTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._statusTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.status.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._statusTableAdapter.Update(updatedRows));
+                    result = (result + this._oplataStatusTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -14963,21 +16107,48 @@ FROM            sotr INNER JOIN
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._oplataStatusTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.oplataStatus.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._statusTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.status.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._oplataStatusTableAdapter.Update(updatedRows));
+                    result = (result + this._statusTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._oplataTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.oplata.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._boleznTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.bolezn.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._oplataTableAdapter.Update(updatedRows));
+                    result = (result + this._boleznTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._uslugiTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.uslugi.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._uslugiTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._sotrTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.sotr.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._sotrTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._petTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.pet.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._petTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -14987,6 +16158,15 @@ FROM            sotr INNER JOIN
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._zapicTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._oplataTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.oplata.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._oplataTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -15016,43 +16196,11 @@ FROM            sotr INNER JOIN
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._boleznTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.bolezn.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._oplataStatusTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.oplataStatus.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._boleznTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._petTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.pet.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._petTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._sotrTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.sotr.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._sotrTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._uslugiTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.uslugi.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._uslugiTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._statusTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.status.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._statusTableAdapter.Update(addedRows));
+                    result = (result + this._oplataStatusTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -15064,19 +16212,43 @@ FROM            sotr INNER JOIN
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._oplataStatusTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.oplataStatus.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._statusTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.status.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._oplataStatusTableAdapter.Update(addedRows));
+                    result = (result + this._statusTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._oplataTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.oplata.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._boleznTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.bolezn.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._oplataTableAdapter.Update(addedRows));
+                    result = (result + this._boleznTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._uslugiTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.uslugi.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._uslugiTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._sotrTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.sotr.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._sotrTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._petTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.pet.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._petTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -15085,6 +16257,14 @@ FROM            sotr INNER JOIN
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._zapicTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._oplataTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.oplata.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._oplataTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -15098,14 +16278,6 @@ FROM            sotr INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(Ponomarev_NDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._zapicTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.zapic.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._zapicTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._oplataTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.oplata.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -15114,43 +16286,11 @@ FROM            sotr INNER JOIN
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._oplataStatusTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.oplataStatus.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._zapicTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.zapic.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._oplataStatusTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._petListCbTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.PetListCb.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._petListCbTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._statusTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.status.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._statusTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._uslugiTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.uslugi.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._uslugiTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._sotrTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.sotr.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._sotrTableAdapter.Update(deletedRows));
+                    result = (result + this._zapicTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -15162,11 +16302,51 @@ FROM            sotr INNER JOIN
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._sotrTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.sotr.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._sotrTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._uslugiTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.uslugi.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._uslugiTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._boleznTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.bolezn.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._boleznTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._statusTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.status.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._statusTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._petListCbTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.PetListCb.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._petListCbTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._oplataStatusTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.oplataStatus.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._oplataStatusTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
