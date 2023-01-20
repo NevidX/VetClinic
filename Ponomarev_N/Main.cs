@@ -14,13 +14,12 @@ using word = Microsoft.Office.Interop.Word;
 namespace Ponomarev_N
 {
     /*TODO: Нужно сделать: 
-     *  
-     * 
-     * - поиск в форме запись и форме оплата
-     * 
-     * форму, где будет статистика с диаграммой болезней.
-    - сделать роли
-    - сделать разные иконки на формах 
+     * Добавить поиск в оставшиеся формы
+     * Доработать интерфейс в форме питомец
+     * Пересмотреть работу формы клиенты, сделать, чтоб нельзя было добавлять без питомца.
+     * Сделать валидацию пароля, при авторизации и при создании пользователя.
+     * поиск в форме запись и форме оплата
+     * сделать роли
     */
     public partial class Main : Form
     {
@@ -128,6 +127,10 @@ namespace Ponomarev_N
             #endregion
             dataBase.GetList("Sotr", dataGridUsers);
             dataBase.GetList("Client", dataGridClients);
+            dataBase.GetList("Uslugi", dataGridUslugi);
+            dataBase.GetList("Sotr", dataGridVrachi);
+            dataBase.GetListAdapter("SELECT  sotr.snam, sotr.sfam, sotr.sotch, sotr.stel, dolg.dnam, sotr.snam + ' ' + sotr.sfam + ' ' + sotr.sotch as sfio  FROM sotr INNER JOIN dolg ON sotr.dcod = dolg.dcod GROUP BY sotr.snam, sotr.sfam, sotr.sotch, sotr.stel, dolg.dnam, dolg.dcod HAVING(dolg.dcod = 1)", "Sotr", dataGridVrachi);
+
             
 
 
@@ -430,6 +433,13 @@ namespace Ponomarev_N
         }
         #endregion
 
+        #region Таблица - врачи
+        private void txt_searchVrachi_TextChanged(object sender, EventArgs e)
+        {
+            (dataGridVrachi.DataSource as DataTable).DefaultView.RowFilter = $"[sfio] LIKE '%{txt_searchVrachi.Text}%'";
+        }
+        #endregion
+
         #region  Таблица - петомцы
 
         private void btn_editPet_Click(object sender, EventArgs e)
@@ -447,17 +457,16 @@ namespace Ponomarev_N
 
         private void cb_cnam_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cb_pcod.Enabled = true;
-            cb_ctel.Enabled = true;
-            cb_scod.Enabled = true;
-            cmb_dcod.Enabled = true;
-            dtp_zdate.Enabled = true;
-            cb_statusCod.Enabled = true;
-            btn_editZapic.Enabled = true;
-            cb_bnam.Enabled = true;
-            btn_addZapic.Enabled = true;
-            btn_delZapic.Enabled = true;
-            cb_ucod.Enabled = true;
+            
+
+            currentPcod = Convert.ToString(cb_pcod.SelectedValue);
+
+
+
+        }
+
+        private void cb_cnam_SelectionChangeCommitted(object sender, EventArgs e)
+        {
             // Извлекаем текущйи код клиента
             currentCcod = Convert.ToString(cb_cnam.SelectedValue);
 
@@ -480,19 +489,27 @@ namespace Ponomarev_N
                     }
                 }
             }
-            try
-            {
-                petListCbTableAdapter.Fill(this.ponomarev_NDataSet7.PetListCb, Convert.ToInt32(currentCcod)); // Заполняем combobox питомец, исходя из выбранного клиента.
-                currentPcod = Convert.ToString(cb_pcod.SelectedValue);
-            }
-            catch (FormatException)
-            {
-                Application.Exit();
-            }
 
+            petListCbTableAdapter.Fill(this.ponomarev_NDataSet7.PetListCb, Convert.ToInt32(currentCcod)); // Заполняем combobox питомец, исходя из выбранного клиента.
+            currentPcod = Convert.ToString(cb_pcod.SelectedValue);
         }
-
-
+        private void btn_clearZapic_Click_1(object sender, EventArgs e)
+        {
+            method.ClearTextBoxes(tabPage5);
+            cb_cnam.Enabled = true;
+            cb_pcod.Enabled = true;
+            cb_ctel.Enabled = true;
+            cb_scod.Enabled = true;
+            cmb_dcod.Enabled = true;
+            dtp_zdate.Enabled = true;
+            cb_statusCod.Enabled = false;
+            cb_statusCod.SelectedValue = 1;
+            btn_editZapic.Enabled = false;
+            cb_bnam.Enabled = true;
+            btn_addZapic.Enabled = true;
+            btn_delZapic.Enabled = false;
+            cb_ucod.Enabled = true;
+        }
 
         string currentDcod;
         private void cb_scod_SelectedIndexChanged(object sender, EventArgs e)
@@ -501,15 +518,14 @@ namespace Ponomarev_N
             currentDcod = Convert.ToString(cb_scod.SelectedValue);
 
 
-            try
-            {
-                dolgVrachTableAdapter.Fill(this.ponomarev_NDataSet12.DolgVrach, Convert.ToInt32(currentDcod)); 
-            }
-            catch (FormatException)
-            {
-                Application.Exit();
-            }
+
         }
+        private void cb_scod_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            currentDcod = Convert.ToString(cb_scod.SelectedValue);
+            dolgVrachTableAdapter.Fill(this.ponomarev_NDataSet12.DolgVrach, Convert.ToInt32(currentDcod));
+        }
+        
 
         private void btn_infoPet_Click(object sender, EventArgs e)
         {
@@ -519,25 +535,34 @@ namespace Ponomarev_N
         }
         private void btn_addZapic_Click(object sender, EventArgs e)
         {
-            // Иницилизируем методы, проверяющие правильность значений
-            // создаем запрос insert для того, что бы занести новую инфо в таблицу.
-            string query = "Insert into Zapic (ccod,pcod,scod,zdate,statusCod,bcod,dcod,ucod) values (@ccod,@pcod,@scod,@zdate,@statusCod,@bcod,@dcod,@ucod)";
-            cmd = new SqlCommand(query, sqlConnection);
-            // Берем введеные пользователем параметры и передаем их.
-            cmd.Parameters.AddWithValue("@ccod", Convert.ToString(cb_cnam.SelectedValue));
-            cmd.Parameters.AddWithValue("@pcod", Convert.ToInt32(currentPcod));
-            cmd.Parameters.AddWithValue("@scod", Convert.ToString(cb_scod.SelectedValue));
-            cmd.Parameters.AddWithValue("@zdate", dtp_zdate.Value);
-            cmd.Parameters.AddWithValue("@statusCod", Convert.ToString(cb_statusCod.SelectedValue));
-            cmd.Parameters.AddWithValue("@bcod", Convert.ToString(cb_bnam.SelectedValue));
-            cmd.Parameters.AddWithValue("@dcod", Convert.ToString(cmb_dcod.SelectedValue));
-            cmd.Parameters.AddWithValue("@ucod", Convert.ToString(cb_ucod.SelectedValue));
-            cmd.Connection = sqlConnection;
-            sqlConnection.Open();
-            cmd.ExecuteNonQuery();
-            sqlConnection.Close();
-            // Обновляем таблицу
-            this.zapicAdapterTableAdapter.Fill(this.ponomarev_NDataSet11.ZapicAdapter);
+            if (!method.ValidateEmptyValues(tabPage5))
+            {
+                return;
+
+            }
+            else
+            {
+                // Иницилизируем методы, проверяющие правильность значений
+                // создаем запрос insert для того, что бы занести новую инфо в таблицу.
+                string query = "Insert into Zapic (ccod,pcod,scod,zdate,statusCod,bcod,dcod,ucod) values (@ccod,@pcod,@scod,@zdate,@statusCod,@bcod,@dcod,@ucod)";
+                cmd = new SqlCommand(query, sqlConnection);
+                // Берем введеные пользователем параметры и передаем их.
+                cmd.Parameters.AddWithValue("@ccod", Convert.ToString(cb_cnam.SelectedValue));
+                cmd.Parameters.AddWithValue("@pcod", Convert.ToInt32(currentPcod));
+                cmd.Parameters.AddWithValue("@scod", Convert.ToString(cb_scod.SelectedValue));
+                cmd.Parameters.AddWithValue("@zdate", dtp_zdate.Value);
+                cmd.Parameters.AddWithValue("@statusCod", Convert.ToString(cb_statusCod.SelectedValue));
+                cmd.Parameters.AddWithValue("@bcod", Convert.ToString(cb_bnam.SelectedValue));
+                cmd.Parameters.AddWithValue("@dcod", Convert.ToString(cmb_dcod.SelectedValue));
+                cmd.Parameters.AddWithValue("@ucod", Convert.ToString(cb_ucod.SelectedValue));
+                cmd.Connection = sqlConnection;
+                sqlConnection.Open();
+                cmd.ExecuteNonQuery();
+                sqlConnection.Close();
+                // Обновляем таблицу
+                this.zapicAdapterTableAdapter.Fill(this.ponomarev_NDataSet11.ZapicAdapter);
+            }
+            
 
         }
 
@@ -606,15 +631,67 @@ namespace Ponomarev_N
         {
             try
             {
-                currentZcod = dataGridZapic.CurrentRow.Cells[0].Value.ToString();
-                cb_cnam.SelectedValue = dataGridZapic.CurrentRow.Cells[10].Value.ToString();
-                cb_pcod.SelectedValue = dataGridZapic.CurrentRow.Cells[11].Value.ToString();
-                cb_ctel.Text = dataGridZapic.CurrentRow.Cells[4].Value.ToString();
-                cb_scod.SelectedValue = dataGridZapic.CurrentRow.Cells[12].Value.ToString();
-                cb_statusCod.SelectedValue = dataGridZapic.CurrentRow.Cells[14].Value.ToString();
-                preCbSatusCod = dataGridZapic.CurrentRow.Cells[14].Value.ToString();
-                cb_bnam.SelectedValue = dataGridZapic.CurrentRow.Cells[15].Value.ToString();
-                cb_ucod.SelectedValue = dataGridZapic.CurrentRow.Cells[16].Value.ToString();
+                if(dataGridZapic.CurrentRow.Cells[14].Value.ToString() == "2" || dataGridZapic.CurrentRow.Cells[14].Value.ToString() == "3")
+                {
+                    // Блокируем элементы, если статус записи готово или отказ
+                    cb_cnam.Enabled = false;
+                    cb_pcod.Enabled = false;
+                    cb_ctel.Enabled = false;
+                    cb_scod.Enabled = false;
+                    cmb_dcod.Enabled = false;
+                    dtp_zdate.Enabled = false;
+                    cb_statusCod.Enabled = false;
+                    btn_editZapic.Enabled = false;
+                    cb_bnam.Enabled = false;
+                    btn_addZapic.Enabled = false;
+                    btn_delZapic.Enabled = true;
+                    cb_ucod.Enabled = false;
+
+                    // заполняем combobox элементы, для наглядности информации
+                    currentZcod = dataGridZapic.CurrentRow.Cells[0].Value.ToString();
+                    cb_cnam.SelectedValue = dataGridZapic.CurrentRow.Cells[10].Value.ToString();
+                    cb_pcod.SelectedValue = dataGridZapic.CurrentRow.Cells[11].Value.ToString();
+                    cb_ctel.Text = dataGridZapic.CurrentRow.Cells[4].Value.ToString();
+                    cb_scod.SelectedValue = dataGridZapic.CurrentRow.Cells[12].Value.ToString();
+                    cb_statusCod.SelectedValue = dataGridZapic.CurrentRow.Cells[14].Value.ToString();
+                    preCbSatusCod = dataGridZapic.CurrentRow.Cells[14].Value.ToString();
+                    cb_bnam.SelectedValue = dataGridZapic.CurrentRow.Cells[15].Value.ToString();
+                    cb_ucod.SelectedValue = dataGridZapic.CurrentRow.Cells[16].Value.ToString();
+
+                    
+                }
+                else
+                {
+                    // Блокируем элементы
+                    cb_cnam.Enabled = false;
+                    cb_pcod.Enabled = false;
+                    cb_ctel.Enabled = false;
+                    cb_scod.Enabled = false;
+                    cmb_dcod.Enabled = false;
+                    dtp_zdate.Enabled = false;
+                    cb_statusCod.Enabled = true;
+                    btn_editZapic.Enabled = true;
+                    cb_bnam.Enabled = false;
+                    btn_addZapic.Enabled = false;
+                    btn_delZapic.Enabled = false;
+                    cb_ucod.Enabled = false;
+
+                    // заполняем combobox элементы, для наглядности информации
+                    currentZcod = dataGridZapic.CurrentRow.Cells[0].Value.ToString();
+                    cb_cnam.SelectedValue = dataGridZapic.CurrentRow.Cells[10].Value.ToString();
+                    cb_pcod.SelectedValue = dataGridZapic.CurrentRow.Cells[11].Value.ToString();
+                    cb_ctel.Text = dataGridZapic.CurrentRow.Cells[4].Value.ToString();
+                    cb_scod.SelectedValue = dataGridZapic.CurrentRow.Cells[12].Value.ToString();
+                    cb_statusCod.SelectedValue = dataGridZapic.CurrentRow.Cells[14].Value.ToString();
+                    preCbSatusCod = dataGridZapic.CurrentRow.Cells[14].Value.ToString();
+                    cb_bnam.SelectedValue = dataGridZapic.CurrentRow.Cells[15].Value.ToString();
+                    cb_ucod.SelectedValue = dataGridZapic.CurrentRow.Cells[16].Value.ToString();
+                }
+                
+               
+                // обновление combobox при выборе именно из dataGridView
+                petListCbTableAdapter.Fill(this.ponomarev_NDataSet7.PetListCb, Convert.ToInt32(currentCcod));
+                dolgVrachTableAdapter.Fill(this.ponomarev_NDataSet12.DolgVrach, Convert.ToInt32(currentDcod));
             }
             catch (FormatException)
             {
@@ -625,7 +702,12 @@ namespace Ponomarev_N
         #endregion
 
         #region Таблица - услуги
+        // Поиск по услугам
+        private void txt_searchUslugi_TextChanged(object sender, EventArgs e)
+        {
 
+            (dataGridUslugi.DataSource as DataTable).DefaultView.RowFilter = $"[unam] LIKE '%{txt_searchUslugi.Text}%'";
+        }
         private void btn_addUslugi_Click(object sender, EventArgs e)
         {
             // Иницилизируем методы, проверяющие правильность значений
@@ -879,16 +961,17 @@ namespace Ponomarev_N
             word.Document doc = wordApp.Documents.Add();
 
             // Add a table to the document
-            word.Table table = doc.Tables.Add(doc.Range(), 2, 8);
+            word.Table table = doc.Tables.Add(doc.Range(), 2, 9);
             table.Borders.Enable = 1;
 
             // Get the index of the selected row
             int rowIndex = dataGridOplata.CurrentCell.RowIndex;
+            table.Range.Font.Size = 9;
 
             // Fill the table with data from the DataGridView
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 9; i++)
             {
-                if(i >= 0 && i <= 8)
+                if(i >= 0 && i <= 9)
                 {
                     table.Cell(1, i + 1).Range.Text = dataGridOplata.Columns[i].HeaderText;
                     table.Cell(2, i + 1).Range.Text = dataGridOplata[i, rowIndex].Value.ToString();
@@ -962,5 +1045,7 @@ namespace Ponomarev_N
         {
 
         }
+
+        
     }
 }

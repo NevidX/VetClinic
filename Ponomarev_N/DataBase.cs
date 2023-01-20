@@ -55,5 +55,14 @@ namespace Ponomarev_N
             dataGridView.DataSource = dataSet.Tables[$"{tableName}"];
             closeConnection();
         }
+        public void GetListAdapter(string query,string tableName,DataGridView dataGridView)
+        {
+            sqlDataAdapter = new SqlDataAdapter(query, sqlConnection);
+            dataSet = new DataSet();
+            openConnection();
+            sqlDataAdapter.Fill(dataSet, tableName);
+            dataGridView.DataSource = dataSet.Tables[tableName];
+            closeConnection();
+        }
     }
 }

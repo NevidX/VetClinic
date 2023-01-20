@@ -203,7 +203,7 @@ namespace Ponomarev_N
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::Ponomarev_N.Properties.Resources.user;
+            this.pictureBox2.Image = global::Ponomarev_N.Properties.Resources.pawprint;
             this.pictureBox2.Location = new System.Drawing.Point(12, 29);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(54, 66);

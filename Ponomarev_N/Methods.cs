@@ -65,7 +65,7 @@ namespace Ponomarev_N
                         TextBox textBox = (TextBox)control;
                         if (string.IsNullOrEmpty(textBox.Text))
                         {
-                            MessageBox.Show("Заполнены не все значения!");
+                            MessageBox.Show("Заполнены не все значения или они некорректны!");
                             return false;
                         }
                     }
@@ -74,7 +74,7 @@ namespace Ponomarev_N
                         ComboBox comboBox = (ComboBox)control;
                         if (comboBox.SelectedIndex == -1)
                         {
-                            MessageBox.Show("Заполнены не все значения!");
+                            MessageBox.Show("Заполнены не все значения или они некорректны!");
                             return false;
                         }
                     }

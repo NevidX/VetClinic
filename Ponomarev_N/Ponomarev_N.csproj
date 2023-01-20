@@ -156,5 +156,26 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rating.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-clipboard-1647909.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-medical-history-807011.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-payment-method-1019709.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pawprint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifier.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
