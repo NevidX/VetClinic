@@ -37,7 +37,6 @@ G:\VeterenarClinic\Ponomarev_N\Ponomarev_N\obj\Debug\Ponomarev_N.pdb
 D:\VetClinicProject\Ponomarev_N\bin\Debug\Ponomarev_N.exe.config
 D:\VetClinicProject\Ponomarev_N\bin\Debug\Ponomarev_N.exe
 D:\VetClinicProject\Ponomarev_N\bin\Debug\Ponomarev_N.pdb
-D:\VetClinicProject\Ponomarev_N\obj\Debug\Ponomarev_N.csproj.AssemblyReference.cache
 D:\VetClinicProject\Ponomarev_N\obj\Debug\Ponomarev_N.log_in.resources
 D:\VetClinicProject\Ponomarev_N\obj\Debug\Ponomarev_N.Main.resources
 D:\VetClinicProject\Ponomarev_N\obj\Debug\Ponomarev_N.petomec.resources
@@ -47,3 +46,4 @@ D:\VetClinicProject\Ponomarev_N\obj\Debug\Ponomarev_N.csproj.CoreCompileInputs.c
 D:\VetClinicProject\Ponomarev_N\obj\Debug\Ponomarev_N.exe
 D:\VetClinicProject\Ponomarev_N\obj\Debug\Ponomarev_N.pdb
 D:\VetClinicProject\Ponomarev_N\obj\Debug\Ponomarev_N.csproj.ResolveComReference.cache
+D:\VetClinicProject\Ponomarev_N\obj\Debug\Ponomarev_N.csproj.AssemblyReference.cache

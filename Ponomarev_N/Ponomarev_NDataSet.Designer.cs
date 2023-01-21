@@ -2677,6 +2677,8 @@ namespace Ponomarev_N {
             
             private global::System.Data.DataColumn columnspass;
             
+            private global::System.Data.DataColumn columnsotrFIO;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public sotrDataTable() {
@@ -2776,6 +2778,14 @@ namespace Ponomarev_N {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn sotrFIOColumn {
+                get {
+                    return this.columnsotrFIO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2811,7 +2821,7 @@ namespace Ponomarev_N {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sotrRow AddsotrRow(int scod, string snam, string sfam, string sotch, string stel, dolgRow parentdolgRowByFK_sotr_dolg, string slogin, string spass) {
+            public sotrRow AddsotrRow(int scod, string snam, string sfam, string sotch, string stel, dolgRow parentdolgRowByFK_sotr_dolg, string slogin, string spass, string sotrFIO) {
                 sotrRow rowsotrRow = ((sotrRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         scod,
@@ -2821,7 +2831,8 @@ namespace Ponomarev_N {
                         stel,
                         null,
                         slogin,
-                        spass};
+                        spass,
+                        sotrFIO};
                 if ((parentdolgRowByFK_sotr_dolg != null)) {
                     columnValuesArray[5] = parentdolgRowByFK_sotr_dolg[0];
                 }
@@ -2862,6 +2873,7 @@ namespace Ponomarev_N {
                 this.columndcod = base.Columns["dcod"];
                 this.columnslogin = base.Columns["slogin"];
                 this.columnspass = base.Columns["spass"];
+                this.columnsotrFIO = base.Columns["sotrFIO"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2883,6 +2895,8 @@ namespace Ponomarev_N {
                 base.Columns.Add(this.columnslogin);
                 this.columnspass = new global::System.Data.DataColumn("spass", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnspass);
+                this.columnsotrFIO = new global::System.Data.DataColumn("sotrFIO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsotrFIO);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnscod}, true));
                 this.columnscod.AllowDBNull = false;
@@ -2893,6 +2907,8 @@ namespace Ponomarev_N {
                 this.columnstel.MaxLength = 50;
                 this.columnslogin.MaxLength = 50;
                 this.columnspass.MaxLength = 50;
+                this.columnsotrFIO.ReadOnly = true;
+                this.columnsotrFIO.MaxLength = 152;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7760,6 +7776,22 @@ namespace Ponomarev_N {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string sotrFIO {
+                get {
+                    try {
+                        return ((string)(this[this.tablesotr.sotrFIOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'sotrFIO\' в таблице \'sotr\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesotr.sotrFIOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public dolgRow dolgRow {
                 get {
                     return ((dolgRow)(this.GetParentRow(this.Table.ParentRelations["FK_sotr_dolg"])));
@@ -7862,6 +7894,18 @@ namespace Ponomarev_N {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetspassNull() {
                 this[this.tablesotr.spassColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IssotrFIONull() {
+                return this.IsNull(this.tablesotr.sotrFIOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetsotrFIONull() {
+                this[this.tablesotr.sotrFIOColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10541,7 +10585,7 @@ namespace Ponomarev_N.Ponomarev_NDataSetTableAdapters {
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[bolezn] ([bcod], [bnam], [bcount]) VALUES (@bcod, @bnam, @bcou" +
-                "nt);\r\nSELECT bcod, bnam, bcount FROM bolezn WHERE (bcod = @bcod)";
+                "nt);\nSELECT bcod, bnam, bcount FROM bolezn WHERE (bcod = @bcod)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bcod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bnam", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bnam", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -10906,8 +10950,8 @@ SELECT bcod, bnam, bcount FROM bolezn WHERE (bcod = @bcod)";
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[client] ([ccod], [cnam], [cfam], [cotch], [ctel]) VALUES (@cco" +
-                "d, @cnam, @cfam, @cotch, @ctel);\r\nSELECT ccod, cnam, cfam, cotch, ctel FROM clie" +
-                "nt WHERE (ccod = @ccod)";
+                "d, @cnam, @cfam, @cotch, @ctel);\nSELECT ccod, cnam, cfam, cotch, ctel FROM clien" +
+                "t WHERE (ccod = @ccod)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ccod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ccod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cnam", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cnam", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11327,8 +11371,8 @@ SELECT ccod, cnam, cfam, cotch, ctel FROM client WHERE (ccod = @ccod)";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dnam", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dnam", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[dolg] ([dcod], [dnam]) VALUES (@dcod, @dnam);\r\nSELECT dcod, dn" +
-                "am FROM dolg WHERE (dcod = @dcod)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[dolg] ([dcod], [dnam]) VALUES (@dcod, @dnam);\nSELECT dcod, dna" +
+                "m FROM dolg WHERE (dcod = @dcod)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dcod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dnam", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dnam", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11336,7 +11380,7 @@ SELECT ccod, cnam, cfam, cotch, ctel FROM client WHERE (ccod = @ccod)";
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[dolg] SET [dcod] = @dcod, [dnam] = @dnam WHERE (([dcod] = @Original" +
                 "_dcod) AND ((@IsNull_dnam = 1 AND [dnam] IS NULL) OR ([dnam] = @Original_dnam)))" +
-                ";\r\nSELECT dcod, dnam FROM dolg WHERE (dcod = @dcod)";
+                ";\nSELECT dcod, dnam FROM dolg WHERE (dcod = @dcod)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dcod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dnam", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dnam", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12218,9 +12262,9 @@ SELECT ocod, pcod, scod, ucod, ucena, odate, ccod, oplStatusCod FROM oplata WHER
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[pet] ([pcod], [pnam], [pvozrast], [pvid], [pprotiv], [posoben]" +
-                ", [ccod]) VALUES (@pcod, @pnam, @pvozrast, @pvid, @pprotiv, @posoben, @ccod);\r\nS" +
-                "ELECT pcod, pnam, pvozrast, pvid, pprotiv, posoben, ccod FROM pet WHERE (pcod = " +
-                "@pcod)";
+                ", [ccod]) VALUES (@pcod, @pnam, @pvozrast, @pvid, @pprotiv, @posoben, @ccod);\nSE" +
+                "LECT pcod, pnam, pvozrast, pvid, pprotiv, posoben, ccod FROM pet WHERE (pcod = @" +
+                "pcod)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pcod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pnam", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pnam", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12699,10 +12743,11 @@ SELECT pcod, pnam, pvozrast, pvid, pprotiv, posoben, ccod FROM pet WHERE (pcod =
             tableMapping.ColumnMappings.Add("dcod", "dcod");
             tableMapping.ColumnMappings.Add("slogin", "slogin");
             tableMapping.ColumnMappings.Add("spass", "spass");
+            tableMapping.ColumnMappings.Add("sotrFIO", "sotrFIO");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[sotr] WHERE (([scod] = @Original_scod) AND ((@IsNull_snam = 1 AND [snam] IS NULL) OR ([snam] = @Original_snam)) AND ((@IsNull_sfam = 1 AND [sfam] IS NULL) OR ([sfam] = @Original_sfam)) AND ((@IsNull_sotch = 1 AND [sotch] IS NULL) OR ([sotch] = @Original_sotch)) AND ((@IsNull_stel = 1 AND [stel] IS NULL) OR ([stel] = @Original_stel)) AND ((@IsNull_dcod = 1 AND [dcod] IS NULL) OR ([dcod] = @Original_dcod)) AND ((@IsNull_slogin = 1 AND [slogin] IS NULL) OR ([slogin] = @Original_slogin)) AND ((@IsNull_spass = 1 AND [spass] IS NULL) OR ([spass] = @Original_spass)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [sotr] WHERE (([scod] = @Original_scod) AND ((@IsNull_snam = 1 AND [snam] IS NULL) OR ([snam] = @Original_snam)) AND ((@IsNull_sfam = 1 AND [sfam] IS NULL) OR ([sfam] = @Original_sfam)) AND ((@IsNull_sotch = 1 AND [sotch] IS NULL) OR ([sotch] = @Original_sotch)) AND ((@IsNull_stel = 1 AND [stel] IS NULL) OR ([stel] = @Original_stel)) AND ((@IsNull_dcod = 1 AND [dcod] IS NULL) OR ([dcod] = @Original_dcod)) AND ((@IsNull_slogin = 1 AND [slogin] IS NULL) OR ([slogin] = @Original_slogin)) AND ((@IsNull_spass = 1 AND [spass] IS NULL) OR ([spass] = @Original_spass)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_scod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "scod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_snam", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "snam", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -12721,10 +12766,8 @@ SELECT pcod, pnam, pvozrast, pvid, pprotiv, posoben, ccod FROM pet WHERE (pcod =
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_spass", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "spass", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[sotr] ([scod], [snam], [sfam], [sotch], [stel], [dcod], [slogi" +
-                "n], [spass]) VALUES (@scod, @snam, @sfam, @sotch, @stel, @dcod, @slogin, @spass)" +
-                ";\r\nSELECT scod, snam, sfam, sotch, stel, dcod, slogin, spass FROM sotr WHERE (sc" +
-                "od = @scod)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [sotr] ([scod], [snam], [sfam], [sotch], [stel], [dcod], [slogin], [spass]) VALUES (@scod, @snam, @sfam, @sotch, @stel, @dcod, @slogin, @spass);
+SELECT scod, snam, sfam, sotch, stel, dcod, slogin, spass, snam + ' ' + sfam + ' ' + sotch AS sotrFIO FROM sotr WHERE (scod = @scod)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@scod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "scod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@snam", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "snam", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12736,8 +12779,8 @@ SELECT pcod, pnam, pvozrast, pvid, pprotiv, posoben, ccod FROM pet WHERE (pcod =
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@spass", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "spass", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[sotr] SET [scod] = @scod, [snam] = @snam, [sfam] = @sfam, [sotch] = @sotch, [stel] = @stel, [dcod] = @dcod, [slogin] = @slogin, [spass] = @spass WHERE (([scod] = @Original_scod) AND ((@IsNull_snam = 1 AND [snam] IS NULL) OR ([snam] = @Original_snam)) AND ((@IsNull_sfam = 1 AND [sfam] IS NULL) OR ([sfam] = @Original_sfam)) AND ((@IsNull_sotch = 1 AND [sotch] IS NULL) OR ([sotch] = @Original_sotch)) AND ((@IsNull_stel = 1 AND [stel] IS NULL) OR ([stel] = @Original_stel)) AND ((@IsNull_dcod = 1 AND [dcod] IS NULL) OR ([dcod] = @Original_dcod)) AND ((@IsNull_slogin = 1 AND [slogin] IS NULL) OR ([slogin] = @Original_slogin)) AND ((@IsNull_spass = 1 AND [spass] IS NULL) OR ([spass] = @Original_spass)));
-SELECT scod, snam, sfam, sotch, stel, dcod, slogin, spass FROM sotr WHERE (scod = @scod)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [sotr] SET [scod] = @scod, [snam] = @snam, [sfam] = @sfam, [sotch] = @sotch, [stel] = @stel, [dcod] = @dcod, [slogin] = @slogin, [spass] = @spass WHERE (([scod] = @Original_scod) AND ((@IsNull_snam = 1 AND [snam] IS NULL) OR ([snam] = @Original_snam)) AND ((@IsNull_sfam = 1 AND [sfam] IS NULL) OR ([sfam] = @Original_sfam)) AND ((@IsNull_sotch = 1 AND [sotch] IS NULL) OR ([sotch] = @Original_sotch)) AND ((@IsNull_stel = 1 AND [stel] IS NULL) OR ([stel] = @Original_stel)) AND ((@IsNull_dcod = 1 AND [dcod] IS NULL) OR ([dcod] = @Original_dcod)) AND ((@IsNull_slogin = 1 AND [slogin] IS NULL) OR ([slogin] = @Original_slogin)) AND ((@IsNull_spass = 1 AND [spass] IS NULL) OR ([spass] = @Original_spass)));
+SELECT scod, snam, sfam, sotch, stel, dcod, slogin, spass, snam + ' ' + sfam + ' ' + sotch AS sotrFIO FROM sotr WHERE (scod = @scod)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@scod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "scod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@snam", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "snam", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12777,7 +12820,8 @@ SELECT scod, snam, sfam, sotch, stel, dcod, slogin, spass FROM sotr WHERE (scod 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT scod, snam, sfam, sotch, stel, dcod, slogin, spass FROM dbo.sotr";
+            this._commandCollection[0].CommandText = "SELECT        scod, snam, sfam, sotch, stel, dcod, slogin, spass, snam + \' \' + sf" +
+                "am + \' \' + sotch AS sotrFIO\r\nFROM            sotr";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -13261,7 +13305,7 @@ SELECT scod, snam, sfam, sotch, stel, dcod, slogin, spass FROM sotr WHERE (scod 
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[uslugi] ([ucod], [unam], [ucena]) VALUES (@ucod, @unam, @ucena" +
-                ");\r\nSELECT ucod, unam, ucena FROM uslugi WHERE (ucod = @ucod)";
+                ");\nSELECT ucod, unam, ucena FROM uslugi WHERE (ucod = @ucod)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ucod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ucod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@unam", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "unam", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -13691,8 +13735,8 @@ SELECT zcod, ccod, pcod, scod, zdate, statusCod, bcod, dcod, ucod FROM zapic WHE
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        zcod, ccod, pcod, scod, zdate, statusCod, bcod, dcod, ucod\r\nFROM   " +
-                "         zapic";
+            this._commandCollection[0].CommandText = "SELECT        zcod, ccod, pcod, scod, zdate, statusCod, bcod, dcod, ucod\nFROM    " +
+                "        zapic";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -14064,8 +14108,8 @@ HAVING        (dolg.dcod = 1)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        cnam + \' \' + cfam + \' \' + cotch AS Expr1, ccod\r\nFROM            cli" +
-                "ent";
+            this._commandCollection[0].CommandText = "SELECT        cnam + \' \' + cfam + \' \' + cotch AS Expr1, ccod\nFROM            clie" +
+                "nt";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -14228,8 +14272,7 @@ HAVING        (dolg.dcod = 1)";
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[status] ([statusCod], [statusName]) VALUES (@statusCod, @statu" +
-                "sName);\r\nSELECT statusCod, statusName FROM status WHERE (statusCod = @statusCod)" +
-                "";
+                "sName);\nSELECT statusCod, statusName FROM status WHERE (statusCod = @statusCod)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@statusCod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "statusCod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@statusName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "statusName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14237,7 +14280,7 @@ HAVING        (dolg.dcod = 1)";
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[status] SET [statusCod] = @statusCod, [statusName] = @statusName WH" +
                 "ERE (([statusCod] = @Original_statusCod) AND ([statusName] = @Original_statusNam" +
-                "e));\r\nSELECT statusCod, statusName FROM status WHERE (statusCod = @statusCod)";
+                "e));\nSELECT statusCod, statusName FROM status WHERE (statusCod = @statusCod)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@statusCod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "statusCod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@statusName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "statusName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14555,8 +14598,8 @@ HAVING        (dolg.dcod = 1)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        snam + \' \' + sfam + \' \' + sotch AS FIOVrach, dcod, scod\r\nFROM      " +
-                "      sotr\r\nWHERE        (dcod = 1)";
+            this._commandCollection[0].CommandText = "SELECT        snam + \' \' + sfam + \' \' + sotch AS FIOVrach, dcod, scod\nFROM       " +
+                "     sotr\nWHERE        (dcod = 1)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -14723,8 +14766,8 @@ HAVING        (dolg.dcod = 1)";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ccod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ccod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [pet] ([pnam], [pcod], [ccod]) VALUES (@pnam, @pcod, @ccod);\r\nSELECT " +
-                "pnam, pcod, ccod FROM pet WHERE (pcod = @pcod)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [pet] ([pnam], [pcod], [ccod]) VALUES (@pnam, @pcod, @ccod);\nSELECT p" +
+                "nam, pcod, ccod FROM pet WHERE (pcod = @pcod)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pnam", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pnam", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pcod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14757,7 +14800,7 @@ SELECT pnam, pcod, ccod FROM pet WHERE (pcod = @pcod)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        pnam, pcod, ccod\r\nFROM            pet\r\nWHERE        (ccod = @ccod)";
+            this._commandCollection[0].CommandText = "SELECT        pnam, pcod, ccod\nFROM            pet\nWHERE        (ccod = @ccod)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ccod", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ccod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -15099,9 +15142,9 @@ SELECT pnam, pcod, ccod FROM pet WHERE (pcod = @pcod)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        dolg.dcod, dolg.dnam, sotr.scod\r\nFROM            dolg INNER JOIN\r\n " +
-                "                        sotr ON dolg.dcod = sotr.dcod\r\nWHERE        (sotr.scod =" +
-                " @scod)";
+            this._commandCollection[0].CommandText = "SELECT        dolg.dcod, dolg.dnam, sotr.scod\nFROM            dolg INNER JOIN\n   " +
+                "                      sotr ON dolg.dcod = sotr.dcod\nWHERE        (sotr.scod = @s" +
+                "cod)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@scod", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "scod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }

@@ -14,7 +14,6 @@ using word = Microsoft.Office.Interop.Word;
 namespace Ponomarev_N
 {
     /*TODO: Нужно сделать: 
-     * Добавить поиск в оставшиеся формы
      * Доработать интерфейс в форме питомец
      * Пересмотреть работу формы клиенты, сделать, чтоб нельзя было добавлять без питомца.
      * Сделать валидацию пароля, при авторизации и при создании пользователя.
@@ -61,13 +60,17 @@ namespace Ponomarev_N
             // Вызываем метод Chart.DataBind() для отображения данных на диаграмме
             chartBolezn.DataBind();
         }
+        List<TextBox> ignoredTextboxes;
         public Main()
         {
             InitializeComponent();
+            ignoredTextboxes = new List<TextBox>() { txt_searchUslugi,txt_searchUsers,txt_searchClient,txt_searchBolezn,txt_searchVrachi };
         }
 
         private void Main_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "ponomarev_NDataSet13.sotr". При необходимости она может быть перемещена или удалена.
+            this.sotrTableAdapter.Fill(this.ponomarev_NDataSet13.sotr);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "ponomarev_NDataSet1.OplataAdapter". При необходимости она может быть перемещена или удалена.
             this.oplataTableAdapter.Fill(this.ponomarev_NDataSet1.OplataAdapter);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "ponomarev_NDataSet11.ZapicAdapter". При необходимости она может быть перемещена или удалена.
@@ -125,13 +128,25 @@ namespace Ponomarev_N
             
             BindDataToChart();
             #endregion
+
+            // Создание экземпляров обычных таблиц для поиска
             dataBase.GetList("Sotr", dataGridUsers);
             dataBase.GetList("Client", dataGridClients);
             dataBase.GetList("Uslugi", dataGridUslugi);
             dataBase.GetList("Sotr", dataGridVrachi);
+            dataBase.GetList("Bolezn", dataGridBolezn);
+            // Создание экземпляров tableAdapter для поиска
+            dataBase.GetListAdapter("SELECT scod, snam, sfam, sotch, stel, dcod, slogin, spass, snam + ' ' + sfam + ' ' + sotch AS sotrFIO FROM sotr", "Sotr", dataGridUsers);
             dataBase.GetListAdapter("SELECT  sotr.snam, sotr.sfam, sotr.sotch, sotr.stel, dolg.dnam, sotr.snam + ' ' + sotr.sfam + ' ' + sotr.sotch as sfio  FROM sotr INNER JOIN dolg ON sotr.dcod = dolg.dcod GROUP BY sotr.snam, sotr.sfam, sotr.sotch, sotr.stel, dolg.dnam, dolg.dcod HAVING(dolg.dcod = 1)", "Sotr", dataGridVrachi);
+            dataBase.GetListAdapter("SELECT ccod, cnam, cfam, cotch, ctel, cnam + ' '+ cfam + ' ' + cotch as clientFIO  FROM dbo.client","Client",dataGridClients);
+            dataBase.GetListAdapter("SELECT zapic.zcod, client.cnam, client.cfam, client.cotch, client.ctel, bolezn.bnam, dolg.dnam, uslugi.unam, zapic.zdate, status.statusName, client.ccod, pet.pcod, sotr.scod, bolezn.bcod, uslugi.ucod, dolg.dcod, status.statusCod, client.cnam + ' ' + client.cfam+ ' '+ client.cotch as zapicFIO FROM sotr INNER JOIN dolg ON sotr.dcod = dolg.dcod INNER JOIN zapic ON sotr.scod = zapic.scod AND dolg.dcod = zapic.dcod INNER JOIN bolezn ON zapic.bcod = bolezn.bcod INNER JOIN pet INNER JOIN client ON pet.ccod = client.ccod ON zapic.pcod = pet.pcod AND zapic.ccod = client.ccod INNER JOIN status ON zapic.statusCod = status.statusCod INNER JOIN uslugi ON zapic.ucod = uslugi.ucod", "zapic", dataGridZapic);
+            dataBase.GetListAdapter("SELECT oplata.ocod, client.cnam, client.cfam, client.cotch, client.ctel, sotr.snam, uslugi.unam, uslugi.ucena, oplata.odate, oplataStatus.oplStatusName, pet.pcod, sotr.scod, client.ccod, uslugi.ucod, oplataStatus.oplStatusCod, client.cnam +' '+ client.cfam + ' '+ client.cotch as oplataFIO FROM client INNER JOIN pet ON client.ccod = pet.ccod INNER JOIN oplata ON client.ccod = oplata.ccod AND pet.pcod = oplata.pcod INNER JOIN oplataStatus ON oplata.oplStatusCod = oplataStatus.oplStatusCod INNER JOIN sotr ON oplata.scod = sotr.scod INNER JOIN uslugi ON oplata.ucod = uslugi.ucod", "oplata", dataGridOplata);
 
-            
+
+
+           
+
+
 
 
 
@@ -160,7 +175,7 @@ namespace Ponomarev_N
             if (dialogResult == DialogResult.Yes)
             {
                 // Иницилизируем методы, проверяющие правильность значений
-                if (!method.ValidateEmptyValues(tabPage3) || method.CheckIfValueExists(txt_slogin, "slogin", "Sotr", "логин") == true || method.CheckIfValueExists(txt_stel, "stel", "Sotr", "телефон") == true)
+                if (!method.ValidateEmptyValues(tabPage3,ignoredTextboxes) || method.CheckIfValueExists(txt_slogin, "slogin", "Sotr", "логин") == true || method.CheckIfValueExists(txt_stel, "stel", "Sotr", "телефон") == true)
                 {
                     return;
                 }
@@ -222,7 +237,7 @@ namespace Ponomarev_N
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите отредактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                if (!method.ValidateEmptyValues(tabPage3) || method.CheckIfValueExistsEdit(txt_slogin, "slogin", "Sotr","логин",currentScod,"scod") == true || method.CheckIfValueExistsEdit(txt_stel, "stel", "Sotr","телефон",currentScod, "scod") == true)
+                if (!method.ValidateEmptyValues(tabPage3,ignoredTextboxes) || method.CheckIfValueExistsEdit(txt_slogin, "slogin", "Sotr","логин",currentScod,"scod") == true || method.CheckIfValueExistsEdit(txt_stel, "stel", "Sotr","телефон",currentScod, "scod") == true)
                 {
                     return;
                 }
@@ -311,7 +326,7 @@ namespace Ponomarev_N
         private void btn_addClient_Click(object sender, EventArgs e)
         {
             // Иницилизируем методы, проверяющие правильность значений
-            if (!method.ValidateEmptyValues(tabPage4) || method.CheckIfValueExists(txt_ctel, "ctel", "Client","телефон") == true)
+            if (!method.ValidateEmptyValues(tabPage4,ignoredTextboxes) || method.CheckIfValueExists(txt_ctel, "ctel", "Client","телефон") == true)
             {
                 return;
             }
@@ -361,7 +376,7 @@ namespace Ponomarev_N
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите отредактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                if (!method.ValidateEmptyValues(tabPage4) || method.CheckIfValueExistsEdit(txt_ctel, "ctel", "Client", "телефон",currentCcod,"ccod") == true)
+                if (!method.ValidateEmptyValues(tabPage4,ignoredTextboxes) || method.CheckIfValueExistsEdit(txt_ctel, "ctel", "Client", "телефон",currentCcod,"ccod") == true)
                 {
                     return;
                 }
@@ -535,7 +550,7 @@ namespace Ponomarev_N
         }
         private void btn_addZapic_Click(object sender, EventArgs e)
         {
-            if (!method.ValidateEmptyValues(tabPage5))
+            if (!method.ValidateEmptyValues(tabPage5,ignoredTextboxes))
             {
                 return;
 
@@ -607,8 +622,8 @@ namespace Ponomarev_N
                     sqlConnection.Open();
                     cmd.ExecuteNonQuery();
                     sqlConnection.Close();
-                    this.zapicAdapterTableAdapter.Fill(this.ponomarev_NDataSet11.ZapicAdapter);
-                    this.oplataTableAdapter.Fill(this.ponomarev_NDataSet1.OplataAdapter);
+                    dataBase.GetListAdapter("SELECT zapic.zcod, client.cnam, client.cfam, client.cotch, client.ctel, bolezn.bnam, dolg.dnam, uslugi.unam, zapic.zdate, status.statusName, client.ccod, pet.pcod, sotr.scod, bolezn.bcod, uslugi.ucod, dolg.dcod, status.statusCod, client.cnam + ' ' + client.cfam+ ' '+ client.cotch as zapicFIO FROM sotr INNER JOIN dolg ON sotr.dcod = dolg.dcod INNER JOIN zapic ON sotr.scod = zapic.scod AND dolg.dcod = zapic.dcod INNER JOIN bolezn ON zapic.bcod = bolezn.bcod INNER JOIN pet INNER JOIN client ON pet.ccod = client.ccod ON zapic.pcod = pet.pcod AND zapic.ccod = client.ccod INNER JOIN status ON zapic.statusCod = status.statusCod INNER JOIN uslugi ON zapic.ucod = uslugi.ucod", "zapic", dataGridZapic);
+                    dataBase.GetListAdapter("SELECT oplata.ocod, client.cnam, client.cfam, client.cotch, client.ctel, sotr.snam, uslugi.unam, uslugi.ucena, oplata.odate, oplataStatus.oplStatusName, pet.pcod, sotr.scod, client.ccod, uslugi.ucod, oplataStatus.oplStatusCod, client.cnam +' '+ client.cfam + ' '+ client.cotch as oplataFIO FROM client INNER JOIN pet ON client.ccod = pet.ccod INNER JOIN oplata ON client.ccod = oplata.ccod AND pet.pcod = oplata.pcod INNER JOIN oplataStatus ON oplata.oplStatusCod = oplataStatus.oplStatusCod INNER JOIN sotr ON oplata.scod = sotr.scod INNER JOIN uslugi ON oplata.ucod = uslugi.ucod", "oplata", dataGridOplata);
                 }
                 else
                 {
@@ -711,7 +726,7 @@ namespace Ponomarev_N
         private void btn_addUslugi_Click(object sender, EventArgs e)
         {
             // Иницилизируем методы, проверяющие правильность значений
-            if (!method.ValidateEmptyValues(tabPage1) || method.CheckIfValueExists(txt_unam,"unam","uslugi","название услуги") == true)
+            if (!method.ValidateEmptyValues(tabPage1,ignoredTextboxes) || method.CheckIfValueExists(txt_unam,"unam","uslugi","название услуги") == true)
             {
                 return;
             }
@@ -730,6 +745,7 @@ namespace Ponomarev_N
                 sqlConnection.Close();
                 // Обновляем таблицу
                 this.uslugiTableAdapter.Fill(this.ponomarev_NDataSet1.uslugi);
+                dataBase.GetList("Uslugi", dataGridUslugi);
             }
         }
         string currentUcod;
@@ -746,6 +762,7 @@ namespace Ponomarev_N
                 cmd.ExecuteNonQuery();
                 sqlConnection.Close();
                 this.uslugiTableAdapter.Fill(this.ponomarev_NDataSet1.uslugi);
+                dataBase.GetList("Uslugi", dataGridUslugi);
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -758,7 +775,7 @@ namespace Ponomarev_N
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите отредактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                if (!method.ValidateEmptyValues(tabPage1) || method.CheckIfValueExistsEdit(txt_unam,"unam","uslugi","название услуги",currentUcod,"ucod") == true)
+                if (!method.ValidateEmptyValues(tabPage1,ignoredTextboxes) || method.CheckIfValueExistsEdit(txt_unam,"unam","uslugi","название услуги",currentUcod,"ucod") == true)
                 {
                     return;
                 }
@@ -777,6 +794,7 @@ namespace Ponomarev_N
                     cmd.ExecuteNonQuery();
                     sqlConnection.Close();
                     this.uslugiTableAdapter.Fill(this.ponomarev_NDataSet1.uslugi);
+                    dataBase.GetList("Uslugi", dataGridUslugi);
                 }
             }
             else if (dialogResult == DialogResult.No)
@@ -804,7 +822,7 @@ namespace Ponomarev_N
         private void btn_addBolezn_Click(object sender, EventArgs e)
         {
             // Иницилизируем методы, проверяющие правильность значений
-            if (!method.ValidateEmptyValues(tabPage6) || method.CheckIfValueExists(txt_bnam, "bnam", "bolezn", "название болезни") == true)
+            if (!method.ValidateEmptyValues(tabPage6,ignoredTextboxes) || method.CheckIfValueExists(txt_bnam, "bnam", "bolezn", "название болезни") == true)
             {
                 return;
             }
@@ -850,7 +868,7 @@ namespace Ponomarev_N
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите отредактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                if (!method.ValidateEmptyValues(tabPage1) || method.CheckIfValueExistsEdit(txt_bnam, "bnam", "bolezn", "название услуги", currentBcod, "bcod") == true)
+                if (!method.ValidateEmptyValues(tabPage1,ignoredTextboxes) || method.CheckIfValueExistsEdit(txt_bnam, "bnam", "bolezn", "название услуги", currentBcod, "bcod") == true)
                 {
                     return;
                 }
@@ -1046,6 +1064,29 @@ namespace Ponomarev_N
 
         }
 
-        
+        private void txt_searchUsers_TextChanged(object sender, EventArgs e)
+        {
+            (dataGridUsers.DataSource as DataTable).DefaultView.RowFilter = $"[sotrFIO] LIKE '%{txt_searchUsers.Text}%'";
+        }
+
+        private void txt_searchClient_TextChanged(object sender, EventArgs e)
+        {
+            (dataGridClients.DataSource as DataTable).DefaultView.RowFilter = $"[clientFIO] LIKE '%{txt_searchClient.Text}%'";
+        }
+
+        private void txt_searchZapic_TextChanged(object sender, EventArgs e)
+        {
+            (dataGridZapic.DataSource as DataTable).DefaultView.RowFilter = $"[zapicFIO] LIKE '%{txt_searchZapic.Text}%'";
+        }
+
+        private void txt_searchBolezn_TextChanged(object sender, EventArgs e)
+        {
+            (dataGridBolezn.DataSource as DataTable).DefaultView.RowFilter = $"[bnam] LIKE '%{txt_searchBolezn.Text}%'";
+        }
+
+        private void txt_searchOplata_TextChanged(object sender, EventArgs e)
+        {
+            (dataGridOplata.DataSource as DataTable).DefaultView.RowFilter = $"[oplataFIO] LIKE '%{txt_searchOplata.Text}%'";
+        }
     }
 }

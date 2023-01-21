@@ -54,7 +54,9 @@ namespace Ponomarev_N
         /// </summary>
         /// <param name="tabPageName"></param>
         /// <returns></returns>
-        public bool ValidateEmptyValues(Control tabPageName)
+       
+
+        public bool ValidateEmptyValues(Control tabPageName, List<TextBox> ignoredTextboxes)
         {
             foreach (Control control in tabPageName.Controls)
             {
@@ -63,10 +65,13 @@ namespace Ponomarev_N
                     if (control is TextBox)
                     {
                         TextBox textBox = (TextBox)control;
-                        if (string.IsNullOrEmpty(textBox.Text))
+                        if (!ignoredTextboxes.Contains(textBox)) // добавить условие проверки наличия в списке игнорируемых
                         {
-                            MessageBox.Show("Заполнены не все значения или они некорректны!");
-                            return false;
+                            if (string.IsNullOrEmpty(textBox.Text))
+                            {
+                                MessageBox.Show("Заполнены не все значения или они некорректны!");
+                                return false;
+                            }
                         }
                     }
                     else if (control is ComboBox)
@@ -82,6 +87,7 @@ namespace Ponomarev_N
             }
             return true;
         }
+
 
         /// <summary>
         /// Метод проверки на существование введенного значения в таблице
