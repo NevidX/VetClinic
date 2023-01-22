@@ -30,9 +30,9 @@ namespace Ponomarev_N
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridUslugi = new System.Windows.Forms.DataGridView();
             this.ucodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,7 +41,7 @@ namespace Ponomarev_N
             this.ponomarev_NDataSet1 = new Ponomarev_N.Ponomarev_NDataSet();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pb_searchUsulgi = new System.Windows.Forms.PictureBox();
             this.txt_searchUslugi = new System.Windows.Forms.TextBox();
             this.btn_clearUslugi = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
@@ -87,6 +87,15 @@ namespace Ponomarev_N
             this.btn_userAdd = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridUsers = new System.Windows.Forms.DataGridView();
+            this.scodDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.snamDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sfamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sotchDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stelDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dcodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sloginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.spassDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sotrFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sotrBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ponomarev_NDataSet13 = new Ponomarev_N.Ponomarev_NDataSet();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -237,21 +246,13 @@ namespace Ponomarev_N
             this.oplataTableAdapter = new Ponomarev_N.Ponomarev_NDataSetTableAdapters.OplataTableAdapter();
             this.boleznBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.sotrTableAdapter = new Ponomarev_N.Ponomarev_NDataSetTableAdapters.sotrTableAdapter();
-            this.scodDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.snamDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sfamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sotchDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stelDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dcodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sloginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.spassDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sotrFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel_uslugi = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUslugi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uslugiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_searchUsulgi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -308,6 +309,7 @@ namespace Ponomarev_N
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boleznBindingSource2)).BeginInit();
+            this.panel_uslugi.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridUslugi
@@ -390,17 +392,9 @@ namespace Ponomarev_N
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.pictureBox7);
+            this.tabPage1.Controls.Add(this.panel_uslugi);
+            this.tabPage1.Controls.Add(this.pb_searchUsulgi);
             this.tabPage1.Controls.Add(this.txt_searchUslugi);
-            this.tabPage1.Controls.Add(this.btn_clearUslugi);
-            this.tabPage1.Controls.Add(this.label16);
-            this.tabPage1.Controls.Add(this.txt_ucena);
-            this.tabPage1.Controls.Add(this.label17);
-            this.tabPage1.Controls.Add(this.txt_unam);
-            this.tabPage1.Controls.Add(this.btn_uslugiEdit);
-            this.tabPage1.Controls.Add(this.btn_delUslugi);
-            this.tabPage1.Controls.Add(this.btn_addUslugi);
-            this.tabPage1.Controls.Add(this.pictureBox4);
             this.tabPage1.Controls.Add(this.dataGridUslugi);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -410,15 +404,15 @@ namespace Ponomarev_N
             this.tabPage1.Text = "Услуги";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // pictureBox7
+            // pb_searchUsulgi
             // 
-            this.pictureBox7.Image = global::Ponomarev_N.Properties.Resources.magnifier;
-            this.pictureBox7.Location = new System.Drawing.Point(167, 69);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 37;
-            this.pictureBox7.TabStop = false;
+            this.pb_searchUsulgi.Image = global::Ponomarev_N.Properties.Resources.magnifier;
+            this.pb_searchUsulgi.Location = new System.Drawing.Point(167, 69);
+            this.pb_searchUsulgi.Name = "pb_searchUsulgi";
+            this.pb_searchUsulgi.Size = new System.Drawing.Size(20, 20);
+            this.pb_searchUsulgi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_searchUsulgi.TabIndex = 37;
+            this.pb_searchUsulgi.TabStop = false;
             // 
             // txt_searchUslugi
             // 
@@ -433,7 +427,7 @@ namespace Ponomarev_N
             // 
             this.btn_clearUslugi.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_clearUslugi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_clearUslugi.Location = new System.Drawing.Point(6, 530);
+            this.btn_clearUslugi.Location = new System.Drawing.Point(0, 515);
             this.btn_clearUslugi.Name = "btn_clearUslugi";
             this.btn_clearUslugi.Size = new System.Drawing.Size(155, 36);
             this.btn_clearUslugi.TabIndex = 35;
@@ -445,7 +439,7 @@ namespace Ponomarev_N
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label16.Location = new System.Drawing.Point(3, 141);
+            this.label16.Location = new System.Drawing.Point(-3, 126);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(100, 16);
             this.label16.TabIndex = 31;
@@ -453,7 +447,7 @@ namespace Ponomarev_N
             // 
             // txt_ucena
             // 
-            this.txt_ucena.Location = new System.Drawing.Point(6, 160);
+            this.txt_ucena.Location = new System.Drawing.Point(0, 145);
             this.txt_ucena.MaxLength = 50;
             this.txt_ucena.Name = "txt_ucena";
             this.txt_ucena.Size = new System.Drawing.Size(134, 20);
@@ -463,7 +457,7 @@ namespace Ponomarev_N
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label17.Location = new System.Drawing.Point(3, 95);
+            this.label17.Location = new System.Drawing.Point(-3, 80);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(137, 16);
             this.label17.TabIndex = 29;
@@ -471,7 +465,7 @@ namespace Ponomarev_N
             // 
             // txt_unam
             // 
-            this.txt_unam.Location = new System.Drawing.Point(6, 118);
+            this.txt_unam.Location = new System.Drawing.Point(0, 103);
             this.txt_unam.MaxLength = 50;
             this.txt_unam.Name = "txt_unam";
             this.txt_unam.Size = new System.Drawing.Size(134, 20);
@@ -481,7 +475,7 @@ namespace Ponomarev_N
             // 
             this.btn_uslugiEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_uslugiEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_uslugiEdit.Location = new System.Drawing.Point(6, 488);
+            this.btn_uslugiEdit.Location = new System.Drawing.Point(0, 473);
             this.btn_uslugiEdit.Name = "btn_uslugiEdit";
             this.btn_uslugiEdit.Size = new System.Drawing.Size(155, 36);
             this.btn_uslugiEdit.TabIndex = 27;
@@ -493,7 +487,7 @@ namespace Ponomarev_N
             // 
             this.btn_delUslugi.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_delUslugi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_delUslugi.Location = new System.Drawing.Point(6, 446);
+            this.btn_delUslugi.Location = new System.Drawing.Point(0, 431);
             this.btn_delUslugi.Name = "btn_delUslugi";
             this.btn_delUslugi.Size = new System.Drawing.Size(155, 36);
             this.btn_delUslugi.TabIndex = 26;
@@ -505,7 +499,7 @@ namespace Ponomarev_N
             // 
             this.btn_addUslugi.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_addUslugi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_addUslugi.Location = new System.Drawing.Point(6, 404);
+            this.btn_addUslugi.Location = new System.Drawing.Point(0, 389);
             this.btn_addUslugi.Name = "btn_addUslugi";
             this.btn_addUslugi.Size = new System.Drawing.Size(155, 36);
             this.btn_addUslugi.TabIndex = 25;
@@ -516,7 +510,7 @@ namespace Ponomarev_N
             // pictureBox4
             // 
             this.pictureBox4.Image = global::Ponomarev_N.Properties.Resources.customer;
-            this.pictureBox4.Location = new System.Drawing.Point(6, 15);
+            this.pictureBox4.Location = new System.Drawing.Point(0, 0);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(54, 66);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -903,6 +897,70 @@ namespace Ponomarev_N
             this.dataGridUsers.Size = new System.Drawing.Size(1099, 478);
             this.dataGridUsers.TabIndex = 0;
             this.dataGridUsers.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridUsers_CellEnter);
+            // 
+            // scodDataGridViewTextBoxColumn2
+            // 
+            this.scodDataGridViewTextBoxColumn2.DataPropertyName = "scod";
+            this.scodDataGridViewTextBoxColumn2.HeaderText = "scod";
+            this.scodDataGridViewTextBoxColumn2.Name = "scodDataGridViewTextBoxColumn2";
+            this.scodDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // snamDataGridViewTextBoxColumn2
+            // 
+            this.snamDataGridViewTextBoxColumn2.DataPropertyName = "snam";
+            this.snamDataGridViewTextBoxColumn2.HeaderText = "snam";
+            this.snamDataGridViewTextBoxColumn2.Name = "snamDataGridViewTextBoxColumn2";
+            this.snamDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // sfamDataGridViewTextBoxColumn1
+            // 
+            this.sfamDataGridViewTextBoxColumn1.DataPropertyName = "sfam";
+            this.sfamDataGridViewTextBoxColumn1.HeaderText = "sfam";
+            this.sfamDataGridViewTextBoxColumn1.Name = "sfamDataGridViewTextBoxColumn1";
+            this.sfamDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // sotchDataGridViewTextBoxColumn1
+            // 
+            this.sotchDataGridViewTextBoxColumn1.DataPropertyName = "sotch";
+            this.sotchDataGridViewTextBoxColumn1.HeaderText = "sotch";
+            this.sotchDataGridViewTextBoxColumn1.Name = "sotchDataGridViewTextBoxColumn1";
+            this.sotchDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // stelDataGridViewTextBoxColumn1
+            // 
+            this.stelDataGridViewTextBoxColumn1.DataPropertyName = "stel";
+            this.stelDataGridViewTextBoxColumn1.HeaderText = "stel";
+            this.stelDataGridViewTextBoxColumn1.Name = "stelDataGridViewTextBoxColumn1";
+            this.stelDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dcodDataGridViewTextBoxColumn
+            // 
+            this.dcodDataGridViewTextBoxColumn.DataPropertyName = "dcod";
+            this.dcodDataGridViewTextBoxColumn.HeaderText = "dcod";
+            this.dcodDataGridViewTextBoxColumn.Name = "dcodDataGridViewTextBoxColumn";
+            this.dcodDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sloginDataGridViewTextBoxColumn
+            // 
+            this.sloginDataGridViewTextBoxColumn.DataPropertyName = "slogin";
+            this.sloginDataGridViewTextBoxColumn.HeaderText = "slogin";
+            this.sloginDataGridViewTextBoxColumn.Name = "sloginDataGridViewTextBoxColumn";
+            this.sloginDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // spassDataGridViewTextBoxColumn
+            // 
+            this.spassDataGridViewTextBoxColumn.DataPropertyName = "spass";
+            this.spassDataGridViewTextBoxColumn.HeaderText = "spass";
+            this.spassDataGridViewTextBoxColumn.Name = "spassDataGridViewTextBoxColumn";
+            this.spassDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sotrFIODataGridViewTextBoxColumn
+            // 
+            this.sotrFIODataGridViewTextBoxColumn.DataPropertyName = "sotrFIO";
+            this.sotrFIODataGridViewTextBoxColumn.HeaderText = "sotrFIO";
+            this.sotrFIODataGridViewTextBoxColumn.Name = "sotrFIODataGridViewTextBoxColumn";
+            this.sotrFIODataGridViewTextBoxColumn.ReadOnly = true;
+            this.sotrFIODataGridViewTextBoxColumn.Visible = false;
             // 
             // sotrBindingSource
             // 
@@ -1742,16 +1800,16 @@ namespace Ponomarev_N
             // 
             // chartBolezn
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartBolezn.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartBolezn.Legends.Add(legend1);
+            chartArea6.Name = "ChartArea1";
+            this.chartBolezn.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.chartBolezn.Legends.Add(legend6);
             this.chartBolezn.Location = new System.Drawing.Point(878, 13);
             this.chartBolezn.Name = "chartBolezn";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartBolezn.Series.Add(series1);
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            this.chartBolezn.Series.Add(series6);
             this.chartBolezn.Size = new System.Drawing.Size(470, 551);
             this.chartBolezn.TabIndex = 46;
             this.chartBolezn.Text = "chart1";
@@ -2212,69 +2270,21 @@ namespace Ponomarev_N
             // 
             this.sotrTableAdapter.ClearBeforeFill = true;
             // 
-            // scodDataGridViewTextBoxColumn2
+            // panel_uslugi
             // 
-            this.scodDataGridViewTextBoxColumn2.DataPropertyName = "scod";
-            this.scodDataGridViewTextBoxColumn2.HeaderText = "scod";
-            this.scodDataGridViewTextBoxColumn2.Name = "scodDataGridViewTextBoxColumn2";
-            this.scodDataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // snamDataGridViewTextBoxColumn2
-            // 
-            this.snamDataGridViewTextBoxColumn2.DataPropertyName = "snam";
-            this.snamDataGridViewTextBoxColumn2.HeaderText = "snam";
-            this.snamDataGridViewTextBoxColumn2.Name = "snamDataGridViewTextBoxColumn2";
-            this.snamDataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // sfamDataGridViewTextBoxColumn1
-            // 
-            this.sfamDataGridViewTextBoxColumn1.DataPropertyName = "sfam";
-            this.sfamDataGridViewTextBoxColumn1.HeaderText = "sfam";
-            this.sfamDataGridViewTextBoxColumn1.Name = "sfamDataGridViewTextBoxColumn1";
-            this.sfamDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // sotchDataGridViewTextBoxColumn1
-            // 
-            this.sotchDataGridViewTextBoxColumn1.DataPropertyName = "sotch";
-            this.sotchDataGridViewTextBoxColumn1.HeaderText = "sotch";
-            this.sotchDataGridViewTextBoxColumn1.Name = "sotchDataGridViewTextBoxColumn1";
-            this.sotchDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // stelDataGridViewTextBoxColumn1
-            // 
-            this.stelDataGridViewTextBoxColumn1.DataPropertyName = "stel";
-            this.stelDataGridViewTextBoxColumn1.HeaderText = "stel";
-            this.stelDataGridViewTextBoxColumn1.Name = "stelDataGridViewTextBoxColumn1";
-            this.stelDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dcodDataGridViewTextBoxColumn
-            // 
-            this.dcodDataGridViewTextBoxColumn.DataPropertyName = "dcod";
-            this.dcodDataGridViewTextBoxColumn.HeaderText = "dcod";
-            this.dcodDataGridViewTextBoxColumn.Name = "dcodDataGridViewTextBoxColumn";
-            this.dcodDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sloginDataGridViewTextBoxColumn
-            // 
-            this.sloginDataGridViewTextBoxColumn.DataPropertyName = "slogin";
-            this.sloginDataGridViewTextBoxColumn.HeaderText = "slogin";
-            this.sloginDataGridViewTextBoxColumn.Name = "sloginDataGridViewTextBoxColumn";
-            this.sloginDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // spassDataGridViewTextBoxColumn
-            // 
-            this.spassDataGridViewTextBoxColumn.DataPropertyName = "spass";
-            this.spassDataGridViewTextBoxColumn.HeaderText = "spass";
-            this.spassDataGridViewTextBoxColumn.Name = "spassDataGridViewTextBoxColumn";
-            this.spassDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sotrFIODataGridViewTextBoxColumn
-            // 
-            this.sotrFIODataGridViewTextBoxColumn.DataPropertyName = "sotrFIO";
-            this.sotrFIODataGridViewTextBoxColumn.HeaderText = "sotrFIO";
-            this.sotrFIODataGridViewTextBoxColumn.Name = "sotrFIODataGridViewTextBoxColumn";
-            this.sotrFIODataGridViewTextBoxColumn.ReadOnly = true;
-            this.sotrFIODataGridViewTextBoxColumn.Visible = false;
+            this.panel_uslugi.Controls.Add(this.pictureBox4);
+            this.panel_uslugi.Controls.Add(this.btn_addUslugi);
+            this.panel_uslugi.Controls.Add(this.btn_delUslugi);
+            this.panel_uslugi.Controls.Add(this.btn_clearUslugi);
+            this.panel_uslugi.Controls.Add(this.btn_uslugiEdit);
+            this.panel_uslugi.Controls.Add(this.label16);
+            this.panel_uslugi.Controls.Add(this.txt_unam);
+            this.panel_uslugi.Controls.Add(this.txt_ucena);
+            this.panel_uslugi.Controls.Add(this.label17);
+            this.panel_uslugi.Location = new System.Drawing.Point(3, 9);
+            this.panel_uslugi.Name = "panel_uslugi";
+            this.panel_uslugi.Size = new System.Drawing.Size(158, 568);
+            this.panel_uslugi.TabIndex = 38;
             // 
             // Main
             // 
@@ -2287,6 +2297,7 @@ namespace Ponomarev_N
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ветеринарная клиника";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
             this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUslugi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uslugiBindingSource)).EndInit();
@@ -2294,7 +2305,7 @@ namespace Ponomarev_N
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_searchUsulgi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
@@ -2358,6 +2369,8 @@ namespace Ponomarev_N
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.boleznBindingSource2)).EndInit();
+            this.panel_uslugi.ResumeLayout(false);
+            this.panel_uslugi.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2552,7 +2565,7 @@ namespace Ponomarev_N
         private System.Windows.Forms.DataGridViewTextBoxColumn ucodDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn oplStatusCodDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btn_clearZapic;
-        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pb_searchUsulgi;
         private System.Windows.Forms.TextBox txt_searchUslugi;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.TextBox txt_searchVrachi;
@@ -2578,6 +2591,7 @@ namespace Ponomarev_N
         private System.Windows.Forms.DataGridViewTextBoxColumn sloginDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn spassDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sotrFIODataGridViewTextBoxColumn;
+        private System.Windows.Forms.Panel panel_uslugi;
     }
 }
 

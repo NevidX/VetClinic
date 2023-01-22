@@ -14,11 +14,10 @@ using word = Microsoft.Office.Interop.Word;
 namespace Ponomarev_N
 {
     /*TODO: Нужно сделать: 
-     * Доработать интерфейс в форме питомец
+     * 
      * Пересмотреть работу формы клиенты, сделать, чтоб нельзя было добавлять без питомца.
-     * Сделать валидацию пароля, при авторизации и при создании пользователя.
-     * поиск в форме запись и форме оплата
-     * сделать роли
+     * Сделать валидацию пароля по регистру, при авторизации и при создании пользователя.
+     * Доработать форму услуги, чтобы при других ролях dataGridView сам нормально отображалсяю
     */
     public partial class Main : Form
     {
@@ -35,7 +34,7 @@ namespace Ponomarev_N
 
 
        DataBase dataBase = new DataBase();
-
+        
 
         void BindDataToChart()
         {
@@ -50,6 +49,7 @@ namespace Ponomarev_N
             chartBolezn.Series[0].XValueMember = "bnam";
             chartBolezn.Series[0].YValueMembers = "bcount";
             chartBolezn.Series[0].IsValueShownAsLabel = true;
+
             Random random = new Random();
             // Цвета для каждой секции диаграммы
             for (int i = 0; i < chartBolezn.Series[0].Points.Count; i++)
@@ -60,12 +60,19 @@ namespace Ponomarev_N
             // Вызываем метод Chart.DataBind() для отображения данных на диаграмме
             chartBolezn.DataBind();
         }
+        // Список игнорируеммых textBOX при проверке напустые значения
         List<TextBox> ignoredTextboxes;
         public Main()
         {
             InitializeComponent();
-            ignoredTextboxes = new List<TextBox>() { txt_searchUslugi,txt_searchUsers,txt_searchClient,txt_searchBolezn,txt_searchVrachi };
+            ignoredTextboxes = new List<TextBox>() { txt_searchUslugi,txt_searchUsers,txt_searchClient,txt_searchBolezn,txt_searchVrachi, txt_searchZapic };
         }
+
+       
+        
+
+
+
 
         private void Main_Load(object sender, EventArgs e)
         {
@@ -96,7 +103,7 @@ namespace Ponomarev_N
             this.vrachiTableAdapter.Fill(this.ponomarev_NDataSet1.DataTableVrachi);
            
             this.uslugiTableAdapter.Fill(this.ponomarev_NDataSet1.uslugi);
-
+            
             dtp_zdate.Format = DateTimePickerFormat.Custom;
             dtp_zdate.CustomFormat = "MM/dd/yyyy hh:mm:ss";
             #region Таблица - клиенты
@@ -142,33 +149,83 @@ namespace Ponomarev_N
             dataBase.GetListAdapter("SELECT zapic.zcod, client.cnam, client.cfam, client.cotch, client.ctel, bolezn.bnam, dolg.dnam, uslugi.unam, zapic.zdate, status.statusName, client.ccod, pet.pcod, sotr.scod, bolezn.bcod, uslugi.ucod, dolg.dcod, status.statusCod, client.cnam + ' ' + client.cfam+ ' '+ client.cotch as zapicFIO FROM sotr INNER JOIN dolg ON sotr.dcod = dolg.dcod INNER JOIN zapic ON sotr.scod = zapic.scod AND dolg.dcod = zapic.dcod INNER JOIN bolezn ON zapic.bcod = bolezn.bcod INNER JOIN pet INNER JOIN client ON pet.ccod = client.ccod ON zapic.pcod = pet.pcod AND zapic.ccod = client.ccod INNER JOIN status ON zapic.statusCod = status.statusCod INNER JOIN uslugi ON zapic.ucod = uslugi.ucod", "zapic", dataGridZapic);
             dataBase.GetListAdapter("SELECT oplata.ocod, client.cnam, client.cfam, client.cotch, client.ctel, sotr.snam, uslugi.unam, uslugi.ucena, oplata.odate, oplataStatus.oplStatusName, pet.pcod, sotr.scod, client.ccod, uslugi.ucod, oplataStatus.oplStatusCod, client.cnam +' '+ client.cfam + ' '+ client.cotch as oplataFIO FROM client INNER JOIN pet ON client.ccod = pet.ccod INNER JOIN oplata ON client.ccod = oplata.ccod AND pet.pcod = oplata.pcod INNER JOIN oplataStatus ON oplata.oplStatusCod = oplataStatus.oplStatusCod INNER JOIN sotr ON oplata.scod = sotr.scod INNER JOIN uslugi ON oplata.ucod = uslugi.ucod", "oplata", dataGridOplata);
 
+            // Разграничение доступа в зависимости от пользователя.
 
 
-           
+            // Доступ по умолчанию - не авторизованный пользователь.
+
+            // Скрываем вкладки
+            tabPage3.Parent = null;
+            tabPage4.Parent = null;
+            tabPage5.Parent = null;
+            tabPage6.Parent = null;
+            tabPage7.Parent = null;
+            
+            // Вкладка услуги
+            panel_uslugi.Visible = false;
 
 
 
 
-
+            userValue(userCod);
         }
+
 
        
         // Strip menu 
         
         private void авторизацияToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Hide();
             // Кнопка выводи форму авторизации
             var LoginForm = new log_in();
             LoginForm.Show();
         }
 
-     
+        /// <summary>
+        /// Класс, который проверяет, какой сейчас пользователь.
+        /// </summary>
+        public string userCod;
+        public void userValue(string user)
+        {
+            userCod = user;
+            if (userCod == "1") // врач
+            {
+
+                tabPage5.Parent = tabControl1;
+                btn_addZapic.Visible = false;
+                btn_delZapic.Visible = false;
+
+            }
+
+
+            if (userCod == "2") // администратор 
+            {
+                tabPage4.Parent = tabControl1;
+                tabPage6.Parent = tabControl1;
+                tabPage7.Parent = tabControl1;
+            }
+
+
+
+            if (userCod == "3") // системный администратор
+            {
+
+                tabPage3.Parent = tabControl1;
+                tabPage4.Parent = tabControl1;
+                tabPage5.Parent = tabControl1;
+                tabPage6.Parent = tabControl1;
+                tabPage7.Parent = tabControl1;
+                panel_uslugi.Visible = true;
+            }
+        }
+
 
 
         #region Таблицы
 
         #region Таблица - пользователи
-       // Кнопка добавления нового пользователя
+        // Кнопка добавления нового пользователя
         private void btn_userAdd_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите добавить запись?", "Добавить запись", MessageBoxButtons.YesNo);
@@ -575,7 +632,9 @@ namespace Ponomarev_N
                 cmd.ExecuteNonQuery();
                 sqlConnection.Close();
                 // Обновляем таблицу
-                this.zapicAdapterTableAdapter.Fill(this.ponomarev_NDataSet11.ZapicAdapter);
+                dataBase.GetListAdapter("SELECT zapic.zcod, client.cnam, client.cfam, client.cotch, client.ctel, bolezn.bnam, dolg.dnam, uslugi.unam, zapic.zdate, status.statusName, client.ccod, pet.pcod, sotr.scod, bolezn.bcod, uslugi.ucod, dolg.dcod, status.statusCod, client.cnam + ' ' + client.cfam+ ' '+ client.cotch as zapicFIO FROM sotr INNER JOIN dolg ON sotr.dcod = dolg.dcod INNER JOIN zapic ON sotr.scod = zapic.scod AND dolg.dcod = zapic.dcod INNER JOIN bolezn ON zapic.bcod = bolezn.bcod INNER JOIN pet INNER JOIN client ON pet.ccod = client.ccod ON zapic.pcod = pet.pcod AND zapic.ccod = client.ccod INNER JOIN status ON zapic.statusCod = status.statusCod INNER JOIN uslugi ON zapic.ucod = uslugi.ucod", "zapic", dataGridZapic);
+                dataBase.GetList("Bolezn", dataGridBolezn);
+                BindDataToChart();
             }
             
 
@@ -595,7 +654,7 @@ namespace Ponomarev_N
                 cmd.ExecuteNonQuery();
                 sqlConnection.Close();
                 // Обновляем таблицу
-                this.zapicAdapterTableAdapter.Fill(this.ponomarev_NDataSet11.ZapicAdapter);
+                dataBase.GetListAdapter("SELECT zapic.zcod, client.cnam, client.cfam, client.cotch, client.ctel, bolezn.bnam, dolg.dnam, uslugi.unam, zapic.zdate, status.statusName, client.ccod, pet.pcod, sotr.scod, bolezn.bcod, uslugi.ucod, dolg.dcod, status.statusCod, client.cnam + ' ' + client.cfam+ ' '+ client.cotch as zapicFIO FROM sotr INNER JOIN dolg ON sotr.dcod = dolg.dcod INNER JOIN zapic ON sotr.scod = zapic.scod AND dolg.dcod = zapic.dcod INNER JOIN bolezn ON zapic.bcod = bolezn.bcod INNER JOIN pet INNER JOIN client ON pet.ccod = client.ccod ON zapic.pcod = pet.pcod AND zapic.ccod = client.ccod INNER JOIN status ON zapic.statusCod = status.statusCod INNER JOIN uslugi ON zapic.ucod = uslugi.ucod", "zapic", dataGridZapic);
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -913,8 +972,7 @@ namespace Ponomarev_N
             if (dialogResult == DialogResult.Yes)
             {
 
-                if (Convert.ToString(cb_statusCod.SelectedValue) != preCbSatusCod)
-                {
+               
                     // Запрос на обновление введнных полей.
                     string query = "Update Oplata set oplStatusCod=@oplStatusCod where ocod=@ocod";
                     cmd = new SqlCommand(query, sqlConnection);
@@ -927,13 +985,8 @@ namespace Ponomarev_N
                     sqlConnection.Close();
                     this.zapicAdapterTableAdapter.Fill(this.ponomarev_NDataSet11.ZapicAdapter);
                     this.oplataTableAdapter.Fill(this.ponomarev_NDataSet1.OplataAdapter);
-                }
-                else
-                {
-                    
-                    MessageBox.Show("Новый статус должен отличаться от предыдущего!");
-                    return;
-                }
+                dataBase.GetListAdapter("SELECT oplata.ocod, client.cnam, client.cfam, client.cotch, client.ctel, sotr.snam, uslugi.unam, uslugi.ucena, oplata.odate, oplataStatus.oplStatusName, pet.pcod, sotr.scod, client.ccod, uslugi.ucod, oplataStatus.oplStatusCod, client.cnam +' '+ client.cfam + ' '+ client.cotch as oplataFIO FROM client INNER JOIN pet ON client.ccod = pet.ccod INNER JOIN oplata ON client.ccod = oplata.ccod AND pet.pcod = oplata.pcod INNER JOIN oplataStatus ON oplata.oplStatusCod = oplataStatus.oplStatusCod INNER JOIN sotr ON oplata.scod = sotr.scod INNER JOIN uslugi ON oplata.ucod = uslugi.ucod", "oplata", dataGridOplata);
+
 
             }
             else if (dialogResult == DialogResult.No)
@@ -943,7 +996,7 @@ namespace Ponomarev_N
         }
         private void btn_cancelOplata_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите подтвердить оплату?", "Подтвердить оплату", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите отменить оплату?", "Отменить оплату", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
 
@@ -960,8 +1013,8 @@ namespace Ponomarev_N
                     sqlConnection.Close();
                     this.zapicAdapterTableAdapter.Fill(this.ponomarev_NDataSet11.ZapicAdapter);
                     this.oplataTableAdapter.Fill(this.ponomarev_NDataSet1.OplataAdapter);
-                
-               
+                dataBase.GetListAdapter("SELECT oplata.ocod, client.cnam, client.cfam, client.cotch, client.ctel, sotr.snam, uslugi.unam, uslugi.ucena, oplata.odate, oplataStatus.oplStatusName, pet.pcod, sotr.scod, client.ccod, uslugi.ucod, oplataStatus.oplStatusCod, client.cnam +' '+ client.cfam + ' '+ client.cotch as oplataFIO FROM client INNER JOIN pet ON client.ccod = pet.ccod INNER JOIN oplata ON client.ccod = oplata.ccod AND pet.pcod = oplata.pcod INNER JOIN oplataStatus ON oplata.oplStatusCod = oplataStatus.oplStatusCod INNER JOIN sotr ON oplata.scod = sotr.scod INNER JOIN uslugi ON oplata.ucod = uslugi.ucod", "oplata", dataGridOplata);
+
 
             }
             else if (dialogResult == DialogResult.No)
@@ -1087,6 +1140,11 @@ namespace Ponomarev_N
         private void txt_searchOplata_TextChanged(object sender, EventArgs e)
         {
             (dataGridOplata.DataSource as DataTable).DefaultView.RowFilter = $"[oplataFIO] LIKE '%{txt_searchOplata.Text}%'";
+        }
+
+        private void Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

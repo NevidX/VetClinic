@@ -20,10 +20,13 @@ namespace Ponomarev_N
         SqlDataAdapter sqlDataAdapter;
         DataSet dataSet;
         SqlCommand cmd;
+
+        List<TextBox> ignoredTextboxes;
         public petomec()
         {
             InitializeComponent();
             connection = new SqlConnection(connectionLink.connectionString);
+            ignoredTextboxes = new List<TextBox>() { txt_posoben,txt_pprotiv};
         }
         private void txt_pvozrast_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -35,7 +38,7 @@ namespace Ponomarev_N
         }
         private void GetPet()
         {
-            string selectSql = "SELECT * FROM Pet WHERE ccod = @clientId";
+            string selectSql = "SELECT pcod as 'Код питомца',pnam as 'Имя', pvozrast as 'Возраст', pvid as 'Вид животного', pprotiv as 'Противопоказания', posoben as 'Особенности',ccod as 'Код клиента' FROM Pet WHERE ccod = @clientId";
             SqlCommand selectCommand = new SqlCommand(selectSql, connection);
             selectCommand.Parameters.AddWithValue("@clientId", curentCcod);
             SqlDataAdapter dataAdapter = new SqlDataAdapter(selectCommand);
@@ -43,7 +46,7 @@ namespace Ponomarev_N
             dataAdapter.Fill(dt);
             dataGridPet.DataSource = dt;
         }
-
+        
         private void petomec_Load(object sender, EventArgs e)
         {
             GetPet();
@@ -58,7 +61,7 @@ namespace Ponomarev_N
         private void btn_addPet_Click(object sender, EventArgs e)
         {
             // Иницилизируем методы, проверяющие правильность значений
-            if (!ValidateEmptyValues())
+            if (!ValidateEmptyValues(ignoredTextboxes))
             {
                 return;
             }
@@ -108,7 +111,7 @@ namespace Ponomarev_N
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите отредактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                if (!ValidateEmptyValues())
+                if (!ValidateEmptyValues(ignoredTextboxes))
                 {
                     return;
                 }
@@ -139,7 +142,7 @@ namespace Ponomarev_N
         }
 
        
-        public bool ValidateEmptyValues()
+          public bool ValidateEmptyValues(List<TextBox> ignoredTextboxes)
         {
             foreach (Control control in this.Controls)
             {
@@ -148,10 +151,13 @@ namespace Ponomarev_N
                     if (control is TextBox)
                     {
                         TextBox textBox = (TextBox)control;
-                        if (string.IsNullOrEmpty(textBox.Text))
+                        if (!ignoredTextboxes.Contains(textBox)) // добавить условие проверки наличия в списке игнорируемых
                         {
-                            MessageBox.Show("Заполнены не все значения!");
-                            return false;
+                            if (string.IsNullOrEmpty(textBox.Text))
+                            {
+                                MessageBox.Show("Заполнены не все значения или они некорректны!");
+                                return false;
+                            }
                         }
                     }
                     else if (control is ComboBox)
@@ -159,7 +165,7 @@ namespace Ponomarev_N
                         ComboBox comboBox = (ComboBox)control;
                         if (comboBox.SelectedIndex == -1)
                         {
-                            MessageBox.Show("Заполнены не все значения!");
+                            MessageBox.Show("Заполнены не все значения или они некорректны!");
                             return false;
                         }
                     }
@@ -167,6 +173,7 @@ namespace Ponomarev_N
             }
             return true;
         }
+
         public void ClearTextBoxes()
         {
             // Запускаем цикл, который проходится по всем элементам управления, в текущем TabPage

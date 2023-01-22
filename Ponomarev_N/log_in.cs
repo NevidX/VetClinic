@@ -27,6 +27,7 @@ namespace Ponomarev_N
 
         }
 
+        string userCod;
         private void btn_login_Click(object sender, EventArgs e)
         {
             // Объявляем переменные, в которые будем передавать вводимые пользователем данные.
@@ -35,18 +36,30 @@ namespace Ponomarev_N
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
             // Создаем переменную - запрос, и обращаемся к базе данных, проверяем есть ли у нас такой пользователь с таким паролем.
-            string querystring = $"select slogin, spass from sotr where slogin='{loginUser}' and spass = '{passUser}'";
+            string querystring = $"select slogin, spass, dcod from sotr where slogin='{loginUser}' and spass = '{passUser}' ";
+            string queryDcod = $"select dcod from sotr where slogin='{loginUser}' and spass = '{passUser}' ";
             // Подключение к базе данных.
+
             SqlCommand command = new SqlCommand(querystring, connection);
+            SqlCommand command2 = new SqlCommand(queryDcod, connection);
+            connection.Open();
+            object result = command2.ExecuteScalar();
+            userCod = Convert.ToString(result);
+            connection.Close();
 
             adapter.SelectCommand = command;
             adapter.Fill(table);
-            // Проверяем если найдена запись, то выдаем соообщение об успешной авторизации, если нет, говорим, 
+
             // Проверяем если найдена запись, то выдаем соообщение об успешной авторизации, если нет, говорим, что такого аккаунта не существует.
             if (table.Rows.Count == 1)
             {
+                var mainForm = new Main();
+               
+                this.Hide();
+                mainForm.userValue(userCod);
+                mainForm.Show();
+                
                 MessageBox.Show("Вы успешно вошли!", "Успешно!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             }
             else
             {
@@ -56,4 +69,6 @@ namespace Ponomarev_N
 
         }
     }
+    
+    
 }

@@ -54,7 +54,7 @@ namespace Ponomarev_N
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(9, 10);
+            this.label1.Location = new System.Drawing.Point(2, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 16);
             this.label1.TabIndex = 60;
@@ -64,9 +64,9 @@ namespace Ponomarev_N
             // 
             this.btn_clearPet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_clearPet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_clearPet.Location = new System.Drawing.Point(12, 469);
+            this.btn_clearPet.Location = new System.Drawing.Point(162, 487);
             this.btn_clearPet.Name = "btn_clearPet";
-            this.btn_clearPet.Size = new System.Drawing.Size(155, 36);
+            this.btn_clearPet.Size = new System.Drawing.Size(154, 36);
             this.btn_clearPet.TabIndex = 58;
             this.btn_clearPet.Text = "Очистить";
             this.btn_clearPet.UseVisualStyleBackColor = true;
@@ -76,7 +76,7 @@ namespace Ponomarev_N
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(9, 147);
+            this.label4.Location = new System.Drawing.Point(2, 230);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(151, 16);
             this.label4.TabIndex = 57;
@@ -86,7 +86,7 @@ namespace Ponomarev_N
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(260, 95);
+            this.label5.Location = new System.Drawing.Point(2, 140);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 16);
             this.label5.TabIndex = 56;
@@ -94,7 +94,7 @@ namespace Ponomarev_N
             // 
             // txt_pvid
             // 
-            this.txt_pvid.Location = new System.Drawing.Point(263, 114);
+            this.txt_pvid.Location = new System.Drawing.Point(5, 159);
             this.txt_pvid.MaxLength = 50;
             this.txt_pvid.Name = "txt_pvid";
             this.txt_pvid.Size = new System.Drawing.Size(117, 20);
@@ -104,7 +104,7 @@ namespace Ponomarev_N
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(135, 95);
+            this.label6.Location = new System.Drawing.Point(2, 182);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(70, 16);
             this.label6.TabIndex = 54;
@@ -114,7 +114,7 @@ namespace Ponomarev_N
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(9, 95);
+            this.label7.Location = new System.Drawing.Point(2, 98);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(37, 16);
             this.label7.TabIndex = 52;
@@ -122,7 +122,7 @@ namespace Ponomarev_N
             // 
             // txt_pnam
             // 
-            this.txt_pnam.Location = new System.Drawing.Point(12, 114);
+            this.txt_pnam.Location = new System.Drawing.Point(5, 117);
             this.txt_pnam.MaxLength = 50;
             this.txt_pnam.Name = "txt_pnam";
             this.txt_pnam.Size = new System.Drawing.Size(117, 20);
@@ -132,9 +132,9 @@ namespace Ponomarev_N
             // 
             this.btn_editPet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_editPet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_editPet.Location = new System.Drawing.Point(12, 427);
+            this.btn_editPet.Location = new System.Drawing.Point(162, 445);
             this.btn_editPet.Name = "btn_editPet";
-            this.btn_editPet.Size = new System.Drawing.Size(155, 36);
+            this.btn_editPet.Size = new System.Drawing.Size(154, 36);
             this.btn_editPet.TabIndex = 50;
             this.btn_editPet.Text = "Редактировать";
             this.btn_editPet.UseVisualStyleBackColor = true;
@@ -144,9 +144,9 @@ namespace Ponomarev_N
             // 
             this.btn_delPet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_delPet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_delPet.Location = new System.Drawing.Point(12, 385);
+            this.btn_delPet.Location = new System.Drawing.Point(5, 487);
             this.btn_delPet.Name = "btn_delPet";
-            this.btn_delPet.Size = new System.Drawing.Size(155, 36);
+            this.btn_delPet.Size = new System.Drawing.Size(154, 36);
             this.btn_delPet.TabIndex = 49;
             this.btn_delPet.Text = "Удалить";
             this.btn_delPet.UseVisualStyleBackColor = true;
@@ -156,9 +156,9 @@ namespace Ponomarev_N
             // 
             this.btn_addPet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_addPet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_addPet.Location = new System.Drawing.Point(12, 343);
+            this.btn_addPet.Location = new System.Drawing.Point(5, 445);
             this.btn_addPet.Name = "btn_addPet";
-            this.btn_addPet.Size = new System.Drawing.Size(155, 36);
+            this.btn_addPet.Size = new System.Drawing.Size(154, 36);
             this.btn_addPet.TabIndex = 48;
             this.btn_addPet.Text = "Добавить";
             this.btn_addPet.UseVisualStyleBackColor = true;
@@ -166,7 +166,7 @@ namespace Ponomarev_N
             // 
             // txt_pvozrast
             // 
-            this.txt_pvozrast.Location = new System.Drawing.Point(138, 114);
+            this.txt_pvozrast.Location = new System.Drawing.Point(5, 201);
             this.txt_pvozrast.MaxLength = 50;
             this.txt_pvozrast.Name = "txt_pvozrast";
             this.txt_pvozrast.Size = new System.Drawing.Size(117, 20);
@@ -183,28 +183,28 @@ namespace Ponomarev_N
             this.dataGridPet.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridPet.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridPet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridPet.Location = new System.Drawing.Point(456, 12);
+            this.dataGridPet.Location = new System.Drawing.Point(333, 12);
             this.dataGridPet.Name = "dataGridPet";
             this.dataGridPet.ReadOnly = true;
             this.dataGridPet.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            this.dataGridPet.Size = new System.Drawing.Size(661, 514);
+            this.dataGridPet.Size = new System.Drawing.Size(784, 514);
             this.dataGridPet.TabIndex = 62;
             this.dataGridPet.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPet_CellEnter);
             // 
             // txt_pprotiv
             // 
-            this.txt_pprotiv.Location = new System.Drawing.Point(12, 166);
+            this.txt_pprotiv.Location = new System.Drawing.Point(5, 249);
             this.txt_pprotiv.MaxLength = 500;
             this.txt_pprotiv.Multiline = true;
             this.txt_pprotiv.Name = "txt_pprotiv";
             this.txt_pprotiv.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txt_pprotiv.Size = new System.Drawing.Size(216, 157);
+            this.txt_pprotiv.Size = new System.Drawing.Size(146, 157);
             this.txt_pprotiv.TabIndex = 63;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Ponomarev_N.Properties.Resources.pawprint;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 29);
+            this.pictureBox2.Location = new System.Drawing.Point(5, 28);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(54, 66);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -213,19 +213,19 @@ namespace Ponomarev_N
             // 
             // txt_posoben
             // 
-            this.txt_posoben.Location = new System.Drawing.Point(234, 166);
+            this.txt_posoben.Location = new System.Drawing.Point(162, 249);
             this.txt_posoben.MaxLength = 500;
             this.txt_posoben.Multiline = true;
             this.txt_posoben.Name = "txt_posoben";
             this.txt_posoben.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txt_posoben.Size = new System.Drawing.Size(216, 157);
+            this.txt_posoben.Size = new System.Drawing.Size(146, 157);
             this.txt_posoben.TabIndex = 64;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(231, 147);
+            this.label2.Location = new System.Drawing.Point(159, 230);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 16);
             this.label2.TabIndex = 65;
@@ -254,7 +254,7 @@ namespace Ponomarev_N
             this.Controls.Add(this.btn_addPet);
             this.Controls.Add(this.pictureBox2);
             this.Name = "petomec";
-            this.Text = "petomec";
+            this.Text = "Редактирование питомца";
             this.Load += new System.EventHandler(this.petomec_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
