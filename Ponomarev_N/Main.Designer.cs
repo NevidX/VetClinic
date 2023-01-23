@@ -41,17 +41,18 @@ namespace Ponomarev_N
             this.ponomarev_NDataSet1 = new Ponomarev_N.Ponomarev_NDataSet();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.pb_searchUsulgi = new System.Windows.Forms.PictureBox();
-            this.txt_searchUslugi = new System.Windows.Forms.TextBox();
+            this.panel_uslugi = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.btn_addUslugi = new System.Windows.Forms.Button();
+            this.btn_delUslugi = new System.Windows.Forms.Button();
             this.btn_clearUslugi = new System.Windows.Forms.Button();
+            this.btn_uslugiEdit = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
+            this.txt_unam = new System.Windows.Forms.TextBox();
             this.txt_ucena = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.txt_unam = new System.Windows.Forms.TextBox();
-            this.btn_uslugiEdit = new System.Windows.Forms.Button();
-            this.btn_delUslugi = new System.Windows.Forms.Button();
-            this.btn_addUslugi = new System.Windows.Forms.Button();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pb_searchUsulgi = new System.Windows.Forms.PictureBox();
+            this.txt_searchUslugi = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.txt_searchVrachi = new System.Windows.Forms.TextBox();
@@ -184,6 +185,7 @@ namespace Ponomarev_N
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.txt_searchBolezn = new System.Windows.Forms.TextBox();
             this.chartBolezn = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.boleznBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridBolezn = new System.Windows.Forms.DataGridView();
             this.bcodDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bnamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -246,14 +248,15 @@ namespace Ponomarev_N
             this.oplataTableAdapter = new Ponomarev_N.Ponomarev_NDataSetTableAdapters.OplataTableAdapter();
             this.boleznBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.sotrTableAdapter = new Ponomarev_N.Ponomarev_NDataSetTableAdapters.sotrTableAdapter();
-            this.panel_uslugi = new System.Windows.Forms.Panel();
+            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUslugi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uslugiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_searchUsulgi)).BeginInit();
+            this.panel_uslugi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_searchUsulgi)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVrachi)).BeginInit();
@@ -291,6 +294,7 @@ namespace Ponomarev_N
             this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartBolezn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boleznBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBolezn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boleznBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -309,7 +313,6 @@ namespace Ponomarev_N
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boleznBindingSource2)).BeginInit();
-            this.panel_uslugi.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridUslugi
@@ -327,11 +330,11 @@ namespace Ponomarev_N
             this.unamDataGridViewTextBoxColumn,
             this.ucenaDataGridViewTextBoxColumn});
             this.dataGridUslugi.DataSource = this.uslugiBindingSource;
-            this.dataGridUslugi.Location = new System.Drawing.Point(167, 95);
+            this.dataGridUslugi.Location = new System.Drawing.Point(3, 32);
             this.dataGridUslugi.Name = "dataGridUslugi";
             this.dataGridUslugi.ReadOnly = true;
             this.dataGridUslugi.RowHeadersWidth = 51;
-            this.dataGridUslugi.Size = new System.Drawing.Size(1202, 482);
+            this.dataGridUslugi.Size = new System.Drawing.Size(1366, 545);
             this.dataGridUslugi.TabIndex = 0;
             this.dataGridUslugi.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridUslugi_CellEnter);
             // 
@@ -404,96 +407,31 @@ namespace Ponomarev_N
             this.tabPage1.Text = "Услуги";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // pb_searchUsulgi
+            // panel_uslugi
             // 
-            this.pb_searchUsulgi.Image = global::Ponomarev_N.Properties.Resources.magnifier;
-            this.pb_searchUsulgi.Location = new System.Drawing.Point(167, 69);
-            this.pb_searchUsulgi.Name = "pb_searchUsulgi";
-            this.pb_searchUsulgi.Size = new System.Drawing.Size(20, 20);
-            this.pb_searchUsulgi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_searchUsulgi.TabIndex = 37;
-            this.pb_searchUsulgi.TabStop = false;
+            this.panel_uslugi.Controls.Add(this.pictureBox4);
+            this.panel_uslugi.Controls.Add(this.btn_addUslugi);
+            this.panel_uslugi.Controls.Add(this.btn_delUslugi);
+            this.panel_uslugi.Controls.Add(this.btn_clearUslugi);
+            this.panel_uslugi.Controls.Add(this.btn_uslugiEdit);
+            this.panel_uslugi.Controls.Add(this.label16);
+            this.panel_uslugi.Controls.Add(this.txt_unam);
+            this.panel_uslugi.Controls.Add(this.txt_ucena);
+            this.panel_uslugi.Controls.Add(this.label17);
+            this.panel_uslugi.Location = new System.Drawing.Point(0, 9);
+            this.panel_uslugi.Name = "panel_uslugi";
+            this.panel_uslugi.Size = new System.Drawing.Size(158, 568);
+            this.panel_uslugi.TabIndex = 38;
             // 
-            // txt_searchUslugi
+            // pictureBox4
             // 
-            this.txt_searchUslugi.Location = new System.Drawing.Point(193, 69);
-            this.txt_searchUslugi.MaxLength = 50;
-            this.txt_searchUslugi.Name = "txt_searchUslugi";
-            this.txt_searchUslugi.Size = new System.Drawing.Size(246, 20);
-            this.txt_searchUslugi.TabIndex = 36;
-            this.txt_searchUslugi.TextChanged += new System.EventHandler(this.txt_searchUslugi_TextChanged);
-            // 
-            // btn_clearUslugi
-            // 
-            this.btn_clearUslugi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_clearUslugi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_clearUslugi.Location = new System.Drawing.Point(0, 515);
-            this.btn_clearUslugi.Name = "btn_clearUslugi";
-            this.btn_clearUslugi.Size = new System.Drawing.Size(155, 36);
-            this.btn_clearUslugi.TabIndex = 35;
-            this.btn_clearUslugi.Text = "Очистить";
-            this.btn_clearUslugi.UseVisualStyleBackColor = true;
-            this.btn_clearUslugi.Click += new System.EventHandler(this.btn_clearUslugi_Click);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label16.Location = new System.Drawing.Point(-3, 126);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(100, 16);
-            this.label16.TabIndex = 31;
-            this.label16.Text = "Цена услуги";
-            // 
-            // txt_ucena
-            // 
-            this.txt_ucena.Location = new System.Drawing.Point(0, 145);
-            this.txt_ucena.MaxLength = 50;
-            this.txt_ucena.Name = "txt_ucena";
-            this.txt_ucena.Size = new System.Drawing.Size(134, 20);
-            this.txt_ucena.TabIndex = 30;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label17.Location = new System.Drawing.Point(-3, 80);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(137, 16);
-            this.label17.TabIndex = 29;
-            this.label17.Text = "Название услуги";
-            // 
-            // txt_unam
-            // 
-            this.txt_unam.Location = new System.Drawing.Point(0, 103);
-            this.txt_unam.MaxLength = 50;
-            this.txt_unam.Name = "txt_unam";
-            this.txt_unam.Size = new System.Drawing.Size(134, 20);
-            this.txt_unam.TabIndex = 28;
-            // 
-            // btn_uslugiEdit
-            // 
-            this.btn_uslugiEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_uslugiEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_uslugiEdit.Location = new System.Drawing.Point(0, 473);
-            this.btn_uslugiEdit.Name = "btn_uslugiEdit";
-            this.btn_uslugiEdit.Size = new System.Drawing.Size(155, 36);
-            this.btn_uslugiEdit.TabIndex = 27;
-            this.btn_uslugiEdit.Text = "Редактировать";
-            this.btn_uslugiEdit.UseVisualStyleBackColor = true;
-            this.btn_uslugiEdit.Click += new System.EventHandler(this.btn_uslugiEdit_Click);
-            // 
-            // btn_delUslugi
-            // 
-            this.btn_delUslugi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_delUslugi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_delUslugi.Location = new System.Drawing.Point(0, 431);
-            this.btn_delUslugi.Name = "btn_delUslugi";
-            this.btn_delUslugi.Size = new System.Drawing.Size(155, 36);
-            this.btn_delUslugi.TabIndex = 26;
-            this.btn_delUslugi.Text = "Удалить";
-            this.btn_delUslugi.UseVisualStyleBackColor = true;
-            this.btn_delUslugi.Click += new System.EventHandler(this.btn_delUslugi_Click);
+            this.pictureBox4.Image = global::Ponomarev_N.Properties.Resources.customer;
+            this.pictureBox4.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(54, 66);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 24;
+            this.pictureBox4.TabStop = false;
             // 
             // btn_addUslugi
             // 
@@ -507,15 +445,98 @@ namespace Ponomarev_N
             this.btn_addUslugi.UseVisualStyleBackColor = true;
             this.btn_addUslugi.Click += new System.EventHandler(this.btn_addUslugi_Click);
             // 
-            // pictureBox4
+            // btn_delUslugi
             // 
-            this.pictureBox4.Image = global::Ponomarev_N.Properties.Resources.customer;
-            this.pictureBox4.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(54, 66);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 24;
-            this.pictureBox4.TabStop = false;
+            this.btn_delUslugi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_delUslugi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_delUslugi.Location = new System.Drawing.Point(0, 431);
+            this.btn_delUslugi.Name = "btn_delUslugi";
+            this.btn_delUslugi.Size = new System.Drawing.Size(155, 36);
+            this.btn_delUslugi.TabIndex = 26;
+            this.btn_delUslugi.Text = "Удалить";
+            this.btn_delUslugi.UseVisualStyleBackColor = true;
+            this.btn_delUslugi.Click += new System.EventHandler(this.btn_delUslugi_Click);
+            // 
+            // btn_clearUslugi
+            // 
+            this.btn_clearUslugi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_clearUslugi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_clearUslugi.Location = new System.Drawing.Point(0, 515);
+            this.btn_clearUslugi.Name = "btn_clearUslugi";
+            this.btn_clearUslugi.Size = new System.Drawing.Size(155, 36);
+            this.btn_clearUslugi.TabIndex = 35;
+            this.btn_clearUslugi.Text = "Очистить";
+            this.btn_clearUslugi.UseVisualStyleBackColor = true;
+            this.btn_clearUslugi.Click += new System.EventHandler(this.btn_clearUslugi_Click);
+            // 
+            // btn_uslugiEdit
+            // 
+            this.btn_uslugiEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_uslugiEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_uslugiEdit.Location = new System.Drawing.Point(0, 473);
+            this.btn_uslugiEdit.Name = "btn_uslugiEdit";
+            this.btn_uslugiEdit.Size = new System.Drawing.Size(155, 36);
+            this.btn_uslugiEdit.TabIndex = 27;
+            this.btn_uslugiEdit.Text = "Редактировать";
+            this.btn_uslugiEdit.UseVisualStyleBackColor = true;
+            this.btn_uslugiEdit.Click += new System.EventHandler(this.btn_uslugiEdit_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label16.Location = new System.Drawing.Point(-3, 126);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(100, 16);
+            this.label16.TabIndex = 31;
+            this.label16.Text = "Цена услуги";
+            // 
+            // txt_unam
+            // 
+            this.txt_unam.Location = new System.Drawing.Point(0, 103);
+            this.txt_unam.MaxLength = 50;
+            this.txt_unam.Name = "txt_unam";
+            this.txt_unam.Size = new System.Drawing.Size(134, 20);
+            this.txt_unam.TabIndex = 28;
+            this.txt_unam.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_unam_KeyPress);
+            // 
+            // txt_ucena
+            // 
+            this.txt_ucena.Location = new System.Drawing.Point(0, 145);
+            this.txt_ucena.MaxLength = 50;
+            this.txt_ucena.Name = "txt_ucena";
+            this.txt_ucena.Size = new System.Drawing.Size(134, 20);
+            this.txt_ucena.TabIndex = 30;
+            this.txt_ucena.TextChanged += new System.EventHandler(this.txt_ucena_TextChanged);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label17.Location = new System.Drawing.Point(-3, 80);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(137, 16);
+            this.label17.TabIndex = 29;
+            this.label17.Text = "Название услуги";
+            // 
+            // pb_searchUsulgi
+            // 
+            this.pb_searchUsulgi.Image = global::Ponomarev_N.Properties.Resources.magnifier;
+            this.pb_searchUsulgi.Location = new System.Drawing.Point(7, 6);
+            this.pb_searchUsulgi.Name = "pb_searchUsulgi";
+            this.pb_searchUsulgi.Size = new System.Drawing.Size(20, 20);
+            this.pb_searchUsulgi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_searchUsulgi.TabIndex = 37;
+            this.pb_searchUsulgi.TabStop = false;
+            // 
+            // txt_searchUslugi
+            // 
+            this.txt_searchUslugi.Location = new System.Drawing.Point(33, 6);
+            this.txt_searchUslugi.MaxLength = 50;
+            this.txt_searchUslugi.Name = "txt_searchUslugi";
+            this.txt_searchUslugi.Size = new System.Drawing.Size(246, 20);
+            this.txt_searchUslugi.TabIndex = 36;
+            this.txt_searchUslugi.TextChanged += new System.EventHandler(this.txt_searchUslugi_TextChanged);
             // 
             // tabPage2
             // 
@@ -1275,7 +1296,6 @@ namespace Ponomarev_N
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Запись";
             this.tabPage5.UseVisualStyleBackColor = true;
-            this.tabPage5.Click += new System.EventHandler(this.tabPage5_Click);
             // 
             // pictureBox11
             // 
@@ -1577,7 +1597,6 @@ namespace Ponomarev_N
             this.cb_statusCod.Size = new System.Drawing.Size(265, 21);
             this.cb_statusCod.TabIndex = 71;
             this.cb_statusCod.ValueMember = "statusCod";
-            this.cb_statusCod.SelectedIndexChanged += new System.EventHandler(this.cb_statusCod_SelectedIndexChanged);
             // 
             // statusBindingSource
             // 
@@ -1802,6 +1821,7 @@ namespace Ponomarev_N
             // 
             chartArea6.Name = "ChartArea1";
             this.chartBolezn.ChartAreas.Add(chartArea6);
+            this.chartBolezn.DataSource = this.boleznBindingSource3;
             legend6.Name = "Legend1";
             this.chartBolezn.Legends.Add(legend6);
             this.chartBolezn.Location = new System.Drawing.Point(878, 13);
@@ -1813,6 +1833,11 @@ namespace Ponomarev_N
             this.chartBolezn.Size = new System.Drawing.Size(470, 551);
             this.chartBolezn.TabIndex = 46;
             this.chartBolezn.Text = "chart1";
+            // 
+            // boleznBindingSource3
+            // 
+            this.boleznBindingSource3.DataMember = "bolezn";
+            this.boleznBindingSource3.DataSource = this.ponomarev_NDataSet1;
             // 
             // dataGridBolezn
             // 
@@ -1886,6 +1911,7 @@ namespace Ponomarev_N
             this.txt_bnam.Name = "txt_bnam";
             this.txt_bnam.Size = new System.Drawing.Size(134, 20);
             this.txt_bnam.TabIndex = 40;
+            this.txt_bnam.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_bnam_KeyPress);
             // 
             // btn_EditBolezn
             // 
@@ -2053,7 +2079,7 @@ namespace Ponomarev_N
             // odateDataGridViewTextBoxColumn
             // 
             this.odateDataGridViewTextBoxColumn.DataPropertyName = "odate";
-            this.odateDataGridViewTextBoxColumn.HeaderText = "Дата оплаты";
+            this.odateDataGridViewTextBoxColumn.HeaderText = "Дата оплаты/отказа";
             this.odateDataGridViewTextBoxColumn.Name = "odateDataGridViewTextBoxColumn";
             // 
             // oplStatusNameDataGridViewTextBoxColumn
@@ -2192,7 +2218,8 @@ namespace Ponomarev_N
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.менюToolStripMenuItem});
+            this.менюToolStripMenuItem,
+            this.оПрограммеToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1392, 24);
@@ -2270,21 +2297,12 @@ namespace Ponomarev_N
             // 
             this.sotrTableAdapter.ClearBeforeFill = true;
             // 
-            // panel_uslugi
+            // оПрограммеToolStripMenuItem
             // 
-            this.panel_uslugi.Controls.Add(this.pictureBox4);
-            this.panel_uslugi.Controls.Add(this.btn_addUslugi);
-            this.panel_uslugi.Controls.Add(this.btn_delUslugi);
-            this.panel_uslugi.Controls.Add(this.btn_clearUslugi);
-            this.panel_uslugi.Controls.Add(this.btn_uslugiEdit);
-            this.panel_uslugi.Controls.Add(this.label16);
-            this.panel_uslugi.Controls.Add(this.txt_unam);
-            this.panel_uslugi.Controls.Add(this.txt_ucena);
-            this.panel_uslugi.Controls.Add(this.label17);
-            this.panel_uslugi.Location = new System.Drawing.Point(3, 9);
-            this.panel_uslugi.Name = "panel_uslugi";
-            this.panel_uslugi.Size = new System.Drawing.Size(158, 568);
-            this.panel_uslugi.TabIndex = 38;
+            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.оПрограммеToolStripMenuItem.Text = "О программе";
+            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -2305,8 +2323,10 @@ namespace Ponomarev_N
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_searchUsulgi)).EndInit();
+            this.panel_uslugi.ResumeLayout(false);
+            this.panel_uslugi.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_searchUsulgi)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
@@ -2349,6 +2369,7 @@ namespace Ponomarev_N
             this.tabPage6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartBolezn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boleznBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBolezn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.boleznBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -2369,8 +2390,6 @@ namespace Ponomarev_N
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.boleznBindingSource2)).EndInit();
-            this.panel_uslugi.ResumeLayout(false);
-            this.panel_uslugi.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2549,21 +2568,6 @@ namespace Ponomarev_N
         private System.Windows.Forms.DataGridViewTextBoxColumn statusCod;
         private System.Windows.Forms.DataGridViewTextBoxColumn bcodDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ucodDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ocodDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cnamDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cfamDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cotchDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ctelDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unamDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ucenaDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn odateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn oplStatusNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn snamDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pcodDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn scodDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ccodDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ucodDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn oplStatusCodDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btn_clearZapic;
         private System.Windows.Forms.PictureBox pb_searchUsulgi;
         private System.Windows.Forms.TextBox txt_searchUslugi;
@@ -2592,6 +2596,23 @@ namespace Ponomarev_N
         private System.Windows.Forms.DataGridViewTextBoxColumn spassDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sotrFIODataGridViewTextBoxColumn;
         private System.Windows.Forms.Panel panel_uslugi;
+        private System.Windows.Forms.BindingSource boleznBindingSource3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ocodDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cnamDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cfamDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cotchDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ctelDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unamDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ucenaDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn odateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn oplStatusNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn snamDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pcodDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn scodDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ccodDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ucodDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn oplStatusCodDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
     }
 }
 

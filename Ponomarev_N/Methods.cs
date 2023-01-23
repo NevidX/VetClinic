@@ -216,24 +216,31 @@ namespace Ponomarev_N
                     return;
                 }
             }
+            //if (!System.Text.RegularExpressions.Regex.IsMatch(txt_name.Text, "[^0-9]"))
+            //{
+            //    txt_name.Text = "";
+            //    MessageBox.Show("Вводить можно только буквы!");
+            //}
 
+
+        }
+        public void CheckIfString(object sender, KeyPressEventArgs e, Control txt_name)
+        {
+           
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+
+                if (System.Text.RegularExpressions.Regex.IsMatch(txt_name.Text, "[^0-9]"))
+                {
+                    txt_name.Text = "";
+                    MessageBox.Show("Вводить можно только цифры!");
+                }
             
         }
 
-        public void CheckIfNumberPaste(object sender, EventArgs e)
-        {
-            string clipboardText = Clipboard.GetText(); // Получаем то, что находится в буфере обмена пользователя.
-            if (clipboardText.Any(c => char.IsNumber(c))) // Проверяем на числа
-            {
-                Clipboard.Clear();
-
-                DialogResult result = MessageBox.Show("Можно вводить только буквы", "Ошибка", MessageBoxButtons.OK);
-                if (result == DialogResult.OK)
-                {
-                    return;
-                }
-            }
-        }
+        
 
        
         //public void ChangeCellColour(DataGridView dataGridName)

@@ -14,10 +14,7 @@ using word = Microsoft.Office.Interop.Word;
 namespace Ponomarev_N
 {
     /*TODO: Нужно сделать: 
-     * 
-     * Пересмотреть работу формы клиенты, сделать, чтоб нельзя было добавлять без питомца.
-     * Сделать валидацию пароля по регистру, при авторизации и при создании пользователя.
-     * Доработать форму услуги, чтобы при других ролях dataGridView сам нормально отображалсяю
+     
     */
     public partial class Main : Form
     {
@@ -105,7 +102,7 @@ namespace Ponomarev_N
             this.uslugiTableAdapter.Fill(this.ponomarev_NDataSet1.uslugi);
             
             dtp_zdate.Format = DateTimePickerFormat.Custom;
-            dtp_zdate.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+            dtp_zdate.CustomFormat = "dd/MM/yyyy HH:mm";
             #region Таблица - клиенты
 
             #endregion
@@ -193,8 +190,10 @@ namespace Ponomarev_N
             {
 
                 tabPage5.Parent = tabControl1;
+                tabPage6.Parent = tabControl1;
                 btn_addZapic.Visible = false;
                 btn_delZapic.Visible = false;
+                btn_clearZapic.Visible = false;
 
             }
 
@@ -202,7 +201,7 @@ namespace Ponomarev_N
             if (userCod == "2") // администратор 
             {
                 tabPage4.Parent = tabControl1;
-                tabPage6.Parent = tabControl1;
+                tabPage5.Parent = tabControl1;
                 tabPage7.Parent = tabControl1;
             }
 
@@ -211,6 +210,21 @@ namespace Ponomarev_N
             if (userCod == "3") // системный администратор
             {
 
+                // Перемещение и изменения размеров DataGridView
+                dataGridUslugi.Width = 1202;
+                dataGridUslugi.Height = 482;
+                dataGridUslugi.Top = 95;
+                dataGridUslugi.Left = 167;
+
+                // Перемещение textbox поиска
+
+                pb_searchUsulgi.Left = 165;
+                pb_searchUsulgi.Top = 69;
+
+                txt_searchUslugi.Left = 191;
+                txt_searchUslugi.Top = 69;
+
+              // Открытие доступа к формам 
                 tabPage3.Parent = tabControl1;
                 tabPage4.Parent = tabControl1;
                 tabPage5.Parent = tabControl1;
@@ -225,12 +239,26 @@ namespace Ponomarev_N
         #region Таблицы
 
         #region Таблица - пользователи
+        private void txt_searchUsers_TextChanged(object sender, EventArgs e)
+        {
+            (dataGridUsers.DataSource as DataTable).DefaultView.RowFilter = $"[sotrFIO] LIKE '%{txt_searchUsers.Text}%'";
+        }
+
+
         // Кнопка добавления нового пользователя
         private void btn_userAdd_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите добавить запись?", "Добавить запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
+                int minLength = 8;
+                string password = txt_spass.Text;
+                if (password.Length < 8)
+                {
+                    MessageBox.Show("Длина пароля должна быть не менее " + minLength + " символов.");
+                    return;
+                }
+                else
                 // Иницилизируем методы, проверяющие правильность значений
                 if (!method.ValidateEmptyValues(tabPage3,ignoredTextboxes) || method.CheckIfValueExists(txt_slogin, "slogin", "Sotr", "логин") == true || method.CheckIfValueExists(txt_stel, "stel", "Sotr", "телефон") == true)
                 {
@@ -294,6 +322,14 @@ namespace Ponomarev_N
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите отредактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
+
+                int minLength = 8;
+                string password = txt_spass.Text;
+                if (password.Length < 8)
+                {
+                    MessageBox.Show("Длина пароля должна быть не менее " + minLength + " символов.");
+                    return;
+                }else
                 if (!method.ValidateEmptyValues(tabPage3,ignoredTextboxes) || method.CheckIfValueExistsEdit(txt_slogin, "slogin", "Sotr","логин",currentScod,"scod") == true || method.CheckIfValueExistsEdit(txt_stel, "stel", "Sotr","телефон",currentScod, "scod") == true)
                 {
                     return;
@@ -378,6 +414,13 @@ namespace Ponomarev_N
         #endregion
 
         #region Таблица - клиенты
+        private void txt_searchClient_TextChanged(object sender, EventArgs e)
+        {
+            (dataGridClients.DataSource as DataTable).DefaultView.RowFilter = $"[clientFIO] LIKE '%{txt_searchClient.Text}%'";
+        }
+
+
+
         string currentCcod;
         // Метод добавления клиента
         private void btn_addClient_Click(object sender, EventArgs e)
@@ -525,6 +568,17 @@ namespace Ponomarev_N
         #endregion
 
         #region Таблица - запись
+
+        private void txt_searchZapic_TextChanged(object sender, EventArgs e)
+        {
+            (dataGridZapic.DataSource as DataTable).DefaultView.RowFilter = $"[zapicFIO] LIKE '%{txt_searchZapic.Text}%'";
+        }
+        private void cmb_dcod_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+
         string currentPcod;
 
         private void cb_cnam_SelectedIndexChanged(object sender, EventArgs e)
@@ -534,11 +588,11 @@ namespace Ponomarev_N
             currentPcod = Convert.ToString(cb_pcod.SelectedValue);
 
 
-
         }
 
         private void cb_cnam_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            cb_pcod.Enabled = true;
             // Извлекаем текущйи код клиента
             currentCcod = Convert.ToString(cb_cnam.SelectedValue);
 
@@ -569,7 +623,7 @@ namespace Ponomarev_N
         {
             method.ClearTextBoxes(tabPage5);
             cb_cnam.Enabled = true;
-            cb_pcod.Enabled = true;
+            cb_pcod.Enabled = false;
             cb_ctel.Enabled = true;
             cb_scod.Enabled = true;
             cmb_dcod.Enabled = true;
@@ -776,6 +830,11 @@ namespace Ponomarev_N
         #endregion
 
         #region Таблица - услуги
+
+        private void txt_unam_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            method.CheckIfNumber(sender, e);
+        }
         // Поиск по услугам
         private void txt_searchUslugi_TextChanged(object sender, EventArgs e)
         {
@@ -877,7 +936,16 @@ namespace Ponomarev_N
 
         #region Таблица - болезни
 
-        
+        private void txt_searchBolezn_TextChanged(object sender, EventArgs e)
+        {
+            (dataGridBolezn.DataSource as DataTable).DefaultView.RowFilter = $"[bnam] LIKE '%{txt_searchBolezn.Text}%'";
+        }
+
+
+        private void txt_bnam_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            method.CheckIfNumber(sender, e);
+        }
         private void btn_addBolezn_Click(object sender, EventArgs e)
         {
             // Иницилизируем методы, проверяющие правильность значений
@@ -966,6 +1034,10 @@ namespace Ponomarev_N
         #endregion
 
         #region Таблица - оплата
+        private void txt_searchOplata_TextChanged(object sender, EventArgs e)
+        {
+            (dataGridOplata.DataSource as DataTable).DefaultView.RowFilter = $"[oplataFIO] LIKE '%{txt_searchOplata.Text}%'";
+        }
         private void btn_acceptOplata_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите подтвердить оплату?", "Подтвердить оплату", MessageBoxButtons.YesNo);
@@ -974,11 +1046,12 @@ namespace Ponomarev_N
 
                
                     // Запрос на обновление введнных полей.
-                    string query = "Update Oplata set oplStatusCod=@oplStatusCod where ocod=@ocod";
+                    string query = "Update Oplata set oplStatusCod=@oplStatusCod,odate=@odate where ocod=@ocod";
                     cmd = new SqlCommand(query, sqlConnection);
                     // Передаем введнные данные.
                     cmd.Parameters.AddWithValue("@ocod", Convert.ToString(currentOcod));
                     cmd.Parameters.AddWithValue("@oplStatusCod", 2);
+                    cmd.Parameters.AddWithValue("@odate", DateTime.Now);
                     cmd.Connection = sqlConnection;
                     sqlConnection.Open();
                     cmd.ExecuteNonQuery();
@@ -1002,12 +1075,13 @@ namespace Ponomarev_N
 
                 
                     // Запрос на обновление введнных полей.
-                    string query = "Update Oplata set oplStatusCod=@oplStatusCod where ocod=@ocod";
+                    string query = "Update Oplata set oplStatusCod=@oplStatusCod,odate=@odate where ocod=@ocod";
                     cmd = new SqlCommand(query, sqlConnection);
                     // Передаем введнные данные.
                     cmd.Parameters.AddWithValue("@ocod", Convert.ToString(currentOcod));
                     cmd.Parameters.AddWithValue("@oplStatusCod", 3);
-                    cmd.Connection = sqlConnection;
+                cmd.Parameters.AddWithValue("@odate", DateTime.Now);
+                cmd.Connection = sqlConnection;
                     sqlConnection.Open();
                     cmd.ExecuteNonQuery();
                     sqlConnection.Close();
@@ -1089,62 +1163,31 @@ namespace Ponomarev_N
                 btn_cancelOplata.Enabled = true;
             }
         }
-        
+
+        private void txt_ucena_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txt_ucena.Text, "[^0-9]"))
+            {
+                txt_ucena.Text = "";
+                MessageBox.Show("Вводить можно только цифры!");
+            }
+        }
+
+      
+
         #endregion
 
 
         #endregion
-
-
-
-
-
-
-
-
-        private void tabPage5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmb_dcod_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = true;
-        }
-
-        private void cb_statusCod_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_searchUsers_TextChanged(object sender, EventArgs e)
-        {
-            (dataGridUsers.DataSource as DataTable).DefaultView.RowFilter = $"[sotrFIO] LIKE '%{txt_searchUsers.Text}%'";
-        }
-
-        private void txt_searchClient_TextChanged(object sender, EventArgs e)
-        {
-            (dataGridClients.DataSource as DataTable).DefaultView.RowFilter = $"[clientFIO] LIKE '%{txt_searchClient.Text}%'";
-        }
-
-        private void txt_searchZapic_TextChanged(object sender, EventArgs e)
-        {
-            (dataGridZapic.DataSource as DataTable).DefaultView.RowFilter = $"[zapicFIO] LIKE '%{txt_searchZapic.Text}%'";
-        }
-
-        private void txt_searchBolezn_TextChanged(object sender, EventArgs e)
-        {
-            (dataGridBolezn.DataSource as DataTable).DefaultView.RowFilter = $"[bnam] LIKE '%{txt_searchBolezn.Text}%'";
-        }
-
-        private void txt_searchOplata_TextChanged(object sender, EventArgs e)
-        {
-            (dataGridOplata.DataSource as DataTable).DefaultView.RowFilter = $"[oplataFIO] LIKE '%{txt_searchOplata.Text}%'";
-        }
 
         private void Main_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Курсовой проект МДК 04.01:\nИнформационная система ветеринарной клиники\nАвтор: Пономарев Никита, студент группы ИП-41");
         }
     }
 }
