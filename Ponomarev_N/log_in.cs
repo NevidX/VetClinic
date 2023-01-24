@@ -36,6 +36,7 @@ namespace Ponomarev_N
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
             // Создаем переменную - запрос, и обращаемся к базе данных, проверяем есть ли у нас такой пользователь с таким паролем.
+            // queryDcod = нужен для того, что бы передать его в основную форму и выдать соответсвующий доступы.
             string querystring = $"select slogin, spass, dcod from sotr where slogin collate SQL_Latin1_General_CP1_CS_AS = '{loginUser}'  and spass collate SQL_Latin1_General_CP1_CS_AS = '{passUser}' ";
             string queryDcod = $"select dcod from sotr where slogin collate SQL_Latin1_General_CP1_CS_AS = '{loginUser}' and spass collate SQL_Latin1_General_CP1_CS_AS = '{passUser}' ";
             // Подключение к базе данных.

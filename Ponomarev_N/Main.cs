@@ -470,12 +470,14 @@ namespace Ponomarev_N
             }
 
         }
+
         // Метод редактирования клиента
         private void btn_editClient_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите отредактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
+                // Проверяем на пустые значения, проверяем существует ли уже такое значение в базе данных, но не включаем в проверку текущую строку.
                 if (!method.ValidateEmptyValues(tabPage4,ignoredTextboxes) || method.CheckIfValueExistsEdit(txt_ctel, "ctel", "Client", "телефон",currentCcod,"ccod") == true)
                 {
                     return;
