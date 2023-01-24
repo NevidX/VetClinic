@@ -30,9 +30,9 @@ namespace Ponomarev_N
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridUslugi = new System.Windows.Forms.DataGridView();
             this.ucodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -231,6 +231,7 @@ namespace Ponomarev_N
             this.менюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.авторизацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ponomarev_NDataSet = new Ponomarev_N.Ponomarev_NDataSet();
             this.uslugiTableAdapter = new Ponomarev_N.Ponomarev_NDataSetTableAdapters.uslugiTableAdapter();
             this.vrachiTableAdapter = new Ponomarev_N.Ponomarev_NDataSetTableAdapters.VrachiTableAdapter();
@@ -248,7 +249,6 @@ namespace Ponomarev_N
             this.oplataTableAdapter = new Ponomarev_N.Ponomarev_NDataSetTableAdapters.OplataTableAdapter();
             this.boleznBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.sotrTableAdapter = new Ponomarev_N.Ponomarev_NDataSetTableAdapters.sotrTableAdapter();
-            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUslugi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uslugiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet1)).BeginInit();
@@ -1330,6 +1330,8 @@ namespace Ponomarev_N
             // 
             // dataGridZapic
             // 
+            this.dataGridZapic.AllowUserToAddRows = false;
+            this.dataGridZapic.AllowUserToDeleteRows = false;
             this.dataGridZapic.AutoGenerateColumns = false;
             this.dataGridZapic.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridZapic.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1354,6 +1356,7 @@ namespace Ponomarev_N
             this.dataGridZapic.DataSource = this.zapicAdapterBindingSource;
             this.dataGridZapic.Location = new System.Drawing.Point(284, 83);
             this.dataGridZapic.Name = "dataGridZapic";
+            this.dataGridZapic.ReadOnly = true;
             this.dataGridZapic.Size = new System.Drawing.Size(1062, 494);
             this.dataGridZapic.TabIndex = 79;
             this.dataGridZapic.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridZapic_CellEnter);
@@ -1363,66 +1366,77 @@ namespace Ponomarev_N
             this.zcodDataGridViewTextBoxColumn.DataPropertyName = "zcod";
             this.zcodDataGridViewTextBoxColumn.HeaderText = "Код записи";
             this.zcodDataGridViewTextBoxColumn.Name = "zcodDataGridViewTextBoxColumn";
+            this.zcodDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // cnamDataGridViewTextBoxColumn1
             // 
             this.cnamDataGridViewTextBoxColumn1.DataPropertyName = "cnam";
             this.cnamDataGridViewTextBoxColumn1.HeaderText = "Имя клиента";
             this.cnamDataGridViewTextBoxColumn1.Name = "cnamDataGridViewTextBoxColumn1";
+            this.cnamDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // cfamDataGridViewTextBoxColumn1
             // 
             this.cfamDataGridViewTextBoxColumn1.DataPropertyName = "cfam";
             this.cfamDataGridViewTextBoxColumn1.HeaderText = "Фамилия клиента";
             this.cfamDataGridViewTextBoxColumn1.Name = "cfamDataGridViewTextBoxColumn1";
+            this.cfamDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // cotchDataGridViewTextBoxColumn1
             // 
             this.cotchDataGridViewTextBoxColumn1.DataPropertyName = "cotch";
             this.cotchDataGridViewTextBoxColumn1.HeaderText = "Отчество клиента";
             this.cotchDataGridViewTextBoxColumn1.Name = "cotchDataGridViewTextBoxColumn1";
+            this.cotchDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // ctelDataGridViewTextBoxColumn1
             // 
             this.ctelDataGridViewTextBoxColumn1.DataPropertyName = "ctel";
             this.ctelDataGridViewTextBoxColumn1.HeaderText = "Телефон клиента";
             this.ctelDataGridViewTextBoxColumn1.Name = "ctelDataGridViewTextBoxColumn1";
+            this.ctelDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // bnamDataGridViewTextBoxColumn
             // 
             this.bnamDataGridViewTextBoxColumn.DataPropertyName = "bnam";
             this.bnamDataGridViewTextBoxColumn.HeaderText = "Название болезни";
             this.bnamDataGridViewTextBoxColumn.Name = "bnamDataGridViewTextBoxColumn";
+            this.bnamDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dnamDataGridViewTextBoxColumn1
             // 
             this.dnamDataGridViewTextBoxColumn1.DataPropertyName = "dnam";
             this.dnamDataGridViewTextBoxColumn1.HeaderText = "Специальность врача";
             this.dnamDataGridViewTextBoxColumn1.Name = "dnamDataGridViewTextBoxColumn1";
+            this.dnamDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // unamDataGridViewTextBoxColumn1
             // 
             this.unamDataGridViewTextBoxColumn1.DataPropertyName = "unam";
             this.unamDataGridViewTextBoxColumn1.HeaderText = "Название услуги";
             this.unamDataGridViewTextBoxColumn1.Name = "unamDataGridViewTextBoxColumn1";
+            this.unamDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // zdateDataGridViewTextBoxColumn
             // 
             this.zdateDataGridViewTextBoxColumn.DataPropertyName = "zdate";
             this.zdateDataGridViewTextBoxColumn.HeaderText = "Дата записи";
             this.zdateDataGridViewTextBoxColumn.Name = "zdateDataGridViewTextBoxColumn";
+            this.zdateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // statusNameDataGridViewTextBoxColumn
             // 
             this.statusNameDataGridViewTextBoxColumn.DataPropertyName = "statusName";
             this.statusNameDataGridViewTextBoxColumn.HeaderText = "Статус";
             this.statusNameDataGridViewTextBoxColumn.Name = "statusNameDataGridViewTextBoxColumn";
+            this.statusNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ccodDataGridViewTextBoxColumn1
             // 
             this.ccodDataGridViewTextBoxColumn1.DataPropertyName = "ccod";
             this.ccodDataGridViewTextBoxColumn1.HeaderText = "ccod";
             this.ccodDataGridViewTextBoxColumn1.Name = "ccodDataGridViewTextBoxColumn1";
+            this.ccodDataGridViewTextBoxColumn1.ReadOnly = true;
             this.ccodDataGridViewTextBoxColumn1.Visible = false;
             // 
             // pcodDataGridViewTextBoxColumn
@@ -1430,6 +1444,7 @@ namespace Ponomarev_N
             this.pcodDataGridViewTextBoxColumn.DataPropertyName = "pcod";
             this.pcodDataGridViewTextBoxColumn.HeaderText = "pcod";
             this.pcodDataGridViewTextBoxColumn.Name = "pcodDataGridViewTextBoxColumn";
+            this.pcodDataGridViewTextBoxColumn.ReadOnly = true;
             this.pcodDataGridViewTextBoxColumn.Visible = false;
             // 
             // scodDataGridViewTextBoxColumn
@@ -1437,6 +1452,7 @@ namespace Ponomarev_N
             this.scodDataGridViewTextBoxColumn.DataPropertyName = "scod";
             this.scodDataGridViewTextBoxColumn.HeaderText = "scod";
             this.scodDataGridViewTextBoxColumn.Name = "scodDataGridViewTextBoxColumn";
+            this.scodDataGridViewTextBoxColumn.ReadOnly = true;
             this.scodDataGridViewTextBoxColumn.Visible = false;
             // 
             // dataGridViewTextBoxColumn2
@@ -1444,6 +1460,7 @@ namespace Ponomarev_N
             this.dataGridViewTextBoxColumn2.DataPropertyName = "dcod";
             this.dataGridViewTextBoxColumn2.HeaderText = "dcod";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.Visible = false;
             // 
             // statusCod
@@ -1451,6 +1468,7 @@ namespace Ponomarev_N
             this.statusCod.DataPropertyName = "statusCod";
             this.statusCod.HeaderText = "statusCod";
             this.statusCod.Name = "statusCod";
+            this.statusCod.ReadOnly = true;
             this.statusCod.Visible = false;
             // 
             // bcodDataGridViewTextBoxColumn
@@ -1458,6 +1476,7 @@ namespace Ponomarev_N
             this.bcodDataGridViewTextBoxColumn.DataPropertyName = "bcod";
             this.bcodDataGridViewTextBoxColumn.HeaderText = "bcod";
             this.bcodDataGridViewTextBoxColumn.Name = "bcodDataGridViewTextBoxColumn";
+            this.bcodDataGridViewTextBoxColumn.ReadOnly = true;
             this.bcodDataGridViewTextBoxColumn.Visible = false;
             // 
             // ucodDataGridViewTextBoxColumn1
@@ -1465,6 +1484,7 @@ namespace Ponomarev_N
             this.ucodDataGridViewTextBoxColumn1.DataPropertyName = "ucod";
             this.ucodDataGridViewTextBoxColumn1.HeaderText = "ucod";
             this.ucodDataGridViewTextBoxColumn1.Name = "ucodDataGridViewTextBoxColumn1";
+            this.ucodDataGridViewTextBoxColumn1.ReadOnly = true;
             this.ucodDataGridViewTextBoxColumn1.Visible = false;
             // 
             // zapicAdapterBindingSource
@@ -1483,6 +1503,7 @@ namespace Ponomarev_N
             this.cb_ucod.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cb_ucod.DataSource = this.uslugiBindingSource1;
             this.cb_ucod.DisplayMember = "unam";
+            this.cb_ucod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_ucod.FormattingEnabled = true;
             this.cb_ucod.Location = new System.Drawing.Point(13, 471);
             this.cb_ucod.Name = "cb_ucod";
@@ -1535,6 +1556,7 @@ namespace Ponomarev_N
             this.cb_pcod.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cb_pcod.DataSource = this.petListCbBindingSource;
             this.cb_pcod.DisplayMember = "pnam";
+            this.cb_pcod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_pcod.FormattingEnabled = true;
             this.cb_pcod.Location = new System.Drawing.Point(13, 145);
             this.cb_pcod.Name = "cb_pcod";
@@ -1568,6 +1590,7 @@ namespace Ponomarev_N
             this.cb_scod.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cb_scod.DataSource = this.fIOVrachBindingSource;
             this.cb_scod.DisplayMember = "FIOVrach";
+            this.cb_scod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_scod.FormattingEnabled = true;
             this.cb_scod.Location = new System.Drawing.Point(11, 232);
             this.cb_scod.Name = "cb_scod";
@@ -1591,6 +1614,7 @@ namespace Ponomarev_N
             // 
             this.cb_statusCod.DataSource = this.statusBindingSource;
             this.cb_statusCod.DisplayMember = "statusName";
+            this.cb_statusCod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_statusCod.FormattingEnabled = true;
             this.cb_statusCod.Location = new System.Drawing.Point(11, 360);
             this.cb_statusCod.Name = "cb_statusCod";
@@ -1642,6 +1666,7 @@ namespace Ponomarev_N
             this.cb_bnam.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cb_bnam.DataSource = this.boleznBindingSource;
             this.cb_bnam.DisplayMember = "bnam";
+            this.cb_bnam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_bnam.FormattingEnabled = true;
             this.cb_bnam.Location = new System.Drawing.Point(13, 430);
             this.cb_bnam.Name = "cb_bnam";
@@ -1660,6 +1685,7 @@ namespace Ponomarev_N
             this.cb_cnam.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cb_cnam.DataSource = this.fIOAdapterBindingSource;
             this.cb_cnam.DisplayMember = "Expr1";
+            this.cb_cnam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_cnam.FormattingEnabled = true;
             this.cb_cnam.Location = new System.Drawing.Point(13, 102);
             this.cb_cnam.Name = "cb_cnam";
@@ -1819,17 +1845,17 @@ namespace Ponomarev_N
             // 
             // chartBolezn
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chartBolezn.ChartAreas.Add(chartArea6);
+            chartArea1.Name = "ChartArea1";
+            this.chartBolezn.ChartAreas.Add(chartArea1);
             this.chartBolezn.DataSource = this.boleznBindingSource3;
-            legend6.Name = "Legend1";
-            this.chartBolezn.Legends.Add(legend6);
+            legend1.Name = "Legend1";
+            this.chartBolezn.Legends.Add(legend1);
             this.chartBolezn.Location = new System.Drawing.Point(878, 13);
             this.chartBolezn.Name = "chartBolezn";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.chartBolezn.Series.Add(series6);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartBolezn.Series.Add(series1);
             this.chartBolezn.Size = new System.Drawing.Size(470, 551);
             this.chartBolezn.TabIndex = 46;
             this.chartBolezn.Text = "chart1";
@@ -1841,6 +1867,11 @@ namespace Ponomarev_N
             // 
             // dataGridBolezn
             // 
+            this.dataGridBolezn.AllowUserToAddRows = false;
+            this.dataGridBolezn.AllowUserToDeleteRows = false;
+            this.dataGridBolezn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridBolezn.AutoGenerateColumns = false;
             this.dataGridBolezn.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridBolezn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1851,6 +1882,7 @@ namespace Ponomarev_N
             this.dataGridBolezn.DataSource = this.boleznBindingSource1;
             this.dataGridBolezn.Location = new System.Drawing.Point(215, 99);
             this.dataGridBolezn.Name = "dataGridBolezn";
+            this.dataGridBolezn.ReadOnly = true;
             this.dataGridBolezn.RowHeadersWidth = 51;
             this.dataGridBolezn.Size = new System.Drawing.Size(657, 465);
             this.dataGridBolezn.TabIndex = 45;
@@ -1862,6 +1894,7 @@ namespace Ponomarev_N
             this.bcodDataGridViewTextBoxColumn1.HeaderText = "Код болезни";
             this.bcodDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.bcodDataGridViewTextBoxColumn1.Name = "bcodDataGridViewTextBoxColumn1";
+            this.bcodDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // bnamDataGridViewTextBoxColumn1
             // 
@@ -1869,6 +1902,7 @@ namespace Ponomarev_N
             this.bnamDataGridViewTextBoxColumn1.HeaderText = "Название";
             this.bnamDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.bnamDataGridViewTextBoxColumn1.Name = "bnamDataGridViewTextBoxColumn1";
+            this.bnamDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // bcountDataGridViewTextBoxColumn
             // 
@@ -1876,6 +1910,7 @@ namespace Ponomarev_N
             this.bcountDataGridViewTextBoxColumn.HeaderText = "Зафиксированные случаи";
             this.bcountDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.bcountDataGridViewTextBoxColumn.Name = "bcountDataGridViewTextBoxColumn";
+            this.bcountDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // boleznBindingSource1
             // 
@@ -2008,6 +2043,8 @@ namespace Ponomarev_N
             // 
             // dataGridOplata
             // 
+            this.dataGridOplata.AllowUserToAddRows = false;
+            this.dataGridOplata.AllowUserToDeleteRows = false;
             this.dataGridOplata.AutoGenerateColumns = false;
             this.dataGridOplata.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridOplata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -2030,6 +2067,7 @@ namespace Ponomarev_N
             this.dataGridOplata.DataSource = this.oplataAdapterBindingSource;
             this.dataGridOplata.Location = new System.Drawing.Point(167, 77);
             this.dataGridOplata.Name = "dataGridOplata";
+            this.dataGridOplata.ReadOnly = true;
             this.dataGridOplata.Size = new System.Drawing.Size(1205, 500);
             this.dataGridOplata.TabIndex = 52;
             this.dataGridOplata.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridOplata_CellEnter);
@@ -2039,60 +2077,70 @@ namespace Ponomarev_N
             this.ocodDataGridViewTextBoxColumn.DataPropertyName = "ocod";
             this.ocodDataGridViewTextBoxColumn.HeaderText = "Код квитанции";
             this.ocodDataGridViewTextBoxColumn.Name = "ocodDataGridViewTextBoxColumn";
+            this.ocodDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // cnamDataGridViewTextBoxColumn2
             // 
             this.cnamDataGridViewTextBoxColumn2.DataPropertyName = "cnam";
             this.cnamDataGridViewTextBoxColumn2.HeaderText = "Имя клиента";
             this.cnamDataGridViewTextBoxColumn2.Name = "cnamDataGridViewTextBoxColumn2";
+            this.cnamDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // cfamDataGridViewTextBoxColumn2
             // 
             this.cfamDataGridViewTextBoxColumn2.DataPropertyName = "cfam";
             this.cfamDataGridViewTextBoxColumn2.HeaderText = "Фамилия клиента";
             this.cfamDataGridViewTextBoxColumn2.Name = "cfamDataGridViewTextBoxColumn2";
+            this.cfamDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // cotchDataGridViewTextBoxColumn2
             // 
             this.cotchDataGridViewTextBoxColumn2.DataPropertyName = "cotch";
             this.cotchDataGridViewTextBoxColumn2.HeaderText = "Отчество клиента";
             this.cotchDataGridViewTextBoxColumn2.Name = "cotchDataGridViewTextBoxColumn2";
+            this.cotchDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // ctelDataGridViewTextBoxColumn2
             // 
             this.ctelDataGridViewTextBoxColumn2.DataPropertyName = "ctel";
             this.ctelDataGridViewTextBoxColumn2.HeaderText = "Телефон клиента";
             this.ctelDataGridViewTextBoxColumn2.Name = "ctelDataGridViewTextBoxColumn2";
+            this.ctelDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // unamDataGridViewTextBoxColumn2
             // 
             this.unamDataGridViewTextBoxColumn2.DataPropertyName = "unam";
             this.unamDataGridViewTextBoxColumn2.HeaderText = "Название услуги";
             this.unamDataGridViewTextBoxColumn2.Name = "unamDataGridViewTextBoxColumn2";
+            this.unamDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // ucenaDataGridViewTextBoxColumn1
             // 
             this.ucenaDataGridViewTextBoxColumn1.DataPropertyName = "ucena";
             this.ucenaDataGridViewTextBoxColumn1.HeaderText = "Цена услуги, ₽";
             this.ucenaDataGridViewTextBoxColumn1.Name = "ucenaDataGridViewTextBoxColumn1";
+            this.ucenaDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // odateDataGridViewTextBoxColumn
             // 
             this.odateDataGridViewTextBoxColumn.DataPropertyName = "odate";
             this.odateDataGridViewTextBoxColumn.HeaderText = "Дата оплаты/отказа";
             this.odateDataGridViewTextBoxColumn.Name = "odateDataGridViewTextBoxColumn";
+            this.odateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // oplStatusNameDataGridViewTextBoxColumn
             // 
             this.oplStatusNameDataGridViewTextBoxColumn.DataPropertyName = "oplStatusName";
             this.oplStatusNameDataGridViewTextBoxColumn.HeaderText = "Статус оплаты";
             this.oplStatusNameDataGridViewTextBoxColumn.Name = "oplStatusNameDataGridViewTextBoxColumn";
+            this.oplStatusNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // snamDataGridViewTextBoxColumn1
             // 
             this.snamDataGridViewTextBoxColumn1.DataPropertyName = "snam";
             this.snamDataGridViewTextBoxColumn1.HeaderText = "snam";
             this.snamDataGridViewTextBoxColumn1.Name = "snamDataGridViewTextBoxColumn1";
+            this.snamDataGridViewTextBoxColumn1.ReadOnly = true;
             this.snamDataGridViewTextBoxColumn1.Visible = false;
             // 
             // pcodDataGridViewTextBoxColumn1
@@ -2100,6 +2148,7 @@ namespace Ponomarev_N
             this.pcodDataGridViewTextBoxColumn1.DataPropertyName = "pcod";
             this.pcodDataGridViewTextBoxColumn1.HeaderText = "pcod";
             this.pcodDataGridViewTextBoxColumn1.Name = "pcodDataGridViewTextBoxColumn1";
+            this.pcodDataGridViewTextBoxColumn1.ReadOnly = true;
             this.pcodDataGridViewTextBoxColumn1.Visible = false;
             // 
             // scodDataGridViewTextBoxColumn1
@@ -2107,6 +2156,7 @@ namespace Ponomarev_N
             this.scodDataGridViewTextBoxColumn1.DataPropertyName = "scod";
             this.scodDataGridViewTextBoxColumn1.HeaderText = "scod";
             this.scodDataGridViewTextBoxColumn1.Name = "scodDataGridViewTextBoxColumn1";
+            this.scodDataGridViewTextBoxColumn1.ReadOnly = true;
             this.scodDataGridViewTextBoxColumn1.Visible = false;
             // 
             // ccodDataGridViewTextBoxColumn2
@@ -2114,6 +2164,7 @@ namespace Ponomarev_N
             this.ccodDataGridViewTextBoxColumn2.DataPropertyName = "ccod";
             this.ccodDataGridViewTextBoxColumn2.HeaderText = "ccod";
             this.ccodDataGridViewTextBoxColumn2.Name = "ccodDataGridViewTextBoxColumn2";
+            this.ccodDataGridViewTextBoxColumn2.ReadOnly = true;
             this.ccodDataGridViewTextBoxColumn2.Visible = false;
             // 
             // ucodDataGridViewTextBoxColumn2
@@ -2121,6 +2172,7 @@ namespace Ponomarev_N
             this.ucodDataGridViewTextBoxColumn2.DataPropertyName = "ucod";
             this.ucodDataGridViewTextBoxColumn2.HeaderText = "ucod";
             this.ucodDataGridViewTextBoxColumn2.Name = "ucodDataGridViewTextBoxColumn2";
+            this.ucodDataGridViewTextBoxColumn2.ReadOnly = true;
             this.ucodDataGridViewTextBoxColumn2.Visible = false;
             // 
             // oplStatusCodDataGridViewTextBoxColumn
@@ -2128,6 +2180,7 @@ namespace Ponomarev_N
             this.oplStatusCodDataGridViewTextBoxColumn.DataPropertyName = "oplStatusCod";
             this.oplStatusCodDataGridViewTextBoxColumn.HeaderText = "oplStatusCod";
             this.oplStatusCodDataGridViewTextBoxColumn.Name = "oplStatusCodDataGridViewTextBoxColumn";
+            this.oplStatusCodDataGridViewTextBoxColumn.ReadOnly = true;
             this.oplStatusCodDataGridViewTextBoxColumn.Visible = false;
             // 
             // oplataAdapterBindingSource
@@ -2226,6 +2279,13 @@ namespace Ponomarev_N
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // оПрограммеToolStripMenuItem
+            // 
+            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.оПрограммеToolStripMenuItem.Text = "О программе";
+            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
+            // 
             // ponomarev_NDataSet
             // 
             this.ponomarev_NDataSet.DataSetName = "Ponomarev_NDataSet";
@@ -2296,13 +2356,6 @@ namespace Ponomarev_N
             // sotrTableAdapter
             // 
             this.sotrTableAdapter.ClearBeforeFill = true;
-            // 
-            // оПрограммеToolStripMenuItem
-            // 
-            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
-            this.оПрограммеToolStripMenuItem.Text = "О программе";
-            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
             // Main
             // 

@@ -14,7 +14,8 @@ using word = Microsoft.Office.Interop.Word;
 namespace Ponomarev_N
 {
     /*TODO: Нужно сделать: 
-     
+   -Кнопка обновить график добавить к болезням
+    
     */
     public partial class Main : Form
     {
@@ -477,7 +478,7 @@ namespace Ponomarev_N
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите отредактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                // Проверяем на пустые значения, проверяем существует ли уже такое значение в базе данных, но не включаем в проверку текущую строку.
+                // Проверяем на пустые значения, проверяем существует ли уже такое значение в базе данных.
                 if (!method.ValidateEmptyValues(tabPage4,ignoredTextboxes) || method.CheckIfValueExistsEdit(txt_ctel, "ctel", "Client", "телефон",currentCcod,"ccod") == true)
                 {
                     return;
@@ -626,9 +627,7 @@ namespace Ponomarev_N
             method.ClearTextBoxes(tabPage5);
             cb_cnam.Enabled = true;
             cb_pcod.Enabled = false;
-            cb_ctel.Enabled = true;
             cb_scod.Enabled = true;
-            cmb_dcod.Enabled = true;
             dtp_zdate.Enabled = true;
             cb_statusCod.Enabled = false;
             cb_statusCod.SelectedValue = 1;
@@ -1101,21 +1100,21 @@ namespace Ponomarev_N
 
         private void btn_documentOplata_Click(object sender, EventArgs e)
         {
-            // Create a new Word application
+            // Создаем экземпляр приложения word
             word.Application wordApp = new word.Application();
 
-            // Create a new Word document
+            // Создаем документ word
             word.Document doc = wordApp.Documents.Add();
 
-            // Add a table to the document
+            // Добавляем таблицу в документ
             word.Table table = doc.Tables.Add(doc.Range(), 2, 9);
             table.Borders.Enable = 1;
 
-            // Get the index of the selected row
+            // Получаем текущую строку, выбранную пользователем.
             int rowIndex = dataGridOplata.CurrentCell.RowIndex;
             table.Range.Font.Size = 9;
 
-            // Fill the table with data from the DataGridView
+            // Заполняем таблицу исходя из данных из dataGridOplata
             for (int i = 0; i < 9; i++)
             {
                 if(i >= 0 && i <= 9)
@@ -1126,16 +1125,14 @@ namespace Ponomarev_N
                 
             }
 
-            // Save the document
+            // Сохраняем документ
             string filename = "ExportedData.docx";
             doc.SaveAs2(filename);
 
-            // Open the document
+            // Открываем документ
             wordApp.Visible = true;
             doc = wordApp.Documents.Open(filename);
 
-            // Close the Word application
-            //wordApp.Quit();
         }
 
 
