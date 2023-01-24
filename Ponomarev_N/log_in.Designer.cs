@@ -121,7 +121,8 @@ namespace Ponomarev_N
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "log_in";
-            this.Text = "log_in";
+            this.Text = "Авториация";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.log_in_FormClosed);
             this.Load += new System.EventHandler(this.log_in_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

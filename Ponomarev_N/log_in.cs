@@ -68,6 +68,12 @@ namespace Ponomarev_N
 
 
         }
+
+        private void log_in_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            var mainForm = new Main();
+            mainForm.Show();
+        }
     }
     
     
