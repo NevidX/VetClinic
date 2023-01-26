@@ -14,8 +14,7 @@ using word = Microsoft.Office.Interop.Word;
 namespace Ponomarev_N
 {
     /*TODO: Нужно сделать: 
-   -Кнопка обновить график добавить к болезням
-    
+
     */
     public partial class Main : Form
     {
@@ -516,7 +515,7 @@ namespace Ponomarev_N
             if (dialogResult == DialogResult.Yes)
             {
                 method.ClearTextBoxes(tabPage4);
-                btn_editPet.Enabled = false;
+                btn_infoPet.Enabled = false;
 
             }
             else if (dialogResult == DialogResult.No)
@@ -528,7 +527,7 @@ namespace Ponomarev_N
         private void dataGridClients_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             currentCcod = dataGridClients.CurrentRow.Cells[0].Value.ToString();
-            btn_editPet.Enabled = true;
+            btn_infoPet.Enabled = true;
             txt_cnam.Text = dataGridClients.CurrentRow.Cells[1].Value.ToString();
             txt_cfam.Text = dataGridClients.CurrentRow.Cells[2].Value.ToString();
             txt_cotch.Text = dataGridClients.CurrentRow.Cells[3].Value.ToString();
@@ -834,7 +833,6 @@ namespace Ponomarev_N
 
         private void txt_unam_KeyPress(object sender, KeyPressEventArgs e)
         {
-            method.CheckIfNumber(sender, e);
         }
         // Поиск по услугам
         private void txt_searchUslugi_TextChanged(object sender, EventArgs e)
@@ -845,7 +843,7 @@ namespace Ponomarev_N
         private void btn_addUslugi_Click(object sender, EventArgs e)
         {
             // Иницилизируем методы, проверяющие правильность значений
-            if (!method.ValidateEmptyValues(tabPage1,ignoredTextboxes) || method.CheckIfValueExists(txt_unam,"unam","uslugi","название услуги") == true)
+            if (!method.ValidateEmptyValues(panel_uslugi,ignoredTextboxes) || method.CheckIfValueExists(txt_unam,"unam","uslugi","название услуги") == true)
             {
                 return;
             }
@@ -894,7 +892,7 @@ namespace Ponomarev_N
             DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите отредактировать запись?", "Редактировать запись", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                if (!method.ValidateEmptyValues(tabPage1,ignoredTextboxes) || method.CheckIfValueExistsEdit(txt_unam,"unam","uslugi","название услуги",currentUcod,"ucod") == true)
+                if (!method.ValidateEmptyValues(panel_uslugi,ignoredTextboxes) || method.CheckIfValueExistsEdit(txt_unam,"unam","uslugi","название услуги",currentUcod,"ucod") == true)
                 {
                     return;
                 }
@@ -924,7 +922,16 @@ namespace Ponomarev_N
 
         private void btn_clearUslugi_Click(object sender, EventArgs e)
         {
-            method.ClearTextBoxes(tabPage1);
+            DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите очистить все значения?", "Очистить значения", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                method.ClearTextBoxes(panel_uslugi);
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+           
         }
         private void dataGridUslugi_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -1024,7 +1031,16 @@ namespace Ponomarev_N
 
         private void btn_clearBolezn_Click(object sender, EventArgs e)
         {
-            method.ClearTextBoxes(tabPage6);
+            DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите очистить все значения?", "Очистить значения", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                method.ClearTextBoxes(tabPage6);
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+           
         }
 
         private void dataGridBolezn_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -1188,5 +1204,7 @@ namespace Ponomarev_N
         {
             MessageBox.Show("Курсовой проект МДК 04.01:\nИнформационная система ветеринарной клиники\nАвтор: Пономарев Никита, студент группы ИП-41");
         }
+
+       
     }
 }

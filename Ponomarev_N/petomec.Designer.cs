@@ -127,6 +127,7 @@ namespace Ponomarev_N
             this.txt_pnam.Name = "txt_pnam";
             this.txt_pnam.Size = new System.Drawing.Size(117, 20);
             this.txt_pnam.TabIndex = 51;
+            this.txt_pnam.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_pnam_KeyPress);
             // 
             // btn_editPet
             // 

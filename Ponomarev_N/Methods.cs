@@ -23,7 +23,7 @@ namespace Ponomarev_N
         /// <summary>
         /// Метод очищения textBox и Combox
         /// </summary>
-        public void ClearTextBoxes(TabPage tabPageName)
+        public void ClearTextBoxes(Control tabPageName)
         {
             // Запускаем цикл, который проходится по всем элементам управления, в текущем TabPage
             foreach (Control control in tabPageName.Controls)

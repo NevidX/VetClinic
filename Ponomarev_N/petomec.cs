@@ -141,8 +141,23 @@ namespace Ponomarev_N
             }
         }
 
-       
-          public bool ValidateEmptyValues(List<TextBox> ignoredTextboxes)
+        string currentPcod;
+        private void dataGridPet_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            // Переменная, которая хранит в себе текущий первичный код scod
+            // Метод при нажатии на запись, все данные передаются в textBox 
+
+            currentPcod = dataGridPet.CurrentRow.Cells[0].Value.ToString();
+            txt_pnam.Text = dataGridPet.CurrentRow.Cells[1].Value.ToString();
+            txt_pvozrast.Text = dataGridPet.CurrentRow.Cells[2].Value.ToString();
+            txt_pvid.Text = dataGridPet.CurrentRow.Cells[3].Value.ToString();
+            txt_pprotiv.Text = dataGridPet.CurrentRow.Cells[4].Value.ToString();
+            txt_posoben.Text = dataGridPet.CurrentRow.Cells[5].Value.ToString();
+
+
+        }
+
+        public bool ValidateEmptyValues(List<TextBox> ignoredTextboxes)
         {
             foreach (Control control in this.Controls)
             {
@@ -196,21 +211,7 @@ namespace Ponomarev_N
                 }
             }
         }
-        string currentPcod;
-        private void dataGridPet_CellEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            // Переменная, которая хранит в себе текущий первичный код scod
-             // Метод при нажатии на запись, все данные передаются в textBox 
-            
-                currentPcod = dataGridPet.CurrentRow.Cells[0].Value.ToString();
-                txt_pnam.Text = dataGridPet.CurrentRow.Cells[1].Value.ToString();
-                txt_pvozrast.Text = dataGridPet.CurrentRow.Cells[2].Value.ToString();
-                txt_pvid.Text = dataGridPet.CurrentRow.Cells[3].Value.ToString();
-                txt_pprotiv.Text = dataGridPet.CurrentRow.Cells[4].Value.ToString();
-                txt_posoben.Text = dataGridPet.CurrentRow.Cells[5].Value.ToString();
-
-         
-        }
+       
        
         private void btn_clearPet_Click(object sender, EventArgs e)
         {
@@ -223,6 +224,11 @@ namespace Ponomarev_N
             {
                 return;
             }
+        }
+
+        private void txt_pnam_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            method.CheckIfNumber(sender, e);
         }
     }
 }

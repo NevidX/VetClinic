@@ -30,9 +30,9 @@ namespace Ponomarev_N
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridUslugi = new System.Windows.Forms.DataGridView();
             this.ucodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -102,7 +102,7 @@ namespace Ponomarev_N
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.txt_searchClient = new System.Windows.Forms.TextBox();
-            this.btn_editPet = new System.Windows.Forms.Button();
+            this.btn_infoPet = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_ctel = new System.Windows.Forms.MaskedTextBox();
             this.btn_clearClient = new System.Windows.Forms.Button();
@@ -498,7 +498,6 @@ namespace Ponomarev_N
             this.txt_unam.Name = "txt_unam";
             this.txt_unam.Size = new System.Drawing.Size(134, 20);
             this.txt_unam.TabIndex = 28;
-            this.txt_unam.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_unam_KeyPress);
             // 
             // txt_ucena
             // 
@@ -997,7 +996,7 @@ namespace Ponomarev_N
             // 
             this.tabPage4.Controls.Add(this.pictureBox10);
             this.tabPage4.Controls.Add(this.txt_searchClient);
-            this.tabPage4.Controls.Add(this.btn_editPet);
+            this.tabPage4.Controls.Add(this.btn_infoPet);
             this.tabPage4.Controls.Add(this.label1);
             this.tabPage4.Controls.Add(this.txt_ctel);
             this.tabPage4.Controls.Add(this.btn_clearClient);
@@ -1039,15 +1038,15 @@ namespace Ponomarev_N
             this.txt_searchClient.TabIndex = 47;
             this.txt_searchClient.TextChanged += new System.EventHandler(this.txt_searchClient_TextChanged);
             // 
-            // btn_editPet
+            // btn_infoPet
             // 
-            this.btn_editPet.Location = new System.Drawing.Point(6, 288);
-            this.btn_editPet.Name = "btn_editPet";
-            this.btn_editPet.Size = new System.Drawing.Size(95, 20);
-            this.btn_editPet.TabIndex = 46;
-            this.btn_editPet.Text = "Редактировать";
-            this.btn_editPet.UseVisualStyleBackColor = true;
-            this.btn_editPet.Click += new System.EventHandler(this.btn_editPet_Click);
+            this.btn_infoPet.Location = new System.Drawing.Point(6, 288);
+            this.btn_infoPet.Name = "btn_infoPet";
+            this.btn_infoPet.Size = new System.Drawing.Size(95, 20);
+            this.btn_infoPet.TabIndex = 46;
+            this.btn_infoPet.Text = "Редактировать";
+            this.btn_infoPet.UseVisualStyleBackColor = true;
+            this.btn_infoPet.Click += new System.EventHandler(this.btn_infoPet_Click);
             // 
             // label1
             // 
@@ -1845,17 +1844,17 @@ namespace Ponomarev_N
             // 
             // chartBolezn
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartBolezn.ChartAreas.Add(chartArea1);
+            chartArea2.Name = "ChartArea1";
+            this.chartBolezn.ChartAreas.Add(chartArea2);
             this.chartBolezn.DataSource = this.boleznBindingSource3;
-            legend1.Name = "Legend1";
-            this.chartBolezn.Legends.Add(legend1);
+            legend2.Name = "Legend1";
+            this.chartBolezn.Legends.Add(legend2);
             this.chartBolezn.Location = new System.Drawing.Point(878, 13);
             this.chartBolezn.Name = "chartBolezn";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartBolezn.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartBolezn.Series.Add(series2);
             this.chartBolezn.Size = new System.Drawing.Size(470, 551);
             this.chartBolezn.TabIndex = 46;
             this.chartBolezn.Text = "chart1";
@@ -2513,7 +2512,7 @@ namespace Ponomarev_N
         private Ponomarev_NDataSetTableAdapters.dolgTableAdapter dolgTableAdapter;
         private System.Windows.Forms.BindingSource clientBindingSource;
         private Ponomarev_NDataSetTableAdapters.clientTableAdapter clientTableAdapter;
-        private System.Windows.Forms.Button btn_editPet;
+        private System.Windows.Forms.Button btn_infoPet;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MaskedTextBox cb_ctel;
