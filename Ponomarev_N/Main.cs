@@ -447,6 +447,7 @@ namespace Ponomarev_N
                 sqlConnection.Close();
                 // Обновляем таблицу
                 dataBase.GetList("Client", dataGridClients);
+                this.fIOTableAdapter.Fill(this.ponomarev_NDataSet1.FIOAdapter);
             }
         }
         // Метод удаления клиента
@@ -463,6 +464,7 @@ namespace Ponomarev_N
                 cmd.ExecuteNonQuery();
                 sqlConnection.Close();
                 dataBase.GetList("Client", dataGridClients);
+                this.fIOTableAdapter.Fill(this.ponomarev_NDataSet1.FIOAdapter);
             }
             else if (dialogResult == DialogResult.No)
             {
