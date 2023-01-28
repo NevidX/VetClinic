@@ -30,9 +30,9 @@ namespace Ponomarev_N
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridUslugi = new System.Windows.Forms.DataGridView();
             this.ucodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,15 +88,6 @@ namespace Ponomarev_N
             this.btn_userAdd = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridUsers = new System.Windows.Forms.DataGridView();
-            this.scodDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.snamDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sfamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sotchDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stelDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dcodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sloginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.spassDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sotrFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sotrBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ponomarev_NDataSet13 = new Ponomarev_N.Ponomarev_NDataSet();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -249,6 +240,15 @@ namespace Ponomarev_N
             this.oplataTableAdapter = new Ponomarev_N.Ponomarev_NDataSetTableAdapters.OplataTableAdapter();
             this.boleznBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.sotrTableAdapter = new Ponomarev_N.Ponomarev_NDataSetTableAdapters.sotrTableAdapter();
+            this.scodDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.snamDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sfamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sotchDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stelDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dcodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sloginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.spassDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sotrFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUslugi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uslugiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet1)).BeginInit();
@@ -917,70 +917,6 @@ namespace Ponomarev_N
             this.dataGridUsers.Size = new System.Drawing.Size(1099, 478);
             this.dataGridUsers.TabIndex = 0;
             this.dataGridUsers.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridUsers_CellEnter);
-            // 
-            // scodDataGridViewTextBoxColumn2
-            // 
-            this.scodDataGridViewTextBoxColumn2.DataPropertyName = "scod";
-            this.scodDataGridViewTextBoxColumn2.HeaderText = "scod";
-            this.scodDataGridViewTextBoxColumn2.Name = "scodDataGridViewTextBoxColumn2";
-            this.scodDataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // snamDataGridViewTextBoxColumn2
-            // 
-            this.snamDataGridViewTextBoxColumn2.DataPropertyName = "snam";
-            this.snamDataGridViewTextBoxColumn2.HeaderText = "snam";
-            this.snamDataGridViewTextBoxColumn2.Name = "snamDataGridViewTextBoxColumn2";
-            this.snamDataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // sfamDataGridViewTextBoxColumn1
-            // 
-            this.sfamDataGridViewTextBoxColumn1.DataPropertyName = "sfam";
-            this.sfamDataGridViewTextBoxColumn1.HeaderText = "sfam";
-            this.sfamDataGridViewTextBoxColumn1.Name = "sfamDataGridViewTextBoxColumn1";
-            this.sfamDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // sotchDataGridViewTextBoxColumn1
-            // 
-            this.sotchDataGridViewTextBoxColumn1.DataPropertyName = "sotch";
-            this.sotchDataGridViewTextBoxColumn1.HeaderText = "sotch";
-            this.sotchDataGridViewTextBoxColumn1.Name = "sotchDataGridViewTextBoxColumn1";
-            this.sotchDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // stelDataGridViewTextBoxColumn1
-            // 
-            this.stelDataGridViewTextBoxColumn1.DataPropertyName = "stel";
-            this.stelDataGridViewTextBoxColumn1.HeaderText = "stel";
-            this.stelDataGridViewTextBoxColumn1.Name = "stelDataGridViewTextBoxColumn1";
-            this.stelDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dcodDataGridViewTextBoxColumn
-            // 
-            this.dcodDataGridViewTextBoxColumn.DataPropertyName = "dcod";
-            this.dcodDataGridViewTextBoxColumn.HeaderText = "dcod";
-            this.dcodDataGridViewTextBoxColumn.Name = "dcodDataGridViewTextBoxColumn";
-            this.dcodDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sloginDataGridViewTextBoxColumn
-            // 
-            this.sloginDataGridViewTextBoxColumn.DataPropertyName = "slogin";
-            this.sloginDataGridViewTextBoxColumn.HeaderText = "slogin";
-            this.sloginDataGridViewTextBoxColumn.Name = "sloginDataGridViewTextBoxColumn";
-            this.sloginDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // spassDataGridViewTextBoxColumn
-            // 
-            this.spassDataGridViewTextBoxColumn.DataPropertyName = "spass";
-            this.spassDataGridViewTextBoxColumn.HeaderText = "spass";
-            this.spassDataGridViewTextBoxColumn.Name = "spassDataGridViewTextBoxColumn";
-            this.spassDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sotrFIODataGridViewTextBoxColumn
-            // 
-            this.sotrFIODataGridViewTextBoxColumn.DataPropertyName = "sotrFIO";
-            this.sotrFIODataGridViewTextBoxColumn.HeaderText = "sotrFIO";
-            this.sotrFIODataGridViewTextBoxColumn.Name = "sotrFIODataGridViewTextBoxColumn";
-            this.sotrFIODataGridViewTextBoxColumn.ReadOnly = true;
-            this.sotrFIODataGridViewTextBoxColumn.Visible = false;
             // 
             // sotrBindingSource
             // 
@@ -1844,17 +1780,17 @@ namespace Ponomarev_N
             // 
             // chartBolezn
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartBolezn.ChartAreas.Add(chartArea2);
+            chartArea1.Name = "ChartArea1";
+            this.chartBolezn.ChartAreas.Add(chartArea1);
             this.chartBolezn.DataSource = this.boleznBindingSource3;
-            legend2.Name = "Legend1";
-            this.chartBolezn.Legends.Add(legend2);
+            legend1.Name = "Legend1";
+            this.chartBolezn.Legends.Add(legend1);
             this.chartBolezn.Location = new System.Drawing.Point(878, 13);
             this.chartBolezn.Name = "chartBolezn";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartBolezn.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartBolezn.Series.Add(series1);
             this.chartBolezn.Size = new System.Drawing.Size(470, 551);
             this.chartBolezn.TabIndex = 46;
             this.chartBolezn.Text = "chart1";
@@ -2356,6 +2292,70 @@ namespace Ponomarev_N
             // 
             this.sotrTableAdapter.ClearBeforeFill = true;
             // 
+            // scodDataGridViewTextBoxColumn2
+            // 
+            this.scodDataGridViewTextBoxColumn2.DataPropertyName = "scod";
+            this.scodDataGridViewTextBoxColumn2.HeaderText = "Код сотрудника";
+            this.scodDataGridViewTextBoxColumn2.Name = "scodDataGridViewTextBoxColumn2";
+            this.scodDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // snamDataGridViewTextBoxColumn2
+            // 
+            this.snamDataGridViewTextBoxColumn2.DataPropertyName = "snam";
+            this.snamDataGridViewTextBoxColumn2.HeaderText = "Имя";
+            this.snamDataGridViewTextBoxColumn2.Name = "snamDataGridViewTextBoxColumn2";
+            this.snamDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // sfamDataGridViewTextBoxColumn1
+            // 
+            this.sfamDataGridViewTextBoxColumn1.DataPropertyName = "sfam";
+            this.sfamDataGridViewTextBoxColumn1.HeaderText = "Фамилия";
+            this.sfamDataGridViewTextBoxColumn1.Name = "sfamDataGridViewTextBoxColumn1";
+            this.sfamDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // sotchDataGridViewTextBoxColumn1
+            // 
+            this.sotchDataGridViewTextBoxColumn1.DataPropertyName = "sotch";
+            this.sotchDataGridViewTextBoxColumn1.HeaderText = "Отчество";
+            this.sotchDataGridViewTextBoxColumn1.Name = "sotchDataGridViewTextBoxColumn1";
+            this.sotchDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // stelDataGridViewTextBoxColumn1
+            // 
+            this.stelDataGridViewTextBoxColumn1.DataPropertyName = "stel";
+            this.stelDataGridViewTextBoxColumn1.HeaderText = "Телефон";
+            this.stelDataGridViewTextBoxColumn1.Name = "stelDataGridViewTextBoxColumn1";
+            this.stelDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dcodDataGridViewTextBoxColumn
+            // 
+            this.dcodDataGridViewTextBoxColumn.DataPropertyName = "dcod";
+            this.dcodDataGridViewTextBoxColumn.HeaderText = "Код должности";
+            this.dcodDataGridViewTextBoxColumn.Name = "dcodDataGridViewTextBoxColumn";
+            this.dcodDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sloginDataGridViewTextBoxColumn
+            // 
+            this.sloginDataGridViewTextBoxColumn.DataPropertyName = "slogin";
+            this.sloginDataGridViewTextBoxColumn.HeaderText = "Логин";
+            this.sloginDataGridViewTextBoxColumn.Name = "sloginDataGridViewTextBoxColumn";
+            this.sloginDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // spassDataGridViewTextBoxColumn
+            // 
+            this.spassDataGridViewTextBoxColumn.DataPropertyName = "spass";
+            this.spassDataGridViewTextBoxColumn.HeaderText = "Пароль";
+            this.spassDataGridViewTextBoxColumn.Name = "spassDataGridViewTextBoxColumn";
+            this.spassDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sotrFIODataGridViewTextBoxColumn
+            // 
+            this.sotrFIODataGridViewTextBoxColumn.DataPropertyName = "sotrFIO";
+            this.sotrFIODataGridViewTextBoxColumn.HeaderText = "sotrFIO";
+            this.sotrFIODataGridViewTextBoxColumn.Name = "sotrFIODataGridViewTextBoxColumn";
+            this.sotrFIODataGridViewTextBoxColumn.ReadOnly = true;
+            this.sotrFIODataGridViewTextBoxColumn.Visible = false;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2638,15 +2638,6 @@ namespace Ponomarev_N
         private Ponomarev_NDataSet ponomarev_NDataSet13;
         private System.Windows.Forms.BindingSource sotrBindingSource;
         private Ponomarev_NDataSetTableAdapters.sotrTableAdapter sotrTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn scodDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn snamDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sfamDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sotchDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stelDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dcodDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sloginDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn spassDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sotrFIODataGridViewTextBoxColumn;
         private System.Windows.Forms.Panel panel_uslugi;
         private System.Windows.Forms.BindingSource boleznBindingSource3;
         private System.Windows.Forms.DataGridViewTextBoxColumn ocodDataGridViewTextBoxColumn;
@@ -2665,6 +2656,15 @@ namespace Ponomarev_N
         private System.Windows.Forms.DataGridViewTextBoxColumn ucodDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn oplStatusCodDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn scodDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn snamDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sfamDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sotchDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stelDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dcodDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sloginDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn spassDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sotrFIODataGridViewTextBoxColumn;
     }
 }
 
