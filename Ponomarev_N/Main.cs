@@ -14,9 +14,17 @@ using word = Microsoft.Office.Interop.Word;
 namespace Ponomarev_N
 {
     /*TODO: Нужно сделать: 
-     * Поиск по всем полям
+     * Запись, при выборе питомца, форма закрыватся, и в основную передается выбранный код(продумать проверку, что если ничего еще не выбранно) после очистки очищать текущий pcod
+     * 
+     * В запись таблицу добавить столбец заключение (в нем рекомендации и лечение)
+     * 
+     * В форме питомец, добавить кнопку, по нажатию открыается форма с dataGridView в которой запрашивается все данные из записей в с текущим pcod
+     * 
+     * Подумать над переодом заболевания, с какой даты по какую
+     * 
+     * Поиск по всем полям +
     Переделать запись
-    Посмотреть всю историю по петомцу
+    Посмотреть всю историю по петомцу (сделаю кнопку в форме редактирования питомца, чтоб выводила записи с его pcod)
     В записи нужно указать, чтоб врач мог дать заключение написать рекомендации
     Заболевания за период чтоб можно было посмотреть
     еще баг с выводом в combobox на записи форме
@@ -149,11 +157,11 @@ namespace Ponomarev_N
             dataBase.GetList("Sotr", dataGridVrachi);
             dataBase.GetList("Bolezn", dataGridBolezn);
             // Создание экземпляров tableAdapter для поиска
-            dataBase.GetListAdapter("SELECT scod, snam, sfam, sotch, stel, dcod, slogin, spass, snam + ' ' + sfam + ' ' + sotch AS sotrFIO FROM sotr", "Sotr", dataGridUsers);
-            dataBase.GetListAdapter("SELECT  sotr.snam, sotr.sfam, sotr.sotch, sotr.stel, dolg.dnam, sotr.snam + ' ' + sotr.sfam + ' ' + sotr.sotch as sfio  FROM sotr INNER JOIN dolg ON sotr.dcod = dolg.dcod GROUP BY sotr.snam, sotr.sfam, sotr.sotch, sotr.stel, dolg.dnam, dolg.dcod HAVING(dolg.dcod = 1)", "Sotr", dataGridVrachi);
-            dataBase.GetListAdapter("SELECT ccod, cnam, cfam, cotch, ctel, cnam + ' '+ cfam + ' ' + cotch as clientFIO  FROM dbo.client","Client",dataGridClients);
-            dataBase.GetListAdapter("SELECT zapic.zcod, client.cnam, client.cfam, client.cotch, client.ctel, bolezn.bnam, dolg.dnam, uslugi.unam, zapic.zdate, status.statusName, client.ccod, pet.pcod, sotr.scod, bolezn.bcod, uslugi.ucod, dolg.dcod, status.statusCod, client.cnam + ' ' + client.cfam+ ' '+ client.cotch as zapicFIO FROM sotr INNER JOIN dolg ON sotr.dcod = dolg.dcod INNER JOIN zapic ON sotr.scod = zapic.scod AND dolg.dcod = zapic.dcod INNER JOIN bolezn ON zapic.bcod = bolezn.bcod INNER JOIN pet INNER JOIN client ON pet.ccod = client.ccod ON zapic.pcod = pet.pcod AND zapic.ccod = client.ccod INNER JOIN status ON zapic.statusCod = status.statusCod INNER JOIN uslugi ON zapic.ucod = uslugi.ucod", "zapic", dataGridZapic);
-            dataBase.GetListAdapter("SELECT oplata.ocod, client.cnam, client.cfam, client.cotch, client.ctel, sotr.snam, uslugi.unam, uslugi.ucena, oplata.odate, oplataStatus.oplStatusName, pet.pcod, sotr.scod, client.ccod, uslugi.ucod, oplataStatus.oplStatusCod, client.cnam +' '+ client.cfam + ' '+ client.cotch as oplataFIO FROM client INNER JOIN pet ON client.ccod = pet.ccod INNER JOIN oplata ON client.ccod = oplata.ccod AND pet.pcod = oplata.pcod INNER JOIN oplataStatus ON oplata.oplStatusCod = oplataStatus.oplStatusCod INNER JOIN sotr ON oplata.scod = sotr.scod INNER JOIN uslugi ON oplata.ucod = uslugi.ucod", "oplata", dataGridOplata);
+            dataBase.GetListAdapter("SELECT scod, snam, sfam, sotch, stel, dcod, slogin, spass,CAST(scod as NVARCHAR(MAX)) + ' ' + snam + ' ' + sfam + ' ' + sotch + ' ' + stel + ' ' + slogin AS sotrFIO FROM sotr", "Sotr", dataGridUsers);
+            dataBase.GetListAdapter("SELECT  sotr.snam, sotr.sfam, sotr.sotch, sotr.stel, dolg.dnam, sotr.snam + ' ' + sotr.sfam + ' ' + sotr.sotch + ' ' + sotr.stel + ' ' + dolg.dnam as sfio  FROM sotr INNER JOIN dolg ON sotr.dcod = dolg.dcod GROUP BY sotr.snam, sotr.sfam, sotr.sotch, sotr.stel, dolg.dnam, dolg.dcod HAVING(dolg.dcod = 1)", "Sotr", dataGridVrachi);
+            dataBase.GetListAdapter("SELECT ccod, cnam, cfam, cotch, ctel, CAST(ccod as NVARCHAR(MAX)) + ' ' + cnam + ' '+ cfam + ' ' + cotch+ ' '+ ctel  as clientFIO  FROM dbo.client", "Client",dataGridClients);
+            dataBase.GetListAdapter("SELECT zapic.zcod, client.cnam, client.cfam, client.cotch, client.ctel, bolezn.bnam, dolg.dnam, uslugi.unam, zapic.zdate, status.statusName, client.ccod, pet.pcod, sotr.scod, bolezn.bcod, uslugi.ucod, dolg.dcod, status.statusCod, client.cnam + ' ' + client.cfam+ ' '+ client.cotch + ' '+ client.ctel + ' '+bolezn.bnam + ' '+uslugi.unam + ' '+ CAST(zapic.zdate as NVARCHAR(MAX))+ ' '+status.statusName  as zapicFIO FROM sotr INNER JOIN dolg ON sotr.dcod = dolg.dcod INNER JOIN zapic ON sotr.scod = zapic.scod AND dolg.dcod = zapic.dcod INNER JOIN bolezn ON zapic.bcod = bolezn.bcod INNER JOIN pet INNER JOIN client ON pet.ccod = client.ccod ON zapic.pcod = pet.pcod AND zapic.ccod = client.ccod INNER JOIN status ON zapic.statusCod = status.statusCod INNER JOIN uslugi ON zapic.ucod = uslugi.ucod", "zapic", dataGridZapic);
+            dataBase.GetListAdapter("SELECT oplata.ocod, client.cnam, client.cfam, client.cotch, client.ctel, sotr.snam, uslugi.unam, uslugi.ucena, oplata.odate, oplataStatus.oplStatusName, pet.pcod, sotr.scod, client.ccod, uslugi.ucod, oplataStatus.oplStatusCod, client.cnam +' '+ client.cfam + ' '+ client.cotch + ' '+ client.ctel+' '+uslugi.unam+ ' '+oplataStatus.oplStatusName+' '+CAST(oplata.odate as NVARCHAR(MAX)) as oplataFIO FROM client INNER JOIN pet ON client.ccod = pet.ccod INNER JOIN oplata ON client.ccod = oplata.ccod AND pet.pcod = oplata.pcod INNER JOIN oplataStatus ON oplata.oplStatusCod = oplataStatus.oplStatusCod INNER JOIN sotr ON oplata.scod = sotr.scod INNER JOIN uslugi ON oplata.ucod = uslugi.ucod", "oplata", dataGridOplata);
 
             // Разграничение доступа в зависимости от пользователя.
 
@@ -172,14 +180,22 @@ namespace Ponomarev_N
 
 
 
-
             userValue(userCod);
         }
 
+        // Метод получения текущего currentPcod
 
-       
+        public void SetSelectedPetId(string id)
+        {
+
+            currentPcod = id;
+            cb_pcod.SelectedValue = Convert.ToInt32(currentPcod);
+            
+        }
+
+
         // Strip menu 
-        
+
         private void авторизацияToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -572,7 +588,7 @@ namespace Ponomarev_N
 
         private void btn_editPet_Click(object sender, EventArgs e)
         {
-            var PetomecForm = new petomec();
+            var PetomecForm = new petomec(this);
             PetomecForm.SetSelectedClientId(currentCcod);
             PetomecForm.ShowDialog();
 
@@ -598,14 +614,13 @@ namespace Ponomarev_N
         {
             
 
-            currentPcod = Convert.ToString(cb_pcod.SelectedValue);
+            //currentPcod = Convert.ToString(cb_pcod.SelectedValue);
 
 
         }
 
         private void cb_cnam_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            cb_pcod.Enabled = true;
             // Извлекаем текущйи код клиента
             currentCcod = Convert.ToString(cb_cnam.SelectedValue);
 
@@ -629,11 +644,12 @@ namespace Ponomarev_N
                 }
             }
 
-            petListCbTableAdapter.Fill(this.ponomarev_NDataSet7.PetListCb, Convert.ToInt32(currentCcod)); // Заполняем combobox питомец, исходя из выбранного клиента.
-            currentPcod = Convert.ToString(cb_pcod.SelectedValue);
+             // Заполняем combobox питомец, исходя из выбранного клиента.
+            //currentPcod = Convert.ToString(cb_pcod.SelectedValue);
         }
         private void btn_clearZapic_Click_1(object sender, EventArgs e)
         {
+            btn_choosePet.Text = "Выбрать";
             method.ClearTextBoxes(tabPage5);
             cb_cnam.Enabled = true;
             cb_pcod.Enabled = false;
@@ -666,7 +682,7 @@ namespace Ponomarev_N
 
         private void btn_infoPet_Click(object sender, EventArgs e)
         {
-            var PetomecForm = new petomec();
+            var PetomecForm = new petomec(this);
             PetomecForm.SetSelectedClientId(currentCcod);
             PetomecForm.ShowDialog();
         }
@@ -788,6 +804,7 @@ namespace Ponomarev_N
 
                     // заполняем combobox элементы, для наглядности информации
                     currentZcod = dataGridZapic.CurrentRow.Cells[0].Value.ToString();
+                    currentCcod = dataGridZapic.CurrentRow.Cells[10].Value.ToString();
                     cb_cnam.SelectedValue = dataGridZapic.CurrentRow.Cells[10].Value.ToString();
                     cb_pcod.SelectedValue = dataGridZapic.CurrentRow.Cells[11].Value.ToString();
                     cb_ctel.Text = dataGridZapic.CurrentRow.Cells[4].Value.ToString();
@@ -797,7 +814,10 @@ namespace Ponomarev_N
                     cb_bnam.SelectedValue = dataGridZapic.CurrentRow.Cells[15].Value.ToString();
                     cb_ucod.SelectedValue = dataGridZapic.CurrentRow.Cells[16].Value.ToString();
 
-                    
+                    btn_choosePet.Text = "Просмотреть";
+
+
+
                 }
                 else
                 {
@@ -815,8 +835,10 @@ namespace Ponomarev_N
                     btn_delZapic.Enabled = false;
                     cb_ucod.Enabled = false;
 
+
                     // заполняем combobox элементы, для наглядности информации
                     currentZcod = dataGridZapic.CurrentRow.Cells[0].Value.ToString();
+                    currentCcod = dataGridZapic.CurrentRow.Cells[10].Value.ToString();
                     cb_cnam.SelectedValue = dataGridZapic.CurrentRow.Cells[10].Value.ToString();
                     cb_pcod.SelectedValue = dataGridZapic.CurrentRow.Cells[11].Value.ToString();
                     cb_ctel.Text = dataGridZapic.CurrentRow.Cells[4].Value.ToString();
@@ -825,9 +847,12 @@ namespace Ponomarev_N
                     preCbSatusCod = dataGridZapic.CurrentRow.Cells[14].Value.ToString();
                     cb_bnam.SelectedValue = dataGridZapic.CurrentRow.Cells[15].Value.ToString();
                     cb_ucod.SelectedValue = dataGridZapic.CurrentRow.Cells[16].Value.ToString();
+
+                    btn_choosePet.Text = "Просмотреть";
+
                 }
-                
-               
+
+
                 // обновление combobox при выборе именно из dataGridView
                 petListCbTableAdapter.Fill(this.ponomarev_NDataSet7.PetListCb, Convert.ToInt32(currentCcod));
                 dolgVrachTableAdapter.Fill(this.ponomarev_NDataSet12.DolgVrach, Convert.ToInt32(currentDcod));
@@ -1216,6 +1241,11 @@ namespace Ponomarev_N
             MessageBox.Show("Курсовой проект МДК 04.01:\nИнформационная система ветеринарной клиники\nАвтор: Пономарев Никита, студент группы ИП-41");
         }
 
-       
+        private void btn_choosePet_Click(object sender, EventArgs e)
+        {
+            var PetomecForm = new petomec(this);
+            PetomecForm.SetSelectedClientId(currentCcod);
+            PetomecForm.ShowDialog();
+        }
     }
 }

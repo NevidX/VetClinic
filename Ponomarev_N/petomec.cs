@@ -21,12 +21,17 @@ namespace Ponomarev_N
         DataSet dataSet;
         SqlCommand cmd;
 
+        private Main _mainForm;
+        
+
+
         List<TextBox> ignoredTextboxes;
-        public petomec()
+        public petomec(Main mainForm)
         {
             InitializeComponent();
             connection = new SqlConnection(connectionLink.connectionString);
             ignoredTextboxes = new List<TextBox>() { txt_posoben,txt_pprotiv};
+            _mainForm = mainForm;
         }
         private void txt_pvozrast_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -155,6 +160,7 @@ namespace Ponomarev_N
             txt_posoben.Text = dataGridPet.CurrentRow.Cells[5].Value.ToString();
 
 
+
         }
 
         public bool ValidateEmptyValues(List<TextBox> ignoredTextboxes)
@@ -229,6 +235,13 @@ namespace Ponomarev_N
         private void txt_pnam_KeyPress(object sender, KeyPressEventArgs e)
         {
             method.CheckIfNumber(sender, e);
+        }
+
+        private void btn_chooseEditPet_Click(object sender, EventArgs e)
+        {
+            _mainForm.SetSelectedPetId(currentPcod);
+            this.Close();
+            
         }
     }
 }

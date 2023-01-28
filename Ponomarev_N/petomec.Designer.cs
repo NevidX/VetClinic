@@ -46,6 +46,7 @@ namespace Ponomarev_N
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txt_posoben = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btn_chooseEditPet = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -76,7 +77,7 @@ namespace Ponomarev_N
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(2, 230);
+            this.label4.Location = new System.Drawing.Point(2, 224);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(151, 16);
             this.label4.TabIndex = 57;
@@ -194,7 +195,7 @@ namespace Ponomarev_N
             // 
             // txt_pprotiv
             // 
-            this.txt_pprotiv.Location = new System.Drawing.Point(5, 249);
+            this.txt_pprotiv.Location = new System.Drawing.Point(5, 243);
             this.txt_pprotiv.MaxLength = 500;
             this.txt_pprotiv.Multiline = true;
             this.txt_pprotiv.Name = "txt_pprotiv";
@@ -214,7 +215,7 @@ namespace Ponomarev_N
             // 
             // txt_posoben
             // 
-            this.txt_posoben.Location = new System.Drawing.Point(162, 249);
+            this.txt_posoben.Location = new System.Drawing.Point(162, 243);
             this.txt_posoben.MaxLength = 500;
             this.txt_posoben.Multiline = true;
             this.txt_posoben.Name = "txt_posoben";
@@ -226,17 +227,30 @@ namespace Ponomarev_N
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(159, 230);
+            this.label2.Location = new System.Drawing.Point(159, 224);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 16);
             this.label2.TabIndex = 65;
             this.label2.Text = "Особенности";
+            // 
+            // btn_chooseEditPet
+            // 
+            this.btn_chooseEditPet.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_chooseEditPet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_chooseEditPet.Location = new System.Drawing.Point(5, 406);
+            this.btn_chooseEditPet.Name = "btn_chooseEditPet";
+            this.btn_chooseEditPet.Size = new System.Drawing.Size(154, 36);
+            this.btn_chooseEditPet.TabIndex = 66;
+            this.btn_chooseEditPet.Text = "Выбрать";
+            this.btn_chooseEditPet.UseVisualStyleBackColor = true;
+            this.btn_chooseEditPet.Click += new System.EventHandler(this.btn_chooseEditPet_Click);
             // 
             // petomec
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1118, 527);
+            this.Controls.Add(this.btn_chooseEditPet);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txt_posoben);
             this.Controls.Add(this.txt_pprotiv);
@@ -282,5 +296,6 @@ namespace Ponomarev_N
         private System.Windows.Forms.TextBox txt_pprotiv;
         private System.Windows.Forms.TextBox txt_posoben;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btn_chooseEditPet;
     }
 }

@@ -30,9 +30,9 @@ namespace Ponomarev_N
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridUslugi = new System.Windows.Forms.DataGridView();
             this.ucodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,6 +88,15 @@ namespace Ponomarev_N
             this.btn_userAdd = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridUsers = new System.Windows.Forms.DataGridView();
+            this.scodDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.snamDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sfamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sotchDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stelDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dcodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sloginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.spassDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sotrFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sotrBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ponomarev_NDataSet13 = new Ponomarev_N.Ponomarev_NDataSet();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -116,6 +125,7 @@ namespace Ponomarev_N
             this.ctelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.btn_choosePet = new System.Windows.Forms.Button();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.txt_searchZapic = new System.Windows.Forms.TextBox();
             this.btn_clearZapic = new System.Windows.Forms.Button();
@@ -146,8 +156,6 @@ namespace Ponomarev_N
             this.dolgVrachBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ponomarev_NDataSet12 = new Ponomarev_N.Ponomarev_NDataSet();
             this.cb_pcod = new System.Windows.Forms.ComboBox();
-            this.petListCbBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ponomarev_NDataSet7 = new Ponomarev_N.Ponomarev_NDataSet();
             this.label13 = new System.Windows.Forms.Label();
             this.cb_scod = new System.Windows.Forms.ComboBox();
             this.fIOVrachBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -213,6 +221,7 @@ namespace Ponomarev_N
             this.btn_cancelOplata = new System.Windows.Forms.Button();
             this.btn_acceptOplata = new System.Windows.Forms.Button();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.ponomarev_NDataSet7 = new Ponomarev_N.Ponomarev_NDataSet();
             this.ponomarev_NDataSet9 = new Ponomarev_N.Ponomarev_NDataSet();
             this.ponomarev_NDataSet8 = new Ponomarev_N.Ponomarev_NDataSet();
             this.petBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -233,22 +242,14 @@ namespace Ponomarev_N
             this.fIOVrachTableAdapter = new Ponomarev_N.Ponomarev_NDataSetTableAdapters.FIOVrachTableAdapter();
             this.boleznTableAdapter = new Ponomarev_N.Ponomarev_NDataSetTableAdapters.boleznTableAdapter();
             this.petTableAdapter = new Ponomarev_N.Ponomarev_NDataSetTableAdapters.petTableAdapter();
-            this.petListCbTableAdapter = new Ponomarev_N.Ponomarev_NDataSetTableAdapters.PetListCbTableAdapter();
             this.ponomarev_NDataSet10 = new Ponomarev_N.Ponomarev_NDataSet();
             this.zapicAdapterTableAdapter = new Ponomarev_N.Ponomarev_NDataSetTableAdapters.ZapicAdapterTableAdapter();
             this.dolgVrachTableAdapter = new Ponomarev_N.Ponomarev_NDataSetTableAdapters.DolgVrachTableAdapter();
             this.oplataTableAdapter = new Ponomarev_N.Ponomarev_NDataSetTableAdapters.OplataTableAdapter();
             this.boleznBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.sotrTableAdapter = new Ponomarev_N.Ponomarev_NDataSetTableAdapters.sotrTableAdapter();
-            this.scodDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.snamDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sfamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sotchDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stelDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dcodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sloginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.spassDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sotrFIODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.petListCbBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.petListCbTableAdapter = new Ponomarev_N.Ponomarev_NDataSetTableAdapters.PetListCbTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUslugi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uslugiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet1)).BeginInit();
@@ -282,8 +283,6 @@ namespace Ponomarev_N
             ((System.ComponentModel.ISupportInitialize)(this.uslugiBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dolgVrachBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.petListCbBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fIOVrachBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusBindingSource)).BeginInit();
@@ -303,6 +302,7 @@ namespace Ponomarev_N
             ((System.ComponentModel.ISupportInitialize)(this.dataGridOplata)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.oplataAdapterBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.petBindingSource)).BeginInit();
@@ -313,6 +313,7 @@ namespace Ponomarev_N
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boleznBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.petListCbBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridUslugi
@@ -918,6 +919,70 @@ namespace Ponomarev_N
             this.dataGridUsers.TabIndex = 0;
             this.dataGridUsers.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridUsers_CellEnter);
             // 
+            // scodDataGridViewTextBoxColumn2
+            // 
+            this.scodDataGridViewTextBoxColumn2.DataPropertyName = "scod";
+            this.scodDataGridViewTextBoxColumn2.HeaderText = "Код сотрудника";
+            this.scodDataGridViewTextBoxColumn2.Name = "scodDataGridViewTextBoxColumn2";
+            this.scodDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // snamDataGridViewTextBoxColumn2
+            // 
+            this.snamDataGridViewTextBoxColumn2.DataPropertyName = "snam";
+            this.snamDataGridViewTextBoxColumn2.HeaderText = "Имя";
+            this.snamDataGridViewTextBoxColumn2.Name = "snamDataGridViewTextBoxColumn2";
+            this.snamDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // sfamDataGridViewTextBoxColumn1
+            // 
+            this.sfamDataGridViewTextBoxColumn1.DataPropertyName = "sfam";
+            this.sfamDataGridViewTextBoxColumn1.HeaderText = "Фамилия";
+            this.sfamDataGridViewTextBoxColumn1.Name = "sfamDataGridViewTextBoxColumn1";
+            this.sfamDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // sotchDataGridViewTextBoxColumn1
+            // 
+            this.sotchDataGridViewTextBoxColumn1.DataPropertyName = "sotch";
+            this.sotchDataGridViewTextBoxColumn1.HeaderText = "Отчество";
+            this.sotchDataGridViewTextBoxColumn1.Name = "sotchDataGridViewTextBoxColumn1";
+            this.sotchDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // stelDataGridViewTextBoxColumn1
+            // 
+            this.stelDataGridViewTextBoxColumn1.DataPropertyName = "stel";
+            this.stelDataGridViewTextBoxColumn1.HeaderText = "Телефон";
+            this.stelDataGridViewTextBoxColumn1.Name = "stelDataGridViewTextBoxColumn1";
+            this.stelDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dcodDataGridViewTextBoxColumn
+            // 
+            this.dcodDataGridViewTextBoxColumn.DataPropertyName = "dcod";
+            this.dcodDataGridViewTextBoxColumn.HeaderText = "Код должности";
+            this.dcodDataGridViewTextBoxColumn.Name = "dcodDataGridViewTextBoxColumn";
+            this.dcodDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sloginDataGridViewTextBoxColumn
+            // 
+            this.sloginDataGridViewTextBoxColumn.DataPropertyName = "slogin";
+            this.sloginDataGridViewTextBoxColumn.HeaderText = "Логин";
+            this.sloginDataGridViewTextBoxColumn.Name = "sloginDataGridViewTextBoxColumn";
+            this.sloginDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // spassDataGridViewTextBoxColumn
+            // 
+            this.spassDataGridViewTextBoxColumn.DataPropertyName = "spass";
+            this.spassDataGridViewTextBoxColumn.HeaderText = "Пароль";
+            this.spassDataGridViewTextBoxColumn.Name = "spassDataGridViewTextBoxColumn";
+            this.spassDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sotrFIODataGridViewTextBoxColumn
+            // 
+            this.sotrFIODataGridViewTextBoxColumn.DataPropertyName = "sotrFIO";
+            this.sotrFIODataGridViewTextBoxColumn.HeaderText = "sotrFIO";
+            this.sotrFIODataGridViewTextBoxColumn.Name = "sotrFIODataGridViewTextBoxColumn";
+            this.sotrFIODataGridViewTextBoxColumn.ReadOnly = true;
+            this.sotrFIODataGridViewTextBoxColumn.Visible = false;
+            // 
             // sotrBindingSource
             // 
             this.sotrBindingSource.DataMember = "sotr";
@@ -1199,6 +1264,7 @@ namespace Ponomarev_N
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.btn_choosePet);
             this.tabPage5.Controls.Add(this.pictureBox11);
             this.tabPage5.Controls.Add(this.txt_searchZapic);
             this.tabPage5.Controls.Add(this.btn_clearZapic);
@@ -1231,6 +1297,18 @@ namespace Ponomarev_N
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Запись";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // btn_choosePet
+            // 
+            this.btn_choosePet.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_choosePet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_choosePet.Location = new System.Drawing.Point(190, 144);
+            this.btn_choosePet.Name = "btn_choosePet";
+            this.btn_choosePet.Size = new System.Drawing.Size(86, 23);
+            this.btn_choosePet.TabIndex = 83;
+            this.btn_choosePet.Text = "Выбрать";
+            this.btn_choosePet.UseVisualStyleBackColor = true;
+            this.btn_choosePet.Click += new System.EventHandler(this.btn_choosePet_Click);
             // 
             // pictureBox11
             // 
@@ -1438,7 +1516,6 @@ namespace Ponomarev_N
             this.cb_ucod.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cb_ucod.DataSource = this.uslugiBindingSource1;
             this.cb_ucod.DisplayMember = "unam";
-            this.cb_ucod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_ucod.FormattingEnabled = true;
             this.cb_ucod.Location = new System.Drawing.Point(13, 471);
             this.cb_ucod.Name = "cb_ucod";
@@ -1489,25 +1566,15 @@ namespace Ponomarev_N
             // 
             this.cb_pcod.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cb_pcod.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cb_pcod.DataSource = this.petListCbBindingSource;
+            this.cb_pcod.DataSource = this.petBindingSource;
             this.cb_pcod.DisplayMember = "pnam";
-            this.cb_pcod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_pcod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.cb_pcod.FormattingEnabled = true;
             this.cb_pcod.Location = new System.Drawing.Point(13, 145);
             this.cb_pcod.Name = "cb_pcod";
-            this.cb_pcod.Size = new System.Drawing.Size(265, 21);
+            this.cb_pcod.Size = new System.Drawing.Size(171, 21);
             this.cb_pcod.TabIndex = 75;
             this.cb_pcod.ValueMember = "pcod";
-            // 
-            // petListCbBindingSource
-            // 
-            this.petListCbBindingSource.DataMember = "PetListCb";
-            this.petListCbBindingSource.DataSource = this.ponomarev_NDataSet7;
-            // 
-            // ponomarev_NDataSet7
-            // 
-            this.ponomarev_NDataSet7.DataSetName = "Ponomarev_NDataSet";
-            this.ponomarev_NDataSet7.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label13
             // 
@@ -1525,7 +1592,6 @@ namespace Ponomarev_N
             this.cb_scod.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cb_scod.DataSource = this.fIOVrachBindingSource;
             this.cb_scod.DisplayMember = "FIOVrach";
-            this.cb_scod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_scod.FormattingEnabled = true;
             this.cb_scod.Location = new System.Drawing.Point(11, 232);
             this.cb_scod.Name = "cb_scod";
@@ -1601,7 +1667,6 @@ namespace Ponomarev_N
             this.cb_bnam.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cb_bnam.DataSource = this.boleznBindingSource;
             this.cb_bnam.DisplayMember = "bnam";
-            this.cb_bnam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_bnam.FormattingEnabled = true;
             this.cb_bnam.Location = new System.Drawing.Point(13, 430);
             this.cb_bnam.Name = "cb_bnam";
@@ -1620,7 +1685,6 @@ namespace Ponomarev_N
             this.cb_cnam.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cb_cnam.DataSource = this.fIOAdapterBindingSource;
             this.cb_cnam.DisplayMember = "Expr1";
-            this.cb_cnam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_cnam.FormattingEnabled = true;
             this.cb_cnam.Location = new System.Drawing.Point(13, 102);
             this.cb_cnam.Name = "cb_cnam";
@@ -1780,17 +1844,17 @@ namespace Ponomarev_N
             // 
             // chartBolezn
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartBolezn.ChartAreas.Add(chartArea1);
+            chartArea9.Name = "ChartArea1";
+            this.chartBolezn.ChartAreas.Add(chartArea9);
             this.chartBolezn.DataSource = this.boleznBindingSource3;
-            legend1.Name = "Legend1";
-            this.chartBolezn.Legends.Add(legend1);
+            legend9.Name = "Legend1";
+            this.chartBolezn.Legends.Add(legend9);
             this.chartBolezn.Location = new System.Drawing.Point(878, 13);
             this.chartBolezn.Name = "chartBolezn";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartBolezn.Series.Add(series1);
+            series9.ChartArea = "ChartArea1";
+            series9.Legend = "Legend1";
+            series9.Name = "Series1";
+            this.chartBolezn.Series.Add(series9);
             this.chartBolezn.Size = new System.Drawing.Size(470, 551);
             this.chartBolezn.TabIndex = 46;
             this.chartBolezn.Text = "chart1";
@@ -2157,6 +2221,11 @@ namespace Ponomarev_N
             this.pictureBox6.TabIndex = 45;
             this.pictureBox6.TabStop = false;
             // 
+            // ponomarev_NDataSet7
+            // 
+            this.ponomarev_NDataSet7.DataSetName = "Ponomarev_NDataSet";
+            this.ponomarev_NDataSet7.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // ponomarev_NDataSet9
             // 
             this.ponomarev_NDataSet9.DataSetName = "Ponomarev_NDataSet";
@@ -2262,10 +2331,6 @@ namespace Ponomarev_N
             // 
             this.petTableAdapter.ClearBeforeFill = true;
             // 
-            // petListCbTableAdapter
-            // 
-            this.petListCbTableAdapter.ClearBeforeFill = true;
-            // 
             // ponomarev_NDataSet10
             // 
             this.ponomarev_NDataSet10.DataSetName = "Ponomarev_NDataSet";
@@ -2292,69 +2357,14 @@ namespace Ponomarev_N
             // 
             this.sotrTableAdapter.ClearBeforeFill = true;
             // 
-            // scodDataGridViewTextBoxColumn2
+            // petListCbBindingSource
             // 
-            this.scodDataGridViewTextBoxColumn2.DataPropertyName = "scod";
-            this.scodDataGridViewTextBoxColumn2.HeaderText = "Код сотрудника";
-            this.scodDataGridViewTextBoxColumn2.Name = "scodDataGridViewTextBoxColumn2";
-            this.scodDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.petListCbBindingSource.DataMember = "PetListCb";
+            this.petListCbBindingSource.DataSource = this.ponomarev_NDataSet1;
             // 
-            // snamDataGridViewTextBoxColumn2
+            // petListCbTableAdapter
             // 
-            this.snamDataGridViewTextBoxColumn2.DataPropertyName = "snam";
-            this.snamDataGridViewTextBoxColumn2.HeaderText = "Имя";
-            this.snamDataGridViewTextBoxColumn2.Name = "snamDataGridViewTextBoxColumn2";
-            this.snamDataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // sfamDataGridViewTextBoxColumn1
-            // 
-            this.sfamDataGridViewTextBoxColumn1.DataPropertyName = "sfam";
-            this.sfamDataGridViewTextBoxColumn1.HeaderText = "Фамилия";
-            this.sfamDataGridViewTextBoxColumn1.Name = "sfamDataGridViewTextBoxColumn1";
-            this.sfamDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // sotchDataGridViewTextBoxColumn1
-            // 
-            this.sotchDataGridViewTextBoxColumn1.DataPropertyName = "sotch";
-            this.sotchDataGridViewTextBoxColumn1.HeaderText = "Отчество";
-            this.sotchDataGridViewTextBoxColumn1.Name = "sotchDataGridViewTextBoxColumn1";
-            this.sotchDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // stelDataGridViewTextBoxColumn1
-            // 
-            this.stelDataGridViewTextBoxColumn1.DataPropertyName = "stel";
-            this.stelDataGridViewTextBoxColumn1.HeaderText = "Телефон";
-            this.stelDataGridViewTextBoxColumn1.Name = "stelDataGridViewTextBoxColumn1";
-            this.stelDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dcodDataGridViewTextBoxColumn
-            // 
-            this.dcodDataGridViewTextBoxColumn.DataPropertyName = "dcod";
-            this.dcodDataGridViewTextBoxColumn.HeaderText = "Код должности";
-            this.dcodDataGridViewTextBoxColumn.Name = "dcodDataGridViewTextBoxColumn";
-            this.dcodDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sloginDataGridViewTextBoxColumn
-            // 
-            this.sloginDataGridViewTextBoxColumn.DataPropertyName = "slogin";
-            this.sloginDataGridViewTextBoxColumn.HeaderText = "Логин";
-            this.sloginDataGridViewTextBoxColumn.Name = "sloginDataGridViewTextBoxColumn";
-            this.sloginDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // spassDataGridViewTextBoxColumn
-            // 
-            this.spassDataGridViewTextBoxColumn.DataPropertyName = "spass";
-            this.spassDataGridViewTextBoxColumn.HeaderText = "Пароль";
-            this.spassDataGridViewTextBoxColumn.Name = "spassDataGridViewTextBoxColumn";
-            this.spassDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sotrFIODataGridViewTextBoxColumn
-            // 
-            this.sotrFIODataGridViewTextBoxColumn.DataPropertyName = "sotrFIO";
-            this.sotrFIODataGridViewTextBoxColumn.HeaderText = "sotrFIO";
-            this.sotrFIODataGridViewTextBoxColumn.Name = "sotrFIODataGridViewTextBoxColumn";
-            this.sotrFIODataGridViewTextBoxColumn.ReadOnly = true;
-            this.sotrFIODataGridViewTextBoxColumn.Visible = false;
+            this.petListCbTableAdapter.ClearBeforeFill = true;
             // 
             // Main
             // 
@@ -2408,8 +2418,6 @@ namespace Ponomarev_N
             ((System.ComponentModel.ISupportInitialize)(this.uslugiBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dolgVrachBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.petListCbBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fIOVrachBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusBindingSource)).EndInit();
@@ -2431,6 +2439,7 @@ namespace Ponomarev_N
             ((System.ComponentModel.ISupportInitialize)(this.dataGridOplata)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.oplataAdapterBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.petBindingSource)).EndInit();
@@ -2442,6 +2451,7 @@ namespace Ponomarev_N
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ponomarev_NDataSet10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.boleznBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.petListCbBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2550,8 +2560,6 @@ namespace Ponomarev_N
         private Ponomarev_NDataSetTableAdapters.petTableAdapter petTableAdapter;
         private System.Windows.Forms.BindingSource petBindingSource;
         private System.Windows.Forms.ComboBox cmb_dcod;
-        private Ponomarev_NDataSetTableAdapters.PetListCbTableAdapter petListCbTableAdapter;
-        private System.Windows.Forms.BindingSource petListCbBindingSource;
         private Ponomarev_NDataSet ponomarev_NDataSet7;
         private Ponomarev_NDataSet ponomarev_NDataSet8;
         private Ponomarev_NDataSet ponomarev_NDataSet9;
@@ -2665,6 +2673,9 @@ namespace Ponomarev_N
         private System.Windows.Forms.DataGridViewTextBoxColumn sloginDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn spassDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sotrFIODataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btn_choosePet;
+        private System.Windows.Forms.BindingSource petListCbBindingSource;
+        private Ponomarev_NDataSetTableAdapters.PetListCbTableAdapter petListCbTableAdapter;
     }
 }
 

@@ -48,8 +48,6 @@ namespace Ponomarev_N {
         
         private FIOVrachDataTable tableFIOVrach;
         
-        private PetListCbDataTable tablePetListCb;
-        
         private DolgVrachDataTable tableDolgVrach;
         
         private oplataStatusDataTable tableoplataStatus;
@@ -57,6 +55,8 @@ namespace Ponomarev_N {
         private ZapicAdapterDataTable tableZapicAdapter;
         
         private OplataAdapterDataTable tableOplataAdapter;
+        
+        private PetListCbDataTable tablePetListCb;
         
         private global::System.Data.DataRelation relationFK_oplata_pet;
         
@@ -83,14 +83,6 @@ namespace Ponomarev_N {
         private global::System.Data.DataRelation relationFK_zapic_status;
         
         private global::System.Data.DataRelation relationFK_zapic_dolg;
-        
-        private global::System.Data.DataRelation relationFK_oplata_pet1;
-        
-        private global::System.Data.DataRelation relationFK_zapic_pet1;
-        
-        private global::System.Data.DataRelation relationFK_pet_client2;
-        
-        private global::System.Data.DataRelation relationFK_pet_client3;
         
         private global::System.Data.DataRelation relationFK_sotr_dolg1;
         
@@ -120,7 +112,9 @@ namespace Ponomarev_N {
         
         private global::System.Data.DataRelation relationFK_zapic_client2;
         
-        private global::System.Data.DataRelation relationFK_pet_client5;
+        private global::System.Data.DataRelation relationFK_oplata_pet1;
+        
+        private global::System.Data.DataRelation relationFK_zapic_pet1;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -186,9 +180,6 @@ namespace Ponomarev_N {
                 if ((ds.Tables["FIOVrach"] != null)) {
                     base.Tables.Add(new FIOVrachDataTable(ds.Tables["FIOVrach"]));
                 }
-                if ((ds.Tables["PetListCb"] != null)) {
-                    base.Tables.Add(new PetListCbDataTable(ds.Tables["PetListCb"]));
-                }
                 if ((ds.Tables["DolgVrach"] != null)) {
                     base.Tables.Add(new DolgVrachDataTable(ds.Tables["DolgVrach"]));
                 }
@@ -200,6 +191,9 @@ namespace Ponomarev_N {
                 }
                 if ((ds.Tables["OplataAdapter"] != null)) {
                     base.Tables.Add(new OplataAdapterDataTable(ds.Tables["OplataAdapter"]));
+                }
+                if ((ds.Tables["PetListCb"] != null)) {
+                    base.Tables.Add(new PetListCbDataTable(ds.Tables["PetListCb"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -343,16 +337,6 @@ namespace Ponomarev_N {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public PetListCbDataTable PetListCb {
-            get {
-                return this.tablePetListCb;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public DolgVrachDataTable DolgVrach {
             get {
                 return this.tableDolgVrach;
@@ -386,6 +370,16 @@ namespace Ponomarev_N {
         public OplataAdapterDataTable OplataAdapter {
             get {
                 return this.tableOplataAdapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public PetListCbDataTable PetListCb {
+            get {
+                return this.tablePetListCb;
             }
         }
         
@@ -492,9 +486,6 @@ namespace Ponomarev_N {
                 if ((ds.Tables["FIOVrach"] != null)) {
                     base.Tables.Add(new FIOVrachDataTable(ds.Tables["FIOVrach"]));
                 }
-                if ((ds.Tables["PetListCb"] != null)) {
-                    base.Tables.Add(new PetListCbDataTable(ds.Tables["PetListCb"]));
-                }
                 if ((ds.Tables["DolgVrach"] != null)) {
                     base.Tables.Add(new DolgVrachDataTable(ds.Tables["DolgVrach"]));
                 }
@@ -506,6 +497,9 @@ namespace Ponomarev_N {
                 }
                 if ((ds.Tables["OplataAdapter"] != null)) {
                     base.Tables.Add(new OplataAdapterDataTable(ds.Tables["OplataAdapter"]));
+                }
+                if ((ds.Tables["PetListCb"] != null)) {
+                    base.Tables.Add(new PetListCbDataTable(ds.Tables["PetListCb"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -612,12 +606,6 @@ namespace Ponomarev_N {
                     this.tableFIOVrach.InitVars();
                 }
             }
-            this.tablePetListCb = ((PetListCbDataTable)(base.Tables["PetListCb"]));
-            if ((initTable == true)) {
-                if ((this.tablePetListCb != null)) {
-                    this.tablePetListCb.InitVars();
-                }
-            }
             this.tableDolgVrach = ((DolgVrachDataTable)(base.Tables["DolgVrach"]));
             if ((initTable == true)) {
                 if ((this.tableDolgVrach != null)) {
@@ -642,6 +630,12 @@ namespace Ponomarev_N {
                     this.tableOplataAdapter.InitVars();
                 }
             }
+            this.tablePetListCb = ((PetListCbDataTable)(base.Tables["PetListCb"]));
+            if ((initTable == true)) {
+                if ((this.tablePetListCb != null)) {
+                    this.tablePetListCb.InitVars();
+                }
+            }
             this.relationFK_oplata_pet = this.Relations["FK_oplata_pet"];
             this.relationFK_oplata_sotr = this.Relations["FK_oplata_sotr"];
             this.relationFK_oplata_uslugi = this.Relations["FK_oplata_uslugi"];
@@ -655,10 +649,6 @@ namespace Ponomarev_N {
             this.relationFK_zapic_pet = this.Relations["FK_zapic_pet"];
             this.relationFK_zapic_status = this.Relations["FK_zapic_status"];
             this.relationFK_zapic_dolg = this.Relations["FK_zapic_dolg"];
-            this.relationFK_oplata_pet1 = this.Relations["FK_oplata_pet1"];
-            this.relationFK_zapic_pet1 = this.Relations["FK_zapic_pet1"];
-            this.relationFK_pet_client2 = this.Relations["FK_pet_client2"];
-            this.relationFK_pet_client3 = this.Relations["FK_pet_client3"];
             this.relationFK_sotr_dolg1 = this.Relations["FK_sotr_dolg1"];
             this.relationFK_oplata_sotr1 = this.Relations["FK_oplata_sotr1"];
             this.relationFK_zapic_sotr1 = this.Relations["FK_zapic_sotr1"];
@@ -673,7 +663,8 @@ namespace Ponomarev_N {
             this.relationFK_oplata_client2 = this.Relations["FK_oplata_client2"];
             this.relationFK_pet_client4 = this.Relations["FK_pet_client4"];
             this.relationFK_zapic_client2 = this.Relations["FK_zapic_client2"];
-            this.relationFK_pet_client5 = this.Relations["FK_pet_client5"];
+            this.relationFK_oplata_pet1 = this.Relations["FK_oplata_pet1"];
+            this.relationFK_zapic_pet1 = this.Relations["FK_zapic_pet1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -708,8 +699,6 @@ namespace Ponomarev_N {
             base.Tables.Add(this.tablestatus);
             this.tableFIOVrach = new FIOVrachDataTable();
             base.Tables.Add(this.tableFIOVrach);
-            this.tablePetListCb = new PetListCbDataTable();
-            base.Tables.Add(this.tablePetListCb);
             this.tableDolgVrach = new DolgVrachDataTable();
             base.Tables.Add(this.tableDolgVrach);
             this.tableoplataStatus = new oplataStatusDataTable();
@@ -718,6 +707,8 @@ namespace Ponomarev_N {
             base.Tables.Add(this.tableZapicAdapter);
             this.tableOplataAdapter = new OplataAdapterDataTable();
             base.Tables.Add(this.tableOplataAdapter);
+            this.tablePetListCb = new PetListCbDataTable();
+            base.Tables.Add(this.tablePetListCb);
             this.relationFK_oplata_pet = new global::System.Data.DataRelation("FK_oplata_pet", new global::System.Data.DataColumn[] {
                         this.tablepet.pcodColumn}, new global::System.Data.DataColumn[] {
                         this.tableoplata.pcodColumn}, false);
@@ -770,22 +761,6 @@ namespace Ponomarev_N {
                         this.tabledolg.dcodColumn}, new global::System.Data.DataColumn[] {
                         this.tablezapic.dcodColumn}, false);
             this.Relations.Add(this.relationFK_zapic_dolg);
-            this.relationFK_oplata_pet1 = new global::System.Data.DataRelation("FK_oplata_pet1", new global::System.Data.DataColumn[] {
-                        this.tablePetListCb.pcodColumn}, new global::System.Data.DataColumn[] {
-                        this.tableoplata.pcodColumn}, false);
-            this.Relations.Add(this.relationFK_oplata_pet1);
-            this.relationFK_zapic_pet1 = new global::System.Data.DataRelation("FK_zapic_pet1", new global::System.Data.DataColumn[] {
-                        this.tablePetListCb.pcodColumn}, new global::System.Data.DataColumn[] {
-                        this.tablezapic.pcodColumn}, false);
-            this.Relations.Add(this.relationFK_zapic_pet1);
-            this.relationFK_pet_client2 = new global::System.Data.DataRelation("FK_pet_client2", new global::System.Data.DataColumn[] {
-                        this.tableclient.ccodColumn}, new global::System.Data.DataColumn[] {
-                        this.tablePetListCb.ccodColumn}, false);
-            this.Relations.Add(this.relationFK_pet_client2);
-            this.relationFK_pet_client3 = new global::System.Data.DataRelation("FK_pet_client3", new global::System.Data.DataColumn[] {
-                        this.tableFIOAdapter.ccodColumn}, new global::System.Data.DataColumn[] {
-                        this.tablePetListCb.ccodColumn}, false);
-            this.Relations.Add(this.relationFK_pet_client3);
             this.relationFK_sotr_dolg1 = new global::System.Data.DataRelation("FK_sotr_dolg1", new global::System.Data.DataColumn[] {
                         this.tabledolg.dcodColumn}, new global::System.Data.DataColumn[] {
                         this.tableFIOVrach.dcodColumn}, false);
@@ -842,10 +817,14 @@ namespace Ponomarev_N {
                         this.tableOplataAdapter.ccodColumn}, new global::System.Data.DataColumn[] {
                         this.tablezapic.ccodColumn}, false);
             this.Relations.Add(this.relationFK_zapic_client2);
-            this.relationFK_pet_client5 = new global::System.Data.DataRelation("FK_pet_client5", new global::System.Data.DataColumn[] {
-                        this.tableOplataAdapter.ccodColumn}, new global::System.Data.DataColumn[] {
-                        this.tablePetListCb.ccodColumn}, false);
-            this.Relations.Add(this.relationFK_pet_client5);
+            this.relationFK_oplata_pet1 = new global::System.Data.DataRelation("FK_oplata_pet1", new global::System.Data.DataColumn[] {
+                        this.tablePetListCb.pcodColumn}, new global::System.Data.DataColumn[] {
+                        this.tableoplata.pcodColumn}, false);
+            this.Relations.Add(this.relationFK_oplata_pet1);
+            this.relationFK_zapic_pet1 = new global::System.Data.DataRelation("FK_zapic_pet1", new global::System.Data.DataColumn[] {
+                        this.tablePetListCb.pcodColumn}, new global::System.Data.DataColumn[] {
+                        this.tablezapic.pcodColumn}, false);
+            this.Relations.Add(this.relationFK_zapic_pet1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -922,12 +901,6 @@ namespace Ponomarev_N {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializePetListCb() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeDolgVrach() {
             return false;
         }
@@ -947,6 +920,12 @@ namespace Ponomarev_N {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeOplataAdapter() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializePetListCb() {
             return false;
         }
         
@@ -1042,9 +1021,6 @@ namespace Ponomarev_N {
         public delegate void FIOVrachRowChangeEventHandler(object sender, FIOVrachRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void PetListCbRowChangeEventHandler(object sender, PetListCbRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void DolgVrachRowChangeEventHandler(object sender, DolgVrachRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -1055,6 +1031,9 @@ namespace Ponomarev_N {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void OplataAdapterRowChangeEventHandler(object sender, OplataAdapterRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void PetListCbRowChangeEventHandler(object sender, PetListCbRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -4867,296 +4846,6 @@ namespace Ponomarev_N {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class PetListCbDataTable : global::System.Data.TypedTableBase<PetListCbRow> {
-            
-            private global::System.Data.DataColumn columnpnam;
-            
-            private global::System.Data.DataColumn columnpcod;
-            
-            private global::System.Data.DataColumn columnccod;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PetListCbDataTable() {
-                this.TableName = "PetListCb";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal PetListCbDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected PetListCbDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn pnamColumn {
-                get {
-                    return this.columnpnam;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn pcodColumn {
-                get {
-                    return this.columnpcod;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ccodColumn {
-                get {
-                    return this.columnccod;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PetListCbRow this[int index] {
-                get {
-                    return ((PetListCbRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event PetListCbRowChangeEventHandler PetListCbRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event PetListCbRowChangeEventHandler PetListCbRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event PetListCbRowChangeEventHandler PetListCbRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event PetListCbRowChangeEventHandler PetListCbRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddPetListCbRow(PetListCbRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PetListCbRow AddPetListCbRow(string pnam, int pcod, clientRow parentclientRowByFK_pet_client2) {
-                PetListCbRow rowPetListCbRow = ((PetListCbRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        pnam,
-                        pcod,
-                        null};
-                if ((parentclientRowByFK_pet_client2 != null)) {
-                    columnValuesArray[2] = parentclientRowByFK_pet_client2[0];
-                }
-                rowPetListCbRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowPetListCbRow);
-                return rowPetListCbRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PetListCbRow FindBypcod(int pcod) {
-                return ((PetListCbRow)(this.Rows.Find(new object[] {
-                            pcod})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                PetListCbDataTable cln = ((PetListCbDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new PetListCbDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal void InitVars() {
-                this.columnpnam = base.Columns["pnam"];
-                this.columnpcod = base.Columns["pcod"];
-                this.columnccod = base.Columns["ccod"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            private void InitClass() {
-                this.columnpnam = new global::System.Data.DataColumn("pnam", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnpnam);
-                this.columnpcod = new global::System.Data.DataColumn("pcod", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnpcod);
-                this.columnccod = new global::System.Data.DataColumn("ccod", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnccod);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnpcod}, true));
-                this.columnpnam.MaxLength = 50;
-                this.columnpcod.AllowDBNull = false;
-                this.columnpcod.Unique = true;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PetListCbRow NewPetListCbRow() {
-                return ((PetListCbRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new PetListCbRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(PetListCbRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.PetListCbRowChanged != null)) {
-                    this.PetListCbRowChanged(this, new PetListCbRowChangeEvent(((PetListCbRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.PetListCbRowChanging != null)) {
-                    this.PetListCbRowChanging(this, new PetListCbRowChangeEvent(((PetListCbRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.PetListCbRowDeleted != null)) {
-                    this.PetListCbRowDeleted(this, new PetListCbRowChangeEvent(((PetListCbRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.PetListCbRowDeleting != null)) {
-                    this.PetListCbRowDeleting(this, new PetListCbRowChangeEvent(((PetListCbRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemovePetListCbRow(PetListCbRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Ponomarev_NDataSet ds = new Ponomarev_NDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "PetListCbDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class DolgVrachDataTable : global::System.Data.TypedTableBase<DolgVrachRow> {
             
             private global::System.Data.DataColumn columndcod;
@@ -6706,6 +6395,279 @@ namespace Ponomarev_N {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class PetListCbDataTable : global::System.Data.TypedTableBase<PetListCbRow> {
+            
+            private global::System.Data.DataColumn columnpnam;
+            
+            private global::System.Data.DataColumn columnpcod;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PetListCbDataTable() {
+                this.TableName = "PetListCb";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal PetListCbDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected PetListCbDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn pnamColumn {
+                get {
+                    return this.columnpnam;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn pcodColumn {
+                get {
+                    return this.columnpcod;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PetListCbRow this[int index] {
+                get {
+                    return ((PetListCbRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event PetListCbRowChangeEventHandler PetListCbRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event PetListCbRowChangeEventHandler PetListCbRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event PetListCbRowChangeEventHandler PetListCbRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event PetListCbRowChangeEventHandler PetListCbRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddPetListCbRow(PetListCbRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PetListCbRow AddPetListCbRow(string pnam, int pcod) {
+                PetListCbRow rowPetListCbRow = ((PetListCbRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        pnam,
+                        pcod};
+                rowPetListCbRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowPetListCbRow);
+                return rowPetListCbRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PetListCbRow FindBypcod(int pcod) {
+                return ((PetListCbRow)(this.Rows.Find(new object[] {
+                            pcod})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                PetListCbDataTable cln = ((PetListCbDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new PetListCbDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnpnam = base.Columns["pnam"];
+                this.columnpcod = base.Columns["pcod"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnpnam = new global::System.Data.DataColumn("pnam", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpnam);
+                this.columnpcod = new global::System.Data.DataColumn("pcod", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpcod);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnpcod}, true));
+                this.columnpnam.MaxLength = 50;
+                this.columnpcod.AllowDBNull = false;
+                this.columnpcod.Unique = true;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PetListCbRow NewPetListCbRow() {
+                return ((PetListCbRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new PetListCbRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(PetListCbRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.PetListCbRowChanged != null)) {
+                    this.PetListCbRowChanged(this, new PetListCbRowChangeEvent(((PetListCbRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.PetListCbRowChanging != null)) {
+                    this.PetListCbRowChanging(this, new PetListCbRowChangeEvent(((PetListCbRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.PetListCbRowDeleted != null)) {
+                    this.PetListCbRowDeleted(this, new PetListCbRowChangeEvent(((PetListCbRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.PetListCbRowDeleting != null)) {
+                    this.PetListCbRowDeleting(this, new PetListCbRowChangeEvent(((PetListCbRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemovePetListCbRow(PetListCbRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                Ponomarev_NDataSet ds = new Ponomarev_NDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "PetListCbDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class boleznRow : global::System.Data.DataRow {
@@ -6954,17 +6916,6 @@ namespace Ponomarev_N {
                 }
                 else {
                     return ((zapicRow[])(base.GetChildRows(this.Table.ChildRelations["FK_zapic_client"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PetListCbRow[] GetPetListCbRows() {
-                if ((this.Table.ChildRelations["FK_pet_client2"] == null)) {
-                    return new PetListCbRow[0];
-                }
-                else {
-                    return ((PetListCbRow[])(base.GetChildRows(this.Table.ChildRelations["FK_pet_client2"])));
                 }
             }
             
@@ -7239,17 +7190,6 @@ namespace Ponomarev_N {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PetListCbRow PetListCbRow {
-                get {
-                    return ((PetListCbRow)(this.GetParentRow(this.Table.ParentRelations["FK_oplata_pet1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_oplata_pet1"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public FIOVrachRow FIOVrachRow {
                 get {
                     return ((FIOVrachRow)(this.GetParentRow(this.Table.ParentRelations["FK_oplata_sotr1"])));
@@ -7300,6 +7240,17 @@ namespace Ponomarev_N {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_oplata_client2"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PetListCbRow PetListCbRow {
+                get {
+                    return ((PetListCbRow)(this.GetParentRow(this.Table.ParentRelations["FK_oplata_pet1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_oplata_pet1"]);
                 }
             }
             
@@ -8257,17 +8208,6 @@ namespace Ponomarev_N {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PetListCbRow PetListCbRow {
-                get {
-                    return ((PetListCbRow)(this.GetParentRow(this.Table.ParentRelations["FK_zapic_pet1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_zapic_pet1"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public FIOVrachRow FIOVrachRow {
                 get {
                     return ((FIOVrachRow)(this.GetParentRow(this.Table.ParentRelations["FK_zapic_sotr1"])));
@@ -8318,6 +8258,17 @@ namespace Ponomarev_N {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_zapic_client2"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PetListCbRow PetListCbRow {
+                get {
+                    return ((PetListCbRow)(this.GetParentRow(this.Table.ParentRelations["FK_zapic_pet1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_zapic_pet1"]);
                 }
             }
             
@@ -8626,17 +8577,6 @@ namespace Ponomarev_N {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PetListCbRow[] GetPetListCbRows() {
-                if ((this.Table.ChildRelations["FK_pet_client3"] == null)) {
-                    return new PetListCbRow[0];
-                }
-                else {
-                    return ((PetListCbRow[])(base.GetChildRows(this.Table.ChildRelations["FK_pet_client3"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public oplataRow[] GetoplataRows() {
                 if ((this.Table.ChildRelations["FK_oplata_client1"] == null)) {
                     return new oplataRow[0];
@@ -8817,143 +8757,6 @@ namespace Ponomarev_N {
                 }
                 else {
                     return ((zapicRow[])(base.GetChildRows(this.Table.ChildRelations["FK_zapic_sotr1"])));
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class PetListCbRow : global::System.Data.DataRow {
-            
-            private PetListCbDataTable tablePetListCb;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal PetListCbRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tablePetListCb = ((PetListCbDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string pnam {
-                get {
-                    try {
-                        return ((string)(this[this.tablePetListCb.pnamColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'pnam\' в таблице \'PetListCb\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePetListCb.pnamColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int pcod {
-                get {
-                    return ((int)(this[this.tablePetListCb.pcodColumn]));
-                }
-                set {
-                    this[this.tablePetListCb.pcodColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int ccod {
-                get {
-                    try {
-                        return ((int)(this[this.tablePetListCb.ccodColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ccod\' в таблице \'PetListCb\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePetListCb.ccodColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public clientRow clientRow {
-                get {
-                    return ((clientRow)(this.GetParentRow(this.Table.ParentRelations["FK_pet_client2"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_pet_client2"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public FIOAdapterRow FIOAdapterRow {
-                get {
-                    return ((FIOAdapterRow)(this.GetParentRow(this.Table.ParentRelations["FK_pet_client3"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_pet_client3"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public OplataAdapterRow OplataAdapterRow {
-                get {
-                    return ((OplataAdapterRow)(this.GetParentRow(this.Table.ParentRelations["FK_pet_client5"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_pet_client5"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IspnamNull() {
-                return this.IsNull(this.tablePetListCb.pnamColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetpnamNull() {
-                this[this.tablePetListCb.pnamColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsccodNull() {
-                return this.IsNull(this.tablePetListCb.ccodColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetccodNull() {
-                this[this.tablePetListCb.ccodColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public oplataRow[] GetoplataRows() {
-                if ((this.Table.ChildRelations["FK_oplata_pet1"] == null)) {
-                    return new oplataRow[0];
-                }
-                else {
-                    return ((oplataRow[])(base.GetChildRows(this.Table.ChildRelations["FK_oplata_pet1"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public zapicRow[] GetzapicRows() {
-                if ((this.Table.ChildRelations["FK_zapic_pet1"] == null)) {
-                    return new zapicRow[0];
-                }
-                else {
-                    return ((zapicRow[])(base.GetChildRows(this.Table.ChildRelations["FK_zapic_pet1"])));
                 }
             }
         }
@@ -9851,15 +9654,80 @@ namespace Ponomarev_N {
                     return ((zapicRow[])(base.GetChildRows(this.Table.ChildRelations["FK_zapic_client2"])));
                 }
             }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class PetListCbRow : global::System.Data.DataRow {
+            
+            private PetListCbDataTable tablePetListCb;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PetListCbRow[] GetPetListCbRows() {
-                if ((this.Table.ChildRelations["FK_pet_client5"] == null)) {
-                    return new PetListCbRow[0];
+            internal PetListCbRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablePetListCb = ((PetListCbDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string pnam {
+                get {
+                    try {
+                        return ((string)(this[this.tablePetListCb.pnamColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'pnam\' в таблице \'PetListCb\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePetListCb.pnamColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int pcod {
+                get {
+                    return ((int)(this[this.tablePetListCb.pcodColumn]));
+                }
+                set {
+                    this[this.tablePetListCb.pcodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IspnamNull() {
+                return this.IsNull(this.tablePetListCb.pnamColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetpnamNull() {
+                this[this.tablePetListCb.pnamColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public oplataRow[] GetoplataRows() {
+                if ((this.Table.ChildRelations["FK_oplata_pet1"] == null)) {
+                    return new oplataRow[0];
                 }
                 else {
-                    return ((PetListCbRow[])(base.GetChildRows(this.Table.ChildRelations["FK_pet_client5"])));
+                    return ((oplataRow[])(base.GetChildRows(this.Table.ChildRelations["FK_oplata_pet1"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public zapicRow[] GetzapicRows() {
+                if ((this.Table.ChildRelations["FK_zapic_pet1"] == null)) {
+                    return new zapicRow[0];
+                }
+                else {
+                    return ((zapicRow[])(base.GetChildRows(this.Table.ChildRelations["FK_zapic_pet1"])));
                 }
             }
         }
@@ -10276,40 +10144,6 @@ namespace Ponomarev_N {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class PetListCbRowChangeEvent : global::System.EventArgs {
-            
-            private PetListCbRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PetListCbRowChangeEvent(PetListCbRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PetListCbRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public class DolgVrachRowChangeEvent : global::System.EventArgs {
             
             private DolgVrachRow eventRow;
@@ -10428,6 +10262,40 @@ namespace Ponomarev_N {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public OplataAdapterRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class PetListCbRowChangeEvent : global::System.EventArgs {
+            
+            private PetListCbRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PetListCbRowChangeEvent(PetListCbRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PetListCbRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -14637,380 +14505,6 @@ HAVING        (dolg.dcod = 1)";
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class PetListCbTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public PetListCbTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "PetListCb";
-            tableMapping.ColumnMappings.Add("pnam", "pnam");
-            tableMapping.ColumnMappings.Add("pcod", "pcod");
-            tableMapping.ColumnMappings.Add("ccod", "ccod");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [pet] WHERE (((@IsNull_pnam = 1 AND [pnam] IS NULL) OR ([pnam] = @Ori" +
-                "ginal_pnam)) AND ([pcod] = @Original_pcod) AND ((@IsNull_ccod = 1 AND [ccod] IS " +
-                "NULL) OR ([ccod] = @Original_ccod)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_pnam", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pnam", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_pnam", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pnam", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_pcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pcod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ccod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ccod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ccod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ccod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [pet] ([pnam], [pcod], [ccod]) VALUES (@pnam, @pcod, @ccod);\nSELECT p" +
-                "nam, pcod, ccod FROM pet WHERE (pcod = @pcod)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pnam", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pnam", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pcod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ccod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ccod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [pet] SET [pnam] = @pnam, [pcod] = @pcod, [ccod] = @ccod WHERE (((@IsNull_pnam = 1 AND [pnam] IS NULL) OR ([pnam] = @Original_pnam)) AND ([pcod] = @Original_pcod) AND ((@IsNull_ccod = 1 AND [ccod] IS NULL) OR ([ccod] = @Original_ccod)));
-SELECT pnam, pcod, ccod FROM pet WHERE (pcod = @pcod)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pnam", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pnam", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pcod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ccod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ccod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_pnam", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pnam", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_pnam", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pnam", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_pcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pcod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ccod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ccod", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ccod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ccod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Ponomarev_N.Properties.Settings.Default.Ponomarev_NConnection;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        pnam, pcod, ccod\nFROM            pet\nWHERE        (ccod = @ccod)";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ccod", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ccod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Ponomarev_NDataSet.PetListCbDataTable dataTable, global::System.Nullable<int> ccod) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((ccod.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ccod.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Ponomarev_NDataSet.PetListCbDataTable GetData(global::System.Nullable<int> ccod) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((ccod.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ccod.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            Ponomarev_NDataSet.PetListCbDataTable dataTable = new Ponomarev_NDataSet.PetListCbDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Ponomarev_NDataSet.PetListCbDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Ponomarev_NDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "PetListCb");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_pnam, int Original_pcod, global::System.Nullable<int> Original_ccod) {
-            if ((Original_pnam == null)) {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_pnam));
-            }
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_pcod));
-            if ((Original_ccod.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_ccod.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string pnam, int pcod, global::System.Nullable<int> ccod) {
-            if ((pnam == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(pnam));
-            }
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(pcod));
-            if ((ccod.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(ccod.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string pnam, int pcod, global::System.Nullable<int> ccod, string Original_pnam, int Original_pcod, global::System.Nullable<int> Original_ccod) {
-            if ((pnam == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(pnam));
-            }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(pcod));
-            if ((ccod.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(ccod.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Original_pnam == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_pnam));
-            }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_pcod));
-            if ((Original_ccod.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_ccod.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string pnam, global::System.Nullable<int> ccod, string Original_pnam, int Original_pcod, global::System.Nullable<int> Original_ccod) {
-            return this.Update(pnam, Original_pcod, ccod, Original_pnam, Original_pcod, Original_ccod);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class DolgVrachTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
@@ -15792,6 +15286,335 @@ FROM            client INNER JOIN
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class PetListCbTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public PetListCbTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "PetListCb";
+            tableMapping.ColumnMappings.Add("pnam", "pnam");
+            tableMapping.ColumnMappings.Add("pcod", "pcod");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [pet] WHERE (((@IsNull_pnam = 1 AND [pnam] IS NULL) OR ([pnam] = @Ori" +
+                "ginal_pnam)) AND ([pcod] = @Original_pcod))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_pnam", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pnam", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_pnam", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pnam", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_pcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pcod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [pet] ([pnam], [pcod]) VALUES (@pnam, @pcod);\r\nSELECT pnam, pcod FROM" +
+                " pet WHERE (pcod = @pcod)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pnam", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pnam", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pcod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE [pet] SET [pnam] = @pnam, [pcod] = @pcod WHERE (((@IsNull_pnam = 1 AND [pn" +
+                "am] IS NULL) OR ([pnam] = @Original_pnam)) AND ([pcod] = @Original_pcod));\r\nSELE" +
+                "CT pnam, pcod FROM pet WHERE (pcod = @pcod)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pnam", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pnam", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pcod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_pnam", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pnam", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_pnam", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pnam", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_pcod", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "pcod", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Ponomarev_N.Properties.Settings.Default.Ponomarev_NConnection;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT        pnam, pcod\r\nFROM            pet\r\nWHERE        (pcod = @pcod)";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@pcod", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "pcod", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(Ponomarev_NDataSet.PetListCbDataTable dataTable, int pcod) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(pcod));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual Ponomarev_NDataSet.PetListCbDataTable GetData(int pcod) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(pcod));
+            Ponomarev_NDataSet.PetListCbDataTable dataTable = new Ponomarev_NDataSet.PetListCbDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(Ponomarev_NDataSet.PetListCbDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(Ponomarev_NDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "PetListCb");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(string Original_pnam, int Original_pcod) {
+            if ((Original_pnam == null)) {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_pnam));
+            }
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_pcod));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string pnam, int pcod) {
+            if ((pnam == null)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(pnam));
+            }
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(pcod));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string pnam, int pcod, string Original_pnam, int Original_pcod) {
+            if ((pnam == null)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(pnam));
+            }
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(pcod));
+            if ((Original_pnam == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_pnam));
+            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_pcod));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string pnam, string Original_pnam, int Original_pcod) {
+            return this.Update(pnam, Original_pcod, Original_pnam, Original_pcod);
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -15821,9 +15644,9 @@ FROM            client INNER JOIN
         
         private statusTableAdapter _statusTableAdapter;
         
-        private PetListCbTableAdapter _petListCbTableAdapter;
-        
         private oplataStatusTableAdapter _oplataStatusTableAdapter;
+        
+        private PetListCbTableAdapter _petListCbTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -15971,12 +15794,12 @@ FROM            client INNER JOIN
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public PetListCbTableAdapter PetListCbTableAdapter {
+        public oplataStatusTableAdapter oplataStatusTableAdapter {
             get {
-                return this._petListCbTableAdapter;
+                return this._oplataStatusTableAdapter;
             }
             set {
-                this._petListCbTableAdapter = value;
+                this._oplataStatusTableAdapter = value;
             }
         }
         
@@ -15985,12 +15808,12 @@ FROM            client INNER JOIN
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public oplataStatusTableAdapter oplataStatusTableAdapter {
+        public PetListCbTableAdapter PetListCbTableAdapter {
             get {
-                return this._oplataStatusTableAdapter;
+                return this._petListCbTableAdapter;
             }
             set {
-                this._oplataStatusTableAdapter = value;
+                this._petListCbTableAdapter = value;
             }
         }
         
@@ -16049,13 +15872,13 @@ FROM            client INNER JOIN
                             && (this._statusTableAdapter.Connection != null))) {
                     return this._statusTableAdapter.Connection;
                 }
-                if (((this._petListCbTableAdapter != null) 
-                            && (this._petListCbTableAdapter.Connection != null))) {
-                    return this._petListCbTableAdapter.Connection;
-                }
                 if (((this._oplataStatusTableAdapter != null) 
                             && (this._oplataStatusTableAdapter.Connection != null))) {
                     return this._oplataStatusTableAdapter.Connection;
+                }
+                if (((this._petListCbTableAdapter != null) 
+                            && (this._petListCbTableAdapter.Connection != null))) {
+                    return this._petListCbTableAdapter.Connection;
                 }
                 return null;
             }
@@ -16097,10 +15920,10 @@ FROM            client INNER JOIN
                 if ((this._statusTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._petListCbTableAdapter != null)) {
+                if ((this._oplataStatusTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._oplataStatusTableAdapter != null)) {
+                if ((this._petListCbTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -16132,21 +15955,21 @@ FROM            client INNER JOIN
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._boleznTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.bolezn.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._boleznTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._oplataStatusTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.oplataStatus.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._oplataStatusTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._petListCbTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.PetListCb.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._petListCbTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -16159,12 +15982,12 @@ FROM            client INNER JOIN
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._boleznTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.bolezn.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._petListCbTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.PetListCb.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._boleznTableAdapter.Update(updatedRows));
+                    result = (result + this._petListCbTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -16195,21 +16018,21 @@ FROM            client INNER JOIN
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._zapicTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.zapic.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._zapicTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._oplataTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.oplata.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._oplataTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._zapicTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.zapic.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._zapicTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -16239,19 +16062,19 @@ FROM            client INNER JOIN
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._boleznTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.bolezn.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._boleznTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._oplataStatusTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.oplataStatus.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._oplataStatusTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._petListCbTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.PetListCb.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._petListCbTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -16263,11 +16086,11 @@ FROM            client INNER JOIN
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._boleznTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.bolezn.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._petListCbTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.PetListCb.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._boleznTableAdapter.Update(addedRows));
+                    result = (result + this._petListCbTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -16295,19 +16118,19 @@ FROM            client INNER JOIN
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._zapicTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.zapic.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._zapicTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._oplataTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.oplata.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._oplataTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._zapicTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.zapic.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._zapicTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -16321,19 +16144,19 @@ FROM            client INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(Ponomarev_NDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._oplataTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.oplata.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._oplataTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._zapicTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.zapic.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._zapicTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._oplataTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.oplata.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._oplataTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -16361,11 +16184,11 @@ FROM            client INNER JOIN
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._boleznTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.bolezn.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._petListCbTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.PetListCb.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._boleznTableAdapter.Update(deletedRows));
+                    result = (result + this._petListCbTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -16377,19 +16200,19 @@ FROM            client INNER JOIN
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._petListCbTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.PetListCb.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._petListCbTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._oplataStatusTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.oplataStatus.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._oplataStatusTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._boleznTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.bolezn.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._boleznTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -16493,13 +16316,13 @@ FROM            client INNER JOIN
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
-            if (((this._petListCbTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._petListCbTableAdapter.Connection) == false))) {
+            if (((this._oplataStatusTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._oplataStatusTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
-            if (((this._oplataStatusTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._oplataStatusTableAdapter.Connection) == false))) {
+            if (((this._petListCbTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._petListCbTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
@@ -16616,15 +16439,6 @@ FROM            client INNER JOIN
                         adaptersWithAcceptChangesDuringUpdate.Add(this._statusTableAdapter.Adapter);
                     }
                 }
-                if ((this._petListCbTableAdapter != null)) {
-                    revertConnections.Add(this._petListCbTableAdapter, this._petListCbTableAdapter.Connection);
-                    this._petListCbTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._petListCbTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._petListCbTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._petListCbTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._petListCbTableAdapter.Adapter);
-                    }
-                }
                 if ((this._oplataStatusTableAdapter != null)) {
                     revertConnections.Add(this._oplataStatusTableAdapter, this._oplataStatusTableAdapter.Connection);
                     this._oplataStatusTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
@@ -16632,6 +16446,15 @@ FROM            client INNER JOIN
                     if (this._oplataStatusTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._oplataStatusTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._oplataStatusTableAdapter.Adapter);
+                    }
+                }
+                if ((this._petListCbTableAdapter != null)) {
+                    revertConnections.Add(this._petListCbTableAdapter, this._petListCbTableAdapter.Connection);
+                    this._petListCbTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._petListCbTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._petListCbTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._petListCbTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._petListCbTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -16728,13 +16551,13 @@ FROM            client INNER JOIN
                     this._statusTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._statusTableAdapter]));
                     this._statusTableAdapter.Transaction = null;
                 }
-                if ((this._petListCbTableAdapter != null)) {
-                    this._petListCbTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._petListCbTableAdapter]));
-                    this._petListCbTableAdapter.Transaction = null;
-                }
                 if ((this._oplataStatusTableAdapter != null)) {
                     this._oplataStatusTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._oplataStatusTableAdapter]));
                     this._oplataStatusTableAdapter.Transaction = null;
+                }
+                if ((this._petListCbTableAdapter != null)) {
+                    this._petListCbTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._petListCbTableAdapter]));
+                    this._petListCbTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
