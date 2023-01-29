@@ -47,3 +47,5 @@ D:\VetClinicProject\Ponomarev_N\obj\Debug\Ponomarev_N.exe
 D:\VetClinicProject\Ponomarev_N\obj\Debug\Ponomarev_N.pdb
 D:\VetClinicProject\Ponomarev_N\obj\Debug\Ponomarev_N.csproj.ResolveComReference.cache
 D:\VetClinicProject\Ponomarev_N\obj\Debug\Ponomarev_N.csproj.AssemblyReference.cache
+D:\VetClinicProject\Ponomarev_N\obj\Debug\Ponomarev_N.zakluchenie.resources
+D:\VetClinicProject\Ponomarev_N\obj\Debug\Ponomarev_N.boleznHistory.resources

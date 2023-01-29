@@ -48,7 +48,41 @@ namespace Ponomarev_N
 
 
        DataBase dataBase = new DataBase();
-        
+        string currentStatusCod;
+        string currentZakluchText;
+        string currentZdate2;
+        public void GetInfoZakluch(string ZakluchText, string ZakStatusCod)
+        {
+            currentZakluchText = ZakluchText;
+            currentStatusCod = ZakStatusCod;
+            // Запрос на обновление введнных полей.
+            string query = "Update Zapic set statusCod=@statusCod, zdate2=@zdate2, zmethod=@zmethod where zcod=@zcod";
+            cmd = new SqlCommand(query, sqlConnection);
+            // Передаем введнные данные.
+            cmd.Parameters.AddWithValue("@zcod", Convert.ToString(currentZcod));
+            cmd.Parameters.AddWithValue("@statusCod", Convert.ToString(currentStatusCod));
+            cmd.Parameters.AddWithValue("@zdate2", Convert.ToString(DateTime.Now));
+            cmd.Parameters.AddWithValue("@zmethod", ZakluchText);
+            cmd.Connection = sqlConnection;
+            sqlConnection.Open();
+            cmd.ExecuteNonQuery();
+            sqlConnection.Close();
+            dataBase.GetListAdapter("SELECT zapic.zcod, client.cnam, client.cfam, client.cotch, client.ctel, bolezn.bnam, dolg.dnam, uslugi.unam, zapic.zdate, status.statusName, client.ccod, pet.pcod, sotr.scod, bolezn.bcod, uslugi.ucod, dolg.dcod, status.statusCod,  zapic.zdate2, zapic.zmethod, client.cnam + ' ' + client.cfam+ ' '+ client.cotch + ' '+ client.ctel + ' '+bolezn.bnam + ' '+uslugi.unam + ' '+ CAST(zapic.zdate as NVARCHAR(MAX))+ ' '+status.statusName  as zapicFIO FROM sotr INNER JOIN dolg ON sotr.dcod = dolg.dcod INNER JOIN zapic ON sotr.scod = zapic.scod AND dolg.dcod = zapic.dcod INNER JOIN bolezn ON zapic.bcod = bolezn.bcod INNER JOIN pet INNER JOIN client ON pet.ccod = client.ccod ON zapic.pcod = pet.pcod AND zapic.ccod = client.ccod INNER JOIN status ON zapic.statusCod = status.statusCod INNER JOIN uslugi ON zapic.ucod = uslugi.ucod", "zapic", dataGridZapic);
+            dataBase.GetListAdapter("SELECT oplata.ocod, client.cnam, client.cfam, client.cotch, client.ctel, sotr.snam, uslugi.unam, uslugi.ucena, oplata.odate, oplataStatus.oplStatusName, pet.pcod, sotr.scod, client.ccod, uslugi.ucod, oplataStatus.oplStatusCod, client.cnam +' '+ client.cfam + ' '+ client.cotch as oplataFIO FROM client INNER JOIN pet ON client.ccod = pet.ccod INNER JOIN oplata ON client.ccod = oplata.ccod AND pet.pcod = oplata.pcod INNER JOIN oplataStatus ON oplata.oplStatusCod = oplataStatus.oplStatusCod INNER JOIN sotr ON oplata.scod = sotr.scod INNER JOIN uslugi ON oplata.ucod = uslugi.ucod", "oplata", dataGridOplata);
+
+            //DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите изменить статус?", "Изменить статус", MessageBoxButtons.YesNo);
+            //if (dialogResult == DialogResult.Yes)
+            //{
+
+
+
+
+            //}
+            //else if (dialogResult == DialogResult.No)
+            //{
+            //    return;
+            //}
+        }
 
         void BindDataToChart()
         {
@@ -90,12 +124,15 @@ namespace Ponomarev_N
 
         private void Main_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "ponomarev_NDataSet14.ZapicAdapter". При необходимости она может быть перемещена или удалена.
+            //this.zapicAdapterTableAdapter.Fill(this.ponomarev_NDataSet14.ZapicAdapter);
+
             // TODO: данная строка кода позволяет загрузить данные в таблицу "ponomarev_NDataSet13.sotr". При необходимости она может быть перемещена или удалена.
             this.sotrTableAdapter.Fill(this.ponomarev_NDataSet13.sotr);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "ponomarev_NDataSet1.OplataAdapter". При необходимости она может быть перемещена или удалена.
             this.oplataTableAdapter.Fill(this.ponomarev_NDataSet1.OplataAdapter);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "ponomarev_NDataSet11.ZapicAdapter". При необходимости она может быть перемещена или удалена.
-            this.zapicAdapterTableAdapter.Fill(this.ponomarev_NDataSet11.ZapicAdapter);
+            //this.zapicAdapterTableAdapter.Fill(this.ponomarev_NDataSet11.ZapicAdapter);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "ponomarev_NDataSet1.pet". При необходимости она может быть перемещена или удалена.
             this.petTableAdapter.Fill(this.ponomarev_NDataSet1.pet);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "ponomarev_NDataSet1.bolezn". При необходимости она может быть перемещена или удалена.
@@ -132,7 +169,6 @@ namespace Ponomarev_N
             cmb_dcod.Enabled = false;
             dtp_zdate.Enabled = false;
             cb_statusCod.Enabled = false;
-            btn_editZapic.Enabled = false;
             cb_bnam.Enabled = false;
             btn_addZapic.Enabled = false;
             btn_delZapic.Enabled = false;
@@ -160,7 +196,7 @@ namespace Ponomarev_N
             dataBase.GetListAdapter("SELECT scod, snam, sfam, sotch, stel, dcod, slogin, spass,CAST(scod as NVARCHAR(MAX)) + ' ' + snam + ' ' + sfam + ' ' + sotch + ' ' + stel + ' ' + slogin AS sotrFIO FROM sotr", "Sotr", dataGridUsers);
             dataBase.GetListAdapter("SELECT  sotr.snam, sotr.sfam, sotr.sotch, sotr.stel, dolg.dnam, sotr.snam + ' ' + sotr.sfam + ' ' + sotr.sotch + ' ' + sotr.stel + ' ' + dolg.dnam as sfio  FROM sotr INNER JOIN dolg ON sotr.dcod = dolg.dcod GROUP BY sotr.snam, sotr.sfam, sotr.sotch, sotr.stel, dolg.dnam, dolg.dcod HAVING(dolg.dcod = 1)", "Sotr", dataGridVrachi);
             dataBase.GetListAdapter("SELECT ccod, cnam, cfam, cotch, ctel, CAST(ccod as NVARCHAR(MAX)) + ' ' + cnam + ' '+ cfam + ' ' + cotch+ ' '+ ctel  as clientFIO  FROM dbo.client", "Client",dataGridClients);
-            dataBase.GetListAdapter("SELECT zapic.zcod, client.cnam, client.cfam, client.cotch, client.ctel, bolezn.bnam, dolg.dnam, uslugi.unam, zapic.zdate, status.statusName, client.ccod, pet.pcod, sotr.scod, bolezn.bcod, uslugi.ucod, dolg.dcod, status.statusCod, client.cnam + ' ' + client.cfam+ ' '+ client.cotch + ' '+ client.ctel + ' '+bolezn.bnam + ' '+uslugi.unam + ' '+ CAST(zapic.zdate as NVARCHAR(MAX))+ ' '+status.statusName  as zapicFIO FROM sotr INNER JOIN dolg ON sotr.dcod = dolg.dcod INNER JOIN zapic ON sotr.scod = zapic.scod AND dolg.dcod = zapic.dcod INNER JOIN bolezn ON zapic.bcod = bolezn.bcod INNER JOIN pet INNER JOIN client ON pet.ccod = client.ccod ON zapic.pcod = pet.pcod AND zapic.ccod = client.ccod INNER JOIN status ON zapic.statusCod = status.statusCod INNER JOIN uslugi ON zapic.ucod = uslugi.ucod", "zapic", dataGridZapic);
+            dataBase.GetListAdapter("SELECT zapic.zcod, client.cnam, client.cfam, client.cotch, client.ctel, bolezn.bnam, dolg.dnam, uslugi.unam, zapic.zdate, status.statusName, client.ccod, pet.pcod, sotr.scod, bolezn.bcod, uslugi.ucod, dolg.dcod, status.statusCod,  zapic.zdate2, zapic.zmethod, client.cnam + ' ' + client.cfam+ ' '+ client.cotch + ' '+ client.ctel + ' '+bolezn.bnam + ' '+uslugi.unam + ' '+ CAST(zapic.zdate as NVARCHAR(MAX))+ ' '+status.statusName  as zapicFIO FROM sotr INNER JOIN dolg ON sotr.dcod = dolg.dcod INNER JOIN zapic ON sotr.scod = zapic.scod AND dolg.dcod = zapic.dcod INNER JOIN bolezn ON zapic.bcod = bolezn.bcod INNER JOIN pet INNER JOIN client ON pet.ccod = client.ccod ON zapic.pcod = pet.pcod AND zapic.ccod = client.ccod INNER JOIN status ON zapic.statusCod = status.statusCod INNER JOIN uslugi ON zapic.ucod = uslugi.ucod", "zapic", dataGridZapic);
             dataBase.GetListAdapter("SELECT oplata.ocod, client.cnam, client.cfam, client.cotch, client.ctel, sotr.snam, uslugi.unam, uslugi.ucena, oplata.odate, oplataStatus.oplStatusName, pet.pcod, sotr.scod, client.ccod, uslugi.ucod, oplataStatus.oplStatusCod, client.cnam +' '+ client.cfam + ' '+ client.cotch + ' '+ client.ctel+' '+uslugi.unam+ ' '+oplataStatus.oplStatusName+' '+CAST(oplata.odate as NVARCHAR(MAX)) as oplataFIO FROM client INNER JOIN pet ON client.ccod = pet.ccod INNER JOIN oplata ON client.ccod = oplata.ccod AND pet.pcod = oplata.pcod INNER JOIN oplataStatus ON oplata.oplStatusCod = oplataStatus.oplStatusCod INNER JOIN sotr ON oplata.scod = sotr.scod INNER JOIN uslugi ON oplata.ucod = uslugi.ucod", "oplata", dataGridOplata);
 
             // Разграничение доступа в зависимости от пользователя.
@@ -204,6 +240,13 @@ namespace Ponomarev_N
             LoginForm.Show();
         }
 
+
+
+
+
+
+
+
         /// <summary>
         /// Класс, который проверяет, какой сейчас пользователь.
         /// </summary>
@@ -219,6 +262,9 @@ namespace Ponomarev_N
                 btn_addZapic.Visible = false;
                 btn_delZapic.Visible = false;
                 btn_clearZapic.Visible = false;
+                btn_openZakluch.Left = 9;
+                btn_openZakluch.Top = 471;
+          
 
             }
 
@@ -588,7 +634,7 @@ namespace Ponomarev_N
 
         private void btn_editPet_Click(object sender, EventArgs e)
         {
-            var PetomecForm = new petomec(this);
+            var PetomecForm = new petomec(this, userCod);
             PetomecForm.SetSelectedClientId(currentCcod);
             PetomecForm.ShowDialog();
 
@@ -612,15 +658,15 @@ namespace Ponomarev_N
 
         private void cb_cnam_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
 
-            //currentPcod = Convert.ToString(cb_pcod.SelectedValue);
 
 
         }
 
         private void cb_cnam_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            btn_choosePet.Enabled = true;
+            cb_pcod.SelectedValue = 0;
             // Извлекаем текущйи код клиента
             currentCcod = Convert.ToString(cb_cnam.SelectedValue);
 
@@ -650,6 +696,8 @@ namespace Ponomarev_N
         private void btn_clearZapic_Click_1(object sender, EventArgs e)
         {
             btn_choosePet.Text = "Выбрать";
+            btn_openZakluch.Enabled = false;
+            btn_choosePet.Enabled = false;
             method.ClearTextBoxes(tabPage5);
             cb_cnam.Enabled = true;
             cb_pcod.Enabled = false;
@@ -657,7 +705,6 @@ namespace Ponomarev_N
             dtp_zdate.Enabled = true;
             cb_statusCod.Enabled = false;
             cb_statusCod.SelectedValue = 1;
-            btn_editZapic.Enabled = false;
             cb_bnam.Enabled = true;
             btn_addZapic.Enabled = true;
             btn_delZapic.Enabled = false;
@@ -682,7 +729,7 @@ namespace Ponomarev_N
 
         private void btn_infoPet_Click(object sender, EventArgs e)
         {
-            var PetomecForm = new petomec(this);
+            var PetomecForm = new petomec(this, userCod);
             PetomecForm.SetSelectedClientId(currentCcod);
             PetomecForm.ShowDialog();
         }
@@ -713,7 +760,7 @@ namespace Ponomarev_N
                 cmd.ExecuteNonQuery();
                 sqlConnection.Close();
                 // Обновляем таблицу
-                dataBase.GetListAdapter("SELECT zapic.zcod, client.cnam, client.cfam, client.cotch, client.ctel, bolezn.bnam, dolg.dnam, uslugi.unam, zapic.zdate, status.statusName, client.ccod, pet.pcod, sotr.scod, bolezn.bcod, uslugi.ucod, dolg.dcod, status.statusCod, client.cnam + ' ' + client.cfam+ ' '+ client.cotch as zapicFIO FROM sotr INNER JOIN dolg ON sotr.dcod = dolg.dcod INNER JOIN zapic ON sotr.scod = zapic.scod AND dolg.dcod = zapic.dcod INNER JOIN bolezn ON zapic.bcod = bolezn.bcod INNER JOIN pet INNER JOIN client ON pet.ccod = client.ccod ON zapic.pcod = pet.pcod AND zapic.ccod = client.ccod INNER JOIN status ON zapic.statusCod = status.statusCod INNER JOIN uslugi ON zapic.ucod = uslugi.ucod", "zapic", dataGridZapic);
+                dataBase.GetListAdapter("SELECT zapic.zcod, client.cnam, client.cfam, client.cotch, client.ctel, bolezn.bnam, dolg.dnam, uslugi.unam, zapic.zdate, status.statusName, client.ccod, pet.pcod, sotr.scod, bolezn.bcod, uslugi.ucod, dolg.dcod, status.statusCod,  zapic.zdate2, zapic.zmethod, client.cnam + ' ' + client.cfam+ ' '+ client.cotch + ' '+ client.ctel + ' '+bolezn.bnam + ' '+uslugi.unam + ' '+ CAST(zapic.zdate as NVARCHAR(MAX))+ ' '+status.statusName  as zapicFIO FROM sotr INNER JOIN dolg ON sotr.dcod = dolg.dcod INNER JOIN zapic ON sotr.scod = zapic.scod AND dolg.dcod = zapic.dcod INNER JOIN bolezn ON zapic.bcod = bolezn.bcod INNER JOIN pet INNER JOIN client ON pet.ccod = client.ccod ON zapic.pcod = pet.pcod AND zapic.ccod = client.ccod INNER JOIN status ON zapic.statusCod = status.statusCod INNER JOIN uslugi ON zapic.ucod = uslugi.ucod", "zapic", dataGridZapic);
                 dataBase.GetList("Bolezn", dataGridBolezn);
                 BindDataToChart();
             }
@@ -735,7 +782,7 @@ namespace Ponomarev_N
                 cmd.ExecuteNonQuery();
                 sqlConnection.Close();
                 // Обновляем таблицу
-                dataBase.GetListAdapter("SELECT zapic.zcod, client.cnam, client.cfam, client.cotch, client.ctel, bolezn.bnam, dolg.dnam, uslugi.unam, zapic.zdate, status.statusName, client.ccod, pet.pcod, sotr.scod, bolezn.bcod, uslugi.ucod, dolg.dcod, status.statusCod, client.cnam + ' ' + client.cfam+ ' '+ client.cotch as zapicFIO FROM sotr INNER JOIN dolg ON sotr.dcod = dolg.dcod INNER JOIN zapic ON sotr.scod = zapic.scod AND dolg.dcod = zapic.dcod INNER JOIN bolezn ON zapic.bcod = bolezn.bcod INNER JOIN pet INNER JOIN client ON pet.ccod = client.ccod ON zapic.pcod = pet.pcod AND zapic.ccod = client.ccod INNER JOIN status ON zapic.statusCod = status.statusCod INNER JOIN uslugi ON zapic.ucod = uslugi.ucod", "zapic", dataGridZapic);
+                dataBase.GetListAdapter("SELECT zapic.zcod, client.cnam, client.cfam, client.cotch, client.ctel, bolezn.bnam, dolg.dnam, uslugi.unam, zapic.zdate, status.statusName, client.ccod, pet.pcod, sotr.scod, bolezn.bcod, uslugi.ucod, dolg.dcod, status.statusCod,  zapic.zdate2, zapic.zmethod, client.cnam + ' ' + client.cfam+ ' '+ client.cotch + ' '+ client.ctel + ' '+bolezn.bnam + ' '+uslugi.unam + ' '+ CAST(zapic.zdate as NVARCHAR(MAX))+ ' '+status.statusName  as zapicFIO FROM sotr INNER JOIN dolg ON sotr.dcod = dolg.dcod INNER JOIN zapic ON sotr.scod = zapic.scod AND dolg.dcod = zapic.dcod INNER JOIN bolezn ON zapic.bcod = bolezn.bcod INNER JOIN pet INNER JOIN client ON pet.ccod = client.ccod ON zapic.pcod = pet.pcod AND zapic.ccod = client.ccod INNER JOIN status ON zapic.statusCod = status.statusCod INNER JOIN uslugi ON zapic.ucod = uslugi.ucod", "zapic", dataGridZapic);
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -743,40 +790,7 @@ namespace Ponomarev_N
             }
         }
         string preCbSatusCod;
-        private void btn_editZapic_Click(object sender, EventArgs e)
-        {
-       
-            DialogResult dialogResult = MessageBox.Show("Вы уверены, что хотите изменить статус?", "Изменить статус", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes )
-            {
-
-                if(Convert.ToString(cb_statusCod.SelectedValue)  != preCbSatusCod)
-                {
-                    // Запрос на обновление введнных полей.
-                    string query = "Update Zapic set statusCod=@statusCod where zcod=@zcod";
-                    cmd = new SqlCommand(query, sqlConnection);
-                    // Передаем введнные данные.
-                    cmd.Parameters.AddWithValue("@zcod", Convert.ToString(currentZcod));
-                    cmd.Parameters.AddWithValue("@statusCod", Convert.ToString(cb_statusCod.SelectedValue));
-                    cmd.Connection = sqlConnection;
-                    sqlConnection.Open();
-                    cmd.ExecuteNonQuery();
-                    sqlConnection.Close();
-                    dataBase.GetListAdapter("SELECT zapic.zcod, client.cnam, client.cfam, client.cotch, client.ctel, bolezn.bnam, dolg.dnam, uslugi.unam, zapic.zdate, status.statusName, client.ccod, pet.pcod, sotr.scod, bolezn.bcod, uslugi.ucod, dolg.dcod, status.statusCod, client.cnam + ' ' + client.cfam+ ' '+ client.cotch as zapicFIO FROM sotr INNER JOIN dolg ON sotr.dcod = dolg.dcod INNER JOIN zapic ON sotr.scod = zapic.scod AND dolg.dcod = zapic.dcod INNER JOIN bolezn ON zapic.bcod = bolezn.bcod INNER JOIN pet INNER JOIN client ON pet.ccod = client.ccod ON zapic.pcod = pet.pcod AND zapic.ccod = client.ccod INNER JOIN status ON zapic.statusCod = status.statusCod INNER JOIN uslugi ON zapic.ucod = uslugi.ucod", "zapic", dataGridZapic);
-                    dataBase.GetListAdapter("SELECT oplata.ocod, client.cnam, client.cfam, client.cotch, client.ctel, sotr.snam, uslugi.unam, uslugi.ucena, oplata.odate, oplataStatus.oplStatusName, pet.pcod, sotr.scod, client.ccod, uslugi.ucod, oplataStatus.oplStatusCod, client.cnam +' '+ client.cfam + ' '+ client.cotch as oplataFIO FROM client INNER JOIN pet ON client.ccod = pet.ccod INNER JOIN oplata ON client.ccod = oplata.ccod AND pet.pcod = oplata.pcod INNER JOIN oplataStatus ON oplata.oplStatusCod = oplataStatus.oplStatusCod INNER JOIN sotr ON oplata.scod = sotr.scod INNER JOIN uslugi ON oplata.ucod = uslugi.ucod", "oplata", dataGridOplata);
-                }
-                else
-                {
-                    MessageBox.Show("Новый статус должен отличаться от предыдущего!");
-                    return;
-                }
-                
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-                return;
-            }
-        }
+      
         private void btn_clearZapic_Click(object sender, EventArgs e)
         {
         }
@@ -784,8 +798,8 @@ namespace Ponomarev_N
 
         private void dataGridZapic_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
+            
+           
                 if(dataGridZapic.CurrentRow.Cells[14].Value.ToString() == "2" || dataGridZapic.CurrentRow.Cells[14].Value.ToString() == "3")
                 {
                     // Блокируем элементы, если статус записи готово или отказ
@@ -796,11 +810,11 @@ namespace Ponomarev_N
                     cmb_dcod.Enabled = false;
                     dtp_zdate.Enabled = false;
                     cb_statusCod.Enabled = false;
-                    btn_editZapic.Enabled = false;
                     cb_bnam.Enabled = false;
                     btn_addZapic.Enabled = false;
                     btn_delZapic.Enabled = true;
                     cb_ucod.Enabled = false;
+                btn_openZakluch.Enabled = true;
 
                     // заполняем combobox элементы, для наглядности информации
                     currentZcod = dataGridZapic.CurrentRow.Cells[0].Value.ToString();
@@ -813,8 +827,12 @@ namespace Ponomarev_N
                     preCbSatusCod = dataGridZapic.CurrentRow.Cells[14].Value.ToString();
                     cb_bnam.SelectedValue = dataGridZapic.CurrentRow.Cells[15].Value.ToString();
                     cb_ucod.SelectedValue = dataGridZapic.CurrentRow.Cells[16].Value.ToString();
+                    currentZakluchText = dataGridZapic.CurrentRow.Cells[18].Value.ToString();
+                    currentZdate2 = dataGridZapic.CurrentRow.Cells[17].Value.ToString();
+                    currentStatusCod = dataGridZapic.CurrentRow.Cells[14].Value.ToString();
 
-                    btn_choosePet.Text = "Просмотреть";
+
+                btn_choosePet.Text = "Просмотреть";
 
 
 
@@ -828,16 +846,16 @@ namespace Ponomarev_N
                     cb_scod.Enabled = false;
                     cmb_dcod.Enabled = false;
                     dtp_zdate.Enabled = false;
-                    cb_statusCod.Enabled = true;
-                    btn_editZapic.Enabled = true;
+                    cb_statusCod.Enabled = false;
                     cb_bnam.Enabled = false;
                     btn_addZapic.Enabled = false;
                     btn_delZapic.Enabled = false;
                     cb_ucod.Enabled = false;
+                btn_openZakluch.Enabled = true;
 
 
-                    // заполняем combobox элементы, для наглядности информации
-                    currentZcod = dataGridZapic.CurrentRow.Cells[0].Value.ToString();
+                // заполняем combobox элементы, для наглядности информации
+                currentZcod = dataGridZapic.CurrentRow.Cells[0].Value.ToString();
                     currentCcod = dataGridZapic.CurrentRow.Cells[10].Value.ToString();
                     cb_cnam.SelectedValue = dataGridZapic.CurrentRow.Cells[10].Value.ToString();
                     cb_pcod.SelectedValue = dataGridZapic.CurrentRow.Cells[11].Value.ToString();
@@ -847,20 +865,18 @@ namespace Ponomarev_N
                     preCbSatusCod = dataGridZapic.CurrentRow.Cells[14].Value.ToString();
                     cb_bnam.SelectedValue = dataGridZapic.CurrentRow.Cells[15].Value.ToString();
                     cb_ucod.SelectedValue = dataGridZapic.CurrentRow.Cells[16].Value.ToString();
-
-                    btn_choosePet.Text = "Просмотреть";
+                    currentZakluchText = dataGridZapic.CurrentRow.Cells[18].Value.ToString();
+                    currentStatusCod = dataGridZapic.CurrentRow.Cells[14].Value.ToString();
+                btn_choosePet.Text = "Просмотреть";
 
                 }
 
 
                 // обновление combobox при выборе именно из dataGridView
-                petListCbTableAdapter.Fill(this.ponomarev_NDataSet7.PetListCb, Convert.ToInt32(currentCcod));
+                //petListCbTableAdapter.Fill(this.ponomarev_NDataSet7.PetListCb, Convert.ToInt32(currentCcod));
                 dolgVrachTableAdapter.Fill(this.ponomarev_NDataSet12.DolgVrach, Convert.ToInt32(currentDcod));
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Выберите строку");
-            }
+            
+           
         }
 
         #endregion
@@ -1243,9 +1259,16 @@ namespace Ponomarev_N
 
         private void btn_choosePet_Click(object sender, EventArgs e)
         {
-            var PetomecForm = new petomec(this);
+            var PetomecForm = new petomec(this, userCod);
             PetomecForm.SetSelectedClientId(currentCcod);
             PetomecForm.ShowDialog();
         }
+
+        private void btn_openZakluch_Click(object sender, EventArgs e)
+        {
+            var ZakForm = new zakluchenie(this,cb_pcod.Text,cb_cnam.Text,currentStatusCod,currentZakluchText,currentZdate2);
+            ZakForm.ShowDialog();
+        }
+      
     }
 }

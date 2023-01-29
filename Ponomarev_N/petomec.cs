@@ -22,16 +22,18 @@ namespace Ponomarev_N
         SqlCommand cmd;
 
         private Main _mainForm;
+        string _accessCode;
         
 
 
         List<TextBox> ignoredTextboxes;
-        public petomec(Main mainForm)
+        public petomec(Main mainForm, string accessCode)
         {
             InitializeComponent();
             connection = new SqlConnection(connectionLink.connectionString);
             ignoredTextboxes = new List<TextBox>() { txt_posoben,txt_pprotiv};
             _mainForm = mainForm;
+            _accessCode = accessCode;
         }
         private void txt_pvozrast_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -56,6 +58,27 @@ namespace Ponomarev_N
         {
             GetPet();
             dataGridPet.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
+            if(_accessCode == "1")
+            {
+                btn_chooseEditPet.Visible = false;
+                btn_addPet.Visible = false;
+                btn_delPet.Visible = false;
+                btn_clearPet.Visible = false;
+                btn_editPet.Visible = false;
+                txt_pnam.Enabled = false;
+                txt_pvozrast.Enabled = false;
+                txt_posoben.Enabled = false;
+                txt_pprotiv.Enabled = false;
+                txt_pvid.Enabled = false;
+                btn_boleznHistory.Left = 5;
+                btn_boleznHistory.Top = 415;
+            }
+            else
+            {
+               
+                return;
+            }
         }
         string curentCcod;
         public void SetSelectedClientId(string id)
@@ -242,6 +265,12 @@ namespace Ponomarev_N
             _mainForm.SetSelectedPetId(currentPcod);
             this.Close();
             
+        }
+
+        private void btn_boleznHistory_Click(object sender, EventArgs e)
+        {
+            var boleznHistoryForm = new boleznHistory(this, dataGridPet.CurrentRow.Cells[1].Value.ToString(), dataGridPet.CurrentRow.Cells[0].Value.ToString());
+            boleznHistoryForm.ShowDialog();
         }
     }
 }

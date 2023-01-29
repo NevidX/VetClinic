@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="boleznHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="boleznHistory.Designer.cs">
+      <DependentUpon>boleznHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataBase.cs" />
     <Compile Include="log_in.cs">
       <SubType>Form</SubType>
@@ -79,6 +85,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="zakluchenie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="zakluchenie.Designer.cs">
+      <DependentUpon>zakluchenie.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="boleznHistory.resx">
+      <DependentUpon>boleznHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="log_in.resx">
       <DependentUpon>log_in.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,6 +113,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="zakluchenie.resx">
+      <DependentUpon>zakluchenie.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Ponomarev_NDataSet.xsc">
       <DependentUpon>Ponomarev_NDataSet.xsd</DependentUpon>
     </None>
@@ -176,6 +194,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\magnifier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\history.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -47,6 +47,7 @@ namespace Ponomarev_N
             this.txt_posoben = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_chooseEditPet = new System.Windows.Forms.Button();
+            this.btn_boleznHistory = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -65,7 +66,7 @@ namespace Ponomarev_N
             // 
             this.btn_clearPet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_clearPet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_clearPet.Location = new System.Drawing.Point(162, 487);
+            this.btn_clearPet.Location = new System.Drawing.Point(162, 621);
             this.btn_clearPet.Name = "btn_clearPet";
             this.btn_clearPet.Size = new System.Drawing.Size(154, 36);
             this.btn_clearPet.TabIndex = 58;
@@ -134,7 +135,7 @@ namespace Ponomarev_N
             // 
             this.btn_editPet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_editPet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_editPet.Location = new System.Drawing.Point(162, 445);
+            this.btn_editPet.Location = new System.Drawing.Point(162, 583);
             this.btn_editPet.Name = "btn_editPet";
             this.btn_editPet.Size = new System.Drawing.Size(154, 36);
             this.btn_editPet.TabIndex = 50;
@@ -146,7 +147,7 @@ namespace Ponomarev_N
             // 
             this.btn_delPet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_delPet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_delPet.Location = new System.Drawing.Point(5, 487);
+            this.btn_delPet.Location = new System.Drawing.Point(5, 621);
             this.btn_delPet.Name = "btn_delPet";
             this.btn_delPet.Size = new System.Drawing.Size(154, 36);
             this.btn_delPet.TabIndex = 49;
@@ -158,7 +159,7 @@ namespace Ponomarev_N
             // 
             this.btn_addPet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_addPet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_addPet.Location = new System.Drawing.Point(5, 445);
+            this.btn_addPet.Location = new System.Drawing.Point(5, 583);
             this.btn_addPet.Name = "btn_addPet";
             this.btn_addPet.Size = new System.Drawing.Size(154, 36);
             this.btn_addPet.TabIndex = 48;
@@ -189,7 +190,7 @@ namespace Ponomarev_N
             this.dataGridPet.Name = "dataGridPet";
             this.dataGridPet.ReadOnly = true;
             this.dataGridPet.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            this.dataGridPet.Size = new System.Drawing.Size(784, 514);
+            this.dataGridPet.Size = new System.Drawing.Size(858, 645);
             this.dataGridPet.TabIndex = 62;
             this.dataGridPet.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPet_CellEnter);
             // 
@@ -237,7 +238,7 @@ namespace Ponomarev_N
             // 
             this.btn_chooseEditPet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_chooseEditPet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_chooseEditPet.Location = new System.Drawing.Point(5, 406);
+            this.btn_chooseEditPet.Location = new System.Drawing.Point(5, 415);
             this.btn_chooseEditPet.Name = "btn_chooseEditPet";
             this.btn_chooseEditPet.Size = new System.Drawing.Size(154, 36);
             this.btn_chooseEditPet.TabIndex = 66;
@@ -245,11 +246,24 @@ namespace Ponomarev_N
             this.btn_chooseEditPet.UseVisualStyleBackColor = true;
             this.btn_chooseEditPet.Click += new System.EventHandler(this.btn_chooseEditPet_Click);
             // 
+            // btn_boleznHistory
+            // 
+            this.btn_boleznHistory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_boleznHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_boleznHistory.Location = new System.Drawing.Point(5, 457);
+            this.btn_boleznHistory.Name = "btn_boleznHistory";
+            this.btn_boleznHistory.Size = new System.Drawing.Size(154, 78);
+            this.btn_boleznHistory.TabIndex = 67;
+            this.btn_boleznHistory.Text = "История болезни";
+            this.btn_boleznHistory.UseVisualStyleBackColor = true;
+            this.btn_boleznHistory.Click += new System.EventHandler(this.btn_boleznHistory_Click);
+            // 
             // petomec
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1118, 527);
+            this.ClientSize = new System.Drawing.Size(1192, 658);
+            this.Controls.Add(this.btn_boleznHistory);
             this.Controls.Add(this.btn_chooseEditPet);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txt_posoben);
@@ -297,5 +311,6 @@ namespace Ponomarev_N
         private System.Windows.Forms.TextBox txt_posoben;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_chooseEditPet;
+        private System.Windows.Forms.Button btn_boleznHistory;
     }
 }
