@@ -2531,7 +2531,7 @@ namespace Ponomarev_N
         private System.Windows.Forms.ToolStripMenuItem авторизацияToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private Ponomarev_NDataSet ponomarev_NDataSet;
-        private Ponomarev_NDataSet ponomarev_NDataSet1;
+        public Ponomarev_NDataSet ponomarev_NDataSet1;
         private System.Windows.Forms.BindingSource uslugiBindingSource;
         private Ponomarev_NDataSetTableAdapters.uslugiTableAdapter uslugiTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn ucodDataGridViewTextBoxColumn;
@@ -2583,7 +2583,7 @@ namespace Ponomarev_N
         private System.Windows.Forms.BindingSource boleznBindingSource;
         private Ponomarev_NDataSetTableAdapters.boleznTableAdapter boleznTableAdapter;
         private System.Windows.Forms.ComboBox cb_pcod;
-        private Ponomarev_NDataSetTableAdapters.petTableAdapter petTableAdapter;
+        public Ponomarev_NDataSetTableAdapters.petTableAdapter petTableAdapter;
         private System.Windows.Forms.BindingSource petBindingSource;
         private System.Windows.Forms.ComboBox cmb_dcod;
         private Ponomarev_NDataSet ponomarev_NDataSet7;

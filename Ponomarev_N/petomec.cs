@@ -21,19 +21,23 @@ namespace Ponomarev_N
         DataSet dataSet;
         SqlCommand cmd;
 
-        private Main _mainForm;
+        public Main _mainForm;
         string _accessCode;
+        string _formCod;
+        string _currentPcod;
         
 
 
         List<TextBox> ignoredTextboxes;
-        public petomec(Main mainForm, string accessCode)
+        public petomec(Main mainForm, string accessCode,string formCod,string currentPcod)
         {
             InitializeComponent();
             connection = new SqlConnection(connectionLink.connectionString);
             ignoredTextboxes = new List<TextBox>() { txt_posoben,txt_pprotiv};
             _mainForm = mainForm;
             _accessCode = accessCode;
+            _formCod = formCod;
+            _currentPcod = currentPcod;
         }
         private void txt_pvozrast_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -45,6 +49,41 @@ namespace Ponomarev_N
         }
         private void GetPet()
         {
+
+            // TODO: проблема, на cellenter при выборе все стало логично, но при этом
+            if(_formCod == "1")
+            {
+                string selectSql = "SELECT pcod as 'Код питомца',pnam as 'Имя', pvozrast as 'Возраст', pvid as 'Вид животного', pprotiv as 'Противопоказания', posoben as 'Особенности',ccod as 'Код клиента' FROM Pet WHERE ccod = @clientId";
+                SqlCommand selectCommand = new SqlCommand(selectSql, connection);
+                selectCommand.Parameters.AddWithValue("@clientId", curentCcod);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(selectCommand);
+                DataTable dt = new DataTable();
+                dataAdapter.Fill(dt);
+                dataGridPet.DataSource = dt;
+                return;
+            }
+            if(_formCod == "2")
+            {
+                string selectSql = "SELECT pcod as 'Код питомца',pnam as 'Имя', pvozrast as 'Возраст', pvid as 'Вид животного', pprotiv as 'Противопоказания', posoben as 'Особенности',ccod as 'Код клиента' FROM Pet WHERE ccod = @clientId and pcod = @pcod";
+                SqlCommand selectCommand = new SqlCommand(selectSql, connection);
+                selectCommand.Parameters.AddWithValue("@clientId", curentCcod);
+                selectCommand.Parameters.AddWithValue("@pcod", _currentPcod);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(selectCommand);
+                DataTable dt = new DataTable();
+                dataAdapter.Fill(dt);
+                dataGridPet.DataSource = dt;
+
+                btn_addPet.Visible = false;
+                btn_delPet.Visible = false;
+                btn_editPet.Visible = false;
+                btn_clearPet.Visible = false;
+                return;
+            }
+            
+        }
+
+        private void GetPetFromZapic()
+        {
             string selectSql = "SELECT pcod as 'Код питомца',pnam as 'Имя', pvozrast as 'Возраст', pvid as 'Вид животного', pprotiv as 'Противопоказания', posoben as 'Особенности',ccod as 'Код клиента' FROM Pet WHERE ccod = @clientId";
             SqlCommand selectCommand = new SqlCommand(selectSql, connection);
             selectCommand.Parameters.AddWithValue("@clientId", curentCcod);
@@ -53,10 +92,14 @@ namespace Ponomarev_N
             dataAdapter.Fill(dt);
             dataGridPet.DataSource = dt;
         }
-        
+
         private void petomec_Load(object sender, EventArgs e)
         {
-            GetPet();
+            
+                GetPet();
+           
+
+
             dataGridPet.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
             if(_accessCode == "1")
@@ -112,6 +155,7 @@ namespace Ponomarev_N
                 sqlConnection.Close();
                 // Обновляем таблицу
                 GetPet();
+                _mainForm.petTableAdapter.Fill(_mainForm.ponomarev_NDataSet1.pet);
             }
         }
         private void btn_delPet_Click(object sender, EventArgs e)

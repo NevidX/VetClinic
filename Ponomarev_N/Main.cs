@@ -14,24 +14,9 @@ using word = Microsoft.Office.Interop.Word;
 namespace Ponomarev_N
 {
     /*TODO: Нужно сделать: 
-     * Запись, при выборе питомца, форма закрыватся, и в основную передается выбранный код(продумать проверку, что если ничего еще не выбранно) после очистки очищать текущий pcod
-     * 
-     * В запись таблицу добавить столбец заключение (в нем рекомендации и лечение)
-     * 
-     * В форме питомец, добавить кнопку, по нажатию открыается форма с dataGridView в которой запрашивается все данные из записей в с текущим pcod
-     * 
-     * Подумать над переодом заболевания, с какой даты по какую
-     * 
-     * Поиск по всем полям +
-    Переделать запись
-    Посмотреть всю историю по петомцу (сделаю кнопку в форме редактирования питомца, чтоб выводила записи с его pcod)
-    В записи нужно указать, чтоб врач мог дать заключение написать рекомендации
-    Заболевания за период чтоб можно было посмотреть
-    еще баг с выводом в combobox на записи форме
-    Исключить повторения
-    Посмотреть историю в записи
-    Пересмотреиь доступ к просмотру услуг и врачей на разных пользователях (убрать на враче, на админе)
-    Добавить вывод документа с рекомендациями и лечением в функции врача в записи
+     Запретить админу обычному делать заключения
+     Все протестить, нормально заполнить данные для проверки
+    В болезнях сделать стату за период.
     */
     public partial class Main : Form
     {
@@ -122,7 +107,7 @@ namespace Ponomarev_N
 
 
 
-        private void Main_Load(object sender, EventArgs e)
+        public void Main_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "ponomarev_NDataSet14.ZapicAdapter". При необходимости она может быть перемещена или удалена.
             //this.zapicAdapterTableAdapter.Fill(this.ponomarev_NDataSet14.ZapicAdapter);
@@ -274,6 +259,8 @@ namespace Ponomarev_N
                 tabPage4.Parent = tabControl1;
                 tabPage5.Parent = tabControl1;
                 tabPage7.Parent = tabControl1;
+
+                btn_openZakluch.Visible = false;
             }
 
 
@@ -632,13 +619,7 @@ namespace Ponomarev_N
 
         #region  Таблица - петомцы
 
-        private void btn_editPet_Click(object sender, EventArgs e)
-        {
-            var PetomecForm = new petomec(this, userCod);
-            PetomecForm.SetSelectedClientId(currentCcod);
-            PetomecForm.ShowDialog();
-
-        }
+       
 
         #endregion
 
@@ -695,6 +676,7 @@ namespace Ponomarev_N
         }
         private void btn_clearZapic_Click_1(object sender, EventArgs e)
         {
+            currentFormCod = "1";
             btn_choosePet.Text = "Выбрать";
             btn_openZakluch.Enabled = false;
             btn_choosePet.Enabled = false;
@@ -729,7 +711,7 @@ namespace Ponomarev_N
 
         private void btn_infoPet_Click(object sender, EventArgs e)
         {
-            var PetomecForm = new petomec(this, userCod);
+            var PetomecForm = new petomec(this, userCod, currentFormCod, currentPcod);
             PetomecForm.SetSelectedClientId(currentCcod);
             PetomecForm.ShowDialog();
         }
@@ -815,11 +797,14 @@ namespace Ponomarev_N
                     btn_delZapic.Enabled = true;
                     cb_ucod.Enabled = false;
                 btn_openZakluch.Enabled = true;
+                btn_choosePet.Enabled = true;
 
                     // заполняем combobox элементы, для наглядности информации
                     currentZcod = dataGridZapic.CurrentRow.Cells[0].Value.ToString();
                     currentCcod = dataGridZapic.CurrentRow.Cells[10].Value.ToString();
-                    cb_cnam.SelectedValue = dataGridZapic.CurrentRow.Cells[10].Value.ToString();
+                    currentPcod = dataGridZapic.CurrentRow.Cells[11].Value.ToString();
+                currentFormCod = "2";
+                cb_cnam.SelectedValue = dataGridZapic.CurrentRow.Cells[10].Value.ToString();
                     cb_pcod.SelectedValue = dataGridZapic.CurrentRow.Cells[11].Value.ToString();
                     cb_ctel.Text = dataGridZapic.CurrentRow.Cells[4].Value.ToString();
                     cb_scod.SelectedValue = dataGridZapic.CurrentRow.Cells[12].Value.ToString();
@@ -852,12 +837,15 @@ namespace Ponomarev_N
                     btn_delZapic.Enabled = false;
                     cb_ucod.Enabled = false;
                 btn_openZakluch.Enabled = true;
+                btn_choosePet.Enabled = true;
 
 
                 // заполняем combobox элементы, для наглядности информации
+                currentFormCod = "2";
                 currentZcod = dataGridZapic.CurrentRow.Cells[0].Value.ToString();
                     currentCcod = dataGridZapic.CurrentRow.Cells[10].Value.ToString();
-                    cb_cnam.SelectedValue = dataGridZapic.CurrentRow.Cells[10].Value.ToString();
+                currentPcod = dataGridZapic.CurrentRow.Cells[11].Value.ToString();
+                cb_cnam.SelectedValue = dataGridZapic.CurrentRow.Cells[10].Value.ToString();
                     cb_pcod.SelectedValue = dataGridZapic.CurrentRow.Cells[11].Value.ToString();
                     cb_ctel.Text = dataGridZapic.CurrentRow.Cells[4].Value.ToString();
                     cb_scod.SelectedValue = dataGridZapic.CurrentRow.Cells[12].Value.ToString();
@@ -1256,10 +1244,10 @@ namespace Ponomarev_N
         {
             MessageBox.Show("Курсовой проект МДК 04.01:\nИнформационная система ветеринарной клиники\nАвтор: Пономарев Никита, студент группы ИП-41");
         }
-
+        string currentFormCod;
         private void btn_choosePet_Click(object sender, EventArgs e)
         {
-            var PetomecForm = new petomec(this, userCod);
+            var PetomecForm = new petomec(this, userCod, currentFormCod,currentPcod);
             PetomecForm.SetSelectedClientId(currentCcod);
             PetomecForm.ShowDialog();
         }
