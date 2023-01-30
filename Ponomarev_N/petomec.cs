@@ -60,7 +60,9 @@ namespace Ponomarev_N
                 DataTable dt = new DataTable();
                 dataAdapter.Fill(dt);
                 dataGridPet.DataSource = dt;
+                btn_chooseEditPet.Visible = false;
                 return;
+                
             }
             if(_formCod == "2")
             {

@@ -13,11 +13,7 @@ using word = Microsoft.Office.Interop.Word;
 
 namespace Ponomarev_N
 {
-    /*TODO: Нужно сделать: 
-     Запретить админу обычному делать заключения
-     Все протестить, нормально заполнить данные для проверки
-    В болезнях сделать стату за период.
-    */
+   
     public partial class Main : Form
     {
 
@@ -586,6 +582,7 @@ namespace Ponomarev_N
 
         private void dataGridClients_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
+            currentFormCod = "1";
             currentCcod = dataGridClients.CurrentRow.Cells[0].Value.ToString();
             btn_infoPet.Enabled = true;
             txt_cnam.Text = dataGridClients.CurrentRow.Cells[1].Value.ToString();
@@ -1113,7 +1110,6 @@ namespace Ponomarev_N
                     sqlConnection.Open();
                     cmd.ExecuteNonQuery();
                     sqlConnection.Close();
-                    this.zapicAdapterTableAdapter.Fill(this.ponomarev_NDataSet11.ZapicAdapter);
                     this.oplataTableAdapter.Fill(this.ponomarev_NDataSet1.OplataAdapter);
                 dataBase.GetListAdapter("SELECT oplata.ocod, client.cnam, client.cfam, client.cotch, client.ctel, sotr.snam, uslugi.unam, uslugi.ucena, oplata.odate, oplataStatus.oplStatusName, pet.pcod, sotr.scod, client.ccod, uslugi.ucod, oplataStatus.oplStatusCod, client.cnam +' '+ client.cfam + ' '+ client.cotch as oplataFIO FROM client INNER JOIN pet ON client.ccod = pet.ccod INNER JOIN oplata ON client.ccod = oplata.ccod AND pet.pcod = oplata.pcod INNER JOIN oplataStatus ON oplata.oplStatusCod = oplataStatus.oplStatusCod INNER JOIN sotr ON oplata.scod = sotr.scod INNER JOIN uslugi ON oplata.ucod = uslugi.ucod", "oplata", dataGridOplata);
 
@@ -1142,7 +1138,6 @@ namespace Ponomarev_N
                     sqlConnection.Open();
                     cmd.ExecuteNonQuery();
                     sqlConnection.Close();
-                    this.zapicAdapterTableAdapter.Fill(this.ponomarev_NDataSet11.ZapicAdapter);
                     this.oplataTableAdapter.Fill(this.ponomarev_NDataSet1.OplataAdapter);
                 dataBase.GetListAdapter("SELECT oplata.ocod, client.cnam, client.cfam, client.cotch, client.ctel, sotr.snam, uslugi.unam, uslugi.ucena, oplata.odate, oplataStatus.oplStatusName, pet.pcod, sotr.scod, client.ccod, uslugi.ucod, oplataStatus.oplStatusCod, client.cnam +' '+ client.cfam + ' '+ client.cotch as oplataFIO FROM client INNER JOIN pet ON client.ccod = pet.ccod INNER JOIN oplata ON client.ccod = oplata.ccod AND pet.pcod = oplata.pcod INNER JOIN oplataStatus ON oplata.oplStatusCod = oplataStatus.oplStatusCod INNER JOIN sotr ON oplata.scod = sotr.scod INNER JOIN uslugi ON oplata.ucod = uslugi.ucod", "oplata", dataGridOplata);
 
